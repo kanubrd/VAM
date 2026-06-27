@@ -127,8 +127,8 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10">
           {/* Brand column */}
           <div className="sm:col-span-2">
-            <Link href="/" className="inline-block mb-4">
-              <Image src="/valtrix-logo.png" alt="VAM VALTRIX" width={280} height={90} className="h-10 sm:h-12 w-auto brightness-0 invert" style={{ imageRendering: 'crisp-edges' }} />
+            <Link href="/" className="inline-block mb-5">
+              <Image src="/valtrix-logo.png" alt="VAM VALTRIX" width={360} height={112} className="w-auto brightness-0 invert" style={{ height: 56, imageRendering: 'crisp-edges' }} />
             </Link>
             <p className="text-sm text-gray-400 leading-relaxed mb-5 max-w-xs">
               Valtrix Advance Material Pvt. Ltd — 318, Fortune Gateway, Chhani, Vadodara - 390024.

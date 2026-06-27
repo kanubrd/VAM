@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import { Section, SectionTitle } from '@/components/ui/section';
 import { Reveal } from '@/components/animations/reveal';
-import { teamMembers } from '@/data/careers';
 import { Target, Telescope, Zap } from 'lucide-react';
 import Link from 'next/link';
 
@@ -50,54 +49,6 @@ export default function AboutPage() {
                   <p className="text-[#6B7280] leading-relaxed text-sm sm:text-base">{item.description}</p>
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#17A2B8] to-[#0D7A8C] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </Section>
-
-      {/* Team */}
-      <Section className="bg-white">
-        <SectionTitle subtitle="OUR TEAM" title="Meet the Leaders" description="The operators, engineers, and sourcing specialists behind VAM VALTRIX (Illustrative profiles)" />
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-10 sm:mt-12">
-          {teamMembers.map((member, idx) => (
-            <Reveal key={member.name} delay={idx * 0.1} direction="up">
-              <motion.div whileHover={{ y: -8 }} className="group relative rounded-xl overflow-hidden">
-                <img src={member.image} alt={member.name} className="w-full h-48 sm:h-64 object-cover rounded-xl" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#2C3E50]/80 to-transparent rounded-xl flex flex-col justify-end p-3 sm:p-4 text-white">
-                  <h3 className="font-bold text-sm sm:text-lg">{member.name}</h3>
-                  <p className="text-[#D1F2F7] text-xs sm:text-sm mb-1">{member.role}</p>
-                  <p className="text-xs text-white/70 hidden sm:block">{member.bio}</p>
-                </div>
-              </motion.div>
-            </Reveal>
-          ))}
-        </div>
-      </Section>
-
-      {/* Timeline */}
-      <Section className="bg-[#F8FAFB]">
-        <SectionTitle subtitle="OUR JOURNEY" title="Building VAM VALTRIX" description="Milestones in our growth" />
-        <div className="mt-8 sm:mt-12 space-y-5 sm:space-y-6 max-w-3xl mx-auto">
-          {[
-            { year: '2018', event: 'Founded in response to a widespread alloy shortage that idled four major industrial clients' },
-            { year: '2019', event: 'Built the first version of the supplier verification network (42 suppliers at launch)' },
-            { year: '2020', event: 'Expanded into polymer and composite categories; launched real-time order tracking' },
-            { year: '2021', event: 'Crossed 1,000 active manufacturer clients; opened logistics hub' },
-            { year: '2022', event: 'Launched specialty coatings and chemical supply category' },
-            { year: '2023', event: 'Introduced the Compliance Layer — automated spec-matching and cert validation' },
-            { year: '2024', event: '320+ verified suppliers, 18,000+ SKUs, operations in 60+ countries' },
-          ].map((item, idx) => (
-            <Reveal key={item.year} delay={idx * 0.08}>
-              <div className="flex gap-4">
-                <div className="flex flex-col items-center">
-                  <div className="w-4 h-4 rounded-full bg-[#17A2B8] ring-4 ring-[#D1F2F7] shrink-0" />
-                  {idx < 6 && <div className="w-0.5 h-10 bg-[#D1F2F7]" />}
-                </div>
-                <div className="pb-2">
-                  <p className="font-bold text-[#17A2B8]">{item.year}</p>
-                  <p className="text-[#6B7280] text-sm sm:text-base">{item.event}</p>
-                </div>
               </div>
             </Reveal>
           ))}
