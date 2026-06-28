@@ -1,3 +1,5 @@
+import withBundleAnalyzer from '@next/bundle-analyzer';
+
 /** @type {import('next').NextConfig} */
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -105,4 +107,9 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+// Wrap config with bundle analyzer
+const bundleAnalyzer = withBundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+});
+
+export default bundleAnalyzer(nextConfig);

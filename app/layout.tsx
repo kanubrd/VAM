@@ -4,6 +4,7 @@ import { Navbar } from '@/components/navbar/navbar';
 import { Footer } from '@/components/footer/footer';
 import { CookieConsent } from '@/components/ui/cookie-consent';
 import { SmoothScrollProvider } from '@/components/providers/smooth-scroll';
+import { WebVitalsProvider } from '@/components/providers/web-vitals-provider';
 import './globals.css';
 
 // Subset + display:swap eliminates render-blocking font flash
@@ -86,6 +87,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className={`${inter.className} antialiased bg-white text-[#1A1A1A]`}>
+        <WebVitalsProvider />
         <SmoothScrollProvider>
           <Navbar />
           <main>{children}</main>
