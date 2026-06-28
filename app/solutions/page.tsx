@@ -9,44 +9,156 @@ import Link from 'next/link';
 import { ArrowRight, ArrowLeft, CheckCircle } from 'lucide-react';
 
 const productImages: Record<string, string> = {
-  'metals-alloys':          '/placeholder.jpg',
-  'polymers-composites':    '/placeholder.jpg',
-  'coatings-chemicals':     '/placeholder.jpg',
-  'compliance-certs':       '/placeholder.jpg',
-  'multi-site-fulfillment': '/placeholder.jpg',
-  'predictive-reorder':     '/placeholder.jpg',
+  'suscat-i':       '/suscat.jpg',
+  'vamshield-90':   '/vamshield-90.png',
+  'suspol-125':     '/suspol-125.png',
+  'vam-rc-01':      '/vam-rc-01.png',
+  'vam-bs-01':      '/vam-bs-01.png',
+  'vam-ac-01-02':   '/placeholder.jpg',
+};
+
+const applicationImages: Record<string, string> = {
+  'suscat-i':       '/suscat-application.png',
+  'vamshield-90':   '/vamshield-90.png',
+  'suspol-125':     '/suspol-125.png',
+  'vam-rc-01':      '/vam-rc-01.png',
+  'vam-bs-01':      '/vam-bs-01.png',
+  'vam-ac-01-02':   '/placeholder.jpg',
 };
 
 const productDetails: Record<string, { overview: string; specs: string[]; applications: string[] }> = {
-  'metals-alloys': {
-    overview: 'Our metals & alloys sourcing covers the full spectrum of industrial-grade materials — from standard carbon steel to exotic titanium alloys. Every SKU comes with full mill certification and traceable heat numbers.',
-    specs: ['Carbon Steel (A36, A572)', 'Stainless Steel (304, 316, 17-4PH)', 'Aluminum (6061, 7075)', 'Titanium (Grade 2, Grade 5)', 'Nickel Alloys (Inconel, Hastelloy)'],
-    applications: ['Structural fabrication', 'Aerospace components', 'Automotive parts', 'Pressure vessels'],
+  'suscat-i': {
+    overview: 'SusCat-I is a high-performance cationic polymer designed for industrial formulations requiring exceptional efficiency at low dosage levels. The product exhibits excellent water solubility and delivers superior performance across metalworking, electroplating, and oilfield applications.',
+    specs: [
+      'Product Type: Cationic Polymer',
+      'Appearance: Clear to cloudy amber viscous liquid',
+      'Solubility: Highly soluble in water',
+      'Performance: Highly effective at very low dosage levels',
+      'Application: Multiple industrial formulations',
+    ],
+    applications: [
+      'Electroplating Industry (levelling & brightening agent)',
+      'Metal Working Fluids (tramp oil separation)',
+      'De-emulsifier Applications',
+      'Oilfield Applications (scale & corrosion inhibition)',
+      'Industrial Water Treatment',
+      'Specialty Chemical Formulations',
+    ],
   },
-  'polymers-composites': {
-    overview: 'Engineering-grade thermoplastics and high-performance fiber-reinforced composites sourced from verified manufacturers with full spec documentation.',
-    specs: ['PEEK, PPS, PTFE', 'Carbon Fiber Reinforced Polymer', 'Glass Fiber Composites', 'Kevlar / Aramid', 'HDPE, UHMWPE'],
-    applications: ['Aerospace structures', 'Automotive body panels', 'Marine components', 'Industrial machinery'],
+  'vamshield-90': {
+    overview: 'VAMShield-90 is an advanced ash-free corrosion inhibitor designed for multi-metal systems and high-performance industrial fluid applications. It provides outstanding corrosion protection, excellent hard water compatibility, and superior efficiency even at low dosage levels.',
+    specs: [
+      'Product Type: Ash-Free Corrosion Inhibitor',
+      'Appearance: White Powder/Granules',
+      'Compatibility: Suitable for multi-metal systems',
+      'Foam Characteristics: Extremely low foaming with excellent air release',
+      'Water Compatibility: Excellent performance in hard water',
+      'Efficiency: Highly effective at very low dosage levels',
+    ],
+    applications: [
+      'Water-Based Lubricants',
+      'Metal Working Fluids',
+      'Biodegradable Hydraulic Fluids (HFS)',
+      'Metalworking Industry',
+      'Industrial Lubricants',
+      'Hydraulic Systems',
+      'Manufacturing & Machining',
+      'Industrial Maintenance Fluids',
+      'Specialty Chemical Formulations',
+    ],
   },
-  'coatings-chemicals': {
-    overview: 'Industrial coatings, adhesives, sealants, and process chemicals from certified manufacturers — all with SDS documentation and compliance flags built in.',
-    specs: ['Epoxy coatings', 'Polyurethane topcoats', 'Thermal barrier coatings', 'Anti-corrosion primers', 'Industrial adhesives'],
-    applications: ['Pipeline protection', 'Structural steel', 'Marine environments', 'High-temp equipment'],
+  'suspol-125': {
+    overview: 'SusPol-125 is a bio-based, castor oil-derived solvent-free polyol engineered to deliver exceptional flexibility, adhesion, and chemical resistance. Developed with sustainability at its core, it is an ideal solution for advanced coating and adhesive applications requiring high performance and environmental responsibility.',
+    specs: [
+      'Product Type: Bio-Based Solvent-Free Polyol',
+      'Source: Renewable Castor Oil',
+      'Viscosity: Medium Viscosity',
+      'Chemical Structure: Contains both ether and ester functional groups',
+      'Flexibility: Excellent',
+      'Adhesion: Superior',
+      'Chemical Resistance: High',
+      'Sustainability: Eco-friendly composition',
+    ],
+    applications: [
+      'Anti-Corrosion Coatings',
+      'Industrial, Commercial & Residential Flooring',
+      'Waterproof Coatings',
+      'Adhesives & Sealants',
+      'Protective Coatings',
+      'Construction & Infrastructure',
+      'Storage Tanks & Pipelines',
+      'Sustainable Chemical Solutions',
+    ],
   },
-  'compliance-certs': {
-    overview: 'Automated cert validation, conflict minerals reporting, REACH/RoHS flagging, and DFARS tracking — all managed in one place so your audits are always ready.',
-    specs: ['ISO 9001 documentation', 'REACH / RoHS compliance', 'DFARS material tracking', 'Conflict minerals (CMRT)', 'Mill test reports'],
-    applications: ['Defense supply chains', 'Electronics manufacturing', 'Medical devices', 'Aerospace Tier suppliers'],
+  'vam-rc-01': {
+    overview: 'VAM RC-01 is an advanced rust converter and corrosion prevention additive that reacts directly with rust (ferric oxide) and converts it into a stable ferrous protective layer. It provides long-term passivation and enables effective coating application even on poorly prepared or rusted metal surfaces.',
+    specs: [
+      'Product Type: Rust Converter & Corrosion Protection Additive',
+      'Appearance: Milky White Liquid',
+      'Technology: Chemical rust conversion and passivation',
+      'Compatibility: Suitable for waterborne coating systems',
+      'Recommended for: Acrylic, Alkyd, Epoxy, PU coatings',
+      'Surface Preparation: Minimal required',
+      'Performance: Works on both rusted and clean metal surfaces',
+    ],
+    applications: [
+      'Rusted Steel Structures',
+      'Protective Coatings',
+      'Industrial Maintenance',
+      'Infrastructure & Heavy Equipment',
+      'Bridges & Pipelines',
+      'Industrial Machinery',
+      'Storage Tanks',
+      'Structural Steel',
+      'Marine & Offshore',
+      'Oil & Gas',
+      'Heavy Equipment Manufacturing',
+    ],
   },
-  'multi-site-fulfillment': {
-    overview: 'Coordinates split fulfillment, site-specific delivery scheduling, and unified invoicing across all your locations under a single account.',
-    specs: ['Split shipment coordination', 'Site-specific delivery windows', 'Unified invoicing', 'Multi-location tracking', 'Single account dashboard'],
-    applications: ['National manufacturers', 'Construction project sites', 'Global OEMs', 'Distributed warehouses'],
+  'vam-bs-01': {
+    overview: 'VAM BS-01 is an advanced multifunctional additive designed to improve the performance, texture, and stability of personal care formulations. It enhances the sensory experience and provides excellent compatibility with various cosmetic ingredients.',
+    specs: [
+      'Product Type: Personal Care Additive',
+      'Category: Cosmetic Ingredient',
+      'Form: Liquid/Paste (depending on formulation)',
+      'Compatibility: Suitable for various cosmetic formulations',
+      'Function: Improves texture, stability, and performance',
+      'Application: Rinse-off and leave-on formulations',
+    ],
+    applications: [
+      'Skin Care Products (creams, lotions, moisturizers)',
+      'Hair Care Products (shampoos, conditioners)',
+      'Emulsions',
+      'Premium Cosmetic Formulations',
+      'Cosmetics',
+      'Personal Care',
+      'Skin Care',
+      'Hair Care',
+      'Specialty Formulations',
+    ],
   },
-  'predictive-reorder': {
-    overview: 'Connect your production schedule to your procurement cadence — before a shortage hits your floor. Consumption-based alerts and reorder planning built in.',
-    specs: ['Consumption-based alerts', 'Production schedule sync', 'Shortage risk flagging', 'Reorder cadence planning', 'Inventory intelligence dashboard'],
-    applications: ['High-turnover production lines', 'JIT manufacturing', 'Seasonal demand planning', 'MRO management'],
+  'vam-ac-01-02': {
+    overview: 'VAM AC-01 and VAM AC-02 are high-performance methanation catalysts developed for efficient conversion of carbon monoxide (CO) and carbon dioxide (CO₂) with hydrogen into methane. These catalysts provide reliable operation, high conversion efficiency, and support sustainable energy systems.',
+    specs: [
+      'Product Type: Industrial Catalyst',
+      'Category: Methanation Catalyst',
+      'Function: Converts CO and CO₂ into methane',
+      'Performance: High conversion efficiency and operational stability',
+      'Application Environment: Industrial gas processing systems',
+      'Variants: VAM AC-01 and VAM AC-02',
+    ],
+    applications: [
+      'Biogas Upgrading',
+      'Synthetic Natural Gas (SNG)',
+      'Chemical Plants',
+      'Renewable Energy Systems',
+      'Power-to-Gas Technologies',
+      'Carbon Utilization',
+      'Gas Treatment',
+      'Biogas Plants',
+      'Synthetic Fuel Production',
+      'Industrial Energy Systems',
+    ],
   },
 };
 
@@ -56,6 +168,7 @@ export default function SolutionsPage() {
   const activeSolution = solutions.find((s) => s.id === selected);
   const activeDetails  = selected ? productDetails[selected] : null;
   const activeImage    = selected ? productImages[selected] : null;
+  const activeApplicationImage = selected ? applicationImages[selected] : null;
 
   return (
     <div className="pt-16 sm:pt-20">
@@ -101,11 +214,11 @@ export default function SolutionsPage() {
                       }`}
                     >
                       {/* Card image strip */}
-                      <div className={`relative h-24 sm:h-28 overflow-hidden ${isActive ? 'bg-gradient-to-br from-[#17A2B8] to-[#0D7A8C]' : 'bg-gradient-to-br from-[#2C3E50] to-[#17A2B8]'}`}>
-                        <img src={productImages[solution.id]} alt={solution.title} className="w-full h-full object-cover mix-blend-overlay opacity-40" />
+                      <div className={`relative h-24 sm:h-28 overflow-hidden bg-white flex items-center justify-center`}>
+                        <img src={productImages[solution.id]} alt={solution.title} className={`w-full h-full object-contain ${solution.id === 'vamshield-90' ? 'p-1' : 'p-2'}`} />
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center ${isActive ? 'bg-white' : 'bg-white/20'}`}>
-                            <Icon size={20} className={isActive ? 'text-[#17A2B8]' : 'text-white'} />
+                          <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center ${isActive ? 'bg-[#E6F7FA]' : 'bg-gray-100'}`}>
+                            <Icon size={20} className={isActive ? 'text-[#17A2B8]' : 'text-gray-600'} />
                           </div>
                         </div>
                       </div>
@@ -177,10 +290,10 @@ export default function SolutionsPage() {
                         </div>
                       </div>
                       {/* Right: Photo */}
-                      <div className="relative h-48 sm:h-56 md:h-auto bg-gradient-to-br from-[#2C3E50] to-[#17A2B8]">
-                        <img src={activeImage!} alt={activeSolution?.title} className="w-full h-full object-cover mix-blend-overlay opacity-50" />
+                      <div className="relative h-48 sm:h-56 md:h-auto bg-white">
+                        <img src={activeImage!} alt={activeSolution?.title} className="w-full h-full object-contain" />
                         <div className="absolute inset-0 flex items-end p-4 sm:p-5">
-                          <span className="text-xs font-semibold text-white/70 uppercase tracking-widest">Product Photo</span>
+                          <span className="text-xs font-semibold text-gray-500 uppercase tracking-widest">Product Photo</span>
                         </div>
                       </div>
                     </div>
@@ -190,10 +303,10 @@ export default function SolutionsPage() {
                   <div className="bg-white rounded-2xl border-2 border-[#D1F2F7] overflow-hidden shadow-sm">
                     <div className="grid md:grid-cols-2">
                       {/* Left: Photo */}
-                      <div className="relative h-48 sm:h-56 md:h-auto bg-gradient-to-br from-[#17A2B8] to-[#0D7A8C] order-2 md:order-1">
-                        <img src={activeImage!} alt="Application" className="w-full h-full object-cover mix-blend-overlay opacity-40" />
+                      <div className="relative h-48 sm:h-56 md:h-auto bg-white order-2 md:order-1">
+                        <img src={activeApplicationImage!} alt="Application" className="w-full h-full object-cover" />
                         <div className="absolute inset-0 flex items-end p-4 sm:p-5">
-                          <span className="text-xs font-semibold text-white/70 uppercase tracking-widest">Application Photo</span>
+                          <span className="text-xs font-semibold text-gray-500 uppercase tracking-widest">Application Photo</span>
                         </div>
                       </div>
                       {/* Right: Specs + Applications */}

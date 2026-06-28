@@ -7,28 +7,35 @@ interface RevealProps {
   children: React.ReactNode;
   delay?: number;
   duration?: number;
-  direction?: 'up' | 'down' | 'left' | 'right';
+  direction?: 'up' | 'down' | 'left' | 'right' | 'none';
   className?: string;
+  once?: boolean;
 }
 
-const variants = {
-  up:    { hidden: { opacity: 0, y: 24  }, visible: { opacity: 1, y: 0  } },
-  down:  { hidden: { opacity: 0, y: -24 }, visible: { opacity: 1, y: 0  } },
-  left:  { hidden: { opacity: 0, x: 24  }, visible: { opacity: 1, x: 0  } },
-  right: { hidden: { opacity: 0, x: -24 }, visible: { opacity: 1, x: 0  } },
+const getVariants = (direction: RevealProps['direction']) => {
+  const distance = 28;
+  const map = {
+    up:    { hidden: { opacity: 0, y: distance,  willChange: 'opacity, transform' }, visible: { opacity: 1, y: 0 } },
+    down:  { hidden: { opacity: 0, y: -distance, willChange: 'opacity, transform' }, visible: { opacity: 1, y: 0 } },
+    left:  { hidden: { opacity: 0, x: distance,  willChange: 'opacity, transform' }, visible: { opacity: 1, x: 0 } },
+    right: { hidden: { opacity: 0, x: -distance, willChange: 'opacity, transform' }, visible: { opacity: 1, x: 0 } },
+    none:  { hidden: { opacity: 0,                willChange: 'opacity' },             visible: { opacity: 1 } },
+  };
+  return map[direction ?? 'up'];
 };
 
 export function Reveal({
   children,
   delay = 0,
-  duration = 0.4,
+  duration = 0.65,
   direction = 'up',
   className,
+  once = true,
 }: RevealProps) {
   const { ref, inView } = useInView({
-    threshold: 0.1,      // trigger earlier — less perceived lag
-    triggerOnce: true,   // never re-animate
-    rootMargin: '0px 0px -40px 0px', // start slightly before entering viewport
+    threshold: 0.08,
+    triggerOnce: once,
+    rootMargin: '0px 0px -32px 0px',
   });
 
   return (
@@ -36,14 +43,15 @@ export function Reveal({
       ref={ref}
       initial="hidden"
       animate={inView ? 'visible' : 'hidden'}
-      variants={variants[direction]}
+      variants={getVariants(direction)}
       transition={{
+        type: 'spring',
         duration,
         delay,
-        ease: [0.25, 0.1, 0.25, 1], // cubic-bezier — feels snappier than default
+        bounce: 0.1,
       }}
-      // willChange only while animating, auto-removed after (framer handles this)
       className={className}
+      style={{ willChange: 'auto' }} // reset after animation — framer manages this
     >
       {children}
     </motion.div>

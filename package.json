@@ -39,6 +39,7 @@
     "@radix-ui/react-tooltip": "1.2.8",
     "@react-three/drei": "10.7.7",
     "@react-three/fiber": "9.6.1",
+    "@studio-freight/lenis": "1.0.42",
     "@types/nodemailer": "8.0.1",
     "@types/three": "0.185.0",
     "autoprefixer": "^10.4.20",

@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import { Navbar } from '@/components/navbar/navbar';
 import { Footer } from '@/components/footer/footer';
 import { CookieConsent } from '@/components/ui/cookie-consent';
+import { SmoothScrollProvider } from '@/components/providers/smooth-scroll';
 import './globals.css';
 
 // Subset + display:swap eliminates render-blocking font flash
@@ -62,7 +63,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`scroll-smooth ${inter.variable}`}>
+    <html lang="en" className={inter.variable}>
       <head>
         {/* Preload hero images */}
         <link rel="preload" as="image" href="/hero-bg.png" />
@@ -85,15 +86,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className={`${inter.className} antialiased bg-white text-[#1A1A1A]`}>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-        <CookieConsent />
-        {/*
-          reCAPTCHA is NOT loaded here globally anymore.
-          It is loaded only on the /contact page to avoid
-          adding ~150 KB to every page's initial load.
-        */}
+        <SmoothScrollProvider>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+          <CookieConsent />
+        </SmoothScrollProvider>
       </body>
     </html>
   );

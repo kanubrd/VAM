@@ -30,8 +30,26 @@ export function Navbar() {
   useEffect(() => { setMobileMenuOpen(false); }, [pathname]);
 
   useEffect(() => {
-    document.body.style.overflow = mobileMenuOpen ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
+    // Properly integrate with Lenis smooth scroll
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+      // Stop Lenis when menu is open
+      if ((window as any).lenis) {
+        (window as any).lenis.stop();
+      }
+    } else {
+      document.body.style.overflow = '';
+      // Resume Lenis when menu closes
+      if ((window as any).lenis) {
+        (window as any).lenis.start();
+      }
+    }
+    return () => { 
+      document.body.style.overflow = '';
+      if ((window as any).lenis) {
+        (window as any).lenis.start();
+      }
+    };
   }, [mobileMenuOpen]);
 
   return (
@@ -93,10 +111,10 @@ export function Navbar() {
             <Image
               src="/valtrix-logo.png"
               alt="VAM VALTRIX"
-              width={360}
-              height={112}
+              width={480}
+              height={150}
               className="w-auto"
-              style={{ height: 64, imageRendering: 'crisp-edges' }}
+              style={{ height: 72, imageRendering: 'crisp-edges' }}
               priority
             />
           </Link>

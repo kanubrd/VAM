@@ -207,9 +207,7 @@ export function HeroSection() {
                 lineHeight: 1.4,
                 textShadow: '0 1px 4px rgba(0,0,0,0.4)',
               }}>
-                Stop the Rust,{' '}
-                <span style={{ color: '#17A2B8' }}>Sustain the Trust,</span>
-                {' '}and Build a Future That Lasts.
+                Stop the Rust, Sustain the Trust, and Build a Future That Lasts.
               </p>
             </div>
           </div>
