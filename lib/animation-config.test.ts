@@ -16,6 +16,9 @@ import {
   PARALLAX_CONFIG,
   VIEWPORT_CONFIG,
   PERFORMANCE_LIMITS,
+  REDUCED_MOTION_CONFIG,
+  applyReducedMotion,
+  getTransition,
 } from './animation-config';
 
 // Test 1: Spring configuration matches requirements

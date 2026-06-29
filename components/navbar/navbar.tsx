@@ -113,6 +113,7 @@ export function Navbar() {
               alt="VAM VALTRIX"
               width={480}
               height={150}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
               className="w-auto"
               style={{ height: 72, imageRendering: 'crisp-edges' }}
               priority

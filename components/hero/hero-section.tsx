@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect, useRef, useCallback } from 'react';
+import Image from 'next/image';
 import { Modal } from '@/components/ui/modal';
 import { ArrowRight, CheckCircle, Clock, Shield, Truck, Zap, BarChart3, Play, Users, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -109,10 +110,8 @@ export function HeroSection() {
           }}
         >
           <AnimatePresence mode="wait">
-            <motion.img
+            <motion.div
               key={heroSlides[slideIndex].src}
-              src={heroSlides[slideIndex].src}
-              alt={heroSlides[slideIndex].alt}
               initial={{ opacity: 0, scale: 1.04 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.97 }}
@@ -122,11 +121,21 @@ export function HeroSection() {
                 inset: 0,
                 width: '100%',
                 height: '100%',
-                objectFit: 'cover',
-                objectPosition: 'center',
-                display: 'block',
               }}
-            />
+            >
+              <Image
+                src={heroSlides[slideIndex].src}
+                alt={heroSlides[slideIndex].alt}
+                fill
+                priority={slideIndex === 0}
+                quality={85}
+                sizes="100vw"
+                style={{
+                  objectFit: 'cover',
+                  objectPosition: 'center',
+                }}
+              />
+            </motion.div>
           </AnimatePresence>
 
           {/* Prev / Next arrows */}

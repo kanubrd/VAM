@@ -8,7 +8,10 @@
  * Avoids layout-triggering properties: width, height, top, left, margin, padding
  */
 
+'use client';
+
 import { Transition, Variants } from 'framer-motion';
+import { useReducedMotion } from '@/hooks/useReducedMotion';
 
 /**
  * Spring Physics Configuration
@@ -65,6 +68,7 @@ export const fadeInVariants: Variants = {
   visible: {
     opacity: 1,
     willChange: 'auto', // Remove will-change after animation
+    transition: springTransition,
   },
 };
 
@@ -84,6 +88,7 @@ export const slideUpVariants: Variants = {
     opacity: 1,
     y: 0,
     willChange: 'auto',
+    transition: springTransition,
   },
 };
 
@@ -103,6 +108,7 @@ export const scaleVariants: Variants = {
     opacity: 1,
     scale: 1,
     willChange: 'auto',
+    transition: springTransition,
   },
 };
 
@@ -120,9 +126,11 @@ export const hoverScaleVariants = {
   hover: {
     scale: 1.03,
     willChange: 'transform',
+    transition: interactionTransition,
   },
   tap: {
     scale: 0.98,
+    transition: interactionTransition,
   },
 };
 
@@ -141,6 +149,7 @@ export const slideDownVariants: Variants = {
     opacity: 1,
     y: 0,
     willChange: 'auto',
+    transition: springTransition,
   },
 };
 
@@ -159,6 +168,7 @@ export const slideLeftVariants: Variants = {
     opacity: 1,
     x: 0,
     willChange: 'auto',
+    transition: springTransition,
   },
 };
 
@@ -326,3 +336,99 @@ export const VIEWPORT_CONFIG = {
   rootMargin: '0px 0px -50px 0px', // Trigger slightly before entering viewport
   triggerOnce: true, // Prevent re-animation on scroll back
 } as const;
+
+/**
+ * Reduced Motion Configuration
+ * Settings applied when user has prefers-reduced-motion enabled
+ * 
+ * Requirements 21.1, 21.2, 21.3, 21.5
+ * - Disable parallax effects
+ * - Set duration to 0.01s (instant)
+ * - Use linear transitions instead of spring physics
+ * - Maintain opacity changes for visibility
+ */
+export const REDUCED_MOTION_CONFIG = {
+  duration: 0.01, // Near-instant transitions
+  ease: 'linear' as const, // No spring physics
+  disableParallax: true, // Disable parallax effects
+} as const;
+
+/**
+ * Apply reduced motion settings to animation variants
+ * 
+ * When reduced motion is enabled:
+ * - Preserves opacity changes (for visibility)
+ * - Removes transform animations (sets to final state)
+ * - Uses instant duration (0.01s)
+ * - Uses linear easing instead of spring
+ * 
+ * @param variants - Standard animation variants
+ * @param reducedMotion - Whether reduced motion is enabled
+ * @returns Variants optimized for reduced motion preference
+ */
+export const applyReducedMotion = (variants: Variants, reducedMotion: boolean): Variants => {
+  if (!reducedMotion) return variants;
+
+  // Transform variants to remove motion while preserving opacity
+  const reducedVariants: Variants = {};
+  
+  Object.keys(variants).forEach(key => {
+    const state = variants[key];
+    if (typeof state === 'object' && state !== null) {
+      reducedVariants[key] = {
+        opacity: state.opacity ?? 1, // Preserve opacity changes
+        // Remove all transform properties - set to final state
+        x: 0,
+        y: 0,
+        scale: 1,
+        rotate: 0,
+        willChange: 'auto',
+      };
+    }
+  });
+
+  return reducedVariants;
+};
+
+/**
+ * Get transition settings based on reduced motion preference
+ * 
+ * @param reducedMotion - Whether reduced motion is enabled
+ * @param customTransition - Optional custom transition to apply reduced motion to
+ * @returns Transition object with appropriate settings
+ */
+export const getTransition = (reducedMotion: boolean, customTransition?: Transition): Transition => {
+  if (reducedMotion) {
+    return {
+      duration: REDUCED_MOTION_CONFIG.duration,
+      ease: REDUCED_MOTION_CONFIG.ease,
+    };
+  }
+  return customTransition || springTransition;
+};
+
+/**
+ * Hook to get animation configuration with reduced motion support
+ * 
+ * Usage:
+ * ```tsx
+ * const { variants, transition } = useAnimationConfig(fadeInVariants);
+ * return <motion.div variants={variants} transition={transition} />;
+ * ```
+ * 
+ * @param baseVariants - Base animation variants
+ * @param customTransition - Optional custom transition
+ * @returns Object with variants and transition respecting reduced motion
+ */
+export const useAnimationConfig = (
+  baseVariants: Variants,
+  customTransition?: Transition
+) => {
+  const prefersReducedMotion = useReducedMotion();
+  
+  return {
+    variants: applyReducedMotion(baseVariants, prefersReducedMotion),
+    transition: getTransition(prefersReducedMotion, customTransition),
+    shouldDisableParallax: prefersReducedMotion && REDUCED_MOTION_CONFIG.disableParallax,
+  };
+};

@@ -11,3 +11,5 @@ export {
   getActiveWillChangeCount,
   getPendingQueueLength 
 } from './useWillChange';
+export { useParallax } from './useParallax';
+export type { UseParallaxOptions, UseParallaxReturn } from './useParallax';
