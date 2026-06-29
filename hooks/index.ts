@@ -13,3 +13,10 @@ export {
 } from './useWillChange';
 export { useParallax } from './useParallax';
 export type { UseParallaxOptions, UseParallaxReturn } from './useParallax';
+export { 
+  useConnectionSpeed,
+  getImageQuality,
+  shouldDeferAnimations,
+  shouldShowSkeletonImmediately 
+} from './useConnectionSpeed';
+export type { ConnectionSpeed } from './useConnectionSpeed';
