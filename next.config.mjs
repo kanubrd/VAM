@@ -29,6 +29,7 @@ const nextConfig = {
     imageSizes: [16, 32, 64, 96, 128, 256, 384],
     minimumCacheTTL: 604800, // 7 days
     dangerouslyAllowSVG: false,
+    qualities: [75, 85, 90], // Support multiple quality levels
     remotePatterns: [
       { protocol: 'https', hostname: 'images.unsplash.com' },
       { protocol: 'https', hostname: 'valtrix-backend-y7df.vercel.app' },

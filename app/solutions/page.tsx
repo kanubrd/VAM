@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 import { Section, SectionTitle } from '@/components/ui/section';
 import { Reveal } from '@/components/animations/reveal';
 import { solutions } from '@/data/solutions';
@@ -215,7 +216,15 @@ export default function SolutionsPage() {
                     >
                       {/* Card image strip */}
                       <div className={`relative h-24 sm:h-28 overflow-hidden bg-white flex items-center justify-center`}>
-                        <img src={productImages[solution.id]} alt={solution.title} className={`w-full h-full object-contain ${solution.id === 'vamshield-90' ? 'p-1' : 'p-2'}`} />
+                        <Image 
+                          src={productImages[solution.id]} 
+                          alt={solution.title}
+                          width={256}
+                          height={112}
+                          quality={85}
+                          sizes="(max-width: 768px) 256px, 320px"
+                          className={`w-full h-full object-contain ${solution.id === 'vamshield-90' ? 'p-1' : 'p-2'}`}
+                        />
                         <div className="absolute inset-0 flex items-center justify-center">
                           <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center ${isActive ? 'bg-[#E6F7FA]' : 'bg-gray-100'}`}>
                             <Icon size={20} className={isActive ? 'text-[#17A2B8]' : 'text-gray-600'} />
@@ -291,7 +300,14 @@ export default function SolutionsPage() {
                       </div>
                       {/* Right: Photo */}
                       <div className="relative h-48 sm:h-56 md:h-auto bg-white">
-                        <img src={activeImage!} alt={activeSolution?.title} className="w-full h-full object-contain" />
+                        <Image 
+                          src={activeImage!} 
+                          alt={activeSolution?.title || 'Product photo'}
+                          fill
+                          quality={85}
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          className="object-contain"
+                        />
                         <div className="absolute inset-0 flex items-end p-4 sm:p-5">
                           <span className="text-xs font-semibold text-gray-500 uppercase tracking-widest">Product Photo</span>
                         </div>
@@ -304,7 +320,14 @@ export default function SolutionsPage() {
                     <div className="grid md:grid-cols-2">
                       {/* Left: Photo */}
                       <div className="relative h-48 sm:h-56 md:h-auto bg-white order-2 md:order-1">
-                        <img src={activeApplicationImage!} alt="Application" className="w-full h-full object-cover" />
+                        <Image 
+                          src={activeApplicationImage!} 
+                          alt="Application photo"
+                          fill
+                          quality={85}
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          className="object-cover"
+                        />
                         <div className="absolute inset-0 flex items-end p-4 sm:p-5">
                           <span className="text-xs font-semibold text-gray-500 uppercase tracking-widest">Application Photo</span>
                         </div>

@@ -66,10 +66,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={inter.variable}>
       <head>
-        {/* Preload hero images */}
+        {/* Preload critical hero image only (first slide) */}
+        <link rel="preload" as="image" href="/hero-bg.webp" type="image/webp" />
         <link rel="preload" as="image" href="/hero-bg.png" />
-        <link rel="preload" as="image" href="/slide2.png" />
-        <link rel="preload" as="image" href="/slide3.png" />
 
         {/* DNS prefetch for external origins used across the site */}
         <link rel="dns-prefetch" href="https://www.google.com" />
