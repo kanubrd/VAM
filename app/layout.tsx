@@ -68,14 +68,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         {/* Preload critical hero image only (first slide) */}
         <link rel="preload" as="image" href="/hero-bg.webp" type="image/webp" />
-        <link rel="preload" as="image" href="/hero-bg.png" />
 
-        {/* DNS prefetch for external origins used across the site */}
-        <link rel="dns-prefetch" href="https://www.google.com" />
-        <link rel="dns-prefetch" href="https://www.gstatic.com" />
-        <link rel="dns-prefetch" href="https://valtrix-backend-y7df.vercel.app" />
-
-        {/* Preconnect to font origin — eliminates connection latency */}
+        {/* Preconnect to critical font origin — eliminates connection latency */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 

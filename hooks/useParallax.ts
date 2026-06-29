@@ -6,13 +6,13 @@ import { useInView } from 'react-intersection-observer';
 import { useMediaQuery } from './useMediaQuery';
 import { PARALLAX_CONFIG } from '@/lib/animation-config';
 
-interface UseParallaxOptions {
+export interface UseParallaxOptions {
   speed?: number; // Parallax speed multiplier (-1 to 1)
   disabled?: boolean; // Manually disable parallax
 }
 
-interface UseParallaxReturn {
-  ref: RefObject<HTMLDivElement>;
+export interface UseParallaxReturn {
+  ref: RefObject<HTMLDivElement | null>;
   y: MotionValue<string>;
   scale: MotionValue<number>;
   inView: boolean;
@@ -47,7 +47,7 @@ export function useParallax({
   speed = 0.5,
   disabled = false,
 }: UseParallaxOptions = {}): UseParallaxReturn {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null) as RefObject<HTMLDivElement>;
   
   // Detect if viewport is mobile (< 768px)
   const isMobile = useMediaQuery(

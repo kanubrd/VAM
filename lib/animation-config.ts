@@ -56,6 +56,35 @@ export const STAGGER_DELAY = {
 } as const;
 
 /**
+ * Standard Spring Transition
+ * Apply to all animation variants for consistent motion feel
+ */
+export const springTransition: Transition = {
+  ...springConfig,
+  duration: ANIMATION_DURATION.medium,
+};
+
+/**
+ * Fast Spring Transition
+ * For quick interactions and hover states
+ */
+export const fastTransition: Transition = {
+  ...springConfig,
+  duration: ANIMATION_DURATION.fast,
+};
+
+/**
+ * Interaction Transition
+ * Ultra-fast for hover/tap feedback (100ms)
+ */
+export const interactionTransition: Transition = {
+  type: 'spring',
+  stiffness: 300,
+  damping: 20,
+  duration: INTERACTION_DURATION,
+};
+
+/**
  * Fade In Animation
  * GPU-accelerated: opacity only
  * Use for: Content reveal, modal entrance, overlay appearance
@@ -188,35 +217,6 @@ export const slideRightVariants: Variants = {
     x: 0,
     willChange: 'auto',
   },
-};
-
-/**
- * Standard Spring Transition
- * Apply to all animation variants for consistent motion feel
- */
-export const springTransition: Transition = {
-  ...springConfig,
-  duration: ANIMATION_DURATION.medium,
-};
-
-/**
- * Fast Spring Transition
- * For quick interactions and hover states
- */
-export const fastTransition: Transition = {
-  ...springConfig,
-  duration: ANIMATION_DURATION.fast,
-};
-
-/**
- * Interaction Transition
- * Ultra-fast for hover/tap feedback (100ms)
- */
-export const interactionTransition: Transition = {
-  type: 'spring',
-  stiffness: 300,
-  damping: 20,
-  duration: INTERACTION_DURATION,
 };
 
 /**

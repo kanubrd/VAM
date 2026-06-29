@@ -3,6 +3,7 @@
  * Validates that the animation configuration meets all requirements
  */
 
+import { describe, it, expect } from 'vitest';
 import {
   springConfig,
   ANIMATION_DURATION,
@@ -171,57 +172,3 @@ describe('No Layout Properties', () => {
   });
 });
 
-// Helper function stubs for testing environment
-function describe(name: string, fn: () => void) {
-  console.log(`\n${name}`);
-  fn();
-}
-
-function it(name: string, fn: () => void) {
-  try {
-    fn();
-    console.log(`  ✓ ${name}`);
-  } catch (error) {
-    console.error(`  ✗ ${name}`);
-    console.error(`    ${error}`);
-  }
-}
-
-function expect(actual: any) {
-  return {
-    toBe(expected: any) {
-      if (actual !== expected) {
-        throw new Error(`Expected ${actual} to be ${expected}`);
-      }
-    },
-    toEqual(expected: any) {
-      if (JSON.stringify(actual) !== JSON.stringify(expected)) {
-        throw new Error(`Expected ${JSON.stringify(actual)} to equal ${JSON.stringify(expected)}`);
-      }
-    },
-    toHaveProperty(property: string, value?: any) {
-      if (!(property in actual)) {
-        throw new Error(`Expected object to have property ${property}`);
-      }
-      if (value !== undefined && actual[property] !== value) {
-        throw new Error(`Expected ${property} to be ${value}, but got ${actual[property]}`);
-      }
-    },
-    not: {
-      toBe(expected: any) {
-        if (actual === expected) {
-          throw new Error(`Expected ${actual} not to be ${expected}`);
-        }
-      },
-      toHaveProperty(property: string) {
-        if (property in actual) {
-          throw new Error(`Expected object not to have property ${property}`);
-        }
-      },
-    },
-  };
-}
-
-// Run all tests
-console.log('Running Animation Configuration Tests...\n');
-console.log('='.repeat(50));
