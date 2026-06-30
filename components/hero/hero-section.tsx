@@ -1,10 +1,10 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
-import { ArrowRight, ChevronDown, ChevronLeft, ChevronRight, BarChart3, Play, Users, Zap } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Dynamically import modals (loaded on first interaction)
 const QuoteModal = dynamic(() => import('@/components/modals/quote-modal').then((mod) => ({ default: mod.QuoteModal })), {
@@ -18,37 +18,10 @@ const DemoModal = dynamic(() => import('@/components/modals/demo-modal').then((m
 });
 
 const heroSlides = [
-  { src: '/hero-bg.png', alt: 'Advanced molecular material structure' },
-  { src: '/slide2.png',  alt: 'Industrial chemical processing facility' },
+  { src: '/hero-bg-teal.png', alt: 'Advanced teal molecular material flow design' },
+  { src: '/slide2-new.png',  alt: 'Sustainable environmental initiative and tree planting' },
   { src: '/slide3.png',  alt: 'Sustainable green industrial plant' },
 ];
-
-/* ── Cursor glow — client only, no SSR ── */
-function CursorGlow() {
-  const dot = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const move = (e: MouseEvent) => {
-      if (dot.current) {
-        dot.current.style.transform = `translate(${e.clientX - 16}px, ${e.clientY - 16}px)`;
-      }
-    };
-    window.addEventListener('mousemove', move);
-    return () => window.removeEventListener('mousemove', move);
-  }, []);
-  return (
-    <div
-      ref={dot}
-      aria-hidden="true"
-      style={{
-        position: 'fixed', top: 0, left: 0, zIndex: 9999,
-        width: 32, height: 32, borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(23,162,184,0.5) 0%, transparent 70%)',
-        pointerEvents: 'none',
-        transition: 'transform 0.08s linear',
-      }}
-    />
-  );
-}
 
 export function HeroSection() {
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
@@ -59,36 +32,34 @@ export function HeroSection() {
   const nextSlide = useCallback(() => setSlideIndex((i) => (i + 1) % heroSlides.length), []);
   const prevSlide = () => setSlideIndex((i) => (i - 1 + heroSlides.length) % heroSlides.length);
 
-  // Auto-advance every 5 seconds
-  useEffect(() => {
-    const timer = setInterval(nextSlide, 5000);
-    return () => clearInterval(timer);
-  }, [nextSlide]);
+  // Auto-advance disabled - manual control only
+  // useEffect(() => {
+  //   const timer = setInterval(nextSlide, 5000);
+  //   return () => clearInterval(timer);
+  // }, [nextSlide]);
 
   useEffect(() => { setMounted(true); }, []);
 
   return (
     <>
-      {mounted && <CursorGlow />}
-
       <section style={{ background: '#EEF2F7' }} className="overflow-hidden">
         {/* ── Full-width slideshow ── */}
         <div
           style={{
             width: '100%',
-            height: 'clamp(300px, 45vw, 560px)',
-            marginTop: '108px',
+            height: 'calc(clamp(300px, 45vw, 560px) + 108px)',
+            marginTop: '0',
             position: 'relative',
             overflow: 'hidden',
           }}
         >
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="sync">
             <motion.div
               key={heroSlides[slideIndex].src}
-              initial={{ opacity: 0, scale: 1.04 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.97 }}
-              transition={{ duration: 0.7, ease: 'easeInOut' }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.2, ease: [0.4, 0, 0.2, 1] }}
               style={{
                 position: 'absolute',
                 inset: 0,
@@ -102,12 +73,21 @@ export function HeroSection() {
                 fill
                 priority={slideIndex === 0}
                 fetchPriority={slideIndex === 0 ? 'high' : 'low'}
-                quality={85}
+                quality={100}
                 sizes="100vw"
                 style={{
                   objectFit: 'cover',
                   objectPosition: 'center',
+                  imageRendering: '-webkit-optimize-contrast',
+                  WebkitFontSmoothing: 'antialiased',
+                  MozOsxFontSmoothing: 'grayscale',
+                  backfaceVisibility: 'hidden',
+                  transform: 'translateZ(0) scale(1)',
+                  filter: 'contrast(1.08) brightness(1.03) saturate(1.05) sharpen(1.2)',
+                  WebkitFilter: 'contrast(1.08) brightness(1.03) saturate(1.05)',
+                  imageResolution: '300dpi',
                 }}
+                unoptimized={false}
               />
             </motion.div>
           </AnimatePresence>
@@ -172,6 +152,7 @@ export function HeroSection() {
               left: 32,
               zIndex: 10,
               maxWidth: 420,
+              marginTop: 108, // Account for header space
             }}
           >
             <div style={{
@@ -217,7 +198,7 @@ export function HeroSection() {
           >
             <div className="h-px w-8" style={{ background: '#17A2B8' }} />
             <span className="text-xs font-semibold tracking-[4px] uppercase" style={{ color: '#17A2B8' }}>
-              Advanced Industrial Materials
+              Valtrix Advance Material Pvt. Ltd
             </span>
           </motion.div>
 
@@ -272,18 +253,6 @@ export function HeroSection() {
 
         </div>
 
-        {/* Scroll indicator */}
-          <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
-          className="flex flex-col items-center py-8 gap-1"
-        >
-          <span className="text-xs tracking-[3px] uppercase" style={{ color: '#6B7280' }}>Scroll</span>
-          <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 1.4, repeat: Infinity }}>
-            <ChevronDown size={16} style={{ color: '#17A2B8' }} />
-          </motion.div>
-        </motion.div>
       </section>
 
       {/* ── Quote Modal (dynamically loaded) ── */}

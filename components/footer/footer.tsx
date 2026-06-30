@@ -128,7 +128,28 @@ export function Footer() {
           {/* Brand column */}
           <div className="sm:col-span-2">
             <Link href="/" className="inline-block mb-5">
-              <Image src="/valtrix-logo.png" alt="VAM VALTRIX" width={360} height={56} priority={false} className="w-auto" style={{ height: 56, width: 'auto' }} />
+              <Image 
+                src="/valtrix-logo.png" 
+                alt="VAM VALTRIX" 
+                width={5760} 
+                height={896} 
+                priority={false} 
+                quality={100}
+                className="w-auto" 
+                style={{ 
+                  height: 56, 
+                  width: 'auto', 
+                  imageRendering: '-webkit-optimize-contrast',
+                  WebkitFontSmoothing: 'antialiased',
+                  MozOsxFontSmoothing: 'grayscale',
+                  backfaceVisibility: 'hidden',
+                  transform: 'translateZ(0) scale(1)',
+                  filter: 'contrast(1.08) brightness(1.03) saturate(1.02)',
+                  WebkitFilter: 'contrast(1.08) brightness(1.03) saturate(1.02)',
+                  imageResolution: '300dpi'
+                }} 
+                unoptimized={false}
+              />
             </Link>
             <p className="text-sm text-gray-400 leading-relaxed mb-5 max-w-xs">
               Valtrix Advance Material Pvt. Ltd — 318, Fortune Gateway, Chhani, Vadodara - 390024.

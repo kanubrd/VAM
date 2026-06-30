@@ -7,7 +7,7 @@ import { Section, SectionTitle } from '@/components/ui/section';
 import { Reveal } from '@/components/animations/reveal';
 import { solutions } from '@/data/solutions';
 import Link from 'next/link';
-import { ArrowRight, ArrowLeft, CheckCircle } from 'lucide-react';
+import { ArrowRight, ArrowLeft, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const productImages: Record<string, string> = {
   'suscat-i':       '/suscat.jpg',
@@ -18,11 +18,21 @@ const productImages: Record<string, string> = {
   'vam-ac-01-02':   '/placeholder.jpg',
 };
 
+// Product slider images - array of images for each product
+const productSliderImages: Record<string, string[]> = {
+  'suscat-i':       ['/suscat.jpg', '/suscat-slider-2.jpg'],
+  'vamshield-90':   ['/vamshield-90.png', '/product-slider-1.jpg', '/vamshield-slider-3.jpg', '/vamshield-slider-4.jpg'],
+  'suspol-125':     ['/suspol-125.png', '/suspol-slider-2.jpg', '/suspol-slider-3.jpg', '/suspol-slider-4.jpg', '/suspol-slider-5.jpg'],
+  'vam-rc-01':      ['/vam-rc-01.png'],
+  'vam-bs-01':      ['/vam-bs-01.png'],
+  'vam-ac-01-02':   ['/placeholder.jpg'],
+};
+
 const applicationImages: Record<string, string> = {
   'suscat-i':       '/suscat-application.png',
-  'vamshield-90':   '/vamshield-90.png',
+  'vamshield-90':   '/vamshield-90-application.jpg',
   'suspol-125':     '/suspol-125.png',
-  'vam-rc-01':      '/vam-rc-01.png',
+  'vam-rc-01':      '/vam-rc-01-product.jpg',
   'vam-bs-01':      '/vam-bs-01.png',
   'vam-ac-01-02':   '/placeholder.jpg',
 };
@@ -165,11 +175,27 @@ const productDetails: Record<string, { overview: string; specs: string[]; applic
 
 export default function SolutionsPage() {
   const [selected, setSelected] = useState<string | null>(null);
+  const [productSlideIndex, setProductSlideIndex] = useState(0);
 
   const activeSolution = solutions.find((s) => s.id === selected);
   const activeDetails  = selected ? productDetails[selected] : null;
   const activeImage    = selected ? productImages[selected] : null;
   const activeApplicationImage = selected ? applicationImages[selected] : null;
+  const activeSliderImages = selected ? productSliderImages[selected] : [];
+
+  // Reset slider when product changes
+  const handleProductSelect = (productId: string) => {
+    setSelected(productId === selected ? null : productId);
+    setProductSlideIndex(0);
+  };
+
+  const nextProductSlide = () => {
+    setProductSlideIndex((i) => (i + 1) % activeSliderImages.length);
+  };
+
+  const prevProductSlide = () => {
+    setProductSlideIndex((i) => (i - 1 + activeSliderImages.length) % activeSliderImages.length);
+  };
 
   return (
     <div className="pt-16 sm:pt-20">
@@ -207,7 +233,7 @@ export default function SolutionsPage() {
                   <Reveal key={solution.id} delay={idx * 0.07}>
                     <motion.button
                       whileHover={{ x: 4 }}
-                      onClick={() => setSelected(isActive ? null : solution.id)}
+                      onClick={() => handleProductSelect(solution.id)}
                       className={`w-64 lg:w-full shrink-0 snap-start text-left rounded-2xl border-2 transition-all duration-200 overflow-hidden group ${
                         isActive
                           ? 'border-[#17A2B8] bg-white shadow-md'
@@ -272,93 +298,142 @@ export default function SolutionsPage() {
                   transition={{ duration: 0.35 }}
                   className="space-y-4"
                 >
-                  {/* ── Top block: Details left, Photo right ── */}
+                  {/* ── Product Details & Specs Block ── */}
                   <div className="bg-white rounded-2xl border-2 border-[#D1F2F7] overflow-hidden shadow-sm">
-                    <div className="grid md:grid-cols-2">
-                      {/* Left: Product info */}
-                      <div className="p-5 sm:p-8 border-b md:border-b-0 md:border-r border-[#E6F7FA]">
-                        <div className="flex items-center gap-3 mb-4 sm:mb-5">
-                          {activeSolution && (
-                            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#E6F7FA] flex items-center justify-center shrink-0">
-                              <activeSolution.icon size={20} className="text-[#17A2B8]" />
-                            </div>
-                          )}
-                          <div>
-                            <p className="text-xs font-semibold text-[#17A2B8] uppercase tracking-wider">Product Details</p>
-                            <h2 className="text-lg sm:text-xl font-bold text-[#2C3E50]">{activeSolution?.title}</h2>
+                    <div className="p-6 sm:p-8 md:p-10">
+                      {/* Product Header */}
+                      <div className="flex items-center gap-3 mb-5 sm:mb-6">
+                        {activeSolution && (
+                          <div className="w-12 h-12 rounded-xl bg-[#E6F7FA] flex items-center justify-center shrink-0">
+                            <activeSolution.icon size={22} className="text-[#17A2B8]" />
                           </div>
+                        )}
+                        <div>
+                          <p className="text-xs font-semibold text-[#17A2B8] uppercase tracking-wider">Product Details</p>
+                          <h2 className="text-xl sm:text-2xl font-bold text-[#2C3E50]">{activeSolution?.title}</h2>
                         </div>
-                        <p className="text-[#6B7280] text-sm leading-relaxed mb-4 sm:mb-5">{activeDetails?.overview}</p>
-                        <div className="space-y-2">
+                      </div>
+
+                      {/* Product Photo Slider - Right aligned or centered on mobile */}
+                      <div className="relative h-64 sm:h-72 mb-6 rounded-xl overflow-hidden bg-gray-50">
+                        <AnimatePresence mode="sync">
+                          <motion.div
+                            key={activeSliderImages[productSlideIndex]}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.5 }}
+                            className="absolute inset-0"
+                          >
+                            <Image 
+                              src={activeSliderImages[productSlideIndex]} 
+                              alt={`${activeSolution?.title} - Image ${productSlideIndex + 1}`}
+                              fill
+                              quality={100}
+                              sizes="(max-width: 768px) 100vw, (max-width: 1920px) 100vw, 3840px"
+                              className={productSlideIndex === 0 ? "object-contain p-4" : "object-contain p-2"}
+                              style={{
+                                imageRendering: '-webkit-optimize-contrast',
+                                WebkitFontSmoothing: 'antialiased',
+                                MozOsxFontSmoothing: 'grayscale',
+                                backfaceVisibility: 'hidden',
+                                transform: 'translateZ(0) scale(1)',
+                              }}
+                            />
+                          </motion.div>
+                        </AnimatePresence>
+
+                        {/* Slider Controls - only show if multiple images */}
+                        {activeSliderImages.length > 1 && (
+                          <>
+                            <button
+                              onClick={prevProductSlide}
+                              aria-label="Previous image"
+                              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 hover:bg-white border border-gray-200 flex items-center justify-center z-10 transition-all hover:scale-110"
+                            >
+                              <ChevronLeft size={20} className="text-[#2C3E50]" />
+                            </button>
+                            <button
+                              onClick={nextProductSlide}
+                              aria-label="Next image"
+                              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 hover:bg-white border border-gray-200 flex items-center justify-center z-10 transition-all hover:scale-110"
+                            >
+                              <ChevronRight size={20} className="text-[#2C3E50]" />
+                            </button>
+
+                            {/* Dot indicators */}
+                            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                              {activeSliderImages.map((_, i) => (
+                                <button
+                                  key={i}
+                                  onClick={() => setProductSlideIndex(i)}
+                                  aria-label={`Go to image ${i + 1}`}
+                                  className="transition-all"
+                                  style={{
+                                    width: i === productSlideIndex ? 24 : 8,
+                                    height: 8,
+                                    borderRadius: 4,
+                                    background: i === productSlideIndex ? '#17A2B8' : 'rgba(255,255,255,0.6)',
+                                    border: '1px solid rgba(0,0,0,0.1)',
+                                  }}
+                                />
+                              ))}
+                            </div>
+                          </>
+                        )}
+
+                        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/20 to-transparent pointer-events-none">
+                          <span className="text-xs font-semibold text-gray-700 uppercase tracking-widest bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-md inline-block">
+                            Product Photo {activeSliderImages.length > 1 && `${productSlideIndex + 1}/${activeSliderImages.length}`}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Overview */}
+                      <p className="text-[#6B7280] text-sm sm:text-base leading-relaxed mb-6">{activeDetails?.overview}</p>
+
+                      {/* Key Features */}
+                      <div className="mb-8">
+                        <p className="text-xs font-semibold text-[#2C3E50] uppercase tracking-wider mb-4">Key Features</p>
+                        <div className="space-y-3">
                           {activeSolution?.features.map((f) => (
-                            <div key={f} className="flex items-center gap-2">
-                              <CheckCircle size={14} className="text-[#17A2B8] shrink-0" />
-                              <span className="text-sm text-[#2C3E50]">{f}</span>
+                            <div key={f} className="flex items-start gap-3">
+                              <CheckCircle size={16} className="text-[#17A2B8] shrink-0 mt-0.5" />
+                              <span className="text-sm text-[#2C3E50] leading-relaxed">{f}</span>
                             </div>
                           ))}
                         </div>
                       </div>
-                      {/* Right: Photo */}
-                      <div className="relative h-48 sm:h-56 md:h-auto bg-white">
-                        <Image 
-                          src={activeImage!} 
-                          alt={activeSolution?.title || 'Product photo'}
-                          fill
-                          quality={85}
-                          sizes="(max-width: 768px) 100vw, 50vw"
-                          className="object-contain"
-                        />
-                        <div className="absolute inset-0 flex items-end p-4 sm:p-5">
-                          <span className="text-xs font-semibold text-gray-500 uppercase tracking-widest">Product Photo</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
 
-                  {/* ── Bottom block: Photo left, Specs right ── */}
-                  <div className="bg-white rounded-2xl border-2 border-[#D1F2F7] overflow-hidden shadow-sm">
-                    <div className="grid md:grid-cols-2">
-                      {/* Left: Photo */}
-                      <div className="relative h-48 sm:h-56 md:h-auto bg-white order-2 md:order-1">
-                        <Image 
-                          src={activeApplicationImage!} 
-                          alt="Application photo"
-                          fill
-                          quality={85}
-                          sizes="(max-width: 768px) 100vw, 50vw"
-                          className="object-cover"
-                        />
-                        <div className="absolute inset-0 flex items-end p-4 sm:p-5">
-                          <span className="text-xs font-semibold text-gray-500 uppercase tracking-widest">Application Photo</span>
+                      {/* Specifications */}
+                      <div className="mb-8">
+                        <p className="text-xs font-semibold text-[#17A2B8] uppercase tracking-wider mb-4">Specifications</p>
+                        <div className="grid gap-2.5">
+                          {activeDetails?.specs.map((spec) => (
+                            <div key={spec} className="flex items-start gap-2.5 px-3 py-2.5 rounded-lg bg-[#F8FAFB] border border-gray-100">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#17A2B8] shrink-0 mt-1.5" />
+                              <span className="text-sm text-[#2C3E50] leading-relaxed">{spec}</span>
+                            </div>
+                          ))}
                         </div>
                       </div>
-                      {/* Right: Specs + Applications */}
-                      <div className="p-5 sm:p-8 order-1 md:order-2 border-b md:border-b-0 md:border-l border-[#E6F7FA]">
-                        <div className="mb-5 sm:mb-6">
-                          <p className="text-xs font-semibold text-[#17A2B8] uppercase tracking-wider mb-3">Specifications</p>
-                          <div className="space-y-2">
-                            {activeDetails?.specs.map((spec) => (
-                              <div key={spec} className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[#F8FAFB] border border-gray-100">
-                                <span className="w-1.5 h-1.5 rounded-full bg-[#17A2B8] shrink-0" />
-                                <span className="text-sm text-[#2C3E50]">{spec}</span>
-                              </div>
-                            ))}
-                          </div>
+
+                      {/* Applications */}
+                      <div className="mb-8">
+                        <p className="text-xs font-semibold text-[#17A2B8] uppercase tracking-wider mb-3">Applications</p>
+                        <div className="flex flex-wrap gap-2">
+                          {activeDetails?.applications.map((app) => (
+                            <span key={app} className="px-3 py-1.5 rounded-full bg-[#E6F7FA] border border-[#D1F2F7] text-xs font-medium text-[#2C3E50]">
+                              {app}
+                            </span>
+                          ))}
                         </div>
-                        <div>
-                          <p className="text-xs font-semibold text-[#17A2B8] uppercase tracking-wider mb-3">Applications</p>
-                          <div className="flex flex-wrap gap-2">
-                            {activeDetails?.applications.map((app) => (
-                              <span key={app} className="px-3 py-1 rounded-full bg-[#E6F7FA] border border-[#D1F2F7] text-xs font-medium text-[#2C3E50]">
-                                {app}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                        <Link href="/contact" className="mt-5 sm:mt-6 inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#17A2B8] text-white text-sm font-semibold hover:bg-[#0D7A8C] transition-colors min-h-[44px]">
-                          Request a Quote <ArrowRight size={15} />
-                        </Link>
                       </div>
+
+                      {/* CTA Button */}
+                      <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-[#17A2B8] text-white text-sm font-semibold hover:bg-[#0D7A8C] transition-colors min-h-[48px]">
+                        Request a Quote <ArrowRight size={16} />
+                      </Link>
                     </div>
                   </div>
                 </motion.div>

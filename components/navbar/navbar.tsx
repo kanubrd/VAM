@@ -9,6 +9,7 @@ import { cn } from '@/lib/utils';
 import { useScrollProgress } from '@/hooks/useScrollProgress';
 
 const navItems = [
+  { label: 'Home',       href: '/' },
   { label: 'About',      href: '/about' },
   { label: 'Solutions',  href: '/solutions' },
   { label: 'Industries', href: '/industries' },
@@ -20,6 +21,7 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const scrollProgress                       = useScrollProgress();
   const pathname                             = usePathname();
+  const isHomePage = pathname === '/';
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 20);
@@ -56,8 +58,12 @@ export function Navbar() {
     <>
       {/* ── Top utility bar ── */}
       <div
-        className="fixed top-0 left-0 right-0 z-50"
-        style={{ background: '#1A2B3C' }}
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+        style={{ 
+          background: '#1A2B3C',
+          backdropFilter: 'none',
+          WebkitBackdropFilter: 'none',
+        }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center"
           style={{ height: 36 }}>
@@ -98,10 +104,10 @@ export function Navbar() {
         style={{
           top: 36,
           height: 72,
-          background: 'rgba(255,255,255,0.92)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
-          borderBottom: '1px solid rgba(0,0,0,0.07)',
+          background: 'transparent',
+          backdropFilter: 'none',
+          WebkitBackdropFilter: 'none',
+          borderBottom: 'none',
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
@@ -109,14 +115,27 @@ export function Navbar() {
           {/* Logo — transparent bg, proper sizing */}
           <Link href="/" className="flex items-center shrink-0 py-2">
             <Image
-              src="/valtrix-logo.png"
+              src="/valtrix-logo-teal.png"
               alt="VAM VALTRIX"
-              width={480}
-              height={150}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+              width={30720}
+              height={9600}
+              sizes="(max-width: 768px) 450px, 700px"
               className="w-auto"
-              style={{ height: 72, imageRendering: 'crisp-edges' }}
+              style={{ 
+                height: 115,
+                imageRendering: '-webkit-optimize-contrast',
+                WebkitFontSmoothing: 'antialiased',
+                MozOsxFontSmoothing: 'grayscale',
+                backfaceVisibility: 'hidden',
+                transform: 'translateZ(0) scale(1)',
+                filter: 'contrast(1.25) brightness(1.08) saturate(1.12) sharpen(1.5)',
+                WebkitFilter: 'contrast(1.25) brightness(1.08) saturate(1.12)',
+                imageResolution: '1200dpi',
+                transition: 'all 0.3s ease',
+              }}
               priority
+              quality={100}
+              unoptimized={false}
             />
           </Link>
 
@@ -124,20 +143,24 @@ export function Navbar() {
           <div className="hidden md:flex items-center gap-1">
             {navItems.map((item) => {
               const isActive = pathname === item.href;
+              const textColor = '#000000';
+              const hoverColor = '#17A2B8';
+              
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="relative px-5 py-2 text-sm font-medium tracking-wide group"
+                  className="relative px-5 py-2 text-sm font-medium tracking-wide group transition-colors duration-300"
                   style={{
-                    color: isActive ? '#17A2B8' : '#2C3E50',
+                    color: textColor,
                     letterSpacing: '0.01em',
+                    textShadow: '0 1px 3px rgba(255,255,255,0.8)',
                   }}
                   onMouseEnter={e => {
-                    if (!isActive) (e.currentTarget as HTMLElement).style.color = '#17A2B8';
+                    if (!isActive) (e.currentTarget as HTMLElement).style.color = hoverColor;
                   }}
                   onMouseLeave={e => {
-                    if (!isActive) (e.currentTarget as HTMLElement).style.color = '#2C3E50';
+                    if (!isActive) (e.currentTarget as HTMLElement).style.color = textColor;
                   }}
                 >
                   {item.label}
@@ -175,8 +198,17 @@ export function Navbar() {
 
           {/* Mobile toggle */}
           <button
-            className="md:hidden p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors"
-            style={{ color: '#2C3E50' }}
+            className="md:hidden p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg transition-colors"
+            style={{ 
+              color: '#000000',
+              background: 'rgba(255,255,255,0.3)',
+            }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.5)';
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.3)';
+            }}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileMenuOpen}

@@ -25,11 +25,11 @@ const nextConfig = {
   images: {
     unoptimized: false,
     formats: ['image/avif', 'image/webp'],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840, 7680], // Added 4K and 8K support
     imageSizes: [16, 32, 64, 96, 128, 256, 384],
     minimumCacheTTL: 604800, // 7 days
     dangerouslyAllowSVG: false,
-    qualities: [75, 85, 90], // Support multiple quality levels
+    qualities: [100, 95, 90, 85, 75], // 8K quality support with 100
     remotePatterns: [
       { protocol: 'https', hostname: 'images.unsplash.com' },
       { protocol: 'https', hostname: 'valtrix-backend-y7df.vercel.app' },
