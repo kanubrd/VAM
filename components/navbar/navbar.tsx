@@ -11,8 +11,8 @@ import { useScrollProgress } from '@/hooks/useScrollProgress';
 const navItems = [
   { label: 'Home',       href: '/' },
   { label: 'About',      href: '/about' },
-  { label: 'Solutions',  href: '/solutions' },
   { label: 'Industries', href: '/industries' },
+  { label: 'Solutions',  href: '/solutions' },
   { label: 'Contact',    href: '/contact' },
 ];
 
@@ -128,8 +128,8 @@ export function Navbar() {
                 MozOsxFontSmoothing: 'grayscale',
                 backfaceVisibility: 'hidden',
                 transform: 'translateZ(0) scale(1)',
-                filter: 'contrast(1.25) brightness(1.08) saturate(1.12) sharpen(1.5)',
-                WebkitFilter: 'contrast(1.25) brightness(1.08) saturate(1.12)',
+                filter: 'contrast(1.35) brightness(1.15) saturate(1.25) drop-shadow(0 1px 2px rgba(0,0,0,0.1))',
+                WebkitFilter: 'contrast(1.35) brightness(1.15) saturate(1.25) drop-shadow(0 1px 2px rgba(0,0,0,0.1))',
                 imageResolution: '1200dpi',
                 transition: 'all 0.3s ease',
               }}

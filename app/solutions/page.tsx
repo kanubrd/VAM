@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { Section, SectionTitle } from '@/components/ui/section';
@@ -174,8 +175,17 @@ const productDetails: Record<string, { overview: string; specs: string[]; applic
 };
 
 export default function SolutionsPage() {
+  const searchParams = useSearchParams();
   const [selected, setSelected] = useState<string | null>(null);
   const [productSlideIndex, setProductSlideIndex] = useState(0);
+
+  // Auto-select product from URL parameter
+  useEffect(() => {
+    const productParam = searchParams.get('product');
+    if (productParam && !selected) {
+      setSelected(productParam);
+    }
+  }, [searchParams, selected]);
 
   const activeSolution = solutions.find((s) => s.id === selected);
   const activeDetails  = selected ? productDetails[selected] : null;
