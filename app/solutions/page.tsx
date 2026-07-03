@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
@@ -174,7 +174,7 @@ const productDetails: Record<string, { overview: string; specs: string[]; applic
   },
 };
 
-export default function SolutionsPage() {
+function SolutionsContent() {
   const searchParams = useSearchParams();
   const [selected, setSelected] = useState<string | null>(null);
   const [productSlideIndex, setProductSlideIndex] = useState(0);
@@ -489,5 +489,21 @@ export default function SolutionsPage() {
         </Link>
       </Section>
     </div>
+  );
+}
+
+
+export default function SolutionsPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-[#17A2B8] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-[#6B7280]">Loading solutions...</p>
+        </div>
+      </div>
+    }>
+      <SolutionsContent />
+    </Suspense>
   );
 }
