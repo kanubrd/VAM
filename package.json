@@ -6,10 +6,12 @@
     "dev": "next dev",
     "build": "npm run optimize:images && next build",
     "build:skip-optimize": "next build",
+    "build:vercel": "next build",
     "start": "next start",
     "lint": "eslint .",
     "analyze": "set ANALYZE=true && npm run build",
-    "optimize:images": "node scripts/optimize-images.mjs"
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "postinstall": "echo 'Dependencies installed successfully'"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",

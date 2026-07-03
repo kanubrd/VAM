@@ -15,10 +15,81 @@ const scriptSrc = isDev
 const nextConfig = {
   poweredByHeader: false,
 
+  // ── Build performance optimizations ──────────────────────────────────
+  experimental: {
+    // Enable faster build times
+    optimizePackageImports: [
+      'lucide-react',
+      'framer-motion',
+      '@radix-ui/react-dialog',
+      '@radix-ui/react-dropdown-menu',
+      '@radix-ui/react-navigation-menu',
+      '@radix-ui/react-popover',
+      '@radix-ui/react-scroll-area',
+      '@radix-ui/react-select',
+      '@radix-ui/react-separator',
+      '@radix-ui/react-slot',
+      '@radix-ui/react-tabs',
+      '@radix-ui/react-toast',
+      '@radix-ui/react-tooltip',
+    ],
+  },
+
   // ── Compiler optimisations ──────────────────────────────────────────
   compiler: {
     // Remove console.log in production
     removeConsole: isDev ? false : { exclude: ['error', 'warn'] },
+  },
+
+  // ── Output optimization ──────────────────────────────────────────────
+  productionBrowserSourceMaps: false,
+  
+  // ── Webpack optimizations ────────────────────────────────────────────
+  webpack: (config, { isServer }) => {
+    // Reduce bundle size
+    if (!isServer) {
+      config.optimization = {
+        ...config.optimization,
+        moduleIds: 'deterministic',
+        splitChunks: {
+          chunks: 'all',
+          cacheGroups: {
+            default: false,
+            vendors: false,
+            // Vendor chunk for node_modules
+            vendor: {
+              name: 'vendor',
+              chunks: 'all',
+              test: /node_modules/,
+              priority: 20,
+            },
+            // Common chunk for shared components
+            common: {
+              name: 'common',
+              minChunks: 2,
+              chunks: 'async',
+              priority: 10,
+              reuseExistingChunk: true,
+              enforce: true,
+            },
+            // Separate chunk for large libraries
+            framer: {
+              test: /[\\/]node_modules[\\/](framer-motion)[\\/]/,
+              name: 'framer',
+              chunks: 'all',
+              priority: 30,
+            },
+            radix: {
+              test: /[\\/]node_modules[\\/](@radix-ui)[\\/]/,
+              name: 'radix',
+              chunks: 'all',
+              priority: 30,
+            },
+          },
+        },
+      };
+    }
+    return config;
   },
 
   // ── Image optimisation ──────────────────────────────────────────────
