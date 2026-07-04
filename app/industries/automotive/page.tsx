@@ -68,7 +68,7 @@ export default function AutomotivePage() {
       <section className="relative w-full h-[50vh] min-h-[400px] overflow-hidden bg-gray-900">
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1920&q=80"
+            src="/automotive-hero.avif"
             alt="Automotive Industry"
             fill
             className="object-cover object-center"
