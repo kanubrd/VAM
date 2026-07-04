@@ -14,6 +14,9 @@ const scriptSrc = isDev
 
 const nextConfig = {
   poweredByHeader: false,
+  
+  // ── Generate standalone output for smaller deployments ────────────────
+  output: 'standalone',
 
   // ── Build performance optimizations ──────────────────────────────────
   experimental: {
@@ -33,6 +36,10 @@ const nextConfig = {
       '@radix-ui/react-toast',
       '@radix-ui/react-tooltip',
     ],
+    // Optimize CSS
+    optimizeCss: true,
+    // Use lighter runtime
+    serverComponentsExternalPackages: ['three', '@react-three/fiber', '@react-three/drei'],
   },
 
   // ── Compiler optimisations ──────────────────────────────────────────
@@ -44,8 +51,11 @@ const nextConfig = {
   // ── Output optimization ──────────────────────────────────────────────
   productionBrowserSourceMaps: false,
   
+  // ── Compression ──────────────────────────────────────────────────────
+  compress: true,
+  
   // ── Webpack optimizations ────────────────────────────────────────────
-  webpack: (config, { isServer }) => {
+  webpack: (config, { isServer, dev }) => {
     // Reduce bundle size
     if (!isServer) {
       config.optimization = {
@@ -85,10 +95,22 @@ const nextConfig = {
               chunks: 'all',
               priority: 30,
             },
+            three: {
+              test: /[\\/]node_modules[\\/](three|@react-three)[\\/]/,
+              name: 'three',
+              chunks: 'all',
+              priority: 30,
+            },
           },
         },
       };
     }
+    
+    // Optimize builds
+    if (!dev) {
+      config.optimization.minimize = true;
+    }
+    
     return config;
   },
 

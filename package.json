@@ -7,11 +7,19 @@
     "build": "npm run optimize:images && next build",
     "build:skip-optimize": "next build",
     "build:vercel": "next build",
+    "build:analyze": "ANALYZE=true npm run build",
     "start": "next start",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "type-check": "tsc --noEmit",
     "analyze": "set ANALYZE=true && npm run build",
+    "analyze:bundle": "node scripts/analyze-bundle.mjs",
     "optimize:images": "node scripts/optimize-images.mjs",
-    "postinstall": "echo 'Dependencies installed successfully'"
+    "postinstall": "echo 'Dependencies installed successfully'",
+    "clean": "rimraf .next out dist node_modules/.cache",
+    "clean:all": "rimraf .next out dist node_modules",
+    "deploy": "vercel --prod",
+    "deploy:preview": "vercel"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
