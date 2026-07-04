@@ -51,7 +51,7 @@ export default function IndustriesPage() {
   return (
     <div>
       {/* Hero Banner Section */}
-      <section className="relative w-full h-[60vh] min-h-[500px] overflow-hidden bg-white">
+      <section className="relative w-full h-[60vh] min-h-[500px] overflow-hidden bg-white -mt-20 pt-20">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
@@ -59,7 +59,7 @@ export default function IndustriesPage() {
             alt="Industries Banner"
             fill
             className="object-contain object-center"
-            style={{ objectPosition: 'center 60%' }}
+            style={{ objectPosition: 'center 70%' }}
             priority
             quality={100}
             sizes="100vw"
