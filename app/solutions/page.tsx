@@ -11,31 +11,31 @@ import Link from 'next/link';
 import { ArrowRight, ArrowLeft, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const productImages: Record<string, string> = {
-  'suscat-i':       '/suscat.jpg',
-  'vamshield-90':   '/vamshield-90.png',
-  'suspol-125':     '/suspol-125.png',
-  'vam-rc-01':      '/vam-rc-01.png',
-  'vam-bs-01':      '/vam-bs-01.png',
-  'vam-ac-01-02':   '/placeholder.jpg',
+  'suscat-i':       '/suscat.avif',
+  'vamshield-90':   '/vamshield-90.avif',
+  'suspol-125':     '/suspol-125.avif',
+  'vam-rc-01':      '/vam-rc-01.avif',
+  'vam-bs-01':      '/vam-bs-01.avif',
+  'vam-ac-01-02':   '/vamshield-90.avif',
 };
 
 // Product slider images - array of images for each product
 const productSliderImages: Record<string, string[]> = {
-  'suscat-i':       ['/suscat.jpg', '/suscat-slider-2.jpg'],
-  'vamshield-90':   ['/vamshield-90.png', '/product-slider-1.jpg', '/vamshield-slider-3.jpg', '/vamshield-slider-4.jpg'],
-  'suspol-125':     ['/suspol-125.png', '/suspol-slider-2.jpg', '/suspol-slider-3.jpg', '/suspol-slider-4.jpg', '/suspol-slider-5.jpg'],
-  'vam-rc-01':      ['/vam-rc-01.png'],
-  'vam-bs-01':      ['/vam-bs-01.png'],
-  'vam-ac-01-02':   ['/placeholder.jpg'],
+  'suscat-i':       ['/suscat.avif', '/suscat-slider-2.avif'],
+  'vamshield-90':   ['/vamshield-90.avif', '/product-slider-1.avif', '/vamshield-slider-3.avif', '/vamshield-slider-4.avif'],
+  'suspol-125':     ['/suspol-125.avif', '/suspol-slider-2.avif', '/suspol-slider-3.avif', '/suspol-slider-4.avif', '/suspol-slider-5.avif'],
+  'vam-rc-01':      ['/vam-rc-01.avif'],
+  'vam-bs-01':      ['/vam-bs-01.avif'],
+  'vam-ac-01-02':   ['/vamshield-90.avif'],
 };
 
 const applicationImages: Record<string, string> = {
-  'suscat-i':       '/suscat-application.png',
-  'vamshield-90':   '/vamshield-90-application.jpg',
-  'suspol-125':     '/suspol-125.png',
-  'vam-rc-01':      '/vam-rc-01-product.jpg',
-  'vam-bs-01':      '/vam-bs-01.png',
-  'vam-ac-01-02':   '/placeholder.jpg',
+  'suscat-i':       '/suscat.avif',
+  'vamshield-90':   '/vamshield-90.avif',
+  'suspol-125':     '/suspol-125.avif',
+  'vam-rc-01':      '/vam-rc-01-product.avif',
+  'vam-bs-01':      '/vam-bs-01.avif',
+  'vam-ac-01-02':   '/vamshield-90.avif',
 };
 
 const productDetails: Record<string, { overview: string; specs: string[]; applications: string[] }> = {
