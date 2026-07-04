@@ -38,9 +38,10 @@ const nextConfig = {
     ],
     // Optimize CSS
     optimizeCss: true,
-    // Use lighter runtime
-    serverComponentsExternalPackages: ['three', '@react-three/fiber', '@react-three/drei'],
   },
+  
+  // ── External packages (moved from experimental) ──────────────────────
+  serverExternalPackages: ['three', '@react-three/fiber', '@react-three/drei'],
 
   // ── Compiler optimisations ──────────────────────────────────────────
   compiler: {
@@ -54,65 +55,8 @@ const nextConfig = {
   // ── Compression ──────────────────────────────────────────────────────
   compress: true,
   
-  // ── Webpack optimizations ────────────────────────────────────────────
-  webpack: (config, { isServer, dev }) => {
-    // Reduce bundle size
-    if (!isServer) {
-      config.optimization = {
-        ...config.optimization,
-        moduleIds: 'deterministic',
-        splitChunks: {
-          chunks: 'all',
-          cacheGroups: {
-            default: false,
-            vendors: false,
-            // Vendor chunk for node_modules
-            vendor: {
-              name: 'vendor',
-              chunks: 'all',
-              test: /node_modules/,
-              priority: 20,
-            },
-            // Common chunk for shared components
-            common: {
-              name: 'common',
-              minChunks: 2,
-              chunks: 'async',
-              priority: 10,
-              reuseExistingChunk: true,
-              enforce: true,
-            },
-            // Separate chunk for large libraries
-            framer: {
-              test: /[\\/]node_modules[\\/](framer-motion)[\\/]/,
-              name: 'framer',
-              chunks: 'all',
-              priority: 30,
-            },
-            radix: {
-              test: /[\\/]node_modules[\\/](@radix-ui)[\\/]/,
-              name: 'radix',
-              chunks: 'all',
-              priority: 30,
-            },
-            three: {
-              test: /[\\/]node_modules[\\/](three|@react-three)[\\/]/,
-              name: 'three',
-              chunks: 'all',
-              priority: 30,
-            },
-          },
-        },
-      };
-    }
-    
-    // Optimize builds
-    if (!dev) {
-      config.optimization.minimize = true;
-    }
-    
-    return config;
-  },
+  // ── Turbopack configuration (empty for default behavior) ──────────────
+  turbopack: {},
 
   // ── Image optimisation ──────────────────────────────────────────────
   images: {

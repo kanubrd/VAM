@@ -10,7 +10,7 @@ const industries = [
   {
     title: 'Automotive & General Industries',
     description: 'Reliable specialty chemical solutions engineered for automotive manufacturing and diverse industrial applications.',
-    image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&q=80',
+    image: '/automotive-category.avif',
     href: '/industries/automotive',
     solutions: [
       { name: 'Rust Converter', product: 'Vam RC 01' },
