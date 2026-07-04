@@ -38,7 +38,7 @@ const industries = [
   {
     title: 'Surface Treatment',
     description: 'Specialized surface treatment technologies that improve adhesion, durability, and protection for industrial components.',
-    image: 'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800&q=80',
+    image: '/surface-treatment-category.avif',
     href: '/industries/surface-treatment',
     solutions: [
       { name: 'Silanes', product: 'Amino Silanes and Epoxy Silanes' },
