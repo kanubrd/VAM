@@ -59,6 +59,7 @@ export default function IndustriesPage() {
             alt="Industries Banner"
             fill
             className="object-contain object-center"
+            style={{ objectPosition: 'center 60%' }}
             priority
             quality={100}
             sizes="100vw"
