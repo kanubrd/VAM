@@ -29,7 +29,7 @@ const industries = [
   {
     title: 'Electroplating & Brighteners',
     description: 'Advanced electroplating chemicals and brighteners that enhance coating quality, corrosion resistance, and surface appearance.',
-    image: 'https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=800&q=80',
+    image: '/electroplating-category.avif',
     href: '/industries/electroplating',
     solutions: [
       { name: 'Levelling Agent', product: 'Suscat-1' },
@@ -51,7 +51,7 @@ export default function IndustriesPage() {
   return (
     <div>
       {/* Hero Banner Section */}
-      <section className="relative w-full h-[60vh] min-h-[500px] overflow-hidden bg-white -mt-20 pt-20">
+      <section className="relative w-full h-[60vh] min-h-[500px] overflow-hidden bg-white">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
@@ -59,7 +59,7 @@ export default function IndustriesPage() {
             alt="Industries Banner"
             fill
             className="object-contain object-center"
-            style={{ objectPosition: 'center 70%' }}
+            style={{ objectPosition: 'center 60%' }}
             priority
             quality={100}
             sizes="100vw"
