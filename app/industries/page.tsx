@@ -19,7 +19,7 @@ const industries = [
   {
     title: 'Metal Working Fluids & Lubricants',
     description: 'High-performance lubricants and metalworking solutions designed to improve machining efficiency, reduce wear, and extend equipment life.',
-    image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80',
+    image: '/metalworking-category.avif',
     href: '/industries/metalworking',
     solutions: [
       { name: 'Corrosion Inhibitor', product: 'Vamshied 90' },
