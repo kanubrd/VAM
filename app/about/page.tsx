@@ -18,13 +18,12 @@ export default function AboutPage() {
             <span className="text-sm font-medium text-[#2C3E50]">Valtrix Advance Material Pvt. Ltd</span>
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#2C3E50] mb-4 sm:mb-6 leading-tight">
-            We Source What Others{' '}
-            <span className="gradient-text">Can&apos;t Find Fast Enough</span>
+            Creating Novel Materials & Additives to{' '}
+            <span className="gradient-text">Enhance Material Life</span>
           </h1>
           <p className="text-base sm:text-xl text-[#6B7280] leading-relaxed">
-            VAM VALTRIX was built by people who spent years watching manufacturers lose production time —
-            not because materials didn&apos;t exist, but because the right ones couldn&apos;t be found,
-            verified, and delivered fast enough.
+            Valtrix Advanced Materials develops innovative chemical solutions that extend the lifespan of industrial materials,
+            prevent machinery failures, and enhance performance across critical applications.
           </p>
         </motion.div>
       </Section>
@@ -34,9 +33,9 @@ export default function AboutPage() {
         <SectionTitle subtitle="WHO WE ARE" title="What Drives Us" description="The principles behind every sourcing decision we make" />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-8 mt-10 sm:mt-12 items-stretch">
           {[
-            { title: 'Our Mission', Icon: Target,    description: 'To give every industrial manufacturer reliable access to the exact materials they need — at the right specification, from a verified source, and delivered when production demands it.' },
-            { title: 'Our Vision',  Icon: Telescope, description: 'A world where supply chain friction never slows down what human ingenuity can build.' },
-            { title: 'Our Values',  Icon: Zap,       description: 'Precision over approximation. Accountability over excuses. Long-term partnerships over transactional volume. Total transparency at every step.' },
+            { title: 'Our Mission', Icon: Target,    description: 'To develop novel materials and chemical additives that enhance material life, prevent premature failures, and protect industrial assets from degradation, corrosion, and wear.' },
+            { title: 'Our Vision',  Icon: Telescope, description: 'A world where industrial materials last longer, machinery operates reliably, and sustainable chemistry drives manufacturing excellence.' },
+            { title: 'Our Values',  Icon: Zap,       description: 'Innovation in molecular design. Quality in every formulation. Performance that protects critical infrastructure. Sustainability in chemistry.' },
           ].map((item, idx) => (
             <Reveal key={item.title} delay={idx * 0.15} className="h-full">
               <div className="relative h-full rounded-2xl border-2 border-[#D1F2F7] bg-white shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group">

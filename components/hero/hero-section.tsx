@@ -217,8 +217,8 @@ export function HeroSection() {
                 letterSpacing: '-0.02em',
               }}
             >
-              Engineering the Future of{' '}
-              <span style={{ color: '#17A2B8' }}>Molecular Materials.</span>
+              Creating Novel Materials & Additives to{' '}
+              <span style={{ color: '#17A2B8' }}>Enhance Material Life.</span>
             </motion.h1>
 
             {/* Right: description + CTAs */}
