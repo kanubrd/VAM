@@ -15,6 +15,13 @@ export default function AutomotivePage() {
       features: ['Fast-acting formula', 'Long-lasting protection', 'Easy application process'],
       href: '/solutions?product=vam-rc-01',
     },
+    {
+      name: 'Polyols',
+      category: 'Polyurethane Building Blocks',
+      description: 'High-performance polyols for manufacturing polyurethane foams, coatings, adhesives, and sealants in automotive applications.',
+      features: ['Versatile applications', 'Superior mechanical properties', 'Excellent chemical resistance'],
+      href: '/solutions',
+    },
   ];
 
   const applications = [

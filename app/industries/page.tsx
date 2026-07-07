@@ -14,6 +14,7 @@ const industries = [
     href: '/industries/automotive',
     solutions: [
       { name: 'Rust Converter', product: 'Vam RC 01' },
+      { name: 'Polyols', product: 'Polyurethane Building Blocks' },
     ],
   },
   {
