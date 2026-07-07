@@ -442,7 +442,7 @@ function SolutionsContent() {
 
                       {/* CTA Button */}
                       <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-[#17A2B8] text-white text-sm font-semibold hover:bg-[#0D7A8C] transition-colors min-h-[48px]">
-                        Request a Quote <ArrowRight size={16} />
+                        Contact Us <ArrowRight size={16} />
                       </Link>
                     </div>
                   </div>
@@ -485,7 +485,7 @@ function SolutionsContent() {
           Tell us what you need. We&apos;ll show you what we can source, at what price, and how fast — before you commit to anything.
         </p>
         <Link href="/contact" className="inline-flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg bg-[#17A2B8] text-white font-semibold hover:bg-[#0D7A8C] transition-colors min-h-[48px]">
-          Request a Quote <ArrowRight size={18} />
+          Contact Us <ArrowRight size={18} />
         </Link>
       </Section>
     </div>

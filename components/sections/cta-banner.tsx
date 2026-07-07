@@ -76,7 +76,7 @@ export function CTABanner() {
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold text-white text-sm tracking-wide group min-h-[52px]"
                 style={{ background: '#17A2B8', borderRadius: 0 }}
               >
-                Request a Quote
+                Contact Us
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </motion.div>

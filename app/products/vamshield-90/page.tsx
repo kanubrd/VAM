@@ -224,7 +224,7 @@ export default function VAMShield90Page() {
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#17A2B8] font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg"
             >
               <Mail className="w-5 h-5" />
-              Request Quote
+              Contact Us
             </Link>
             <a
               href="tel:+919898123983"

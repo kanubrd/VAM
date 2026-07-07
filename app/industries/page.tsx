@@ -188,7 +188,7 @@ export default function IndustriesPage() {
               href="/contact"
               className="inline-flex items-center justify-center px-8 py-4 bg-white text-[#17A2B8] font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg"
             >
-              Request a Quote
+              Contact Us
             </Link>
             <Link
               href="/solutions"

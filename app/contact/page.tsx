@@ -297,7 +297,7 @@ export default function ContactPage() {
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
           className="inline-flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg bg-[#17A2B8] text-white font-semibold hover:bg-[#0D7A8C] transition-colors min-h-[48px]"
         >
-          Request a Quote →
+          Contact Us →
         </a>
       </Section>
     </div>

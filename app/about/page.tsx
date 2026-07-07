@@ -63,7 +63,7 @@ export default function AboutPage() {
         </p>
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
           <Link href="/contact" className="inline-flex items-center justify-center px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg bg-[#17A2B8] text-white font-semibold hover:bg-[#0D7A8C] transition-colors min-h-[48px]">
-            Request a Quote
+            Contact Us
           </Link>
           <Link href="/contact" className="inline-flex items-center justify-center px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg border-2 border-white/30 text-white font-semibold hover:bg-white/10 transition-colors min-h-[48px]">
             Talk to a Specialist
