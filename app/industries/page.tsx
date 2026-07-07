@@ -97,80 +97,58 @@ export default function IndustriesPage() {
           {/* Industries Grid */}
           <div className="grid md:grid-cols-2 gap-8">
             {industries.map((industry, idx) => (
-              <Reveal key={industry.title} delay={idx * 0.1} direction="up">
-                <motion.div
-                  whileHover={{ scale: 1.03 }}
-                  transition={{ duration: 0.4, ease: 'easeOut' }}
-                  className="group relative h-[400px] rounded-[20px] overflow-hidden shadow-lg hover:shadow-2xl"
-                >
-                  {/* Background Image */}
-                  <div className="absolute inset-0">
-                    <motion.div
-                      whileHover={{ scale: 1.08 }}
-                      transition={{ duration: 0.5, ease: 'easeOut' }}
-                      className="w-full h-full"
-                    >
-                      <Image
-                        src={industry.image}
-                        alt={industry.title}
-                        fill
-                        className="object-cover brightness-150"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                        quality={85}
-                      />
-                    </motion.div>
+              <div key={industry.title} className="relative h-[400px] rounded-[20px] overflow-hidden shadow-lg">
+                {/* Background Image */}
+                <div className="absolute inset-0">
+                  <Image
+                    src={industry.image}
+                    alt={industry.title}
+                    fill
+                    className="object-cover brightness-150"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    quality={85}
+                  />
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
+                </div>
 
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30 group-hover:from-black/70 group-hover:via-black/40 group-hover:to-black/20 transition-all duration-500" />
+                {/* Content */}
+                <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                  <div>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 leading-tight">
+                      {industry.title}
+                    </h3>
+                    <p className="text-base text-gray-200 leading-relaxed mb-4">
+                      {industry.description}
+                    </p>
+                    
+                    {/* Solutions List */}
+                    <div className="space-y-2 mb-4">
+                      {industry.solutions.map((solution, sIdx) => (
+                        <div key={sIdx} className="flex flex-col">
+                          <span className="text-sm font-semibold text-[#17A2B8]">
+                            {solution.name}
+                          </span>
+                          <span className="text-sm text-gray-300">
+                            {solution.product}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
 
-                  {/* Content */}
-                  <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                    <motion.div
-                      initial={{ y: 0 }}
-                      whileHover={{ y: -8 }}
-                      transition={{ duration: 0.4 }}
+                  {/* Arrow Icon - Clickable Button */}
+                  <div className="flex items-center justify-end">
+                    <button
+                      onClick={() => window.location.href = industry.href}
+                      className="w-12 h-12 rounded-full bg-[#17A2B8] flex items-center justify-center cursor-pointer"
+                      aria-label={`View ${industry.title}`}
                     >
-                      <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 leading-tight">
-                        {industry.title}
-                      </h3>
-                      <p className="text-base text-gray-200 leading-relaxed mb-4">
-                        {industry.description}
-                      </p>
-                      
-                      {/* Solutions List */}
-                      <div className="space-y-2 mb-4">
-                        {industry.solutions.map((solution, sIdx) => (
-                          <div key={sIdx} className="flex flex-col">
-                            <span className="text-sm font-semibold text-[#17A2B8]">
-                              {solution.name}
-                            </span>
-                            <span className="text-sm text-gray-300">
-                              {solution.product}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    </motion.div>
-
-                    {/* Arrow Icon - Clickable Button */}
-                    <motion.div
-                      initial={{ x: 0 }}
-                      whileHover={{ x: 8 }}
-                      transition={{ duration: 0.3 }}
-                      className="flex items-center justify-end"
-                    >
-                      <button
-                        onClick={() => window.location.href = industry.href}
-                        className="w-12 h-12 rounded-full bg-[#17A2B8] flex items-center justify-center group-hover:bg-[#0D7A8C] transition-colors duration-300 cursor-pointer hover:scale-110"
-                        aria-label={`View ${industry.title}`}
-                      >
-                        <ArrowRight className="w-6 h-6 text-white" />
-                      </button>
-                    </motion.div>
+                      <ArrowRight className="w-6 h-6 text-white" />
+                    </button>
                   </div>
-                </motion.div>
-              </Reveal>
+                </div>
+              </div>
             ))}
           </div>
         </div>
