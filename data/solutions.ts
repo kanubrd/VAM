@@ -78,20 +78,6 @@ export const solutions = [
     ],
   },
   {
-    id: 'vam-ac-01-02',
-    icon: Atom,
-    title: 'VAM AC-01 / VAM AC-02',
-    description: 'High-performance methanation catalysts for efficient conversion of CO and CO₂ with hydrogen into methane',
-    features: [
-      'High methane conversion efficiency',
-      'Excellent catalyst stability and durability',
-      'Reliable long-term operation',
-      'Supports renewable and sustainable energy solutions',
-      'Suitable for industrial-scale applications',
-      'Optimized for modern gas processing systems',
-    ],
-  },
-  {
     id: 'heavy-duty-flooring',
     icon: HardHat,
     title: 'Heavy Duty Industrial Flooring',

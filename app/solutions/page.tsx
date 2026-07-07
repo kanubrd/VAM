@@ -16,7 +16,6 @@ const productImages: Record<string, string> = {
   'suspol-125':     '/suspol-125.avif',
   'vam-rc-01':      '/vam-rc-01.avif',
   'vam-bs-01':      '/vam-bs-01.avif',
-  'vam-ac-01-02':   '/vamshield-90.avif',
 };
 
 // Product slider images - array of images for each product
@@ -26,7 +25,6 @@ const productSliderImages: Record<string, string[]> = {
   'suspol-125':     ['/suspol-125.avif', '/suspol-slider-2.avif', '/suspol-slider-3.avif', '/suspol-slider-4.avif', '/suspol-slider-5.avif'],
   'vam-rc-01':      ['/vam-rc-01.avif'],
   'vam-bs-01':      ['/vam-bs-01.avif'],
-  'vam-ac-01-02':   ['/vamshield-90.avif'],
 };
 
 const applicationImages: Record<string, string> = {
@@ -35,7 +33,6 @@ const applicationImages: Record<string, string> = {
   'suspol-125':     '/suspol-125.avif',
   'vam-rc-01':      '/vam-rc-01-product.avif',
   'vam-bs-01':      '/vam-bs-01.avif',
-  'vam-ac-01-02':   '/vamshield-90.avif',
 };
 
 const productDetails: Record<string, { overview: string; specs: string[]; applications: string[] }> = {
@@ -147,29 +144,6 @@ const productDetails: Record<string, { overview: string; specs: string[]; applic
       'Skin Care',
       'Hair Care',
       'Specialty Formulations',
-    ],
-  },
-  'vam-ac-01-02': {
-    overview: 'VAM AC-01 and VAM AC-02 are high-performance methanation catalysts developed for efficient conversion of carbon monoxide (CO) and carbon dioxide (CO₂) with hydrogen into methane. These catalysts provide reliable operation, high conversion efficiency, and support sustainable energy systems.',
-    specs: [
-      'Product Type: Industrial Catalyst',
-      'Category: Methanation Catalyst',
-      'Function: Converts CO and CO₂ into methane',
-      'Performance: High conversion efficiency and operational stability',
-      'Application Environment: Industrial gas processing systems',
-      'Variants: VAM AC-01 and VAM AC-02',
-    ],
-    applications: [
-      'Biogas Upgrading',
-      'Synthetic Natural Gas (SNG)',
-      'Chemical Plants',
-      'Renewable Energy Systems',
-      'Power-to-Gas Technologies',
-      'Carbon Utilization',
-      'Gas Treatment',
-      'Biogas Plants',
-      'Synthetic Fuel Production',
-      'Industrial Energy Systems',
     ],
   },
 };
