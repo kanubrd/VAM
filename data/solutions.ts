@@ -4,6 +4,7 @@ import {
   RefreshCw,
   Sparkles,
   Atom,
+  HardHat,
 } from 'lucide-react';
 
 export const solutions = [
@@ -88,6 +89,20 @@ export const solutions = [
       'Supports renewable and sustainable energy solutions',
       'Suitable for industrial-scale applications',
       'Optimized for modern gas processing systems',
+    ],
+  },
+  {
+    id: 'heavy-duty-flooring',
+    icon: HardHat,
+    title: 'Heavy Duty Industrial Flooring',
+    description: 'High-performance epoxy-based flooring systems designed for extreme industrial environments with superior durability and chemical resistance',
+    features: [
+      'Exceptional abrasion and impact resistance',
+      'Outstanding chemical and solvent resistance',
+      'High load-bearing capacity',
+      'Seamless, easy-to-clean surface',
+      'Long service life in harsh environments',
+      'Suitable for manufacturing, warehouses, and heavy industry',
     ],
   },
 ];
