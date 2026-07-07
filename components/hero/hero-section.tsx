@@ -238,15 +238,6 @@ export function HeroSection() {
                   Explore Solutions
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => setIsDemoOpen(true)}
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold text-sm tracking-wide min-h-[52px]"
-                  style={{ background: 'transparent', border: '1.5px solid #2C3E50', borderRadius: 0, color: '#2C3E50' }}
-                >
-                  View Portfolio
-                </motion.button>
               </div>
             </motion.div>
           </div>
