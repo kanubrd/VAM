@@ -150,10 +150,10 @@ export function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="relative px-5 py-2 text-sm font-medium tracking-wide group transition-colors duration-300"
+                  className="relative px-5 py-2 text-base font-bold tracking-wide group transition-colors duration-300 uppercase"
                   style={{
                     color: textColor,
-                    letterSpacing: '0.01em',
+                    letterSpacing: '0.02em',
                     textShadow: '0 1px 3px rgba(255,255,255,0.8)',
                   }}
                   onMouseEnter={e => {
