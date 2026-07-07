@@ -130,7 +130,7 @@ export function Footer() {
             <Link href="/" className="inline-block mb-5">
               <Image 
                 src="/valtrix-logo.png" 
-                alt="VAM VALTRIX" 
+                alt="Valtrix Advanced Materials" 
                 width={5760} 
                 height={896} 
                 priority={false} 
@@ -196,10 +196,10 @@ export function Footer() {
           </p>
           <div className="flex gap-3">
             {[
-              { icon: Facebook,  label: 'Facebook',  href: 'https://facebook.com/vamvaltrix' },
-              { icon: Twitter,   label: 'Twitter',   href: 'https://twitter.com/vamvaltrix' },
-              { icon: Linkedin,  label: 'LinkedIn',  href: 'https://linkedin.com/company/vamvaltrix' },
-              { icon: Instagram, label: 'Instagram', href: 'https://instagram.com/vamvaltrix' },
+              { icon: Facebook,  label: 'Facebook',  href: 'https://facebook.com/valtrixgives' },
+              { icon: Twitter,   label: 'Twitter',   href: 'https://twitter.com/valtrixgives' },
+              { icon: Linkedin,  label: 'LinkedIn',  href: 'https://linkedin.com/company/valtrixgives' },
+              { icon: Instagram, label: 'Instagram', href: 'https://instagram.com/valtrixgives' },
             ].map(({ icon: Icon, label, href }) => (
               <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
                 className="w-10 h-10 rounded-lg bg-white/5 hover:bg-[#17A2B8] flex items-center justify-center text-gray-400 hover:text-white transition-all duration-200">
