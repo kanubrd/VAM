@@ -32,7 +32,7 @@ const industries = [
     image: '/electroplating-category.avif',
     href: '/industries/electroplating',
     solutions: [
-      { name: 'Levelling Agent', product: 'Suscat-1' },
+      { name: 'Levelling Agent', product: 'SusCat-I' },
     ],
   },
   {

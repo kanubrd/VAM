@@ -67,7 +67,7 @@ export function validateMaterial(value: unknown): string | null {
 
 export function validateProducts(value: unknown): string | null {
   if (!Array.isArray(value)) return null; // optional
-  const ALLOWED = ['SusCat-12', 'SusPol-125', 'VAMShield-90', 'VAM BS-01', 'VAM Cat-M (Rust Converter)'];
+  const ALLOWED = ['SusCat-I', 'SusPol-125', 'VAMShield-90', 'VAM BS-01', 'VAM Cat-M (Rust Converter)'];
   for (const p of value) {
     if (typeof p !== 'string' || !ALLOWED.includes(p)) return 'Invalid product selection.';
   }

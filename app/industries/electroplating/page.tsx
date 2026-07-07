@@ -9,7 +9,7 @@ import { ArrowLeft, CheckCircle, Sparkles, Layers, Beaker } from 'lucide-react';
 export default function ElectroplatingPage() {
   const products = [
     {
-      name: 'Suscat-1',
+      name: 'SusCat-I',
       category: 'Levelling Agent',
       description: 'Advanced levelling agent for bright, smooth electroplated finishes with excellent throwing power.',
       features: ['Superior surface levelling', 'Bright lustrous finish', 'Wide current density range'],

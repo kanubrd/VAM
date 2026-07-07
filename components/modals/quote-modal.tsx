@@ -9,7 +9,7 @@ interface QuoteModalProps {
   onClose: () => void;
 }
 
-const products = ['SusCat-12', 'SusPol-125', 'VAMShield-90', 'VAM BS-01', 'VAM Cat-M (Rust Converter)'];
+const products = ['SusCat-I', 'SusPol-125', 'VAMShield-90', 'VAM BS-01', 'VAM Cat-M (Rust Converter)'];
 
 export function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
   const [quoteName, setQuoteName] = useState('');
