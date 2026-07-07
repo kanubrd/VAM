@@ -22,6 +22,13 @@ export default function AutomotivePage() {
       features: ['Versatile applications', 'Superior mechanical properties', 'Excellent chemical resistance'],
       href: '/solutions',
     },
+    {
+      name: 'High Build Coatings',
+      category: 'Aftermarket Solutions',
+      description: 'Thick-film protective coatings designed for automotive repair and restoration, providing excellent coverage and durability.',
+      features: ['High film thickness', 'Superior hiding power', 'Excellent corrosion resistance'],
+      href: '/solutions',
+    },
   ];
 
   const applications = [
@@ -59,7 +66,7 @@ export default function AutomotivePage() {
     },
     {
       name: 'Aftermarket Solutions',
-      description: 'Professional-grade products for repair shops, body shops, and DIY applications',
+      description: 'Professional-grade products including High Build Coatings for repair shops, body shops, and DIY applications',
       image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&q=80',
     },
     {
