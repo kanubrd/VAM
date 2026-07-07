@@ -49,11 +49,11 @@ export function CTABanner() {
               fontSize: 'clamp(2rem, 4.5vw, 3.5rem)',
               color: '#ffffff',
               letterSpacing: '-0.02em',
-              maxWidth: 800,
+              maxWidth: 900,
             }}
           >
-            Your Next Order Shouldn't Take{' '}
-            <span style={{ color: '#17A2B8' }}>Three Weeks to Source</span>
+            Prevent Machinery Failures with{' '}
+            <span style={{ color: '#17A2B8' }}>Advanced Material Protection</span>
           </h2>
         </Reveal>
 
@@ -61,9 +61,10 @@ export function CTABanner() {
         <Reveal delay={0.15}>
           <p
             className="mx-auto mb-10 text-base sm:text-lg leading-relaxed"
-            style={{ color: 'rgba(255,255,255,0.65)', maxWidth: 580 }}
+            style={{ color: 'rgba(255,255,255,0.65)', maxWidth: 660 }}
           >
-            VAM VALTRIX gives industrial manufacturers direct access to a pre-vetted material supply network — with full traceability, spec documentation, and a fulfillment team that understands production timelines.
+            Industrial machinery failures often stem from material degradation, coating failures, and polymer breakdown. 
+            Valtrix develops advanced chemical solutions that prevent these failures, extend equipment life, and reduce costly downtime.
           </p>
         </Reveal>
 
@@ -105,9 +106,9 @@ export function CTABanner() {
             style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}
           >
             {[
-              'No minimum order commitment',
-              'Spec sheet verification included',
-              'Dedicated account support from day one',
+              'Prevent corrosion and wear',
+              'Extend equipment lifespan',
+              'Reduce maintenance costs',
             ].map((f) => (
               <div key={f} className="flex items-center justify-center gap-2" style={{ color: 'rgba(255,255,255,0.6)' }}>
                 <CheckCircle size={14} style={{ color: '#17A2B8' }} className="shrink-0" />
