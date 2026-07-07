@@ -171,7 +171,7 @@ export function HeroSection() {
                 lineHeight: 1.4,
                 textShadow: '0 1px 4px rgba(0,0,0,0.4)',
               }}>
-                Stop the Rust, Sustain the Trust, and Build a Future That Lasts.
+                Valtrix Advanced Materials
               </p>
             </div>
           </div>
