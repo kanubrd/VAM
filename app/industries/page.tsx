@@ -114,7 +114,7 @@ export default function IndustriesPage() {
                         src={industry.image}
                         alt={industry.title}
                         fill
-                        className="object-cover"
+                        className="object-cover brightness-125"
                         sizes="(max-width: 768px) 100vw, 50vw"
                         quality={85}
                       />
