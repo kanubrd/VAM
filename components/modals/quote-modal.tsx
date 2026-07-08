@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Modal } from '@/components/ui/modal';
-import { Clock, Shield, Truck, CheckCircle } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
 
 interface QuoteModalProps {
   isOpen: boolean;
@@ -71,19 +71,6 @@ export function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
   return (
     <Modal isOpen={isOpen} onClose={onClose} title="Get Started with VAM VALTRIX">
       <div className="space-y-4 sm:space-y-5">
-        <div className="grid grid-cols-3 gap-2 sm:gap-3">
-          {[
-            { icon: Clock, label: '24hr Response', sub: 'Quote turnaround' },
-            { icon: Shield, label: 'Verified Sources', sub: '320+ suppliers' },
-            { icon: Truck, label: 'On-Time', sub: '97.4% delivery' },
-          ].map(({ icon: Icon, label, sub }) => (
-            <div key={label} className="text-center p-2 sm:p-3 bg-[#E6F7FA] rounded-xl border border-[#D1F2F7]">
-              <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-[#17A2B8] mx-auto mb-1" />
-              <p className="text-xs font-semibold text-[#2C3E50] leading-tight">{label}</p>
-              <p className="text-xs text-[#6B7280] hidden sm:block">{sub}</p>
-            </div>
-          ))}
-        </div>
         {quoteStatus === 'success' ? (
           <div className="text-center py-5 bg-[#E6F7FA] rounded-xl border border-[#D1F2F7]">
             <CheckCircle className="w-10 h-10 text-[#17A2B8] mx-auto mb-2" />

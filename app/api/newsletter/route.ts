@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { rateLimit, getClientIp } from '@/lib/rate-limit';
 import { validateEmail, validateOrigin } from '@/lib/server-validation';
+import { saveNewsletterSubscription } from '@/lib/db';
+import { sendNewsletterWelcomeEmail } from '@/lib/email';
 
 // Rate limit: 3 subscribe attempts per IP per 10 minutes
 const RATE_LIMIT = { limit: 3, windowMs: 10 * 60 * 1000 };
@@ -47,7 +49,26 @@ export async function POST(req: NextRequest) {
 
   const safeEmail = String(email).trim().toLowerCase();
 
-  // Forward to your existing backend or handle directly
+  // ── Save to database ───────────────────────────────────────────────
+  try {
+    await saveNewsletterSubscription({
+      email: safeEmail,
+      ipAddress: ip,
+    });
+  } catch (err) {
+    console.error('Database save error:', err);
+    // Continue even if database save fails
+  }
+
+  // ── Send welcome email ─────────────────────────────────────────────
+  try {
+    await sendNewsletterWelcomeEmail(safeEmail);
+  } catch (err) {
+    console.error('Newsletter welcome email error:', err);
+    // Don't fail the subscription if email fails
+  }
+
+  // Forward to external backend if configured
   const backendUrl = process.env.NEXT_PUBLIC_API_URL
     ? `${process.env.NEXT_PUBLIC_API_URL}/newsletter/subscribe`
     : null;
@@ -62,12 +83,8 @@ export async function POST(req: NextRequest) {
       });
       if (!res.ok) throw new Error('Backend subscription failed');
     } catch {
-      // Log but don't expose internal errors
       console.error('Newsletter subscription backend error');
-      return NextResponse.json(
-        { error: 'Unable to subscribe right now. Please try again later.' },
-        { status: 502 }
-      );
+      // Don't fail the request if external backend fails
     }
   }
 

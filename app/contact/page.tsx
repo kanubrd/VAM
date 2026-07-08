@@ -6,7 +6,6 @@ import { motion } from 'framer-motion';
 import { Section, SectionTitle } from '@/components/ui/section';
 import { Reveal } from '@/components/animations/reveal';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
-import { api } from '@/lib/api';
 import { validateContactForm, sanitiseString, getRecaptchaToken } from '@/lib/validation';
 
 export default function ContactPage() {
@@ -47,13 +46,21 @@ export default function ContactPage() {
     try {
       const recaptchaToken = await getRecaptchaToken('contact');
 
-      await api.contact.send({
-        name:    sanitiseString(formData.name),
-        email:   formData.email.trim().toLowerCase(),
-        company: formData.company ? sanitiseString(formData.company) : undefined,
-        message: sanitiseString(formData.message),
-        recaptchaToken,
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: sanitiseString(formData.name),
+          email: formData.email.trim().toLowerCase(),
+          subject: formData.company ? `Inquiry from ${sanitiseString(formData.company)}` : 'General Inquiry',
+          message: sanitiseString(formData.message),
+          recaptchaToken,
+        }),
       });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
 
       setStatus('success');
       setFormData({ name: '', email: '', company: '', message: '' });

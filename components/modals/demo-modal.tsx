@@ -43,7 +43,7 @@ export function DemoModal({ isOpen, onClose, onGetStarted }: DemoModalProps) {
               icon: Shield,
               step: '02',
               title: 'We match & verify',
-              desc: 'Our engine finds the best-fit supplier from 320+ verified sources.',
+              desc: 'Our engine finds the best-fit supplier from our verified sources.',
             },
             {
               icon: BarChart3,

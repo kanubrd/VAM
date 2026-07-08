@@ -21,18 +21,10 @@ const productImages: Record<string, string> = {
 // Product slider images - array of images for each product
 const productSliderImages: Record<string, string[]> = {
   'suscat-i':       ['/suscat.avif', '/suscat-slider-2.avif'],
-  'vamshield-90':   ['/vamshield-90.avif', '/product-slider-1.avif', '/vamshield-slider-3.avif', '/vamshield-slider-4.avif'],
-  'suspol-125':     ['/suspol-125.avif', '/suspol-slider-2.avif', '/suspol-slider-3.avif', '/suspol-slider-4.avif', '/suspol-slider-5.avif'],
+  'vamshield-90':   ['/vamshield-90.avif', '/vamshield-90-application.png'],
+  'suspol-125':     ['/suspol-125.avif'],
   'vam-rc-01':      ['/vam-rc-01.avif'],
   'vam-bs-01':      ['/vam-bs-01.avif'],
-};
-
-const applicationImages: Record<string, string> = {
-  'suscat-i':       '/suscat.avif',
-  'vamshield-90':   '/vamshield-90.avif',
-  'suspol-125':     '/suspol-125.avif',
-  'vam-rc-01':      '/vam-rc-01-product.avif',
-  'vam-bs-01':      '/vam-bs-01.avif',
 };
 
 const productDetails: Record<string, { overview: string; specs: string[]; applications: string[] }> = {
@@ -150,10 +142,10 @@ const productDetails: Record<string, { overview: string; specs: string[]; applic
 
 function SolutionsContent() {
   const searchParams = useSearchParams();
-  const [selected, setSelected] = useState<string | null>(null);
+  const [selected, setSelected] = useState<string | null>('suscat-i');
   const [productSlideIndex, setProductSlideIndex] = useState(0);
 
-  // Auto-select product from URL parameter
+  // Auto-select product from URL parameter or default to suscat-i
   useEffect(() => {
     const productParam = searchParams.get('product');
     if (productParam && !selected) {
@@ -163,9 +155,7 @@ function SolutionsContent() {
 
   const activeSolution = solutions.find((s) => s.id === selected);
   const activeDetails  = selected ? productDetails[selected] : null;
-  const activeImage    = selected ? productImages[selected] : null;
-  const activeApplicationImage = selected ? applicationImages[selected] : null;
-  const activeSliderImages = selected ? productSliderImages[selected] : [];
+  const activeSliderImages = selected ? (productSliderImages[selected] || []).filter(img => img && img.trim() !== '') : [];
 
   // Reset slider when product changes
   const handleProductSelect = (productId: string) => {
@@ -315,7 +305,13 @@ function SolutionsContent() {
                               fill
                               quality={100}
                               sizes="(max-width: 768px) 100vw, (max-width: 1920px) 100vw, 3840px"
-                              className={productSlideIndex === 0 ? "object-contain p-4" : "object-contain p-2"}
+                              className={
+                                productSlideIndex === 0 
+                                  ? "object-contain p-4" 
+                                  : selected === 'suscat-i' && productSlideIndex === 1
+                                  ? "object-cover"
+                                  : "object-contain p-2"
+                              }
                               style={{
                                 imageRendering: '-webkit-optimize-contrast',
                                 WebkitFontSmoothing: 'antialiased',
@@ -429,13 +425,13 @@ function SolutionsContent() {
 
       {/* Results */}
       <Section className="bg-white">
-        <SectionTitle subtitle="PROVEN RESULTS" title="What You Can Expect" description="Numbers from manufacturers already running on VAM VALTRIX" />
+        <SectionTitle subtitle="PROVEN RESULTS" title="What You Can Expect" description="Benefits from manufacturers using VAM VALTRIX solutions" />
         <div className="mt-8 sm:mt-12 space-y-4 max-w-3xl mx-auto">
           {[
-            { benefit: '38% Average Lead Time Reduction',            description: 'Procurement cycles cut from weeks to days across metals, polymers, and coatings.' },
-            { benefit: '97.4% On-Time Fulfillment Rate',             description: 'Earned across 99,000+ orders — not a marketing number.' },
-            { benefit: '360° End-to-End Order Visibility',           description: 'From quote to delivery, every step is tracked and documented in your account.' },
-            { benefit: '<4 hrs Average Response on Custom Requests', description: 'When you need something outside the catalog, our sourcing team moves fast.' },
+            { benefit: 'Faster Lead Times',            description: 'Streamlined procurement cycles with efficient material sourcing and delivery.' },
+            { benefit: 'Reliable Fulfillment',             description: 'Consistent, dependable service across all orders and product lines.' },
+            { benefit: 'Complete Order Visibility',           description: 'Track every step from quote to delivery in your account dashboard.' },
+            { benefit: 'Rapid Custom Request Response', description: 'Quick turnaround when you need specialized materials outside the standard catalog.' },
           ].map((item, idx) => (
             <Reveal key={item.benefit} delay={idx * 0.1} direction="left">
               <motion.div whileHover={{ x: 6 }} className="flex gap-3 sm:gap-4 p-4 sm:p-6 bg-white rounded-2xl border-2 border-gray-100 hover:border-[#D1F2F7] hover:shadow-sm transition-all">

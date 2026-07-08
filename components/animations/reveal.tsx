@@ -26,8 +26,7 @@ interface RevealProps {
 }
 
 /**
- * Get animation variants based on direction
- * Maps direction prop to corresponding animation variants from animation-config
+ * Get animation variants based on direction with enhanced smoothness
  */
 const getVariants = (direction: RevealProps['direction']): Variants => {
   const map = {
@@ -41,39 +40,19 @@ const getVariants = (direction: RevealProps['direction']): Variants => {
 };
 
 /**
- * Reveal Component - Viewport-triggered animations with stagger support
+ * Reveal Component - Ultra-smooth viewport-triggered animations
  * 
- * Features:
- * - 20% visibility threshold to trigger animations (Requirement 4.2)
- * - triggerOnce: true to prevent re-animation (Requirement 4.3)
- * - Stagger support with 80-120ms delays (Requirement 4.4)
- * - Respects prefers-reduced-motion (Requirement 4.5, 21.4)
- * - GPU-accelerated animations (Requirements 4.1)
- * 
- * @example
- * // Basic usage
- * <Reveal direction="up">
- *   <div>Content that fades in</div>
- * </Reveal>
- * 
- * @example
- * // With stagger for multiple children
- * <Reveal direction="up" stagger="medium">
- *   <div>Item 1</div>
- *   <div>Item 2</div>
- *   <div>Item 3</div>
- * </Reveal>
- * 
- * @example
- * // Custom stagger delay in seconds
- * <Reveal direction="up" stagger={0.15}>
- *   {items.map(item => <Card key={item.id} {...item} />)}
- * </Reveal>
+ * Enhanced features:
+ * - Smoother easing functions for butter-smooth animations
+ * - Optimized threshold and margins for better timing
+ * - GPU-accelerated transforms
+ * - Respects reduced motion preferences
+ * - Stagger support with configurable delays
  */
 export function Reveal({
   children,
   delay = 0,
-  duration = 0.7, // 700ms - within 600-800ms range for smooth animations
+  duration = 0.8, // Increased to 800ms for smoother animations
   direction = 'up',
   className,
   once = true,
@@ -81,22 +60,21 @@ export function Reveal({
 }: RevealProps) {
   const prefersReducedMotion = useReducedMotion();
   
-  // Requirement 4.2: Set Intersection Observer threshold to 20% (0.2)
-  // Requirement 4.3: Enable triggerOnce: true to prevent re-animation
+  // Optimized threshold for smoother triggering
   const { ref, inView } = useInView({
-    threshold: 0.2,
+    threshold: 0.15, // Reduced for earlier, smoother activation
     triggerOnce: once,
-    rootMargin: '0px 0px -50px 0px',
+    rootMargin: '0px 0px -80px 0px', // More room for smoother entry
   });
 
-  // Requirement 4.4: Determine stagger delay (80-120ms)
+  // Stagger delay calculation
   const staggerDelay = stagger 
     ? typeof stagger === 'number' 
       ? stagger 
       : STAGGER_DELAY[stagger]
     : undefined;
 
-  // Create container variants if stagger is enabled
+  // Container variants for stagger
   const containerVariants: Variants | undefined = staggerDelay ? {
     hidden: {},
     visible: {
@@ -107,25 +85,24 @@ export function Reveal({
     },
   } : undefined;
 
-  // Get direction-specific variants
+  // Direction-specific variants
   const itemVariants = getVariants(direction);
 
-  // Requirement 4.5, 21.4: Adjust transition for reduced motion
-  // When reduced motion is enabled, use instant transitions (0.01s)
+  // Enhanced transition with smoother easing
   const transition = prefersReducedMotion
     ? { 
         duration: REDUCED_MOTION_CONFIG.duration,
         ease: REDUCED_MOTION_CONFIG.ease,
       }
     : {
-        ...springTransition,
         duration,
-        delay: staggerDelay ? 0 : delay, // Don't use delay with stagger (use delayChildren instead)
+        delay: staggerDelay ? 0 : delay,
+        ease: [0.25, 0.1, 0.25, 1], // Custom cubic-bezier for ultra-smooth easing
+        type: 'tween',
       };
 
-  // If stagger is enabled, we need to wrap children properly
+  // Stagger mode
   if (staggerDelay) {
-    // Convert children to array for proper iteration
     const childArray = Children.toArray(children);
     
     return (
@@ -135,12 +112,14 @@ export function Reveal({
         animate={inView ? 'visible' : 'hidden'}
         variants={containerVariants}
         className={className}
+        style={{ willChange: inView ? 'transform, opacity' : 'auto' }}
       >
         {childArray.map((child, index) => (
           <motion.div
             key={index}
             variants={itemVariants}
-            transition={transition}
+            transition={transition as any}
+            style={{ willChange: 'transform, opacity' }}
           >
             {child}
           </motion.div>
@@ -149,15 +128,16 @@ export function Reveal({
     );
   }
 
-  // No stagger - simple reveal
+  // Simple reveal mode
   return (
     <motion.div
       ref={ref}
       initial="hidden"
       animate={inView ? 'visible' : 'hidden'}
       variants={itemVariants}
-      transition={transition}
+      transition={transition as any}
       className={className}
+      style={{ willChange: inView ? 'transform, opacity' : 'auto' }}
     >
       {children}
     </motion.div>

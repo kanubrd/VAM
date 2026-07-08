@@ -67,7 +67,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={inter.variable}>
       <head>
         {/* Preload critical hero image only (first slide) */}
-        <link rel="preload" as="image" href="/hero-bg.webp" type="image/webp" />
+        <link rel="preload" as="image" href="/hero-bg-teal.png" type="image/png" />
 
         {/* Preconnect to critical font origin — eliminates connection latency */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />

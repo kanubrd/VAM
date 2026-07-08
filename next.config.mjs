@@ -117,7 +117,8 @@ const nextConfig = {
             value: [
               'camera=()', 'microphone=()', 'geolocation=()',
               'interest-cohort=()', 'payment=()', 'usb=()', 'bluetooth=()',
-              'autoplay=()', 'fullscreen=(self)',
+              'autoplay=()', 'fullscreen=(self)', 'accelerometer=()', 
+              'magnetometer=()', 'gyroscope=()', 'picture-in-picture=()',
             ].join(', '),
           },
           { key: 'Strict-Transport-Security',    value: 'max-age=63072000; includeSubDomains; preload' },
@@ -125,6 +126,7 @@ const nextConfig = {
           { key: 'Cross-Origin-Opener-Policy',   value: 'same-origin' },
           { key: 'Cross-Origin-Embedder-Policy', value: 'unsafe-none' },
           { key: 'Cross-Origin-Resource-Policy', value: 'same-site' },
+          { key: 'X-XSS-Protection',             value: '1; mode=block' },
         ],
       },
       // Aggressive caching for static assets (they are content-hashed by Next.js)

@@ -51,6 +51,13 @@ export function validateMessage(value: unknown): string | null {
   return null;
 }
 
+export function validateSubject(value: unknown): string | null {
+  if (value === undefined || value === null || value === '') return null; // optional
+  if (typeof value !== 'string') return 'Invalid subject.';
+  if (value.trim().length > 200) return 'Subject must be 200 characters or less.';
+  return null;
+}
+
 export function validateCompany(value: unknown): string | null {
   if (value === undefined || value === null || value === '') return null; // optional
   if (typeof value !== 'string') return 'Invalid company name.';

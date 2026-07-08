@@ -192,7 +192,7 @@ export function Navbar() {
               onMouseEnter={e => ((e.currentTarget as HTMLElement).style.background = '#0D7A8C')}
               onMouseLeave={e => ((e.currentTarget as HTMLElement).style.background = '#17A2B8')}
             >
-              Get a Quote
+              Contact Us Directly
             </Link>
           </div>
 
@@ -279,7 +279,7 @@ export function Navbar() {
               style={{ background: '#17A2B8' }}
               onClick={() => setMobileMenuOpen(false)}
             >
-              Get a Quote
+              Contact Us Directly
             </Link>
           </div>
         </div>

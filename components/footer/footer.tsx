@@ -76,13 +76,13 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-[#2C3E50] text-gray-300">
+    <footer className="bg-white text-gray-300">
       {/* Newsletter banner */}
-      <div className="border-b border-white/10">
+      <div className="border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 md:flex md:items-center md:justify-between gap-8">
           <div className="mb-5 md:mb-0">
-            <h3 className="text-lg sm:text-xl font-bold text-white mb-1">Stay Updated</h3>
-            <p className="text-sm text-gray-400">Get the latest updates on advanced materials and innovation.</p>
+            <h3 className="text-lg sm:text-xl font-bold text-[#2C3E50] mb-1">Stay Updated</h3>
+            <p className="text-sm text-gray-600">Get the latest updates on advanced materials and innovation.</p>
           </div>
           <div className="max-w-sm w-full">
             <form className="flex gap-2" onSubmit={handleSubscribe} noValidate>
@@ -103,7 +103,7 @@ export function Footer() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="flex-1 min-w-0 px-3 sm:px-4 py-2.5 text-sm rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#17A2B8]"
+                className="flex-1 min-w-0 px-3 sm:px-4 py-2.5 text-sm rounded-lg bg-gray-100 border border-gray-300 text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#17A2B8]"
               />
               <button
                 type="submit"
@@ -123,7 +123,7 @@ export function Footer() {
       </div>
 
       {/* Main footer */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 bg-[#2C3E50]">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10">
           {/* Brand column */}
           <div className="sm:col-span-2">
@@ -189,7 +189,7 @@ export function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/10">
+      <div className="border-t border-white/10 bg-[#2C3E50]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-gray-500 text-center sm:text-left">
             &copy; {new Date().getFullYear()} Valtrix Advance Material Pvt. Ltd. All rights reserved.

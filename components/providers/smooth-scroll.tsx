@@ -7,33 +7,33 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
-    // Ultra-smooth scroll configuration optimized for 60fps performance
+    // Ultra-smooth scroll configuration - butter-smooth experience
     const lenis = new Lenis({
-      // Reduced duration for snappier, more responsive feel
-      duration: 1.0,
-      // Apple-style easing: quick start, smooth deceleration
+      // Slower duration for silky smooth scrolling
+      duration: 1.2,
+      // Enhanced Apple-style easing with even smoother deceleration
       easing: (t: number) => {
-        // easeOutCubic for premium feel
-        return 1 - Math.pow(1 - t, 3);
+        // Custom easing: easeOutQuart for ultra-smooth feel
+        return 1 - Math.pow(1 - t, 4);
       },
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      // Optimized for desktop mouse/trackpad
-      wheelMultiplier: 1.0,
+      // Refined for buttery desktop scrolling
+      wheelMultiplier: 0.8,
       // Enhanced mobile touch scrolling
-      touchMultiplier: 2.0,
+      touchMultiplier: 1.8,
       // Prevent infinite scroll
       infinite: false,
       // Automatically handles passive listeners for better performance
       autoResize: true,
-      // Smooth lerp value for interpolation
-      lerp: 0.1,
+      // Smoother lerp value for ultra-smooth interpolation
+      lerp: 0.08,
     });
 
     lenisRef.current = lenis;
 
-    // High-performance RAF loop
+    // High-performance RAF loop with throttling
     let rafId: number;
     
     function raf(time: number) {
@@ -43,6 +43,25 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
     
     rafId = requestAnimationFrame(raf);
 
+    // Smooth scroll to anchors
+    const handleAnchorClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const anchor = target.closest('a[href^="#"]');
+      
+      if (anchor) {
+        const href = anchor.getAttribute('href');
+        if (href && href.startsWith('#') && href.length > 1) {
+          e.preventDefault();
+          const element = document.querySelector(href);
+          if (element) {
+            lenis.scrollTo(element as HTMLElement, { duration: 1.5, easing: (t: number) => 1 - Math.pow(1 - t, 4) });
+          }
+        }
+      }
+    };
+
+    document.addEventListener('click', handleAnchorClick);
+
     // Expose lenis globally for debugging
     if (typeof window !== 'undefined') {
       (window as any).lenis = lenis;
@@ -50,6 +69,7 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
 
     return () => {
       cancelAnimationFrame(rafId);
+      document.removeEventListener('click', handleAnchorClick);
       lenis.destroy();
       lenisRef.current = null;
       if (typeof window !== 'undefined') {
