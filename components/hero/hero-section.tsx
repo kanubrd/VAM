@@ -76,6 +76,7 @@ export function HeroSection() {
                 fetchPriority={slideIndex === 0 ? 'high' : 'low'}
                 quality={100}
                 sizes="100vw"
+                className="ken-burns"
                 style={{
                   objectFit: 'cover',
                   objectPosition: 'center',
@@ -201,11 +202,11 @@ export function HeroSection() {
                   whileHover={{ scale: 1.05, boxShadow: '0 0 32px rgba(23,162,184,0.45)' }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setIsQuoteOpen(true)}
-                  className="inline-flex items-center justify-center gap-3 px-12 py-5 font-bold text-white text-lg tracking-wide group min-h-[64px]"
+                  className="inline-flex items-center justify-center gap-3 px-12 py-5 font-bold text-white text-lg tracking-wide group min-h-[64px] btn-magnetic"
                   style={{ background: '#17A2B8', borderRadius: 0 }}
                 >
                   Explore Solutions
-                  <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight size={20} className="arrow-slide" />
                 </motion.button>
               </div>
             </motion.div>

@@ -104,10 +104,12 @@ export function Navbar() {
             isScrolled ? 'shadow-xl' : 'shadow-md',
           )}
           style={{
-            height: 72,
-            background: '#FFFFFF',
+            height: isScrolled ? 64 : 72,
+            background: isScrolled ? 'rgba(255, 255, 255, 0.98)' : '#FFFFFF',
+            backdropFilter: isScrolled ? 'blur(8px)' : 'none',
             borderBottom: '2px solid #E5E7EB',
             position: 'relative',
+            transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
           }}
         >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
@@ -122,10 +124,10 @@ export function Navbar() {
               sizes="(max-width: 768px) 800px, 1600px"
               className="w-auto"
               style={{ 
-                height: '130px',
-                maxHeight: '130px',
+                height: isScrolled ? '110px' : '130px',
+                maxHeight: isScrolled ? '110px' : '130px',
                 imageRendering: 'crisp-edges',
-                transition: 'all 0.3s ease',
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                 transformOrigin: 'center',
               }}
               priority
@@ -145,7 +147,7 @@ export function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="relative px-5 py-2 text-base font-bold tracking-wide group transition-colors duration-300 uppercase"
+                  className="relative px-5 py-2 text-base font-bold tracking-wide group transition-colors duration-300 uppercase nav-link-animated"
                   style={{
                     color: textColor,
                     letterSpacing: '0.02em',
