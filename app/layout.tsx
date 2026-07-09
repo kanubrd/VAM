@@ -81,8 +81,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className={`${inter.className} antialiased bg-white text-[#1A1A1A]`}>
         <WebVitalsProvider />
+        <Navbar />
         <SmoothScrollProvider>
-          <Navbar />
           <main>{children}</main>
           <Footer />
           <CookieConsent />

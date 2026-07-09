@@ -11,20 +11,20 @@ import Link from 'next/link';
 import { ArrowRight, ArrowLeft, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const productImages: Record<string, string> = {
-  'suscat-i':       '/suscat.avif',
-  'vamshield-90':   '/vamshield-90.avif',
-  'suspol-125':     '/suspol-125.avif',
-  'vam-rc-01':      '/vam-rc-01.avif',
-  'vam-bs-01':      '/vam-bs-01.avif',
+  'suscat-i':       '/suscat.png',
+  'vamshield-90':   '/vamshield-90-application.png',
+  'suspol-125':     '/hero-bg-teal.png',
+  'vam-rc-01':      '/hero-bg-teal.png',
+  'vam-bs-01':      '/hero-bg-teal.png',
 };
 
 // Product slider images - array of images for each product
 const productSliderImages: Record<string, string[]> = {
-  'suscat-i':       ['/suscat.avif', '/suscat-slider-2.avif'],
-  'vamshield-90':   ['/vamshield-90.avif', '/vamshield-90-application.png'],
-  'suspol-125':     ['/suspol-125.avif'],
-  'vam-rc-01':      ['/vam-rc-01.avif'],
-  'vam-bs-01':      ['/vam-bs-01.avif'],
+  'suscat-i':       ['/suscat.png', '/suscat-slider-2.png'],
+  'vamshield-90':   ['/vamshield-90-application.png'],
+  'suspol-125':     ['/hero-bg-teal.png'],
+  'vam-rc-01':      ['/hero-bg-teal.png'],
+  'vam-bs-01':      ['/hero-bg-teal.png'],
 };
 
 const productDetails: Record<string, { overview: string; specs: string[]; applications: string[] }> = {
@@ -217,7 +217,7 @@ function SolutionsContent() {
                       {/* Card image strip */}
                       <div className={`relative h-24 sm:h-28 overflow-hidden bg-white flex items-center justify-center`}>
                         <Image 
-                          src={productImages[solution.id]} 
+                          src={productImages[solution.id] || '/hero-bg-teal.png'} 
                           alt={solution.title}
                           width={256}
                           height={112}
@@ -300,7 +300,7 @@ function SolutionsContent() {
                             className="absolute inset-0"
                           >
                             <Image 
-                              src={activeSliderImages[productSlideIndex]} 
+                              src={activeSliderImages[productSlideIndex] || '/hero-bg-teal.png'} 
                               alt={`${activeSolution?.title} - Image ${productSlideIndex + 1}`}
                               fill
                               quality={100}

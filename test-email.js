@@ -1,109 +1,123 @@
-require('dotenv').config({ path: '.env.local' });
+/**
+ * Email SMTP Connection Test Utility
+ * Run this script to test if SMTP credentials are working
+ * 
+ * Usage: node test-email.js
+ */
+
 const nodemailer = require('nodemailer');
+require('dotenv').config({ path: '.env.local' });
 
-console.log('\n🔍 Testing SMTP Configuration...\n');
-console.log('═══════════════════════════════════════════════════════');
-console.log('SMTP_HOST:', process.env.SMTP_HOST);
-console.log('SMTP_PORT:', process.env.SMTP_PORT);
-console.log('SMTP_USER:', process.env.SMTP_USER);
-console.log('SMTP_PASS:', process.env.SMTP_PASS ? `${process.env.SMTP_PASS.substring(0, 4)}...` : '❌ NOT SET');
-console.log('COMPANY_EMAIL:', process.env.COMPANY_EMAIL || '❌ NOT SET');
-console.log('═══════════════════════════════════════════════════════\n');
+async function testSMTPConnection() {
+  console.log('\n🔍 Testing SMTP Configuration...\n');
+  
+  console.log('Configuration:');
+  console.log('- SMTP Host:', process.env.SMTP_HOST || 'smtp.gmail.com');
+  console.log('- SMTP Port:', process.env.SMTP_PORT || '587');
+  console.log('- SMTP User:', process.env.SMTP_USER || 'NOT SET');
+  console.log('- SMTP Pass:', process.env.SMTP_PASS ? '****' + process.env.SMTP_PASS.slice(-4) : 'NOT SET');
+  console.log('- Company Email:', process.env.COMPANY_EMAIL || 'NOT SET');
+  console.log('');
 
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: Number(process.env.SMTP_PORT),
-  secure: false,
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-  debug: true,
-  logger: true,
-});
-
-console.log('Step 1: Verifying SMTP connection...\n');
-
-transporter.verify((error, success) => {
-  if (error) {
-    console.error('\n❌ SMTP Connection Failed!\n');
-    console.error('Error:', error.message);
-    console.error('\n📋 Possible Solutions:');
-    console.error('1. Check if 2-Step Verification is enabled on Google Account');
-    console.error('2. Generate a new App Password');
-    console.error('3. Verify the password in .env.local is correct');
-    console.error('4. Try port 465 with secure: true');
-    console.error('\nSee EMAIL_TROUBLESHOOTING.md for detailed help.\n');
-    process.exit(1);
-  } else {
-    console.log('\n✅ SMTP Connection Successful!\n');
-    console.log('Step 2: Sending test email...\n');
-    
-    // Send test email
-    transporter.sendMail({
-      from: `"Valtrix Test" <${process.env.SMTP_USER}>`,
-      to: process.env.COMPANY_EMAIL || 'info@valtrixmaterials.com',
-      subject: '[Test] SMTP Configuration Test - Valtrix',
-      html: `
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <style>
-            body { font-family: Arial, sans-serif; padding: 20px; }
-            .success { background: #d4edda; border: 1px solid #c3e6cb; padding: 20px; border-radius: 8px; }
-            h1 { color: #155724; }
-            .info { background: #f8f9fa; padding: 15px; border-radius: 4px; margin-top: 15px; }
-          </style>
-        </head>
-        <body>
-          <div class="success">
-            <h1>✅ SMTP Test Successful!</h1>
-            <p>If you're reading this, your SMTP configuration is working correctly!</p>
-          </div>
-          
-          <div class="info">
-            <h3>Configuration Details:</h3>
-            <ul>
-              <li><strong>SMTP Host:</strong> ${process.env.SMTP_HOST}</li>
-              <li><strong>SMTP Port:</strong> ${process.env.SMTP_PORT}</li>
-              <li><strong>From:</strong> ${process.env.SMTP_USER}</li>
-              <li><strong>To:</strong> ${process.env.COMPANY_EMAIL || 'info@valtrixmaterials.com'}</li>
-              <li><strong>Time:</strong> ${new Date().toLocaleString()}</li>
-            </ul>
-          </div>
-          
-          <p style="margin-top: 20px; color: #666;">
-            <strong>Next Steps:</strong><br>
-            1. Check your inbox for this email<br>
-            2. If not in inbox, check spam/junk folder<br>
-            3. Test the contact and quote forms on your website<br>
-            4. Verify the new email format looks correct
-          </p>
-        </body>
-        </html>
-      `,
-    }, (err, info) => {
-      if (err) {
-        console.error('\n❌ Email Send Failed!\n');
-        console.error('Error:', err.message);
-        console.error('\n📋 Possible Issues:');
-        console.error('1. Gmail may have blocked the sign-in attempt');
-        console.error('2. Daily/hourly sending limit reached');
-        console.error('3. Account may be locked');
-        console.error('\nCheck your Gmail account for security alerts.\n');
-        process.exit(1);
-      } else {
-        console.log('\n✅ Test Email Sent Successfully!\n');
-        console.log('═══════════════════════════════════════════════════════');
-        console.log('Message ID:', info.messageId);
-        console.log('Response:', info.response);
-        console.log('═══════════════════════════════════════════════════════\n');
-        console.log('📧 Check your inbox at:', process.env.COMPANY_EMAIL || 'info@valtrixmaterials.com');
-        console.log('📁 If not in inbox, check spam/junk folder');
-        console.log('\n✅ SMTP is configured correctly!\n');
-        console.log('You can now test the forms on your website.');
-        console.log('Visit: http://localhost:3000/contact\n');
-      }
-    });
+  if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
+    console.error('❌ ERROR: SMTP_USER or SMTP_PASS not configured in .env.local');
+    console.log('\n📝 TO FIX:');
+    console.log('1. Open .env.local file');
+    console.log('2. Set SMTP_USER to your Gmail address');
+    console.log('3. Generate a Gmail App Password:');
+    console.log('   - Go to https://myaccount.google.com/apppasswords');
+    console.log('   - Select "Mail" and "Other (Custom name)"');
+    console.log('   - Name it "Valtrix Website"');
+    console.log('   - Copy the generated 16-character password');
+    console.log('4. Set SMTP_PASS to the app password (no spaces)');
+    return;
   }
-});
+
+  const transporter = nodemailer.createTransport({
+    host: process.env.SMTP_HOST || 'smtp.gmail.com',
+    port: Number(process.env.SMTP_PORT) || 587,
+    secure: false, // true for 465, false for other ports
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
+    },
+    tls: {
+      rejectUnauthorized: true,
+    },
+  });
+
+  try {
+    console.log('⏳ Verifying SMTP connection...');
+    await transporter.verify();
+    console.log('✅ SMTP connection successful!\n');
+
+    // Try sending a test email
+    console.log('⏳ Sending test email...');
+    const info = await transporter.sendMail({
+      from: `"Valtrix Test" <${process.env.SMTP_USER}>`,
+      to: process.env.COMPANY_EMAIL || process.env.SMTP_USER,
+      subject: 'Test Email from Valtrix Website',
+      html: `
+        <div style="font-family: Arial, sans-serif; padding: 20px;">
+          <h2 style="color: #17A2B8;">✅ Email Configuration Test</h2>
+          <p>This is a test email from your Valtrix website.</p>
+          <p><strong>If you received this email, your SMTP configuration is working correctly!</strong></p>
+          <hr>
+          <p style="color: #666; font-size: 12px;">
+            Sent at: ${new Date().toLocaleString()}<br>
+            From: ${process.env.SMTP_USER}<br>
+            To: ${process.env.COMPANY_EMAIL || process.env.SMTP_USER}
+          </p>
+        </div>
+      `,
+    });
+
+    console.log('✅ Test email sent successfully!');
+    console.log('📬 Message ID:', info.messageId);
+    console.log('\n✨ Email system is working properly!');
+    console.log('Check your inbox at:', process.env.COMPANY_EMAIL || process.env.SMTP_USER);
+    
+  } catch (error) {
+    console.error('\n❌ SMTP Connection Error:', error.message);
+    console.log('\n📝 TROUBLESHOOTING STEPS:\n');
+    
+    if (error.message.includes('Invalid login')) {
+      console.log('❌ Authentication Failed - Invalid credentials');
+      console.log('\n🔧 SOLUTION:');
+      console.log('1. Verify SMTP_USER is correct');
+      console.log('2. Generate a NEW Gmail App Password:');
+      console.log('   - Go to: https://myaccount.google.com/apppasswords');
+      console.log('   - You may need to enable 2-Factor Authentication first');
+      console.log('   - Select "Mail" and "Other (Custom name)"');
+      console.log('   - Copy the 16-character password (no spaces)');
+      console.log('3. Update SMTP_PASS in .env.local with the new app password');
+      console.log('4. Restart your development server');
+    } else if (error.message.includes('ECONNREFUSED')) {
+      console.log('❌ Connection Refused - Cannot reach SMTP server');
+      console.log('\n🔧 SOLUTION:');
+      console.log('1. Check your internet connection');
+      console.log('2. Verify firewall is not blocking port 587');
+      console.log('3. Try changing SMTP_PORT to 465 and set secure: true');
+    } else if (error.message.includes('ETIMEDOUT')) {
+      console.log('❌ Connection Timeout - SMTP server not responding');
+      console.log('\n🔧 SOLUTION:');
+      console.log('1. Check your internet connection');
+      console.log('2. Try using a different network');
+      console.log('3. Contact your ISP if port 587 is blocked');
+    } else {
+      console.log('❌ Unknown Error');
+      console.log('\n🔧 GENERAL SOLUTIONS:');
+      console.log('1. Check .env.local file exists and has correct values');
+      console.log('2. Restart development server after changing .env.local');
+      console.log('3. Verify Gmail account has "Less secure app access" disabled');
+      console.log('4. Use App Password instead of regular password');
+      console.log('5. Check Gmail account is not locked or suspended');
+    }
+    
+    console.log('\n📧 Need help? Email configuration docs:');
+    console.log('https://nodemailer.com/usage/using-gmail/');
+  }
+}
+
+// Run the test
+testSMTPConnection().catch(console.error);

@@ -123,8 +123,9 @@ export function Footer() {
       </div>
 
       {/* Main footer */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 bg-[#2C3E50]">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10">
+      <div className="bg-[#2C3E50]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10">
           {/* Brand column */}
           <div className="sm:col-span-2">
             <Link href="/" className="inline-block mb-5">
@@ -187,9 +188,10 @@ export function Footer() {
           ))}
         </div>
       </div>
+      </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/10 bg-[#2C3E50]">
+      <div className="bg-[#2C3E50] border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-gray-500 text-center sm:text-left">
             &copy; {new Date().getFullYear()} Valtrix Advance Material Pvt. Ltd. All rights reserved.

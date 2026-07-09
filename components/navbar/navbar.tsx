@@ -56,86 +56,81 @@ export function Navbar() {
 
   return (
     <>
-      {/* ── Top utility bar ── */}
-      <div
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-        style={{ 
-          background: '#1A2B3C',
-          backdropFilter: 'none',
-          WebkitBackdropFilter: 'none',
-        }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center"
-          style={{ height: 36 }}>
-          <div className="flex items-center gap-6">
-            <a
-              href="tel:+919898123983"
-              className="flex items-center gap-1.5 text-xs transition-colors"
-              style={{ color: 'rgba(255,255,255,0.7)' }}
-              onMouseEnter={e => (e.currentTarget.style.color = '#17A2B8')}
-              onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.7)')}
-            >
-              <Phone size={11} />
-              <span>+91 98981 23983</span>
-            </a>
-            <a
-              href="mailto:info@valtrixmaterials.com"
-              className="hidden md:flex items-center gap-1.5 text-xs transition-colors"
-              style={{ color: 'rgba(255,255,255,0.7)' }}
-              onMouseEnter={e => (e.currentTarget.style.color = '#17A2B8')}
-              onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.7)')}
-            >
-              <Mail size={11} />
-              <span>info@valtrixmaterials.com</span>
-            </a>
+      {/* ── Header Container with both utility bar and navbar ── */}
+      <header className="fixed top-0 left-0 right-0 z-50" style={{ position: 'fixed', transform: 'none' }}>
+        {/* ── Top utility bar ── */}
+        <div
+          className="transition-all duration-300"
+          style={{ 
+            background: '#1A2B3C',
+            borderBottom: '1px solid rgba(255,255,255,0.1)',
+            position: 'relative',
+          }}
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center"
+            style={{ height: 36 }}>
+            <div className="flex items-center gap-6">
+              <a
+                href="tel:+919898123983"
+                className="flex items-center gap-1.5 text-xs transition-colors"
+                style={{ color: 'rgba(255,255,255,0.7)' }}
+                onMouseEnter={e => (e.currentTarget.style.color = '#17A2B8')}
+                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.7)')}
+              >
+                <Phone size={11} />
+                <span>+91 98981 23983</span>
+              </a>
+              <a
+                href="mailto:info@valtrixmaterials.com"
+                className="hidden md:flex items-center gap-1.5 text-xs transition-colors"
+                style={{ color: 'rgba(255,255,255,0.7)' }}
+                onMouseEnter={e => (e.currentTarget.style.color = '#17A2B8')}
+                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.7)')}
+              >
+                <Mail size={11} />
+                <span>info@valtrixmaterials.com</span>
+              </a>
+            </div>
+            <span className="text-xs hidden sm:block" style={{ color: 'rgba(255,255,255,0.5)' }}>
+              ISO Certified&nbsp;&nbsp;·&nbsp;&nbsp;Valtrix Advance Material Pvt. Ltd
+            </span>
           </div>
-          <span className="text-xs hidden sm:block" style={{ color: 'rgba(255,255,255,0.5)' }}>
-            ISO Certified&nbsp;&nbsp;·&nbsp;&nbsp;Valtrix Advance Material Pvt. Ltd
-          </span>
         </div>
-      </div>
 
-      {/* ── Main navbar ── */}
-      <nav
-        className={cn(
-          'fixed left-0 right-0 z-50 transition-all duration-300',
-          isScrolled ? 'shadow-lg' : 'shadow-none',
-        )}
-        style={{
-          top: 36,
-          height: 72,
-          background: 'transparent',
-          backdropFilter: 'none',
-          WebkitBackdropFilter: 'none',
-          borderBottom: 'none',
-        }}
-      >
+        {/* ── Main navbar ── */}
+        <nav
+          className={cn(
+            'transition-all duration-300',
+            isScrolled ? 'shadow-xl' : 'shadow-md',
+          )}
+          style={{
+            height: 72,
+            background: '#FFFFFF',
+            borderBottom: '2px solid #E5E7EB',
+            position: 'relative',
+          }}
+        >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
 
-          {/* Logo — transparent bg, proper sizing */}
+          {/* Logo — Ultra HD clean rendering */}
           <Link href="/" className="flex items-center shrink-0 py-2">
             <Image
               src="/valtrix-logo-teal.png"
               alt="VAM VALTRIX"
               width={30720}
               height={9600}
-              sizes="(max-width: 768px) 450px, 700px"
+              sizes="(max-width: 768px) 800px, 1600px"
               className="w-auto"
               style={{ 
-                height: 115,
-                imageRendering: '-webkit-optimize-contrast',
-                WebkitFontSmoothing: 'antialiased',
-                MozOsxFontSmoothing: 'grayscale',
-                backfaceVisibility: 'hidden',
-                transform: 'translateZ(0) scale(1)',
-                filter: 'contrast(1.35) brightness(1.15) saturate(1.25) drop-shadow(0 1px 2px rgba(0,0,0,0.1))',
-                WebkitFilter: 'contrast(1.35) brightness(1.15) saturate(1.25) drop-shadow(0 1px 2px rgba(0,0,0,0.1))',
-                imageResolution: '1200dpi',
+                height: '130px',
+                maxHeight: '130px',
+                imageRendering: 'crisp-edges',
                 transition: 'all 0.3s ease',
+                transformOrigin: 'center',
               }}
               priority
               quality={100}
-              unoptimized={false}
+              unoptimized={true}
             />
           </Link>
 
@@ -143,7 +138,7 @@ export function Navbar() {
           <div className="hidden md:flex items-center gap-1">
             {navItems.map((item) => {
               const isActive = pathname === item.href;
-              const textColor = '#000000';
+              const textColor = '#2C3E50';
               const hoverColor = '#17A2B8';
               
               return (
@@ -154,7 +149,6 @@ export function Navbar() {
                   style={{
                     color: textColor,
                     letterSpacing: '0.02em',
-                    textShadow: '0 1px 3px rgba(255,255,255,0.8)',
                   }}
                   onMouseEnter={e => {
                     if (!isActive) (e.currentTarget as HTMLElement).style.color = hoverColor;
@@ -168,7 +162,7 @@ export function Navbar() {
                   <span
                     className="absolute bottom-0 left-5 right-5 transition-transform duration-250 origin-left"
                     style={{
-                      height: 1.5,
+                      height: 2,
                       background: '#17A2B8',
                       transform: isActive ? 'scaleX(1)' : 'scaleX(0)',
                       display: 'block',
@@ -192,7 +186,7 @@ export function Navbar() {
               onMouseEnter={e => ((e.currentTarget as HTMLElement).style.background = '#0D7A8C')}
               onMouseLeave={e => ((e.currentTarget as HTMLElement).style.background = '#17A2B8')}
             >
-              Contact Us Directly
+              Contact Us
             </Link>
           </div>
 
@@ -200,14 +194,14 @@ export function Navbar() {
           <button
             className="md:hidden p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg transition-colors"
             style={{ 
-              color: '#000000',
-              background: 'rgba(255,255,255,0.3)',
+              color: '#2C3E50',
+              background: '#F3F4F6',
             }}
             onMouseEnter={e => {
-              (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.5)';
+              (e.currentTarget as HTMLElement).style.background = '#E5E7EB';
             }}
             onMouseLeave={e => {
-              (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.3)';
+              (e.currentTarget as HTMLElement).style.background = '#F3F4F6';
             }}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
@@ -220,13 +214,18 @@ export function Navbar() {
         {/* Scroll progress bar */}
         <div
           style={{
-            height: 2,
-            background: '#17A2B8',
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            height: 3,
+            background: 'linear-gradient(90deg, #17A2B8 0%, #0D7A8C 100%)',
             width: `${scrollProgress}%`,
             transition: 'width 150ms linear',
+            boxShadow: '0 0 8px rgba(23,162,184,0.5)',
           }}
         />
       </nav>
+      </header>
 
       {/* Mobile menu overlay */}
       {mobileMenuOpen && (
@@ -279,7 +278,7 @@ export function Navbar() {
               style={{ background: '#17A2B8' }}
               onClick={() => setMobileMenuOpen(false)}
             >
-              Contact Us Directly
+              Contact Us
             </Link>
           </div>
         </div>

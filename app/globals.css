@@ -78,10 +78,6 @@
   }
 
   html {
-    /* Hardware acceleration for ultra-smooth scrolling */
-    transform: translate3d(0, 0, 0);
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
     /* Momentum scrolling on iOS */
     -webkit-overflow-scrolling: touch;
     /* Prevent font size inflation on mobile */
@@ -104,18 +100,10 @@
     text-rendering: optimizeLegibility;
     /* Prevent horizontal overflow */
     overflow-x: hidden;
-    /* GPU-composite for scroll performance */
-    transform: translate3d(0, 0, 0);
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    /* Optimize repaints */
-    will-change: auto;
   }
 
   /* Optimize all sections for scroll performance */
   main {
-    transform: translate3d(0, 0, 0);
-    backface-visibility: hidden;
     contain: layout style;
   }
 

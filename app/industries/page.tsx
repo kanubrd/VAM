@@ -12,39 +12,28 @@ const industries = [
     description: 'Reliable specialty chemical solutions engineered for automotive manufacturing and diverse industrial applications.',
     image: '/automotive-category.avif',
     href: '/industries/automotive',
-    solutions: [
-      { name: 'Rust Converter', product: 'Vam RC 01' },
-      { name: 'Polyols', product: 'Polyurethane Building Blocks' },
-    ],
+    solutions: [],
   },
   {
     title: 'Metal Working Fluids & Lubricants',
     description: 'High-performance lubricants and metalworking solutions designed to improve machining efficiency, reduce wear, and extend equipment life.',
     image: '/metalworking-category.avif',
     href: '/industries/metalworking',
-    solutions: [
-      { name: 'Corrosion Inhibitor', product: 'Vamshied 90' },
-      { name: 'Ether Carboxylate', product: 'Product name to be decided' },
-    ],
+    solutions: [],
   },
   {
     title: 'Electroplating & Brighteners',
     description: 'Advanced electroplating chemicals and brighteners that enhance coating quality, corrosion resistance, and surface appearance.',
     image: '/electroplating-category.avif',
     href: '/industries/electroplating',
-    solutions: [
-      { name: 'Levelling Agent', product: 'SusCat-I' },
-    ],
+    solutions: [],
   },
   {
     title: 'Surface Treatment',
     description: 'Specialized surface treatment technologies that improve adhesion, durability, and protection for industrial components.',
     image: '/surface-treatment-category.avif',
     href: '/industries/surface-treatment',
-    solutions: [
-      { name: 'Silanes', product: 'Amino Silanes and Epoxy Silanes' },
-      { name: 'Binders for TOC', product: 'Product name to be decided' },
-    ],
+    solutions: [],
   },
 ];
 

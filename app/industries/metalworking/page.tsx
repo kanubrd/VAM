@@ -55,7 +55,7 @@ export default function MetalworkingPage() {
   return (
     <div key="metalworking-page-v2-enhanced">
       {/* Hero Section */}
-      <section className="relative w-full bg-white">
+      <section className="relative w-full bg-white" style={{ marginTop: '108px', boxShadow: 'inset 0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}>
         {/* Hero Image */}
         <div className="relative w-full h-[60vh] min-h-[500px] overflow-hidden">
           <Image

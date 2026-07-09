@@ -55,31 +55,31 @@ export default function SurfaceTreatmentPage() {
     {
       name: 'Phosphate Conversion Coatings',
       description: 'Crystalline coatings that provide excellent paint adhesion and corrosion resistance',
-      image: 'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=600&q=80',
+      image: '/phosphate-conversion-coatings.png',
     },
     {
       name: 'Silane Pre-Treatment',
       description: 'Chrome-free surface treatment for superior adhesion and environmental compliance',
-      image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80',
+      image: '/silane-pre-treatment.png',
     },
     {
       name: 'Anodizing Solutions',
       description: 'Electrochemical processes for enhanced aluminum surface properties and appearance',
-      image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&q=80',
+      image: '/anodizing-solutions.png',
     },
   ];
 
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative w-full bg-white">
+      <section className="relative w-full bg-white" style={{ marginTop: '108px', boxShadow: 'inset 0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}>
         {/* Hero Image */}
-        <div className="relative w-full h-[50vh] min-h-[400px] overflow-hidden">
+        <div className="relative w-full h-[60vh] min-h-[500px] overflow-hidden">
           <Image
-            src="/surface-treatment-hero.png"
-            alt="Surface Treatment - Technician spray coating metal components"
+            src="/surface-treatment-hero-new.png"
+            alt="Surface Treatment Technology - Professional scientist working with coating samples and surface treatment processes"
             fill
-            className="object-cover object-center"
+            className="object-contain object-center"
             priority
             quality={90}
             sizes="100vw"
@@ -139,11 +139,11 @@ export default function SurfaceTreatmentPage() {
                 <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
                   <div className="relative h-48 overflow-hidden">
                     <Image
-                      src={`https://images.unsplash.com/photo-${
-                        idx === 0 ? '1581092795360-fd1ca04f0952' : 
-                        idx === 1 ? '1581094271901-8022df4466f9' : 
-                        '1504328345606-18bbc8c9d7d1'
-                      }?w=600&q=80`}
+                      src={
+                        idx === 0 ? '/pre-treatment-systems.png' :
+                        idx === 1 ? '/adhesion-promotion.png' :
+                        '/protective-coatings.png'
+                      }
                       alt={app.title}
                       fill
                       className="object-cover"

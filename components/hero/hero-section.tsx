@@ -47,10 +47,11 @@ export function HeroSection() {
         <div
           style={{
             width: '100%',
-            height: 'calc(clamp(300px, 45vw, 560px) + 108px)',
-            marginTop: '0',
+            height: 'clamp(300px, 45vw, 560px)',
+            marginTop: '108px',
             position: 'relative',
             overflow: 'hidden',
+            boxShadow: 'inset 0 4px 6px -1px rgba(0, 0, 0, 0.1)',
           }}
         >
           <AnimatePresence mode="sync">
