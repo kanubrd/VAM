@@ -6,7 +6,20 @@ import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-const industries = [
+type Solution = {
+  name: string;
+  product: string;
+};
+
+type Industry = {
+  title: string;
+  description: string;
+  image: string;
+  href: string;
+  solutions: Solution[];
+};
+
+const industries: Industry[] = [
   {
     title: 'Automotive & General Industries',
     description: 'Reliable specialty chemical solutions engineered for automotive manufacturing and diverse industrial applications.',
@@ -113,18 +126,20 @@ export default function IndustriesPage() {
                     </p>
                     
                     {/* Solutions List */}
-                    <div className="space-y-2 mb-4">
-                      {industry.solutions.map((solution, sIdx) => (
-                        <div key={sIdx} className="flex flex-col">
-                          <span className="text-sm font-semibold text-[#17A2B8]">
-                            {solution.name}
-                          </span>
-                          <span className="text-sm text-gray-300">
-                            {solution.product}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
+                    {industry.solutions.length > 0 && (
+                      <div className="space-y-2 mb-4">
+                        {industry.solutions.map((solution, sIdx) => (
+                          <div key={sIdx} className="flex flex-col">
+                            <span className="text-sm font-semibold text-[#17A2B8]">
+                              {solution.name}
+                            </span>
+                            <span className="text-sm text-gray-300">
+                              {solution.product}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
 
                   {/* Arrow Icon - Clickable Button */}
