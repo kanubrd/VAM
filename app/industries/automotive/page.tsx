@@ -62,62 +62,54 @@ export default function AutomotivePage() {
     {
       name: 'OEM Automotive',
       description: 'Advanced coating systems and specialty chemicals for original equipment manufacturers',
-      image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=600&q=80',
+      image: '/oem-automotive.png',
     },
     {
       name: 'Aftermarket Solutions',
       description: 'Professional-grade products including High Build Coatings for repair shops, body shops, and DIY applications',
-      image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&q=80',
+      image: '/aftermarket-solutions.png',
     },
     {
       name: 'Heavy Equipment',
       description: 'Durable protective coatings for construction and agricultural machinery',
-      image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80',
+      image: '/heavy-equipment.png',
     },
   ];
 
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative w-full h-[50vh] min-h-[400px] overflow-hidden bg-gray-900">
-        <div className="absolute inset-0">
+      <section className="relative w-full bg-white">
+        {/* Hero Image */}
+        <div className="relative w-full h-[60vh] min-h-[500px] overflow-hidden">
           <Image
-            src="/automotive-hero.avif"
-            alt="Automotive Industry"
+            src="/automotive-hero.png"
+            alt="Automotive & Industrial Solutions - Transparent vehicle and automotive components"
             fill
-            className="object-cover object-center"
+            className="object-contain object-center"
             priority
-            quality={90}
+            quality={100}
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/70" />
         </div>
 
-        <div className="relative h-full flex items-center px-4">
-          <div className="max-w-7xl mx-auto w-full">
-            <Link
-              href="/industries"
-              className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              <span className="text-sm">Back to Industries</span>
-            </Link>
+        {/* Spacing Section */}
+        <div className="w-full h-16 bg-white"></div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <span className="inline-block text-sm font-semibold text-[#17A2B8] uppercase tracking-wider mb-4">
+        {/* Text Content */}
+        <div className="pb-12 px-4 bg-white">
+          <div className="max-w-7xl mx-auto">
+            <div>
+              <span className="inline-block text-sm font-semibold text-[#17A2B8] uppercase tracking-wider mb-3">
                 AUTOMOTIVE & INDUSTRIAL SOLUTIONS
               </span>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#2C3E50] mb-3 leading-tight">
                 Automotive & General Industries
               </h1>
-              <p className="text-xl text-gray-200 max-w-3xl">
+              <p className="text-base sm:text-lg text-gray-700 max-w-3xl leading-relaxed">
                 Reliable specialty chemical solutions engineered for automotive manufacturing and diverse industrial applications
               </p>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -160,11 +152,11 @@ export default function AutomotivePage() {
                 <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
                   <div className="relative h-48 overflow-hidden">
                     <Image
-                      src={`https://images.unsplash.com/photo-${
-                        idx === 0 ? '1492144534655-ae79c964c9d7' : 
-                        idx === 1 ? '1581094794329-c8112a89af12' : 
-                        '1504328345606-18bbc8c9d7d1'
-                      }?w=600&q=80`}
+                      src={
+                        idx === 0 ? '/automotive-manufacturing.png' : 
+                        idx === 1 ? '/maintenance-repair.png' :
+                        '/general-industrial.png'
+                      }
                       alt={app.title}
                       fill
                       className="object-cover"

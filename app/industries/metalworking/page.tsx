@@ -55,45 +55,34 @@ export default function MetalworkingPage() {
   return (
     <div key="metalworking-page-v2-enhanced">
       {/* Hero Section */}
-      <section className="relative w-full h-[50vh] min-h-[400px] overflow-hidden bg-gray-900">
-        <div className="absolute inset-0">
+      <section className="relative w-full bg-white">
+        {/* Hero Image */}
+        <div className="relative w-full h-[60vh] min-h-[500px] overflow-hidden">
           <Image
-            src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1920&q=80"
-            alt="Metal Working Fluids"
+            src="/metalworking-hero.png"
+            alt="Metal Working Fluids - Technician with laboratory equipment and metalworking components"
             fill
-            className="object-cover object-center"
+            className="object-contain object-center"
             priority
-            quality={90}
+            quality={100}
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/70" />
         </div>
 
-        <div className="relative h-full flex items-center px-4">
-          <div className="max-w-7xl mx-auto w-full">
-            <Link
-              href="/industries"
-              className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              <span className="text-sm">Back to Industries</span>
-            </Link>
+        {/* Spacing Section */}
+        <div className="w-full h-16 bg-white"></div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <span className="inline-block text-sm font-semibold text-[#17A2B8] uppercase tracking-wider mb-4">
-                METALWORKING SOLUTIONS
-              </span>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
+        {/* Text Content */}
+        <div className="pb-12 px-4 bg-white">
+          <div className="max-w-7xl mx-auto">
+            <div>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#2C3E50] mb-3 leading-tight">
                 Metal Working Fluids & Lubricants
               </h1>
-              <p className="text-xl text-gray-200 max-w-3xl">
+              <p className="text-base sm:text-lg text-gray-700 max-w-3xl leading-relaxed">
                 High-performance specialty chemicals designed to improve machining efficiency, reduce wear, and extend equipment life
               </p>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -132,30 +121,28 @@ export default function MetalworkingPage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {applications.map((app, idx) => (
-              <Reveal key={idx} direction="up" delay={idx * 0.1}>
-                <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
-                  <div className="relative h-48 overflow-hidden">
-                    <Image
-                      src={`https://images.unsplash.com/photo-${
-                        idx === 0 ? '1504328345606-18bbc8c9d7d1' : 
-                        idx === 1 ? '1581094794329-c8112a89af12' : 
-                        '1581094271901-8022df4466f9'
-                      }?w=600&q=80`}
-                      alt={app.title}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                    />
-                  </div>
-                  <div className="p-8">
-                    <div className="w-14 h-14 rounded-full bg-[#17A2B8]/10 flex items-center justify-center mb-6">
-                      <app.icon className="w-7 h-7 text-[#17A2B8]" />
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">{app.title}</h3>
-                    <p className="text-gray-600">{app.description}</p>
-                  </div>
+              <div key={idx} className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src={
+                      idx === 0 ? '/cutting-machining.png' : 
+                      idx === 1 ? '/grinding-operations.png' : 
+                      '/metal-forming.png'
+                    }
+                    alt={app.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
                 </div>
-              </Reveal>
+                <div className="p-8">
+                  <div className="w-14 h-14 rounded-full bg-[#17A2B8]/10 flex items-center justify-center mb-6">
+                    <app.icon className="w-7 h-7 text-[#17A2B8]" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{app.title}</h3>
+                  <p className="text-gray-600">{app.description}</p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -178,17 +165,17 @@ export default function MetalworkingPage() {
               {
                 name: 'Soluble Oils',
                 description: 'Balanced emulsions for general machining with excellent cooling and lubrication properties',
-                image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80',
+                image: '/soluble-oils.png',
               },
               {
                 name: 'Semi-Synthetic Fluids',
                 description: 'Hybrid formulations combining mineral oil and synthetic components for enhanced performance',
-                image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&q=80',
+                image: '/semi-synthetic-fluids.png',
               },
               {
                 name: 'Synthetic Fluids',
                 description: 'Oil-free solutions offering superior cooling, cleanliness, and extended sump life',
-                image: 'https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=600&q=80',
+                image: '/synthetic-fluids.png',
               },
             ].map((type, idx) => (
               <Reveal key={idx} direction="up" delay={idx * 0.1}>

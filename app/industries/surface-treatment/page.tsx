@@ -72,45 +72,37 @@ export default function SurfaceTreatmentPage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative w-full h-[50vh] min-h-[400px] overflow-hidden bg-gray-900">
-        <div className="absolute inset-0">
+      <section className="relative w-full bg-white">
+        {/* Hero Image */}
+        <div className="relative w-full h-[50vh] min-h-[400px] overflow-hidden">
           <Image
-            src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=1920&q=80"
-            alt="Surface Treatment"
+            src="/surface-treatment-hero.png"
+            alt="Surface Treatment - Technician spray coating metal components"
             fill
             className="object-cover object-center"
             priority
             quality={90}
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/70" />
         </div>
 
-        <div className="relative h-full flex items-center px-4">
-          <div className="max-w-7xl mx-auto w-full">
-            <Link
-              href="/industries"
-              className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              <span className="text-sm">Back to Industries</span>
-            </Link>
+        {/* Spacing Section */}
+        <div className="w-full h-16 bg-white"></div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <span className="inline-block text-sm font-semibold text-[#17A2B8] uppercase tracking-wider mb-4">
+        {/* Text Content */}
+        <div className="pb-12 px-4 bg-white">
+          <div className="max-w-7xl mx-auto">
+            <div>
+              <span className="inline-block text-sm font-semibold text-[#17A2B8] uppercase tracking-wider mb-3">
                 SURFACE TREATMENT SOLUTIONS
               </span>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#2C3E50] mb-3 leading-tight">
                 Surface Treatment Technology
               </h1>
-              <p className="text-xl text-gray-200 max-w-3xl">
+              <p className="text-base sm:text-lg text-gray-700 max-w-3xl leading-relaxed">
                 Specialized chemistry for superior surface preparation, adhesion promotion, and protective coatings
               </p>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>

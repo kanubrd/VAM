@@ -144,38 +144,6 @@ export function HeroSection() {
             ))}
           </div>
 
-          {/* Bottom-left tagline */}
-          <div
-            style={{
-              position: 'absolute',
-              bottom: 40,
-              left: 32,
-              zIndex: 10,
-              maxWidth: 420,
-              marginTop: 108, // Account for header space
-            }}
-          >
-            <div style={{
-              background: 'rgba(23,162,184,0.15)',
-              backdropFilter: 'blur(8px)',
-              WebkitBackdropFilter: 'blur(8px)',
-              borderLeft: '3px solid #17A2B8',
-              padding: '12px 20px',
-            }}>
-              <p style={{
-                margin: 0,
-                fontSize: 'clamp(0.85rem, 1.5vw, 1.1rem)',
-                fontWeight: 600,
-                color: '#ffffff',
-                letterSpacing: '0.01em',
-                lineHeight: 1.4,
-                textShadow: '0 1px 4px rgba(0,0,0,0.4)',
-              }}>
-                Valtrix Advanced Materials
-              </p>
-            </div>
-          </div>
-
           {/* Bottom gradient fade */}
           <div
             style={{
