@@ -110,6 +110,7 @@ export default function IndustriesPage() {
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
                     quality={85}
+                    loading="lazy"
                   />
                   {/* Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />

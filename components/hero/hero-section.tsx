@@ -94,15 +94,16 @@ export function HeroSection() {
             </motion.div>
           </AnimatePresence>
 
-          {/* Prev / Next arrows */}
+          {/* Prev / Next arrows - hidden on mobile, shown on sm+ */}
           <button
             onClick={prevSlide}
             aria-label="Previous slide"
+            className="hidden sm:flex"
             style={{
               position: 'absolute', left: 16, top: '50%', transform: 'translateY(-50%)',
               width: 40, height: 40, borderRadius: '50%',
               background: 'rgba(255,255,255,0.85)', border: 'none',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              alignItems: 'center', justifyContent: 'center',
               cursor: 'pointer', zIndex: 10, boxShadow: '0 2px 8px rgba(0,0,0,0.12)',
             }}
           >
@@ -111,11 +112,12 @@ export function HeroSection() {
           <button
             onClick={nextSlide}
             aria-label="Next slide"
+            className="hidden sm:flex"
             style={{
               position: 'absolute', right: 16, top: '50%', transform: 'translateY(-50%)',
               width: 40, height: 40, borderRadius: '50%',
               background: 'rgba(255,255,255,0.85)', border: 'none',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              alignItems: 'center', justifyContent: 'center',
               cursor: 'pointer', zIndex: 10, boxShadow: '0 2px 8px rgba(0,0,0,0.12)',
             }}
           >

@@ -1,14 +1,41 @@
-'use client';
+import { Metadata } from 'next';
+import SolutionsContent from './solutions-content';
 
-import { useState, useEffect, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
-import { Section, SectionTitle } from '@/components/ui/section';
-import { Reveal } from '@/components/animations/reveal';
-import { solutions } from '@/data/solutions';
-import Link from 'next/link';
-import { ArrowRight, ArrowLeft, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react';
+export const metadata: Metadata = {
+  title: 'Industrial Solutions & Specialty Chemicals',
+  description: 'Explore our comprehensive range of industrial solutions: SusCat-I polymer, VAMShield-90 corrosion inhibitor, SusPol-125 bio-polyol & more. Advanced materials for metalworking, electroplating & surface treatment.',
+  keywords: [
+    'industrial solutions',
+    'specialty chemicals',
+    'suscat-i polymer',
+    'vamshield-90 inhibitor',
+    'suspol-125 polyol',
+    'metalworking chemicals',
+    'corrosion inhibitors',
+    'electroplating solutions'
+  ],
+  openGraph: {
+    title: 'Industrial Solutions & Specialty Chemicals | VAM VALTRIX',
+    description: 'Advanced materials for metalworking, electroplating & surface treatment. SusCat-I, VAMShield-90, SusPol-125 & more industrial solutions.',
+    url: 'https://vamvaltrix.com/solutions',
+    type: 'website',
+    images: [
+      {
+        url: 'https://vamvaltrix.com/suscat.png',
+        width: 800,
+        height: 600,
+        alt: 'VAM VALTRIX Industrial Solutions & Specialty Chemicals',
+      },
+    ],
+  },
+  alternates: {
+    canonical: 'https://vamvaltrix.com/solutions',
+  },
+};
+
+export default function SolutionsPage() {
+  return <SolutionsContent />;
+}
 
 const productImages: Record<string, string> = {
   'suscat-i':       '/suscat.png',
@@ -25,6 +52,26 @@ const productSliderImages: Record<string, string[]> = {
   'suspol-125':     ['/hero-bg-teal.png'],
   'vam-rc-01':      ['/hero-bg-teal.png'],
   'vam-bs-01':      ['/hero-bg-teal.png'],
+};
+
+// Product slider image alt text - descriptive text for each image
+const productSliderAltText: Record<string, string[]> = {
+  'suscat-i':       [
+    'SusCat-I Cationic Polymer product packaging bottle',
+    'SusCat-I industrial application in electroplating and metalworking fluids'
+  ],
+  'vamshield-90':   [
+    'VAMShield-90 ash-free corrosion inhibitor white powder product'
+  ],
+  'suspol-125':     [
+    'SusPol-125 bio-based castor oil polyol for sustainable coatings'
+  ],
+  'vam-rc-01':      [
+    'VAM RC-01 rust converter milky white liquid for corrosion prevention'
+  ],
+  'vam-bs-01':      [
+    'VAM BS-01 personal care additive for cosmetic formulations'
+  ],
 };
 
 const productDetails: Record<string, { overview: string; specs: string[]; applications: string[] }> = {
@@ -156,6 +203,7 @@ function SolutionsContent() {
   const activeSolution = solutions.find((s) => s.id === selected);
   const activeDetails  = selected ? productDetails[selected] : null;
   const activeSliderImages = selected ? (productSliderImages[selected] || []).filter(img => img && img.trim() !== '') : [];
+  const activeSliderAltText = selected ? (productSliderAltText[selected] || []) : [];
 
   // Reset slider when product changes
   const handleProductSelect = (productId: string) => {
@@ -301,7 +349,7 @@ function SolutionsContent() {
                           >
                             <Image 
                               src={activeSliderImages[productSlideIndex] || '/hero-bg-teal.png'} 
-                              alt={`${activeSolution?.title} - Image ${productSlideIndex + 1}`}
+                              alt={activeSliderAltText[productSlideIndex] || `${activeSolution?.title} product image`}
                               fill
                               quality={100}
                               sizes="(max-width: 768px) 100vw, (max-width: 1920px) 100vw, 3840px"

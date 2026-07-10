@@ -129,6 +129,7 @@ export default function ContactPage() {
           {/* Form */}
           <Reveal direction="right" className="lg:col-span-2">
             <motion.form
+              id="contact-form"
               onSubmit={handleSubmit}
               noValidate
               autoComplete="off"
@@ -300,8 +301,11 @@ export default function ContactPage() {
           Tell us what you need. A VAM VALTRIX sourcing specialist will follow up with options, pricing, and lead times — usually within the same business day.
         </p>
         <a
-          href="#"
-          onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+          href="#contact-form"
+          onClick={(e) => { 
+            e.preventDefault(); 
+            document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); 
+          }}
           className="inline-flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg bg-[#17A2B8] text-white font-semibold hover:bg-[#0D7A8C] transition-colors min-h-[48px]"
         >
           Contact Us →

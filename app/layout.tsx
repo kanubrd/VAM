@@ -22,12 +22,69 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: 'Valtrix Advance Material Pvt. Ltd',
-  description: 'Leading manufacturer of advanced materials for industrial applications. Metals, composites, polymers, and specialty coatings.',
+  title: {
+    default: 'VAM VALTRIX - Advanced Materials & Industrial Chemicals | Valtrix Advance Material Pvt. Ltd',
+    template: '%s | VAM VALTRIX'
+  },
+  description: 'Leading manufacturer of advanced materials, industrial chemicals & specialty additives. Metalworking fluids, electroplating chemicals, surface treatments, corrosion inhibitors & sustainable polyols for automotive, aerospace & manufacturing industries.',
+  keywords: [
+    'advanced materials',
+    'industrial chemicals', 
+    'metalworking fluids',
+    'electroplating chemicals',
+    'surface treatment',
+    'corrosion inhibitors',
+    'specialty additives',
+    'automotive chemicals',
+    'manufacturing solutions',
+    'Vadodara',
+    'Gujarat',
+    'India'
+  ],
+  authors: [{ name: 'Valtrix Advance Material Pvt. Ltd' }],
+  creator: 'Valtrix Advance Material Pvt. Ltd',
+  publisher: 'Valtrix Advance Material Pvt. Ltd',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL('https://vamvaltrix.com'),
+  alternates: {
+    canonical: 'https://vamvaltrix.com',
+  },
   openGraph: {
-    title: 'Valtrix Advance Material Pvt. Ltd',
-    description: 'Leading manufacturer of advanced materials for industrial applications.',
+    title: 'VAM VALTRIX - Advanced Materials & Industrial Chemicals',
+    description: 'Leading manufacturer of advanced materials, metalworking fluids, electroplating chemicals & surface treatments for industrial applications.',
     url: 'https://vamvaltrix.com',
+    siteName: 'VAM VALTRIX',
+    locale: 'en_US',
+    type: 'website',
+    images: [
+      {
+        url: 'https://vamvaltrix.com/valtrix-logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'VAM VALTRIX - Advanced Materials & Industrial Chemicals',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'VAM VALTRIX - Advanced Materials & Industrial Chemicals',
+    description: 'Leading manufacturer of advanced materials for industrial applications.',
+    images: ['https://vamvaltrix.com/valtrix-logo.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   icons: {
     icon: [
@@ -37,29 +94,85 @@ export const metadata: Metadata = {
     ],
     apple: '/apple-icon.png',
   },
+  manifest: '/manifest.json',
 };
 
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
+  '@id': 'https://vamvaltrix.com/#organization',
   name: 'Valtrix Advance Material Pvt. Ltd',
+  legalName: 'Valtrix Advance Material Private Limited',
+  alternateName: ['VAM VALTRIX', 'VALTRIX'],
   url: 'https://vamvaltrix.com',
-  logo: 'https://vamvaltrix.com/valtrix-logo.png',
-  contactPoint: {
-    '@type': 'ContactPoint',
-    telephone: '+91 98981 23983',
-    contactType: 'customer service',
-    areaServed: 'IN',
-    availableLanguage: ['en', 'hi'],
+  logo: {
+    '@type': 'ImageObject',
+    url: 'https://vamvaltrix.com/valtrix-logo.png',
+    width: 400,
+    height: 120
   },
+  description: 'Leading manufacturer of advanced materials, industrial chemicals & specialty additives for automotive, aerospace & manufacturing industries.',
+  foundingDate: '2020',
+  industry: [
+    'Chemical Manufacturing',
+    'Advanced Materials',
+    'Industrial Chemicals',
+    'Specialty Additives'
+  ],
+  products: [
+    'Metalworking Fluids',
+    'Electroplating Chemicals', 
+    'Surface Treatment Solutions',
+    'Corrosion Inhibitors',
+    'Bio-based Polyols',
+    'Rust Converters'
+  ],
+  serviceArea: {
+    '@type': 'Country',
+    name: 'India'
+  },
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      telephone: '+91-98981-23983',
+      contactType: 'customer service',
+      areaServed: 'IN',
+      availableLanguage: ['en', 'hi'],
+      hoursAvailable: {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        opens: '09:00',
+        closes: '18:00'
+      }
+    },
+    {
+      '@type': 'ContactPoint',
+      email: 'info@valtrixmaterials.com',
+      contactType: 'sales'
+    }
+  ],
   address: {
     '@type': 'PostalAddress',
     streetAddress: '318, Fortune Gateway, Chhani',
     addressLocality: 'Vadodara',
     postalCode: '390024',
     addressRegion: 'Gujarat',
-    addressCountry: 'India',
+    addressCountry: 'India'
   },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: '22.3072',
+    longitude: '73.1812'
+  },
+  sameAs: [
+    'https://www.linkedin.com/company/valtrix-materials',
+    'https://twitter.com/valtrixmaterials'
+  ],
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: 'https://vamvaltrix.com/solutions?search={search_term_string}',
+    'query-input': 'required name=search_term_string'
+  }
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

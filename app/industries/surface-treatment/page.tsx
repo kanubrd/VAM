@@ -148,6 +148,8 @@ export default function SurfaceTreatmentPage() {
                       fill
                       className="object-cover"
                       sizes="(max-width: 768px) 100vw, 33vw"
+                      loading="lazy"
+                      quality={85}
                     />
                   </div>
                   <div className="p-8">
@@ -187,6 +189,8 @@ export default function SurfaceTreatmentPage() {
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-500"
                       sizes="(max-width: 768px) 100vw, 33vw"
+                      loading="lazy"
+                      quality={85}
                     />
                   </div>
                   <div className="p-6">

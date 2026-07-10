@@ -84,28 +84,45 @@ export function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
                 <input type="text" name="website" tabIndex={-1} autoComplete="off" defaultValue="" />
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label htmlFor="quote-name" className="sr-only">Your name</label>
+                  <input
+                    id="quote-name"
+                    type="text"
+                    placeholder="Your name"
+                    value={quoteName}
+                    onChange={(e) => setQuoteName(e.target.value)}
+                    required
+                    autoComplete="name"
+                    className="w-full px-3 py-2.5 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#17A2B8] min-h-[44px]"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="quote-company" className="sr-only">Company</label>
+                  <input
+                    id="quote-company"
+                    type="text"
+                    placeholder="Company"
+                    value={quoteCompany}
+                    onChange={(e) => setQuoteCompany(e.target.value)}
+                    autoComplete="organization"
+                    className="w-full px-3 py-2.5 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#17A2B8] min-h-[44px]"
+                  />
+                </div>
+              </div>
+              <div>
+                <label htmlFor="quote-email" className="sr-only">Work email</label>
                 <input
-                  type="text"
-                  placeholder="Your name"
-                  value={quoteName}
-                  onChange={(e) => setQuoteName(e.target.value)}
-                  className="w-full px-3 py-2.5 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#17A2B8] min-h-[44px]"
-                />
-                <input
-                  type="text"
-                  placeholder="Company"
-                  value={quoteCompany}
-                  onChange={(e) => setQuoteCompany(e.target.value)}
+                  id="quote-email"
+                  type="email"
+                  placeholder="Work email"
+                  value={quoteEmail}
+                  onChange={(e) => setQuoteEmail(e.target.value)}
+                  required
+                  autoComplete="email"
                   className="w-full px-3 py-2.5 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#17A2B8] min-h-[44px]"
                 />
               </div>
-              <input
-                type="email"
-                placeholder="Work email"
-                value={quoteEmail}
-                onChange={(e) => setQuoteEmail(e.target.value)}
-                className="w-full px-3 py-2.5 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#17A2B8] min-h-[44px]"
-              />
               <div className="border border-gray-200 rounded-lg overflow-hidden">
                 <button
                   type="button"

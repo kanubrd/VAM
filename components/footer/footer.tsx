@@ -97,12 +97,16 @@ export function Footer() {
                   autoComplete="off"
                 />
               </div>
+              <label htmlFor="newsletter-email" className="sr-only">Email address for newsletter</label>
               <input
+                id="newsletter-email"
                 type="email"
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
+                autoComplete="email"
+                aria-describedby={status === 'error' ? 'newsletter-error' : undefined}
                 className="flex-1 min-w-0 px-3 sm:px-4 py-2.5 text-sm rounded-lg bg-gray-100 border border-gray-300 text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#17A2B8] input-glow transition-all duration-300"
               />
               <button
@@ -114,7 +118,11 @@ export function Footer() {
               </button>
             </form>
             {message && (
-              <p className={`text-xs mt-2 ${status === 'success' ? 'text-teal-400' : 'text-red-400'}`}>
+              <p 
+                id="newsletter-error" 
+                role={status === 'error' ? 'alert' : 'status'}
+                className={`text-xs mt-2 ${status === 'success' ? 'text-teal-400' : 'text-red-400'}`}
+              >
                 {message}
               </p>
             )}
