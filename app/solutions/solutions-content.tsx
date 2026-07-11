@@ -334,7 +334,7 @@ export function SolutionsContent() {
                               className={
                                 productSlideIndex === 0 
                                   ? "object-contain p-4" 
-                                  : selected === 'suscat-i' && productSlideIndex === 1
+                                  : (selected === 'suscat-i' || selected === 'vam-rc-01') && productSlideIndex === 1
                                   ? "object-cover"
                                   : selected === 'vamshield-90' && productSlideIndex === 1
                                   ? "object-contain w-full h-full"
