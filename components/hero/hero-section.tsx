@@ -40,6 +40,13 @@ export function HeroSection() {
 
   useEffect(() => { setMounted(true); }, []);
 
+  // Render placeholder during SSR & first client render to avoid hydration mismatch
+  if (!mounted) {
+    return (
+      <section style={{ background: '#EEF2F7', minHeight: '560px', paddingTop: '108px' }} className="overflow-hidden" />
+    );
+  }
+
   return (
     <>
       <section style={{ background: '#EEF2F7' }} className="overflow-hidden">
@@ -76,7 +83,6 @@ export function HeroSection() {
                 fetchPriority={slideIndex === 0 ? 'high' : 'low'}
                 quality={100}
                 sizes="100vw"
-                className="ken-burns"
                 style={{
                   objectFit: 'cover',
                   objectPosition: 'center',
@@ -98,12 +104,11 @@ export function HeroSection() {
           <button
             onClick={prevSlide}
             aria-label="Previous slide"
-            className="hidden sm:flex"
             style={{
               position: 'absolute', left: 16, top: '50%', transform: 'translateY(-50%)',
               width: 40, height: 40, borderRadius: '50%',
               background: 'rgba(255,255,255,0.85)', border: 'none',
-              alignItems: 'center', justifyContent: 'center',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
               cursor: 'pointer', zIndex: 10, boxShadow: '0 2px 8px rgba(0,0,0,0.12)',
             }}
           >
@@ -112,12 +117,11 @@ export function HeroSection() {
           <button
             onClick={nextSlide}
             aria-label="Next slide"
-            className="hidden sm:flex"
             style={{
               position: 'absolute', right: 16, top: '50%', transform: 'translateY(-50%)',
               width: 40, height: 40, borderRadius: '50%',
               background: 'rgba(255,255,255,0.85)', border: 'none',
-              alignItems: 'center', justifyContent: 'center',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
               cursor: 'pointer', zIndex: 10, boxShadow: '0 2px 8px rgba(0,0,0,0.12)',
             }}
           >
@@ -208,7 +212,7 @@ export function HeroSection() {
                   style={{ background: '#17A2B8', borderRadius: 0 }}
                 >
                   Explore Solutions
-                  <ArrowRight size={20} className="arrow-slide" />
+                  <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                 </motion.button>
               </div>
             </motion.div>

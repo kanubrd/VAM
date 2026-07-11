@@ -19,11 +19,13 @@ const navItems = [
 export function Navbar() {
   const [isScrolled, setIsScrolled]         = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mounted, setMounted]               = useState(false);
   const scrollProgress                       = useScrollProgress();
   const pathname                             = usePathname();
   const isHomePage = pathname === '/';
 
   useEffect(() => {
+    setMounted(true);
     const onScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
@@ -53,6 +55,17 @@ export function Navbar() {
       }
     };
   }, [mobileMenuOpen]);
+
+  // Render a lightweight placeholder during SSR & first client render
+  // to avoid hydration mismatch from browser CSS normalization
+  if (!mounted) {
+    return (
+      <header className="fixed top-0 left-0 right-0 z-50">
+        <div style={{ height: 36, background: '#1A2B3C', borderBottom: '1px solid rgba(255,255,255,0.1)' }} />
+        <nav style={{ height: 72, background: '#FFFFFF', borderBottom: '2px solid #E5E7EB' }} />
+      </header>
+    );
+  }
 
   return (
     <>
@@ -99,6 +112,7 @@ export function Navbar() {
 
         {/* ── Main navbar ── */}
         <nav
+          suppressHydrationWarning
           className={cn(
             'transition-all duration-300',
             isScrolled ? 'shadow-xl' : 'shadow-md',
@@ -115,7 +129,7 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
 
           {/* Logo — Ultra HD clean rendering */}
-          <Link href="/" className="flex items-center shrink-0 py-2">
+          <Link href="/" className="flex items-center shrink-0 py-2" suppressHydrationWarning>
             <Image
               src="/valtrix-logo-teal.png"
               alt="VAM VALTRIX"

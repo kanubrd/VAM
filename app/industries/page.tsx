@@ -109,20 +109,42 @@ export default function IndustriesPage() {
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    quality={85}
+                    quality={90}
                     loading="lazy"
+                    style={{ filter: 'brightness(1.15) contrast(1.05) saturate(1.1)' }}
                   />
-                  {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
+                  {/* Light bottom gradient for text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 </div>
 
                 {/* Content */}
-                <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                  <div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 leading-tight">
+                <div className="absolute inset-0 flex flex-col justify-end">
+                  {/* Frosted text backdrop for readability */}
+                  <div
+                    style={{
+                      background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.45) 60%, transparent 100%)',
+                      backdropFilter: 'blur(2px)',
+                      WebkitBackdropFilter: 'blur(2px)',
+                      padding: '32px',
+                      borderRadius: '0 0 20px 20px',
+                    }}
+                  >
+                    <h3
+                      className="text-2xl sm:text-3xl font-extrabold text-white mb-3 leading-tight"
+                      style={{
+                        textShadow: '0 2px 8px rgba(0,0,0,0.6), 0 1px 3px rgba(0,0,0,0.4)',
+                        letterSpacing: '0.01em',
+                      }}
+                    >
                       {industry.title}
                     </h3>
-                    <p className="text-base text-gray-200 leading-relaxed mb-4">
+                    <p
+                      className="text-base text-white leading-relaxed mb-4 font-medium"
+                      style={{
+                        textShadow: '0 1px 6px rgba(0,0,0,0.5)',
+                        lineHeight: '1.7',
+                      }}
+                    >
                       {industry.description}
                     </p>
                     
@@ -131,27 +153,33 @@ export default function IndustriesPage() {
                       <div className="space-y-2 mb-4">
                         {industry.solutions.map((solution, sIdx) => (
                           <div key={sIdx} className="flex flex-col">
-                            <span className="text-sm font-semibold text-[#17A2B8]">
+                            <span
+                              className="text-sm font-bold text-[#5CE0D2]"
+                              style={{ textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}
+                            >
                               {solution.name}
                             </span>
-                            <span className="text-sm text-gray-300">
+                            <span
+                              className="text-sm text-white/90 font-medium"
+                              style={{ textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}
+                            >
                               {solution.product}
                             </span>
                           </div>
                         ))}
                       </div>
                     )}
-                  </div>
 
-                  {/* Arrow Icon - Clickable Button */}
-                  <div className="flex items-center justify-end">
-                    <button
-                      onClick={() => window.location.href = industry.href}
-                      className="w-12 h-12 rounded-full bg-[#17A2B8] flex items-center justify-center cursor-pointer"
-                      aria-label={`View ${industry.title}`}
-                    >
-                      <ArrowRight className="w-6 h-6 text-white" />
-                    </button>
+                    {/* Arrow Icon - Clickable Button */}
+                    <div className="flex items-center justify-end">
+                      <button
+                        onClick={() => window.location.href = industry.href}
+                        className="w-12 h-12 rounded-full bg-[#17A2B8] flex items-center justify-center cursor-pointer hover:bg-[#0D7A8C] transition-colors"
+                        aria-label={`View ${industry.title}`}
+                      >
+                        <ArrowRight className="w-6 h-6 text-white" />
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>

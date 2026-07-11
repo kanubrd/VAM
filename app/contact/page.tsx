@@ -54,6 +54,7 @@ export default function ContactPage() {
           email: formData.email.trim().toLowerCase(),
           subject: formData.company ? `Inquiry from ${sanitiseString(formData.company)}` : 'General Inquiry',
           message: sanitiseString(formData.message),
+          _hp: honeypot, // Honeypot field - bots fill this, humans don't
           recaptchaToken,
         }),
       });

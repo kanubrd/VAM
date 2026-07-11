@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Facebook, Twitter, Linkedin, Instagram, Phone, Mail, MapPin } from 'lucide-react';
@@ -24,6 +24,10 @@ export function Footer() {
   const [honeypot, setHoneypot] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [message, setMessage] = useState('');
+  const [mounted, setMounted] = useState(false);
+
+  // Ensure client matches server on first render
+  React.useEffect(() => { setMounted(true); }, []);
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -75,6 +79,12 @@ export function Footer() {
     }
   };
 
+  // Render a lightweight placeholder during SSR & first client render
+  // to avoid hydration mismatch from browser form manipulation
+  if (!mounted) {
+    return <footer className="bg-white text-gray-300" style={{ minHeight: 200 }} />;
+  }
+
   return (
     <footer className="bg-white text-gray-300">
       {/* Newsletter banner */}
@@ -85,9 +95,9 @@ export function Footer() {
             <p className="text-sm text-gray-600">Get the latest updates on advanced materials and innovation.</p>
           </div>
           <div className="max-w-sm w-full">
-            <form className="flex gap-2" onSubmit={handleSubscribe} noValidate>
+            <form className="flex gap-2" onSubmit={handleSubscribe} noValidate suppressHydrationWarning>
               {/* Honeypot */}
-              <div aria-hidden="true" className="absolute opacity-0 pointer-events-none h-0 overflow-hidden">
+              <div aria-hidden="true" className="absolute opacity-0 pointer-events-none h-0 overflow-hidden" suppressHydrationWarning>
                 <input
                   type="text"
                   name="website"
@@ -202,7 +212,7 @@ export function Footer() {
       <div className="bg-[#2C3E50] border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-gray-500 text-center sm:text-left">
-            &copy; {new Date().getFullYear()} Valtrix Advance Material Pvt. Ltd. All rights reserved.
+            &copy; <span suppressHydrationWarning>{new Date().getFullYear()}</span> Valtrix Advance Material Pvt. Ltd. All rights reserved.
           </p>
           <div className="flex gap-3">
             {[

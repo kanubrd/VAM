@@ -1,12 +1,45 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Reveal } from '@/components/animations/reveal';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, Check, Download, Mail, Phone } from 'lucide-react';
+import { ArrowLeft, Check, Download, Mail, Phone, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function VAMShield90Page() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
+  const productImages = [
+    {
+      src: '/vamshield-90-product.png',
+      alt: 'VAMShield-90 ash-free corrosion inhibitor white powder in laboratory dish',
+      title: 'Product Sample'
+    },
+    {
+      src: '/vamshield-90-product-2.png', 
+      alt: 'VAMShield-90 corrosion inhibitor white powder - close-up view',
+      title: 'Detailed View'
+    },
+    {
+      src: '/vamshield-90-gear-machining.png',
+      alt: 'VAMShield-90 application in gear machining and metal cutting lubrication',
+      title: 'Machining Application'
+    },
+    {
+      src: '/vamshield-90-metal-cutting.png',
+      alt: 'VAMShield-90 advanced metal cutting and lubrication in precision milling machine',
+      title: 'Milling Application'
+    }
+  ];
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % productImages.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + productImages.length) % productImages.length);
+  };
   return (
     <div>
       {/* Hero Section */}
