@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next';
+import { articlesList } from '@/data/articles';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://vamvaltrix.com';
@@ -13,6 +14,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { route: '/terms-of-use', priority: 0.3, changeFreq: 'yearly' as const },
     { route: '/cookies', priority: 0.3, changeFreq: 'yearly' as const },
     { route: '/compliance', priority: 0.3, changeFreq: 'yearly' as const },
+    { route: '/resources', priority: 0.8, changeFreq: 'weekly' as const },
+    { route: '/resources/downloads', priority: 0.7, changeFreq: 'weekly' as const },
   ];
 
   // Industry pages
@@ -27,7 +30,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFreq: 'monthly' as const
   }));
 
-  // Product pages
+  // Solutions pages
+  const solutionsSubRoutes = [
+    '/solutions/metals-alloys',
+    '/solutions/polymers-composites',
+    '/solutions/coatings-surface-chemicals',
+    '/solutions/compliance-certification',
+    '/solutions/multi-site-fulfillment',
+    '/solutions/inventory-intelligence',
+  ].map(route => ({
+    route,
+    priority: 0.8,
+    changeFreq: 'weekly' as const
+  }));
+
+  // Product pages (legacy)
   const productRoutes = [
     '/products/vamshield-90'
   ].map(route => ({
@@ -36,7 +53,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFreq: 'monthly' as const
   }));
 
-  const allRoutes = [...staticRoutes, ...industryRoutes, ...productRoutes];
+  // Blog dynamic article pages
+  const articleRoutes = articlesList.map(art => ({
+    route: `/resources/${art.slug}`,
+    priority: 0.6,
+    changeFreq: 'monthly' as const
+  }));
+
+  const allRoutes = [...staticRoutes, ...industryRoutes, ...solutionsSubRoutes, ...productRoutes, ...articleRoutes];
 
   return allRoutes.map(({ route, priority, changeFreq }) => ({
     url: `${baseUrl}${route}`,

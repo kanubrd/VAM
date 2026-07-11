@@ -165,8 +165,10 @@ const jsonLd = {
     longitude: '73.1812'
   },
   sameAs: [
-    'https://www.linkedin.com/company/valtrix-materials',
-    'https://twitter.com/valtrixmaterials'
+    'https://facebook.com/vamvaltrix',
+    'https://twitter.com/vamvaltrix',
+    'https://linkedin.com/company/vamvaltrix',
+    'https://instagram.com/vamvaltrix'
   ],
   potentialAction: {
     '@type': 'SearchAction',
@@ -174,6 +176,42 @@ const jsonLd = {
     'query-input': 'required name=search_term_string'
   }
 };
+
+const localBusinessJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Valtrix Advance Material Pvt. Ltd',
+  image: 'https://vamvaltrix.com/valtrix-logo.png',
+  '@id': 'https://vamvaltrix.com/#localbusiness',
+  url: 'https://vamvaltrix.com',
+  telephone: '+91 98981 23983',
+  email: 'info@valtrixmaterials.com',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '318, Fortune Gateway, Chhani',
+    addressLocality: 'Vadodara',
+    postalCode: '390024',
+    addressRegion: 'Gujarat',
+    addressCountry: 'India'
+  },
+  priceRange: '$$',
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    opens: '09:00',
+    closes: '18:00'
+  },
+  sameAs: [
+    'https://facebook.com/vamvaltrix',
+    'https://twitter.com/vamvaltrix',
+    'https://linkedin.com/company/vamvaltrix',
+    'https://instagram.com/vamvaltrix'
+  ]
+};
+
+import { WhatsAppChat } from '@/components/ui/whatsapp-chat';
+import { StickyQuoteCTA } from '@/components/ui/sticky-quote-cta';
+import { GoogleAnalytics } from '@/components/providers/google-analytics';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -191,14 +229,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd).replace(/</g, '\\u003c') }}
+        />
       </head>
       <body className={`${inter.className} antialiased bg-white text-[#1A1A1A]`}>
+        <GoogleAnalytics />
         <WebVitalsProvider />
         <Navbar />
         <SmoothScrollProvider>
           <main>{children}</main>
           <Footer />
           <CookieConsent />
+          <WhatsAppChat />
+          <StickyQuoteCTA />
         </SmoothScrollProvider>
       </body>
     </html>

@@ -4,6 +4,8 @@ import { TestimonialsSkeleton } from '@/components/skeletons/testimonials-skelet
 import { CTASkeleton } from '@/components/skeletons/cta-skeleton';
 import { PrefetchDynamicSections } from '@/components/prefetch-dynamic-sections';
 
+import { TrustedBy } from '@/components/sections/trusted-by';
+
 // Lazy-load below-the-fold sections — reduces initial JS bundle
 const TestimonialsSection = dynamic(
   () => import('@/components/sections/testimonials').then((m) => m.TestimonialsSection),
@@ -19,6 +21,7 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       <HeroSection />
+      <TrustedBy />
       <TestimonialsSection />
       <CTABanner />
       <PrefetchDynamicSections />

@@ -3,31 +3,23 @@ import { Suspense } from 'react';
 import { SolutionsContent } from './solutions-content';
 
 export const metadata: Metadata = {
-  title: 'Industrial Solutions & Specialty Chemicals',
-  description: 'Explore our comprehensive range of industrial solutions: SusCat-I polymer, VAMShield-90 corrosion inhibitor, SusPol-125 bio-polyol & more. Advanced materials for metalworking, electroplating & surface treatment.',
+  title: 'Materials Sourcing Solutions & Supply Chain Intelligence',
+  description: 'Explore VAM VALTRIX materials sourcing and supply chain intelligence: Metals & Alloys, Polymers & Composites, Coatings & Surface Chemicals, Compliance, Multi-Site Fulfillment, and Predictive Reorder.',
   keywords: [
-    'industrial solutions',
-    'specialty chemicals',
-    'suscat-i polymer',
-    'vamshield-90 inhibitor',
-    'suspol-125 polyol',
-    'metalworking chemicals',
-    'corrosion inhibitors',
-    'electroplating solutions'
+    'materials sourcing',
+    'metals sourcing',
+    'polymers sourcing',
+    'coatings chemicals',
+    'materials compliance',
+    'multi-site fulfillment',
+    'predictive reorder',
+    'inventory intelligence'
   ],
   openGraph: {
-    title: 'Industrial Solutions & Specialty Chemicals | VAM VALTRIX',
-    description: 'Advanced materials for metalworking, electroplating & surface treatment. SusCat-I, VAMShield-90, SusPol-125 & more industrial solutions.',
+    title: 'Materials Sourcing Solutions & Supply Chain Intelligence | VAM VALTRIX',
+    description: 'Explore VAM VALTRIX materials sourcing and supply chain intelligence: Metals & Alloys, Polymers & Composites, Coatings & Surface Chemicals, Compliance, Multi-Site Fulfillment, and Predictive Reorder.',
     url: 'https://vamvaltrix.com/solutions',
     type: 'website',
-    images: [
-      {
-        url: 'https://vamvaltrix.com/suscat.png',
-        width: 800,
-        height: 600,
-        alt: 'VAM VALTRIX Industrial Solutions & Specialty Chemicals',
-      },
-    ],
   },
   alternates: {
     canonical: 'https://vamvaltrix.com/solutions',

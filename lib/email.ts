@@ -19,11 +19,6 @@ const transporter = nodemailer.createTransport({
   tls: {
     rejectUnauthorized: true,
   },
-  pool: true,
-  maxConnections: 5,
-  maxMessages: 100,
-  rateDelta: 1000,
-  rateLimit: 5,
 });
 
 // Verify transporter configuration on startup (dev only)
@@ -173,11 +168,6 @@ export async function sendQuoteEmail(data: Omit<QuoteSubmission, 'id' | 'timesta
     replyTo: data.email,
     subject: `[Valtrix Materials] – Quote Request from ${data.name}`,
     html,
-    headers: {
-      'X-Priority': '1',
-      'X-MSMail-Priority': 'High',
-      'Importance': 'high',
-    },
   };
 
   await transporter.sendMail(mailOptions);
@@ -262,11 +252,6 @@ export async function sendContactEmail(data: Omit<ContactSubmission, 'id' | 'tim
     replyTo: data.email,
     subject: `[Valtrix Materials] – ${data.subject}`,
     html,
-    headers: {
-      'X-Priority': '1',
-      'X-MSMail-Priority': 'High',
-      'Importance': 'high',
-    },
   };
 
   await transporter.sendMail(mailOptions);
@@ -338,22 +323,13 @@ export async function sendNewsletterWelcomeEmail(email: string): Promise<void> {
  * This helps prevent bounces and improves deliverability
  */
 async function verifyEmailDeliverability(email: string): Promise<boolean> {
-  try {
-    // Use nodemailer's built-in verification
-    await transporter.verify();
-    
-    // Additional validation: check if email format is correct and domain exists
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      console.warn(`❌ Invalid email format: ${email}`);
-      return false;
-    }
-
-    return true;
-  } catch (error) {
-    console.error(`❌ Email verification failed for ${email}:`, error);
+  // Check if email format is correct to improve performance and avoid redundant network calls
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    console.warn(`❌ Invalid email format: ${email}`);
     return false;
   }
+  return true;
 }
 
 // ── Auto-response Emails ──────────────────────────────────────────────

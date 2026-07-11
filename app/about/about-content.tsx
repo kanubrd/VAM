@@ -204,6 +204,76 @@ export default function AboutContent() {
         </div>
       </Section>
 
+      {/* Compliance & Certifications Section */}
+      <Section className="bg-[#F8FAFB]">
+        <div className="max-w-7xl mx-auto">
+          <SectionTitle 
+            subtitle="COMPLIANCE & QUALITY" 
+            title="Standard Certifications & Registrations" 
+            description="Our materials and processes conform to rigorous national and international manufacturing regulations."
+          />
+          
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+            {[
+              {
+                title: 'ISO 9001:2015',
+                desc: 'Quality Management Systems (QMS) standard ensuring consistent product quality and corporate excellence.',
+                badge: (
+                  <svg className="w-16 h-16 text-[#17A2B8]" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="32" cy="32" r="30" stroke="currentColor" strokeWidth="3" fill="#E6F7FA"/>
+                    <text x="32" y="32" dominantBaseline="middle" textAnchor="middle" fill="#2C3E50" fontSize="10" fontWeight="bold">ISO 9001</text>
+                    <path d="M16 44H48" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                  </svg>
+                )
+              },
+              {
+                title: 'RoHS 3 Compliant',
+                desc: 'Compliance with EU Directive 2015/863/EU limiting hazardous substances in material manufacturing.',
+                badge: (
+                  <svg className="w-16 h-16 text-teal-600" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="32" cy="32" r="30" stroke="currentColor" strokeWidth="3" fill="#E6F4F1"/>
+                    <text x="32" y="32" dominantBaseline="middle" textAnchor="middle" fill="#2C3E50" fontSize="10" fontWeight="bold">RoHS 3</text>
+                    <path d="M22 34L29 41L42 25" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                )
+              },
+              {
+                title: 'REACH Registered',
+                desc: 'Registration, Evaluation, Authorization and Restriction of Chemicals compliance for hazard assessments.',
+                badge: (
+                  <svg className="w-16 h-16 text-blue-600" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="32" cy="32" r="30" stroke="currentColor" strokeWidth="3" fill="#EFF6FF"/>
+                    <text x="32" y="32" dominantBaseline="middle" textAnchor="middle" fill="#2C3E50" fontSize="10" fontWeight="bold">REACH</text>
+                    <path d="M32 16V48M16 32H48" stroke="currentColor" strokeWidth="2" strokeDasharray="3 3"/>
+                  </svg>
+                )
+              },
+              {
+                title: 'DFARS Compliant',
+                desc: 'Sourcing of specialty alloys and materials conforms to defense acquisition sourcing requirements.',
+                badge: (
+                  <svg className="w-16 h-16 text-amber-600" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="32" cy="32" r="30" stroke="currentColor" strokeWidth="3" fill="#FEF3C7"/>
+                    <text x="32" y="32" dominantBaseline="middle" textAnchor="middle" fill="#2C3E50" fontSize="10" fontWeight="bold">DFARS</text>
+                    <rect x="22" y="22" width="20" height="20" rx="3" stroke="currentColor" strokeWidth="2"/>
+                  </svg>
+                )
+              }
+            ].map((cert, idx) => (
+              <Reveal key={idx} delay={idx * 0.08} direction="up">
+                <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex flex-col items-center text-center h-full">
+                  <div className="mb-4">
+                    {cert.badge}
+                  </div>
+                  <h3 className="text-base sm:text-lg font-bold text-[#2C3E50] mb-2">{cert.title}</h3>
+                  <p className="text-xs sm:text-sm text-gray-500 leading-relaxed">{cert.desc}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </Section>
+
       {/* CTA */}
       <Section className="bg-white text-center">
         <SectionTitle 

@@ -132,10 +132,10 @@ export function Navbar() {
           <Link href="/" className="flex items-center shrink-0 py-2" suppressHydrationWarning>
             <Image
               src="/valtrix-logo-teal.png"
-              alt="VAM VALTRIX"
-              width={30720}
-              height={9600}
-              sizes="(max-width: 768px) 800px, 1600px"
+              alt="VAM VALTRIX Logo"
+              width={192}
+              height={60}
+              sizes="(max-width: 768px) 192px, 300px"
               className="w-auto"
               style={{ 
                 height: isScrolled ? '110px' : '130px',

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Facebook, Twitter, Linkedin, Instagram, Phone, Mail, MapPin } from 'lucide-react';
+import { socialLinks } from '@/config/social';
 
 const footerLinks = {
   Company: [
@@ -149,11 +150,11 @@ export function Footer() {
             <Link href="/" className="inline-block mb-5">
               <Image 
                 src="/valtrix-logo.png" 
-                alt="Valtrix Advanced Materials" 
-                width={5760} 
-                height={896} 
+                alt="Valtrix Advanced Materials Logo" 
+                width={360} 
+                height={56} 
                 priority={false} 
-                quality={100}
+                quality={85}
                 className="w-auto" 
                 style={{ 
                   height: 56, 
@@ -216,10 +217,10 @@ export function Footer() {
           </p>
           <div className="flex gap-3">
             {[
-              { icon: Facebook,  label: 'Facebook',  href: 'https://facebook.com/valtrixgives' },
-              { icon: Twitter,   label: 'Twitter',   href: 'https://twitter.com/valtrixgives' },
-              { icon: Linkedin,  label: 'LinkedIn',  href: 'https://linkedin.com/company/valtrixgives' },
-              { icon: Instagram, label: 'Instagram', href: 'https://instagram.com/valtrixgives' },
+              { icon: Facebook,  label: 'Facebook',  href: socialLinks.facebook },
+              { icon: Twitter,   label: 'Twitter',   href: socialLinks.twitter },
+              { icon: Linkedin,  label: 'LinkedIn',  href: socialLinks.linkedin },
+              { icon: Instagram, label: 'Instagram', href: socialLinks.instagram },
             ].map(({ icon: Icon, label, href }) => (
               <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
                 className="w-10 h-10 rounded-lg bg-white/5 hover:bg-[#17A2B8] flex items-center justify-center text-gray-400 hover:text-white transition-all duration-200 social-icon">

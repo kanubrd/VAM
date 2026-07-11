@@ -18,12 +18,13 @@ export function CookieConsent() {
 
   const handleAccept = () => {
     localStorage.setItem('cookie-consent', 'accepted');
+    window.dispatchEvent(new Event('cookie-consent-updated'));
     setShowBanner(false);
-    // Here you would trigger analytics script loading if any
   };
 
   const handleReject = () => {
     localStorage.setItem('cookie-consent', 'rejected');
+    window.dispatchEvent(new Event('cookie-consent-updated'));
     setShowBanner(false);
   };
 
