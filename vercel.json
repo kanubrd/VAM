@@ -33,7 +33,20 @@
       ]
     },
     {
-      "source": "/:file(.*\\.(?:jpg|jpeg|png|gif|webp|avif|svg|ico))",
+      "source": "/favicon.ico",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        }
+      ]
+    },
+    {
+      "source": "/:file(.*\\.(?:jpg|jpeg|png|gif|webp|avif|svg))",
       "headers": [
         {
           "key": "Cache-Control",

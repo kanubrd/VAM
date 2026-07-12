@@ -136,9 +136,16 @@ const nextConfig = {
           { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
         ],
       },
+      // No cache for favicon to ensure instant updates
+      {
+        source: '/favicon.ico',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=0, must-revalidate' },
+        ],
+      },
       // Cache local images for 1 day
       {
-        source: '/:file(.*\\.(?:jpg|jpeg|png|gif|webp|avif|svg|ico))',
+        source: '/:file(.*\\.(?:jpg|jpeg|png|gif|webp|avif|svg))',
         headers: [
           { key: 'Cache-Control', value: 'public, max-age=86400, stale-while-revalidate=43200' },
         ],
