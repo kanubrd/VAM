@@ -1,6 +1,5 @@
 // Contact Us page container importing the client-side content component
 import { Metadata } from 'next';
-import { ContactContent } from './contact-content';
 
 export const metadata: Metadata = {
   title: 'Contact Us | Get Sourcing Quote – Valtrix (Vadodara, India)',
@@ -23,6 +22,8 @@ export const metadata: Metadata = {
   },
 };
 
+import { ContactClient } from './contact-client';
+
 export default function ContactPage() {
-  return <ContactContent />;
+  return <ContactClient />;
 }
