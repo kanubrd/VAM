@@ -118,12 +118,12 @@ export function Footer() {
                 required
                 autoComplete="email"
                 aria-describedby={status === 'error' ? 'newsletter-error' : undefined}
-                className="flex-1 min-w-0 px-3 sm:px-4 py-2.5 text-sm rounded-lg bg-gray-100 border border-gray-300 text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#17A2B8] input-glow transition-all duration-300"
+                className="flex-1 min-w-0 px-3 sm:px-4 py-2.5 text-sm rounded-xl bg-gray-100 border border-gray-300 text-gray-900 placeholder:text-gray-500 focus:outline-none focus:border-[#17A2B8] focus:ring-4 focus:ring-[#17A2B8]/10 input-glow transition-all duration-300"
               />
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className="shrink-0 px-3 sm:px-5 py-2.5 rounded-lg bg-[#17A2B8] text-white text-sm font-semibold hover:bg-[#0D7A8C] transition-colors disabled:opacity-50 whitespace-nowrap min-h-[44px]"
+                className="shrink-0 px-3 sm:px-5 py-2.5 rounded-xl bg-[#17A2B8] text-white text-sm font-semibold hover:bg-[#0D7A8C] disabled:opacity-50 whitespace-nowrap min-h-[44px] transition-all duration-300 hover:-translate-y-0.5 active:scale-[0.98]"
               >
                 {status === 'loading' ? '...' : 'Subscribe'}
               </button>

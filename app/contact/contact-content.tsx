@@ -171,7 +171,7 @@ export function ContactContent() {
                     maxLength={100}
                     autoComplete="name"
                     aria-describedby={fieldErrors.name ? 'name-error' : undefined}
-                    className={`w-full px-4 py-3 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-[#17A2B8] transition-colors min-h-[48px] ${fieldErrors.name ? 'border-red-400 bg-red-50' : 'border-gray-200'}`}
+                    className={`w-full px-4 py-3 rounded-xl border text-sm focus:outline-none focus:border-[#17A2B8] focus:ring-4 focus:ring-[#17A2B8]/10 transition-all duration-200 min-h-[48px] ${fieldErrors.name ? 'border-red-400 bg-red-50/50' : 'border-gray-200'}`}
                   />
                   {fieldErrors.name && (
                     <p id="name-error" role="alert" className="text-xs text-red-600 mt-1">{fieldErrors.name}</p>
@@ -194,7 +194,7 @@ export function ContactContent() {
                     maxLength={254}
                     autoComplete="email"
                     aria-describedby={fieldErrors.email ? 'email-error' : undefined}
-                    className={`w-full px-4 py-3 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-[#17A2B8] transition-colors min-h-[48px] ${fieldErrors.email ? 'border-red-400 bg-red-50' : 'border-gray-200'}`}
+                    className={`w-full px-4 py-3 rounded-xl border text-sm focus:outline-none focus:border-[#17A2B8] focus:ring-4 focus:ring-[#17A2B8]/10 transition-all duration-200 min-h-[48px] ${fieldErrors.email ? 'border-red-400 bg-red-50/50' : 'border-gray-200'}`}
                   />
                   {fieldErrors.email && (
                     <p id="email-error" role="alert" className="text-xs text-red-600 mt-1">{fieldErrors.email}</p>
@@ -216,7 +216,7 @@ export function ContactContent() {
                   onChange={handleChange('company')}
                   maxLength={100}
                   autoComplete="organization"
-                  className={`w-full px-4 py-3 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-[#17A2B8] transition-colors min-h-[48px] ${fieldErrors.company ? 'border-red-400 bg-red-50' : 'border-gray-200'}`}
+                  className={`w-full px-4 py-3 rounded-xl border text-sm focus:outline-none focus:border-[#17A2B8] focus:ring-4 focus:ring-[#17A2B8]/10 transition-all duration-200 min-h-[48px] ${fieldErrors.company ? 'border-red-400 bg-red-50/50' : 'border-gray-200'}`}
                 />
                 {fieldErrors.company && (
                   <p role="alert" className="text-xs text-red-600 mt-1">{fieldErrors.company}</p>
@@ -237,7 +237,7 @@ export function ContactContent() {
                   rows={5}
                   maxLength={5000}
                   aria-describedby={fieldErrors.message ? 'message-error' : undefined}
-                  className={`w-full px-4 py-3 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-[#17A2B8] resize-none transition-colors ${fieldErrors.message ? 'border-red-400 bg-red-50' : 'border-gray-200'}`}
+                  className={`w-full px-4 py-3 rounded-xl border text-sm focus:outline-none focus:border-[#17A2B8] focus:ring-4 focus:ring-[#17A2B8]/10 resize-none transition-all duration-200 ${fieldErrors.message ? 'border-red-400 bg-red-50/50' : 'border-gray-200'}`}
                 />
                 {fieldErrors.message && (
                   <p id="message-error" role="alert" className="text-xs text-red-600 mt-1">{fieldErrors.message}</p>
@@ -252,12 +252,12 @@ export function ContactContent() {
               ) : (
                 <>
                   <motion.button
-                    whileHover={{ scale: 1.01 }}
+                    whileHover={{ y: -1, scale: 1.01 }}
                     whileTap={{ scale: 0.99 }}
                     type="submit"
                     disabled={status === 'loading'}
                     aria-busy={status === 'loading'}
-                    className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-[#17A2B8] hover:bg-[#0D7A8C] disabled:opacity-60 text-white rounded-lg font-semibold transition-colors min-h-[52px]"
+                    className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-[#17A2B8] hover:bg-[#0D7A8C] disabled:opacity-60 text-white rounded-xl font-semibold transition-all duration-300 min-h-[52px]"
                   >
                     {status === 'loading' ? 'Sending…' : <><span>Send Message</span><Send size={18} /></>}
                   </motion.button>

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Modal } from '@/components/ui/modal';
 import { CheckCircle } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 interface QuoteModalProps {
   isOpen: boolean;
@@ -94,7 +95,7 @@ export function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
                     onChange={(e) => setQuoteName(e.target.value)}
                     required
                     autoComplete="name"
-                    className="w-full px-3 py-2.5 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#17A2B8] min-h-[44px]"
+                    className="w-full px-3 py-2.5 text-sm border border-gray-200 rounded-xl focus:outline-none focus:border-[#17A2B8] focus:ring-4 focus:ring-[#17A2B8]/10 transition-all duration-200 min-h-[44px]"
                   />
                 </div>
                 <div>
@@ -106,7 +107,7 @@ export function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
                     value={quoteCompany}
                     onChange={(e) => setQuoteCompany(e.target.value)}
                     autoComplete="organization"
-                    className="w-full px-3 py-2.5 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#17A2B8] min-h-[44px]"
+                    className="w-full px-3 py-2.5 text-sm border border-gray-200 rounded-xl focus:outline-none focus:border-[#17A2B8] focus:ring-4 focus:ring-[#17A2B8]/10 transition-all duration-200 min-h-[44px]"
                   />
                 </div>
               </div>
@@ -120,10 +121,10 @@ export function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
                   onChange={(e) => setQuoteEmail(e.target.value)}
                   required
                   autoComplete="email"
-                  className="w-full px-3 py-2.5 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#17A2B8] min-h-[44px]"
+                  className="w-full px-3 py-2.5 text-sm border border-gray-200 rounded-xl focus:outline-none focus:border-[#17A2B8] focus:ring-4 focus:ring-[#17A2B8]/10 transition-all duration-200 min-h-[44px]"
                 />
               </div>
-              <div className="border border-gray-200 rounded-lg overflow-hidden">
+              <div className="border border-gray-200 rounded-xl overflow-hidden">
                 <button
                   type="button"
                   onClick={() => setProductsOpen((o) => !o)}
@@ -170,17 +171,19 @@ export function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
                 placeholder="Additional material needed (optional)"
                 value={quoteMaterial}
                 onChange={(e) => setQuoteMaterial(e.target.value)}
-                className="w-full px-3 py-2.5 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#17A2B8] min-h-[44px]"
+                className="w-full px-3 py-2.5 text-sm border border-gray-200 rounded-xl focus:outline-none focus:border-[#17A2B8] focus:ring-4 focus:ring-[#17A2B8]/10 transition-all duration-200 min-h-[44px]"
               />
             </div>
-            <button
-              onClick={handleQuoteSubmit}
-              disabled={quoteStatus === 'loading'}
-              className="w-full py-3.5 text-white font-semibold disabled:opacity-60 min-h-[44px]"
-              style={{ background: '#17A2B8', borderRadius: 0 }}
-            >
-              {quoteStatus === 'loading' ? 'Submitting...' : 'Get My Quote →'}
-            </button>
+            <motion.div whileHover={{ y: -1, scale: 1.01 }} whileTap={{ scale: 0.99 }}>
+              <button
+                onClick={handleQuoteSubmit}
+                disabled={quoteStatus === 'loading'}
+                className="w-full py-3.5 text-white font-semibold disabled:opacity-60 min-h-[48px] hover:bg-[#0D7A8C] transition-all duration-300"
+                style={{ background: '#17A2B8', borderRadius: '12px' }}
+              >
+                {quoteStatus === 'loading' ? 'Submitting...' : 'Get My Quote →'}
+              </button>
+            </motion.div>
             {quoteStatus === 'error' && (
               <p className="text-center text-xs text-red-600">Something went wrong. Please try again.</p>
             )}

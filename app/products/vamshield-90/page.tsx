@@ -124,48 +124,48 @@ export default function VAMShield90Page() {
 
             {/* Right Column - Specifications */}
             <Reveal direction="up" delay={0.2}>
-              <div className="bg-gray-50 rounded-2xl p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Technical Specifications</h3>
+              <div className="bg-gray-50 rounded-xl p-8 border border-gray-150 shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all duration-300 ease-in-out">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6 pb-2 border-b border-gray-150">Technical Specifications</h3>
                 
                 <div className="space-y-4">
-                  <div className="border-b border-gray-200 pb-4">
-                    <p className="text-sm text-gray-500 mb-1">Product Code</p>
-                    <p className="text-lg font-semibold text-gray-900">VAMShield-90</p>
+                  <div className="border-b border-gray-150 pb-3 flex justify-between items-center">
+                    <span className="text-sm font-semibold text-gray-500">Product Code</span>
+                    <span className="text-base font-bold text-gray-900">VAMShield-90</span>
                   </div>
 
-                  <div className="border-b border-gray-200 pb-4">
-                    <p className="text-sm text-gray-500 mb-1">Chemical Type</p>
-                    <p className="text-lg font-semibold text-gray-900">Corrosion Inhibitor</p>
+                  <div className="border-b border-gray-150 pb-3 flex justify-between items-center">
+                    <span className="text-sm font-semibold text-gray-500">Chemical Type</span>
+                    <span className="text-base font-bold text-gray-900">Corrosion Inhibitor</span>
                   </div>
 
-                  <div className="border-b border-gray-200 pb-4">
-                    <p className="text-sm text-gray-500 mb-1">Application</p>
-                    <p className="text-lg font-semibold text-gray-900">Metalworking Fluids & Lubricants</p>
+                  <div className="border-b border-gray-150 pb-3 flex justify-between items-center">
+                    <span className="text-sm font-semibold text-gray-500">Application</span>
+                    <span className="text-base font-bold text-gray-900">Metalworking & Lubricants</span>
                   </div>
 
-                  <div className="border-b border-gray-200 pb-4">
-                    <p className="text-sm text-gray-500 mb-1">Dosage Range</p>
-                    <p className="text-lg font-semibold text-gray-900">0.5% - 2.0%</p>
+                  <div className="border-b border-gray-150 pb-3 flex justify-between items-center">
+                    <span className="text-sm font-semibold text-gray-500">Dosage Range</span>
+                    <span className="text-base font-bold text-gray-900">0.5% - 2.0%</span>
                   </div>
 
-                  <div className="border-b border-gray-200 pb-4">
-                    <p className="text-sm text-gray-500 mb-1">pH Range</p>
-                    <p className="text-lg font-semibold text-gray-900">8.0 - 9.5</p>
+                  <div className="border-b border-gray-150 pb-3 flex justify-between items-center">
+                    <span className="text-sm font-semibold text-gray-500">pH Range</span>
+                    <span className="text-base font-bold text-gray-900">8.0 - 9.5</span>
                   </div>
 
-                  <div className="pb-4">
-                    <p className="text-sm text-gray-500 mb-1">Storage</p>
-                    <p className="text-lg font-semibold text-gray-900">Cool, dry place (15-25°C)</p>
+                  <div className="pb-3 flex justify-between items-center">
+                    <span className="text-sm font-semibold text-gray-500">Storage</span>
+                    <span className="text-base font-bold text-gray-900">Cool, dry place (15-25°C)</span>
                   </div>
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-gray-200">
+                <div className="mt-8 pt-6 border-t border-gray-150">
                   <h4 className="text-lg font-bold text-gray-900 mb-4">Available Packaging</h4>
                   <div className="flex flex-wrap gap-3">
                     {['25 kg', '50 kg', '200 kg', '1000 kg'].map((size) => (
                       <span
                         key={size}
-                        className="px-4 py-2 bg-white border-2 border-[#17A2B8] text-[#17A2B8] rounded-lg font-semibold"
+                        className="px-4 py-2 bg-white border border-[#17A2B8] text-[#17A2B8] rounded-xl font-semibold hover:bg-[#17A2B8]/5 hover:-translate-y-0.5 transition-all duration-200 cursor-default"
                       >
                         {size}
                       </span>
@@ -252,20 +252,24 @@ export default function VAMShield90Page() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#17A2B8] font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg"
-            >
-              <Mail className="w-5 h-5" />
-              Contact Us
-            </Link>
-            <a
-              href="tel:+919898123983"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-colors duration-300"
-            >
-              <Phone className="w-5 h-5" />
-              Call Us
-            </a>
+            <motion.div whileHover={{ y: -1, scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#17A2B8] font-semibold rounded-xl hover:bg-gray-100 transition-colors duration-300 shadow-md w-full sm:w-auto"
+              >
+                <Mail className="w-5 h-5" />
+                Contact Us
+              </Link>
+            </motion.div>
+            <motion.div whileHover={{ y: -1, scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+              <a
+                href="tel:+919898123983"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border border-white text-white font-semibold rounded-xl hover:bg-white/10 transition-colors duration-300 w-full sm:w-auto"
+              >
+                <Phone className="w-5 h-5" />
+                Call Us
+              </a>
+            </motion.div>
           </motion.div>
         </div>
       </section>

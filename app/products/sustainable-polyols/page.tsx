@@ -81,13 +81,13 @@ export default function SustainablePolyolsPage() {
           <div className="flex flex-col sm:flex-row gap-4">
             <Link 
               href="/contact?product=sustainable-polyols" 
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#17A2B8] hover:bg-[#0D7A8C] text-white font-bold rounded-lg transition-colors min-h-[48px] shadow-sm text-sm"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#17A2B8] hover:bg-[#0D7A8C] text-white font-bold rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:scale-[1.02] active:scale-[0.98] min-h-[48px] text-sm ease-in-out"
             >
               Order Evaluation Sample <ArrowRight size={16} />
             </Link>
             <Link 
               href="/resources/downloads?product=polymers-composites"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white border-2 border-gray-200 text-[#2C3E50] hover:text-[#17A2B8] hover:border-[#17A2B8] font-bold rounded-lg transition-all min-h-[48px] text-sm"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white border border-gray-300 text-[#2C3E50] hover:text-[#17A2B8] hover:border-[#17A2B8] font-bold rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:scale-[1.02] active:scale-[0.98] min-h-[48px] text-sm ease-in-out"
             >
               <FileText size={18} /> Download Tech Data Sheets
             </Link>
@@ -99,7 +99,7 @@ export default function SustainablePolyolsPage() {
       <Section className="py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-8 lg:gap-16">
           {/* Specifications */}
-          <div className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-100 shadow-sm">
+          <div className="bg-white rounded-xl p-6 sm:p-8 border border-gray-150 shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all duration-300 ease-in-out">
             <h2 className="text-xl sm:text-2xl font-bold text-[#2C3E50] mb-6 border-b border-gray-100 pb-4">
               Technical Specifications
             </h2>
@@ -110,24 +110,30 @@ export default function SustainablePolyolsPage() {
                 'Viscosity Range: 1500 to 3500 cSt @ 25°C',
                 'Water Content: Ultra-low moisture content (<0.08% wt)',
                 'Functionality Index: Optimized diol/triol mix for high mechanical resilience'
-              ].map((spec) => (
-                <div key={spec} className="flex items-start gap-3">
-                  <CheckCircle size={18} className="text-[#17A2B8] shrink-0 mt-0.5" />
-                  <span className="text-sm sm:text-base text-[#4A5568] leading-relaxed font-sans font-medium">{spec}</span>
-                </div>
-              ))}
+              ].map((spec) => {
+                const [label, ...valueParts] = spec.split(':');
+                const value = valueParts.join(':');
+                return (
+                  <div key={spec} className="flex items-start gap-3">
+                    <CheckCircle size={18} className="text-[#17A2B8] shrink-0 mt-0.5" />
+                    <span className="text-sm sm:text-base text-[#4A5568] leading-relaxed font-sans">
+                      <strong className="text-[#2C3E50] font-bold">{label}:</strong>{value}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
           {/* Applications & Industries */}
-          <div className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-100 shadow-sm flex flex-col justify-between">
+          <div className="bg-white rounded-xl p-6 sm:p-8 border border-gray-150 shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all duration-300 ease-in-out flex flex-col justify-between">
             <div>
               <h2 className="text-xl sm:text-2xl font-bold text-[#2C3E50] mb-6 border-b border-gray-100 pb-4">
                 Key Applications
               </h2>
               <div className="grid sm:grid-cols-2 gap-3.5 mb-6">
                 {['Polyurethane Foams', 'Sustainable Floor Coatings', 'Bio-based Elastomers', 'Green Adhesives & Sealants'].map((app) => (
-                  <div key={app} className="flex items-center gap-2.5 px-4 py-3 rounded-lg bg-[#F8FAFB] border border-gray-100">
+                  <div key={app} className="flex items-center gap-2.5 px-4 py-3 rounded-xl bg-[#F8FAFB] border border-gray-150">
                     <span className="w-2 h-2 rounded-full bg-[#17A2B8] shrink-0" />
                     <span className="text-sm font-bold text-[#2C3E50] leading-none">{app}</span>
                   </div>
