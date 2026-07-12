@@ -1,3 +1,4 @@
+// Modern industrial chemical solutions data
 import {
   FlaskConical,
   ShieldCheck,

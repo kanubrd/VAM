@@ -1,3 +1,4 @@
+// Solutions index page listing specialty chemical solutions
 import { Metadata } from 'next';
 import { Suspense } from 'react';
 import { SolutionsContent } from './solutions-content';
