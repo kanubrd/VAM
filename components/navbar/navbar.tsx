@@ -122,7 +122,7 @@ export function Navbar() {
           )}
           style={{
             height: isScrolled ? 64 : 72,
-            background: isScrolled ? 'rgba(255, 255, 255, 0.85)' : '#FFFFFF',
+            background: isScrolled ? 'rgba(255, 255, 255, 0.7)' : '#FFFFFF',
             backdropFilter: 'blur(16px)',
             borderBottom: isScrolled ? '1px solid rgba(0, 0, 0, 0.06)' : '1px solid rgba(0, 0, 0, 0.04)',
             position: 'relative',
@@ -153,8 +153,8 @@ export function Navbar() {
             />
           </Link>
 
-          {/* Desktop nav — centered text links with underline animation */}
-          <div className="hidden md:flex items-center gap-1">
+          {/* Desktop nav — centered text links with rounded active pill */}
+          <div className="hidden md:flex items-center gap-1.5">
             {navItems.map((item) => {
               const isActive = pathname === item.href;
               const textColor = '#2C3E50';
@@ -164,30 +164,26 @@ export function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="relative px-5 py-2 text-base font-bold tracking-wide group transition-colors duration-300 uppercase nav-link-animated"
+                  className="px-4 py-2 text-sm font-bold tracking-wide transition-all duration-250 uppercase rounded-xl"
                   style={{
                     color: isActive ? '#17A2B8' : textColor,
+                    background: isActive ? 'rgba(23, 162, 184, 0.08)' : 'transparent',
                     letterSpacing: '0.02em',
                   }}
                   onMouseEnter={e => {
-                    if (!isActive) (e.currentTarget as HTMLElement).style.color = hoverColor;
+                    if (!isActive) {
+                      (e.currentTarget as HTMLElement).style.color = hoverColor;
+                      (e.currentTarget as HTMLElement).style.background = 'rgba(23, 162, 184, 0.04)';
+                    }
                   }}
                   onMouseLeave={e => {
-                    if (!isActive) (e.currentTarget as HTMLElement).style.color = textColor;
+                    if (!isActive) {
+                      (e.currentTarget as HTMLElement).style.color = textColor;
+                      (e.currentTarget as HTMLElement).style.background = 'transparent';
+                    }
                   }}
                 >
                   {item.label}
-                  {/* Underline */}
-                  <span
-                    className="absolute bottom-0 left-5 right-5 transition-transform duration-250 origin-left"
-                    style={{
-                      height: 3,
-                      borderRadius: '9999px',
-                      background: '#17A2B8',
-                      transform: isActive ? 'scaleX(1)' : 'scaleX(0)',
-                      display: 'block',
-                    }}
-                  />
                 </Link>
               );
             })}
