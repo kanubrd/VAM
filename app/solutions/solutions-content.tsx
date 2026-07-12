@@ -13,18 +13,18 @@ import { solutions } from '@/data/solutions';
 const productImages: Record<string, string> = {
   'suscat-i':       '/suscat.png',
   'vamshield-90':   '/vamshield-90-product.png',
-  'suspol-125':     '/suspol-125-product-polished-final.png',
+  'suspol-125':     '/suspol-125-product-final.png',
   'vam-rc-01':      '/vam-rc-01-beaker.png',
-  'vam-bs-01':      '/hero-bg-teal.png',
+  'vam-bs-01':      '/vam-bs-01-polished.png',
 };
 
 // Product slider images - array of images for each product
 const productSliderImages: Record<string, string[]> = {
   'suscat-i':       ['/suscat.png', '/suscat-slider-2.png'],
   'vamshield-90':   ['/vamshield-90-product.png', '/vamshield-90-application.png', '/vamshield-90-gear-machining.png', '/vamshield-90-metal-cutting.png'],
-  'suspol-125':     ['/suspol-125-product-polished-final.png', '/suspol-125-application.png'],
+  'suspol-125':     ['/suspol-125-product-final.png', '/suspol-125-application.png'],
   'vam-rc-01':      ['/vam-rc-01-beaker.png', '/vam-rc-01-application.png'],
-  'vam-bs-01':      ['/hero-bg-teal.png'],
+  'vam-bs-01':      ['/vam-bs-01-polished.png'],
 };
 
 // Product slider image alt text - descriptive text for each image
