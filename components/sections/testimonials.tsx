@@ -32,6 +32,12 @@ const threatCards = [
   },
 ];
 
+const tagColors: Record<string, { bg: string; text: string }> = {
+  'INDUSTRIAL RISK':  { bg: 'rgba(239, 68, 68, 0.1)', text: '#EF4444' },
+  'FINANCIAL IMPACT': { bg: 'rgba(245, 158, 11, 0.1)', text: '#D97706' },
+  'MATERIAL SCIENCE': { bg: 'rgba(23, 162, 184, 0.1)',  text: '#17A2B8' },
+};
+
 export function TestimonialsSection() {
   return (
     <section style={{ background: '#F8F8F8' }} className="py-20 md:py-28">
@@ -73,56 +79,64 @@ export function TestimonialsSection() {
 
         {/* Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {threatCards.map((card, idx) => (
-            <Reveal key={card.title} delay={idx * 0.1}>
-              <Link href={card.link} className="block group">
-                <motion.div
-                  whileHover={{ y: -8, boxShadow: '0 20px 48px rgba(23,162,184,0.10)' }}
-                  transition={{ duration: 0.25 }}
-                  className="overflow-hidden h-full"
-                  style={{
-                    background: '#ffffff',
-                    border: '1px solid #E8E8E8',
-                  }}
-                >
-                  {/* Image */}
-                  <div className="relative h-52 overflow-hidden bg-[#2C3E50]">
-                    <Image
-                      src={card.image}
-                      alt={card.alt}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-80"
-                      loading="lazy"
-                      quality={85}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#2C3E50]/60 to-transparent" />
-                    <div className="absolute top-4 left-4">
-                      <span
-                        className="text-[10px] font-bold tracking-[3px] uppercase px-2 py-1"
-                        style={{ background: 'rgba(23,162,184,0.9)', color: '#fff' }}
-                      >
-                        {card.tag}
-                      </span>
+          {threatCards.map((card, idx) => {
+            const colors = tagColors[card.tag] || { bg: 'rgba(23,162,184,0.1)', text: '#17A2B8' };
+            return (
+              <Reveal key={card.title} delay={idx * 0.1}>
+                <Link href={card.link} className="block group">
+                  <motion.div
+                    whileHover={{ y: -6, boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02)' }}
+                    transition={{ duration: 0.25 }}
+                    className="overflow-hidden h-full border border-gray-150 shadow-sm"
+                    style={{
+                      background: '#ffffff',
+                      borderRadius: '12px',
+                    }}
+                  >
+                    {/* Image */}
+                    <div className="relative h-52 overflow-hidden bg-[#2C3E50]">
+                      <Image
+                        src={card.image}
+                        alt={card.alt}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-80"
+                        loading="lazy"
+                        quality={85}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#2C3E50]/60 to-transparent" />
+                      <div className="absolute top-4 left-4">
+                        <span
+                          className="text-[9px] font-bold tracking-[2px] uppercase px-2.5 py-1.5"
+                          style={{ 
+                            background: colors.bg, 
+                            color: colors.text,
+                            borderRadius: '6px',
+                            border: `1px solid ${colors.text}1F`
+                          }}
+                        >
+                          {card.tag}
+                        </span>
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Content */}
-                  <div className="p-6">
-                    <h3
-                      className="font-bold mb-3 group-hover:text-[#17A2B8] transition-colors"
-                      style={{ color: '#2C3E50', fontSize: '1.05rem' }}
-                    >
-                      {card.title}
-                    </h3>
-                    <p className="text-sm leading-relaxed" style={{ color: '#6B7280' }}>
-                      {card.description}
-                    </p>
-                  </div>
-                </motion.div>
-              </Link>
-            </Reveal>
-          ))}
+                    {/* Content */}
+                    <div className="p-6">
+                      <h3
+                        className="font-bold mb-3 group-hover:text-[#17A2B8] transition-colors font-sans"
+                        style={{ color: '#2C3E50', fontSize: '1.1rem' }}
+                      >
+                        {card.title}
+                      </h3>
+                      <p className="text-sm leading-relaxed" style={{ color: '#6B7280' }}>
+                        {card.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                </Link>
+              </Reveal>
+            );
+          })}
         </div>
 
       </div>

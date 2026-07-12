@@ -55,25 +55,25 @@ export function CTABanner() {
         {/* CTA buttons */}
         <Reveal delay={0.2}>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <motion.div whileHover={{ scale: 1.03, boxShadow: '0 0 28px rgba(23,162,184,0.4)' }} whileTap={{ scale: 0.98 }}>
+            <motion.div whileHover={{ y: -1, scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold text-white text-sm tracking-wide group min-h-[52px]"
-                style={{ background: '#17A2B8', borderRadius: 0 }}
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold text-white text-sm tracking-wide group min-h-[52px] shadow-sm hover:shadow"
+                style={{ background: '#17A2B8', borderRadius: '12px' }}
               >
                 Contact Us
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </motion.div>
 
-            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
+            <motion.div whileHover={{ y: -1, scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Link
                 href="/solutions"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold text-sm tracking-wide min-h-[52px]"
                 style={{
                   background: 'transparent',
                   border: '1.5px solid #2C3E50',
-                  borderRadius: 0,
+                  borderRadius: '12px',
                   color: '#2C3E50',
                 }}
               >

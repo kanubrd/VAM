@@ -205,11 +205,11 @@ export function HeroSection() {
             >
               <div className="flex flex-col sm:flex-row gap-4">
                 <motion.button
-                  whileHover={{ scale: 1.05, boxShadow: '0 0 32px rgba(23,162,184,0.45)' }}
+                  whileHover={{ y: -2, scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setIsQuoteOpen(true)}
-                  className="inline-flex items-center justify-center gap-3 px-12 py-5 font-bold text-white text-lg tracking-wide group min-h-[64px] btn-magnetic"
-                  style={{ background: '#17A2B8', borderRadius: 0 }}
+                  className="inline-flex items-center justify-center gap-3 px-12 py-5 font-bold text-white text-lg tracking-wide group min-h-[64px] shadow-sm hover:shadow"
+                  style={{ background: '#17A2B8', borderRadius: '12px' }}
                 >
                   Explore Solutions
                   <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
