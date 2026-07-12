@@ -227,7 +227,6 @@ export function SolutionsContent() {
             {/* Mobile: horizontal scroll row; Desktop: vertical stack */}
             <div className="flex lg:flex-col gap-3 overflow-x-auto pb-2 lg:pb-0 lg:space-y-0 snap-x snap-mandatory lg:snap-none">
               {solutions.map((solution, idx) => {
-                const Icon = solution.icon;
                 const isActive = selected === solution.id;
                 return (
                   <Reveal key={solution.id} delay={idx * 0.07}>
