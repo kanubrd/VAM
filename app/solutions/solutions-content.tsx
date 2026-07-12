@@ -229,10 +229,10 @@ export function SolutionsContent() {
                     <motion.button
                       whileHover={{ x: 4 }}
                       onClick={() => handleProductSelect(solution.id)}
-                      className={`w-64 lg:w-full shrink-0 snap-start text-left rounded-2xl border-2 transition-all duration-200 overflow-hidden group ${
+                      className={`w-64 lg:w-full shrink-0 snap-start text-left rounded-xl border transition-all duration-200 overflow-hidden group ${
                         isActive
-                          ? 'border-[#17A2B8] bg-white shadow-md'
-                          : 'border-gray-100 bg-white hover:border-[#D1F2F7] hover:shadow-sm'
+                          ? 'border-[#17A2B8] bg-white shadow-sm'
+                          : 'border-gray-150 bg-white hover:border-[#D1F2F7] hover:shadow'
                       }`}
                     >
                       {/* Card image strip */}
@@ -271,7 +271,7 @@ export function SolutionsContent() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="h-full min-h-[300px] sm:min-h-[400px] rounded-2xl border-2 border-dashed border-gray-200 flex flex-col items-center justify-center text-center p-8 sm:p-12"
+                  className="h-full min-h-[300px] sm:min-h-[400px] rounded-xl border border-dashed border-gray-200 flex flex-col items-center justify-center text-center p-8 sm:p-12"
                 >
                   <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-[#E6F7FA] flex items-center justify-center mb-4">
                     <ArrowLeft size={22} className="text-[#17A2B8]" />
@@ -289,7 +289,7 @@ export function SolutionsContent() {
                   className="space-y-4"
                 >
                   {/* ── Product Details & Specs Block ── */}
-                  <div className="bg-white rounded-2xl border-2 border-[#D1F2F7] overflow-hidden shadow-sm">
+                  <div className="bg-white rounded-xl border border-[rgba(23,162,184,0.18)] overflow-hidden shadow-sm">
                     <div className="p-6 sm:p-8 md:p-10">
                       {/* Product Header */}
                       <div className="flex items-center gap-3 mb-5 sm:mb-6">
@@ -305,7 +305,7 @@ export function SolutionsContent() {
                       </div>
 
                       {/* Product Photo Slider - Right aligned or centered on mobile */}
-                      <div className="relative h-64 sm:h-72 mb-6 rounded-xl overflow-hidden bg-gray-50">
+                      <div className="relative h-64 sm:h-72 mb-6 rounded-xl overflow-hidden bg-gray-50 border border-gray-100">
                         <AnimatePresence mode="sync">
                           <motion.div
                             key={activeSliderImages[productSlideIndex]}
@@ -429,9 +429,11 @@ export function SolutionsContent() {
                       </div>
 
                       {/* CTA Button */}
-                      <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-[#17A2B8] text-white text-sm font-semibold hover:bg-[#0D7A8C] transition-colors min-h-[48px]">
-                        Contact Us <ArrowRight size={16} />
-                      </Link>
+                       <motion.div whileHover={{ y: -1, scale: 1.02 }} whileTap={{ scale: 0.98 }} className="inline-block">
+                         <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#17A2B8] text-white text-sm font-semibold shadow-sm hover:shadow min-h-[48px]" style={{ borderRadius: '12px' }}>
+                           Contact Us <ArrowRight size={16} />
+                         </Link>
+                       </motion.div>
                     </div>
                   </div>
                 </motion.div>
@@ -451,17 +453,17 @@ export function SolutionsContent() {
             { benefit: 'Complete Order Visibility',           description: 'Track every step from quote to delivery in your account dashboard.' },
             { benefit: 'Rapid Custom Request Response', description: 'Quick turnaround when you need specialized materials outside the standard catalog.' },
           ].map((item, idx) => (
-            <Reveal key={item.benefit} delay={idx * 0.1} direction="left">
-              <motion.div whileHover={{ x: 6 }} className="flex gap-3 sm:gap-4 p-4 sm:p-6 bg-white rounded-2xl border-2 border-gray-100 hover:border-[#D1F2F7] hover:shadow-sm transition-all">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#E6F7FA] rounded-xl shrink-0">
-                  <span className="text-[#17A2B8] font-bold text-base sm:text-lg">{idx + 1}</span>
-                </div>
-                <div>
-                  <h3 className="font-bold text-[#2C3E50] mb-1 text-sm sm:text-base">{item.benefit}</h3>
-                  <p className="text-[#6B7280] text-sm">{item.description}</p>
-                </div>
-              </motion.div>
-            </Reveal>
+             <Reveal key={item.benefit} delay={idx * 0.1} direction="left">
+               <motion.div whileHover={{ x: 6 }} className="flex gap-3 sm:gap-4 p-4 sm:p-6 bg-white rounded-xl border border-gray-150 hover:border-[#D1F2F7] hover:shadow transition-all">
+                 <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#E6F7FA] rounded-xl shrink-0">
+                   <span className="text-[#17A2B8] font-bold text-base sm:text-lg">{idx + 1}</span>
+                 </div>
+                 <div>
+                   <h3 className="font-bold text-[#2C3E50] mb-1 text-sm sm:text-base">{item.benefit}</h3>
+                   <p className="text-[#6B7280] text-sm">{item.description}</p>
+                 </div>
+               </motion.div>
+             </Reveal>
           ))}
         </div>
       </Section>
@@ -472,9 +474,11 @@ export function SolutionsContent() {
         <p className="text-base sm:text-lg text-gray-300 mb-6 sm:mb-8 max-w-2xl mx-auto">
           Tell us what you need. We&apos;ll show you what we can source, at what price, and how fast — before you commit to anything.
         </p>
-        <Link href="/contact" className="inline-flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg bg-[#17A2B8] text-white font-semibold hover:bg-[#0D7A8C] transition-colors min-h-[48px]">
-          Contact Us <ArrowRight size={18} />
-        </Link>
+         <motion.div whileHover={{ y: -1, scale: 1.02 }} whileTap={{ scale: 0.98 }} className="inline-block">
+           <Link href="/contact" className="inline-flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 bg-[#17A2B8] text-white font-semibold shadow-md min-h-[48px]" style={{ borderRadius: '12px' }}>
+             Contact Us <ArrowRight size={18} />
+           </Link>
+         </motion.div>
       </Section>
     </div>
   );
