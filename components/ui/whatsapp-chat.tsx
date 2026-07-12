@@ -1,14 +1,22 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export function WhatsAppChat() {
+  const [mounted, setMounted] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const phoneNumber = '919898123983';
   const welcomeMessage = encodeURIComponent("Hello Valtrix Team, I'm visiting your website and have a sourcing inquiry.");
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${welcomeMessage}`;
+
+  if (!mounted) return null;
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3">

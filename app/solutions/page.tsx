@@ -3,26 +3,34 @@ import { Suspense } from 'react';
 import { SolutionsContent } from './solutions-content';
 
 export const metadata: Metadata = {
-  title: 'Materials Sourcing Solutions | Supply Chain Intelligence – Valtrix (Vadodara, India)',
-  description: 'Industrial materials sourcing and logistics coordination from Vadodara, India. Optimize your metals, polymers, and chemical procurement cadence.',
+  title: 'Industrial Solutions & Specialty Chemicals',
+  description: 'Explore our comprehensive range of industrial solutions: SusCat-I polymer, VAMShield-90 corrosion inhibitor, SusPol-125 bio-polyol & more. Advanced materials for metalworking, electroplating & surface treatment.',
   keywords: [
-    'materials sourcing',
-    'metals sourcing',
-    'polymers sourcing',
-    'coatings chemicals',
-    'materials compliance',
-    'multi-site fulfillment',
-    'predictive reorder',
-    'inventory intelligence'
+    'industrial solutions',
+    'specialty chemicals',
+    'suscat-i polymer',
+    'vamshield-90 inhibitor',
+    'suspol-125 polyol',
+    'metalworking chemicals',
+    'corrosion inhibitors',
+    'electroplating solutions'
   ],
   openGraph: {
-    title: 'Materials Sourcing Solutions | Supply Chain Intelligence – Valtrix (Vadodara, India)',
-    description: 'Industrial materials sourcing and logistics coordination from Vadodara, India. Optimize your metals, polymers, and chemical procurement cadence.',
-    url: 'https://www.valtrixmaterials.com/solutions',
+    title: 'Industrial Solutions & Specialty Chemicals | VAM VALTRIX',
+    description: 'Advanced materials for metalworking, electroplating & surface treatment. SusCat-I, VAMShield-90, SusPol-125 & more industrial solutions.',
+    url: 'https://vamvaltrix.com/solutions',
     type: 'website',
+    images: [
+      {
+        url: 'https://vamvaltrix.com/suscat.png',
+        width: 800,
+        height: 600,
+        alt: 'VAM VALTRIX Industrial Solutions & Specialty Chemicals',
+      },
+    ],
   },
   alternates: {
-    canonical: 'https://www.valtrixmaterials.com/solutions',
+    canonical: 'https://vamvaltrix.com/solutions',
   },
 };
 
