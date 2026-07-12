@@ -241,7 +241,7 @@ export function SolutionsContent() {
                       }`}
                     >
                       {/* Card image strip */}
-                      <div className={`relative h-24 sm:h-28 overflow-hidden bg-white flex items-center justify-center`}>
+                      <div className="relative h-24 sm:h-28 overflow-hidden bg-white flex items-center justify-center">
                         <Image 
                           src={productImages[solution.id] || '/hero-bg-teal.png'} 
                           alt={solution.title}
@@ -251,11 +251,6 @@ export function SolutionsContent() {
                           sizes="(max-width: 768px) 256px, 320px"
                           className={`w-full h-full object-contain ${solution.id === 'vamshield-90' ? 'p-1' : 'p-2'}`}
                         />
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center ${isActive ? 'bg-[#E6F7FA]' : 'bg-gray-100'}`}>
-                            <Icon size={20} className={isActive ? 'text-[#17A2B8]' : 'text-gray-600'} />
-                          </div>
-                        </div>
                       </div>
                       {/* Card text */}
                       <div className="p-3 sm:p-4 flex items-center justify-between">
