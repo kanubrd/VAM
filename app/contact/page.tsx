@@ -1,3 +1,4 @@
+// Contact Us page container importing the client-side content component
 import { Metadata } from 'next';
 import { ContactContent } from './contact-content';
 
