@@ -18,8 +18,8 @@ const DemoModal = dynamic(() => import('@/components/modals/demo-modal').then((m
 });
 
 const heroSlides = [
+  { src: '/slide2-petri-dish.png', alt: 'Sustainable green chemistry and industrial technology' },
   { src: '/hero-bg-teal.png', alt: 'Advanced teal molecular material flow design' },
-  { src: '/slide2-new.png',  alt: 'Sustainable environmental initiative and tree planting' },
   { src: '/slide3.png',  alt: 'Sustainable green industrial plant' },
 ];
 
