@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation';
 import { Menu, X, Phone, Mail } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useScrollProgress } from '@/hooks/useScrollProgress';
+import { motion } from 'framer-motion';
 
 const navItems = [
   { label: 'Home',       href: '/' },
@@ -115,13 +116,15 @@ export function Navbar() {
           suppressHydrationWarning
           className={cn(
             'transition-all duration-300',
-            isScrolled ? 'shadow-xl' : 'shadow-md',
+            isScrolled 
+              ? 'shadow-[0_2px_15px_-3px_rgba(0,0,0,0.05),0_10px_20px_-2px_rgba(0,0,0,0.04)]' 
+              : 'shadow-sm',
           )}
           style={{
             height: isScrolled ? 64 : 72,
-            background: isScrolled ? 'rgba(255, 255, 255, 0.98)' : '#FFFFFF',
-            backdropFilter: isScrolled ? 'blur(8px)' : 'none',
-            borderBottom: '2px solid #E5E7EB',
+            background: isScrolled ? 'rgba(255, 255, 255, 0.85)' : '#FFFFFF',
+            backdropFilter: 'blur(16px)',
+            borderBottom: isScrolled ? '1px solid rgba(0, 0, 0, 0.06)' : '1px solid rgba(0, 0, 0, 0.04)',
             position: 'relative',
             transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
           }}
@@ -163,7 +166,7 @@ export function Navbar() {
                   href={item.href}
                   className="relative px-5 py-2 text-base font-bold tracking-wide group transition-colors duration-300 uppercase nav-link-animated"
                   style={{
-                    color: textColor,
+                    color: isActive ? '#17A2B8' : textColor,
                     letterSpacing: '0.02em',
                   }}
                   onMouseEnter={e => {
@@ -178,7 +181,8 @@ export function Navbar() {
                   <span
                     className="absolute bottom-0 left-5 right-5 transition-transform duration-250 origin-left"
                     style={{
-                      height: 2,
+                      height: 3,
+                      borderRadius: '9999px',
                       background: '#17A2B8',
                       transform: isActive ? 'scaleX(1)' : 'scaleX(0)',
                       display: 'block',
@@ -191,19 +195,25 @@ export function Navbar() {
 
           {/* CTA */}
           <div className="hidden md:flex items-center shrink-0">
-            <Link
-              href="/contact"
-              className="text-sm font-semibold text-white transition-all duration-200"
-              style={{
-                background: '#17A2B8',
-                padding: '10px 24px',
-                letterSpacing: '0.02em',
-              }}
-              onMouseEnter={e => ((e.currentTarget as HTMLElement).style.background = '#0D7A8C')}
-              onMouseLeave={e => ((e.currentTarget as HTMLElement).style.background = '#17A2B8')}
+            <motion.div
+              whileHover={{ y: -1, scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
-              Contact Us
-            </Link>
+              <Link
+                href="/contact"
+                className="text-sm font-semibold text-white transition-all duration-200 block shadow-sm hover:shadow"
+                style={{
+                  background: '#17A2B8',
+                  padding: '10px 24px',
+                  borderRadius: '12px',
+                  letterSpacing: '0.02em',
+                }}
+                onMouseEnter={e => ((e.currentTarget as HTMLElement).style.background = '#0D7A8C')}
+                onMouseLeave={e => ((e.currentTarget as HTMLElement).style.background = '#17A2B8')}
+              >
+                Contact Us
+              </Link>
+            </motion.div>
           </div>
 
           {/* Mobile toggle */}
@@ -268,18 +278,18 @@ export function Navbar() {
           boxShadow: '0 8px 32px rgba(0,0,0,0.10)',
         }}
       >
-        <div className="px-4 py-4 space-y-1">
+        <div className="px-4 py-4 space-y-1.5">
           {navItems.map((item) => {
             const isActive = pathname === item.href;
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className="flex items-center gap-3 px-4 py-3.5 font-medium text-sm min-h-[52px] transition-colors"
+                className="flex items-center gap-3 px-4 py-3 font-semibold text-sm min-h-[48px] transition-all duration-200"
                 style={{
                   color: isActive ? '#17A2B8' : '#2C3E50',
                   background: isActive ? '#E6F7FA' : 'transparent',
-                  borderLeft: isActive ? '3px solid #17A2B8' : '3px solid transparent',
+                  borderRadius: '12px',
                 }}
                 onClick={() => setMobileMenuOpen(false)}
               >
@@ -290,8 +300,11 @@ export function Navbar() {
           <div className="pt-3 border-t border-gray-100">
             <Link
               href="/contact"
-              className="flex items-center justify-center px-4 py-3.5 text-sm font-semibold text-white min-h-[52px] transition-colors"
-              style={{ background: '#17A2B8' }}
+              className="flex items-center justify-center px-4 py-3 text-sm font-semibold text-white min-h-[48px] transition-colors shadow-sm"
+              style={{ 
+                background: '#17A2B8',
+                borderRadius: '12px'
+              }}
               onClick={() => setMobileMenuOpen(false)}
             >
               Contact Us
