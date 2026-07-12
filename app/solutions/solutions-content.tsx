@@ -8,7 +8,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Section, SectionTitle } from '@/components/ui/section';
-import { solutions } from '@/data/solutions';
+import { solutions } from '@/data/solutions-data';
 
 const productImages: Record<string, string> = {
   'suscat-i':       '/suscat.png',
