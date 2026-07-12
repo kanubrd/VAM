@@ -15,11 +15,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'SDS & TDS Technical Document Downloads | VAM VALTRIX',
     description: 'Download Safety Data Sheets (SDS) and Technical Data Sheets (TDS) for VAM VALTRIX metals, polymers, coatings, and compliance products.',
-    url: 'https://vamvaltrix.com/resources/downloads',
+    url: 'https://www.valtrixmaterials.com/resources/downloads',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://vamvaltrix.com/resources/downloads',
+    canonical: 'https://www.valtrixmaterials.com/resources/downloads',
   },
 };
 

@@ -89,7 +89,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: `${product.title} - Valtrix Sourcing Solutions`,
     description: product.overview,
     alternates: {
-      canonical: `https://vamvaltrix.com/solutions/${slug}`,
+      canonical: `https://www.valtrixmaterials.com/solutions/${slug}`,
     },
   };
 }

@@ -118,7 +118,7 @@ export default function CookiesPage() {
                   If you require more details on how we handle user data and trackers, please contact us:
                 </p>
                 <p className="mt-2 text-sm text-gray-700">
-                  <strong>Email:</strong> privacy@vamvaltrix.com
+                  <strong>Email:</strong> privacy@valtrixmaterials.com
                 </p>
               </section>
             </Reveal>

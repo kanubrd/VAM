@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { articlesList } from '@/data/articles';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://vamvaltrix.com';
+  const baseUrl = 'https://www.valtrixmaterials.com';
   
   const staticRoutes = [
     { route: '', priority: 1.0, changeFreq: 'weekly' as const },
@@ -44,12 +44,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFreq: 'weekly' as const
   }));
 
-  // Product pages (legacy)
+  // Product pages (including new high-intent keyword pages)
   const productRoutes = [
-    '/products/vamshield-90'
+    '/products/vamshield-90',
+    '/products/metalworking-fluids',
+    '/products/electroplating-chemicals',
+    '/products/surface-treatments',
+    '/products/corrosion-inhibitors',
+    '/products/sustainable-polyols'
   ].map(route => ({
     route, 
-    priority: 0.6,
+    priority: 0.8,
     changeFreq: 'monthly' as const
   }));
 

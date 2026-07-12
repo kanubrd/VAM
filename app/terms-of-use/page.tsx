@@ -97,7 +97,7 @@ export default function TermsOfUsePage() {
                   If you have any questions or clarifications regarding these Terms of Use, please reach out to our legal department:
                 </p>
                 <p className="mt-2 text-sm text-gray-700">
-                  <strong>Email:</strong> legal@vamvaltrix.com
+                  <strong>Email:</strong> legal@valtrixmaterials.com
                 </p>
               </section>
             </Reveal>

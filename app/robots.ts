@@ -22,6 +22,6 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: 'anthropic-ai',    disallow: '/' },
       { userAgent: 'Google-Extended', disallow: '/' },
     ],
-    sitemap: 'https://vamvaltrix.com/sitemap.xml',
+    sitemap: 'https://www.valtrixmaterials.com/sitemap.xml',
   };
 }

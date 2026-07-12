@@ -3,8 +3,8 @@ import { Suspense } from 'react';
 import { SolutionsContent } from './solutions-content';
 
 export const metadata: Metadata = {
-  title: 'Materials Sourcing Solutions & Supply Chain Intelligence',
-  description: 'Explore VAM VALTRIX materials sourcing and supply chain intelligence: Metals & Alloys, Polymers & Composites, Coatings & Surface Chemicals, Compliance, Multi-Site Fulfillment, and Predictive Reorder.',
+  title: 'Materials Sourcing Solutions | Supply Chain Intelligence – Valtrix (Vadodara, India)',
+  description: 'Industrial materials sourcing and logistics coordination from Vadodara, India. Optimize your metals, polymers, and chemical procurement cadence.',
   keywords: [
     'materials sourcing',
     'metals sourcing',
@@ -16,13 +16,13 @@ export const metadata: Metadata = {
     'inventory intelligence'
   ],
   openGraph: {
-    title: 'Materials Sourcing Solutions & Supply Chain Intelligence | VAM VALTRIX',
-    description: 'Explore VAM VALTRIX materials sourcing and supply chain intelligence: Metals & Alloys, Polymers & Composites, Coatings & Surface Chemicals, Compliance, Multi-Site Fulfillment, and Predictive Reorder.',
-    url: 'https://vamvaltrix.com/solutions',
+    title: 'Materials Sourcing Solutions | Supply Chain Intelligence – Valtrix (Vadodara, India)',
+    description: 'Industrial materials sourcing and logistics coordination from Vadodara, India. Optimize your metals, polymers, and chemical procurement cadence.',
+    url: 'https://www.valtrixmaterials.com/solutions',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://vamvaltrix.com/solutions',
+    canonical: 'https://www.valtrixmaterials.com/solutions',
   },
 };
 

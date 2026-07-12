@@ -23,8 +23,8 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: 'VAM VALTRIX - Advanced Materials & Industrial Chemicals | Valtrix Advance Material Pvt. Ltd',
-    template: '%s | VAM VALTRIX'
+    default: 'Advanced Materials & Industrial Chemicals Manufacturer | Metalworking Fluids & Surface Chemistry – Valtrix (Vadodara, India)',
+    template: '%s'
   },
   description: 'Leading manufacturer of advanced materials, industrial chemicals & specialty additives. Metalworking fluids, electroplating chemicals, surface treatments, corrosion inhibitors & sustainable polyols for automotive, aerospace & manufacturing industries.',
   keywords: [
@@ -49,20 +49,20 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://vamvaltrix.com'),
+  metadataBase: new URL('https://www.valtrixmaterials.com'),
   alternates: {
-    canonical: 'https://vamvaltrix.com',
+    canonical: 'https://www.valtrixmaterials.com',
   },
   openGraph: {
     title: 'VAM VALTRIX - Advanced Materials & Industrial Chemicals',
     description: 'Leading manufacturer of advanced materials, metalworking fluids, electroplating chemicals & surface treatments for industrial applications.',
-    url: 'https://vamvaltrix.com',
+    url: 'https://www.valtrixmaterials.com',
     siteName: 'VAM VALTRIX',
     locale: 'en_US',
     type: 'website',
     images: [
       {
-        url: 'https://vamvaltrix.com/valtrix-logo.png',
+        url: 'https://www.valtrixmaterials.com/valtrix-logo.png',
         width: 1200,
         height: 630,
         alt: 'VAM VALTRIX - Advanced Materials & Industrial Chemicals',
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'VAM VALTRIX - Advanced Materials & Industrial Chemicals',
     description: 'Leading manufacturer of advanced materials for industrial applications.',
-    images: ['https://vamvaltrix.com/valtrix-logo.png'],
+    images: ['https://www.valtrixmaterials.com/valtrix-logo.png'],
   },
   robots: {
     index: true,
@@ -100,14 +100,14 @@ export const metadata: Metadata = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  '@id': 'https://vamvaltrix.com/#organization',
+  '@id': 'https://www.valtrixmaterials.com/#organization',
   name: 'Valtrix Advance Material Pvt. Ltd',
   legalName: 'Valtrix Advance Material Private Limited',
   alternateName: ['VAM VALTRIX', 'VALTRIX'],
-  url: 'https://vamvaltrix.com',
+  url: 'https://www.valtrixmaterials.com',
   logo: {
     '@type': 'ImageObject',
-    url: 'https://vamvaltrix.com/valtrix-logo.png',
+    url: 'https://www.valtrixmaterials.com/valtrix-logo.png',
     width: 400,
     height: 120
   },
@@ -172,7 +172,7 @@ const jsonLd = {
   ],
   potentialAction: {
     '@type': 'SearchAction',
-    target: 'https://vamvaltrix.com/solutions?search={search_term_string}',
+    target: 'https://www.valtrixmaterials.com/solutions?search={search_term_string}',
     'query-input': 'required name=search_term_string'
   }
 };
@@ -181,9 +181,9 @@ const localBusinessJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   name: 'Valtrix Advance Material Pvt. Ltd',
-  image: 'https://vamvaltrix.com/valtrix-logo.png',
-  '@id': 'https://vamvaltrix.com/#localbusiness',
-  url: 'https://vamvaltrix.com',
+  image: 'https://www.valtrixmaterials.com/valtrix-logo.png',
+  '@id': 'https://www.valtrixmaterials.com/#localbusiness',
+  url: 'https://www.valtrixmaterials.com',
   telephone: '+91 98981 23983',
   email: 'info@valtrixmaterials.com',
   address: {

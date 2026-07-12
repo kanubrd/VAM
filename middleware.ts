@@ -3,6 +3,16 @@ import type { NextRequest } from 'next/server';
 
 // Security middleware for additional protection
 export function middleware(request: NextRequest) {
+  const host = request.headers.get('host') || '';
+  const pathname = request.nextUrl.pathname;
+  const search = request.nextUrl.search;
+
+  // Redirect non-www and legacy domains to primary www.valtrixmaterials.com
+  if (!host.includes('localhost') && !host.includes('127.0.0.1') && host !== 'www.valtrixmaterials.com') {
+    const newUrl = new URL(pathname + search, 'https://www.valtrixmaterials.com');
+    return NextResponse.redirect(newUrl, 301);
+  }
+
   const response = NextResponse.next();
 
   // Additional security headers

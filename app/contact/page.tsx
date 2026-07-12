@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import { ContactContent } from './contact-content';
 
 export const metadata: Metadata = {
-  title: 'Contact Us - Get Sourcing Quote',
-  description: 'Submit your industrial chemical and advanced material sourcing request to VAM VALTRIX. Talk to a specialist and receive a customized quote.',
+  title: 'Contact Us | Get Sourcing Quote – Valtrix (Vadodara, India)',
+  description: 'Submit your industrial chemical and advanced material sourcing request to Valtrix in Vadodara, India. Talk to a specialist and receive a customized quote.',
   keywords: [
     'contact valtrix',
     'sourcing request',
@@ -12,13 +12,13 @@ export const metadata: Metadata = {
     'specialty chemicals support'
   ],
   openGraph: {
-    title: 'Contact Us - Get Sourcing Quote | VAM VALTRIX',
-    description: 'Submit your industrial chemical and advanced material sourcing request to VAM VALTRIX. Talk to a specialist and receive a customized quote.',
-    url: 'https://vamvaltrix.com/contact',
+    title: 'Contact Us | Get Sourcing Quote – Valtrix (Vadodara, India)',
+    description: 'Submit your industrial chemical and advanced material sourcing request to Valtrix in Vadodara, India. Talk to a specialist and receive a customized quote.',
+    url: 'https://www.valtrixmaterials.com/contact',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://vamvaltrix.com/contact',
+    canonical: 'https://www.valtrixmaterials.com/contact',
   },
 };
 

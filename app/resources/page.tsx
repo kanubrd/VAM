@@ -19,11 +19,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Resources & Insights | VAM VALTRIX',
     description: 'Explore VAM VALTRIX resources: industry insights, safety guidelines, and SDS/TDS document indexes for metallurgy and industrial chemistry.',
-    url: 'https://vamvaltrix.com/resources',
+    url: 'https://www.valtrixmaterials.com/resources',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://vamvaltrix.com/resources',
+    canonical: 'https://www.valtrixmaterials.com/resources',
   },
 };
 

@@ -120,7 +120,7 @@ export default function PrivacyPolicyPage() {
                   To exercise any of your rights or submit a query/grievance regarding your personal data, please contact our Data Protection Officer:
                 </p>
                 <div className="mt-4 text-sm space-y-1 text-gray-700">
-                  <p><strong>Email:</strong> privacy@vamvaltrix.com</p>
+                  <p><strong>Email:</strong> privacy@valtrixmaterials.com</p>
                   <p><strong>Address:</strong> 318, Fortune Gateway, Chhani, Vadodara - 390024, Gujarat, India</p>
                   <p><strong>Response Time:</strong> We aim to respond to all valid requests within 30 days.</p>
                 </div>

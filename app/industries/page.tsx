@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import { IndustriesContent } from './industries-content';
 
 export const metadata: Metadata = {
-  title: 'Target Industries - Custom Additive Engineering',
-  description: 'Explore the key industries VAM VALTRIX serves: Automotive, Metal Working Fluids & Lubricants, Electroplating, and Surface Treatment.',
+  title: 'Target Industries | Custom Additive Engineering – Valtrix (Vadodara, India)',
+  description: 'Explore custom chemical formulations and additive engineering serving automotive, metallurgy, and electroplating industries in Vadodara, India.',
   keywords: [
     'industries served',
     'valtrix industries',
@@ -12,13 +12,13 @@ export const metadata: Metadata = {
     'surface treatment industries'
   ],
   openGraph: {
-    title: 'Target Industries - Custom Additive Engineering | VAM VALTRIX',
-    description: 'Explore the key industries VAM VALTRIX serves: Automotive, Metal Working Fluids & Lubricants, Electroplating, and Surface Treatment.',
-    url: 'https://vamvaltrix.com/industries',
+    title: 'Target Industries | Custom Additive Engineering – Valtrix (Vadodara, India)',
+    description: 'Explore custom chemical formulations and additive engineering serving automotive, metallurgy, and electroplating industries in Vadodara, India.',
+    url: 'https://www.valtrixmaterials.com/industries',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://vamvaltrix.com/industries',
+    canonical: 'https://www.valtrixmaterials.com/industries',
   },
 };
 

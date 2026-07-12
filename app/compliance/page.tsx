@@ -98,7 +98,7 @@ export default function CompliancePage() {
                   To request compliance declarations (REACH, RoHS, DFARS, or conflict minerals reports) for specific material batches or quotes, please contact our quality department:
                 </p>
                 <p className="mt-2 text-sm text-gray-700">
-                  <strong>Email:</strong> quality@vamvaltrix.com
+                  <strong>Email:</strong> quality@valtrixmaterials.com
                 </p>
               </section>
             </Reveal>
