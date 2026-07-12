@@ -235,6 +235,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className={`${inter.className} antialiased bg-white text-[#1A1A1A]`}>
+        <div className="viewport-frame" />
         <GoogleAnalytics />
         <WebVitalsProvider />
         <Navbar />
