@@ -15,7 +15,7 @@ const productImages: Record<string, string> = {
   'vamshield-90':   '/vamshield-90-product.png',
   'suspol-125':     '/suspol-125-product-yellow-polished.png',
   'vam-rc-01':      '/vam-rc-01-beaker.png',
-  'vam-bs-01':      '/vam-bs-01-polished.png',
+  'vam-hs-100':     '/vam-hs-100-polished.png',
 };
 
 // Product slider images - array of images for each product
@@ -24,7 +24,7 @@ const productSliderImages: Record<string, string[]> = {
   'vamshield-90':   ['/vamshield-90-product.png', '/vamshield-90-application.png', '/vamshield-90-gear-machining.png', '/vamshield-90-metal-cutting.png'],
   'suspol-125':     ['/suspol-125-product-yellow-polished.png', '/suspol-125-application.png'],
   'vam-rc-01':      ['/vam-rc-01-beaker.png', '/vam-rc-01-application.png'],
-  'vam-bs-01':      ['/vam-bs-01-polished.png'],
+  'vam-hs-100':     ['/vam-hs-100-polished.png'],
 };
 
 // Product slider image alt text - descriptive text for each image
@@ -47,8 +47,8 @@ const productSliderAltText: Record<string, string[]> = {
     'VAM RC-01 rust converter milky white liquid sample in laboratory beaker',
     'VAM RC-01 rust converter brush application converting surface rust into a stable protective layer'
   ],
-  'vam-bs-01':      [
-    'VAM BS-01 personal care additive for cosmetic formulations'
+  'vam-hs-100':     [
+    'VAM HS-100 lubricant additive for industrial applications and formulations'
   ],
 };
 
@@ -141,26 +141,22 @@ const productDetails: Record<string, { overview: string; specs: string[]; applic
       'Heavy Equipment Manufacturing',
     ],
   },
-  'vam-bs-01': {
-    overview: 'VAM BS-01 is an advanced multifunctional additive designed to improve the performance, texture, and stability of personal care formulations. It enhances the sensory experience and provides excellent compatibility with various cosmetic ingredients.',
+  'vam-hs-100': {
+    overview: 'VAM HS-100 is an advanced multifunctional lubricant additive designed for high-performance metalworking fluids and corrosion inhibitor formulations. It offers excellent lime soap dispersion, outstanding emulsification, effective foam control, and superior corrosion inhibition in industrial systems.',
     specs: [
-      'Product Type: Personal Care Additive',
-      'Category: Cosmetic Ingredient',
-      'Form: Liquid/Paste (depending on formulation)',
-      'Compatibility: Suitable for various cosmetic formulations',
-      'Function: Improves texture, stability, and performance',
-      'Application: Rinse-off and leave-on formulations',
+      'Product Type: Lubricant Additive',
+      'Category: Metalworking & Rust Prevention',
+      'Form: Liquid Formulation',
+      'Water Tolerance: High hard-water tolerance',
+      'Function: Emulsification, foam control, and rust preventive',
+      'Performance: Superior lime soap dispersion',
     ],
     applications: [
-      'Skin Care Products (creams, lotions, moisturizers)',
-      'Hair Care Products (shampoos, conditioners)',
-      'Emulsions',
-      'Premium Cosmetic Formulations',
-      'Cosmetics',
-      'Personal Care',
-      'Skin Care',
-      'Hair Care',
-      'Specialty Formulations',
+      'Metal working fluids (mineral and vegetable oils)',
+      'Corrosion inhibitor formulations',
+      'Lubricants additive and foam control',
+      'High hard-water tolerance systems',
+      'Industrial manufacturing formulations',
     ],
   },
 };
