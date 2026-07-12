@@ -151,18 +151,16 @@ export function Footer() {
               <Image 
                 src="/valtrix-logo.png" 
                 alt="Valtrix Advanced Materials Logo" 
-                width={200} 
-                height={70} 
+                width={122} 
+                height={44} 
                 priority={false} 
                 quality={100}
-                className="w-auto" 
+                className="w-auto h-auto" 
                 style={{ 
-                  height: 44, 
+                  height: '44px', 
                   width: 'auto', 
-                  imageRendering: 'crisp-edges',
                   transition: 'all 0.3s ease',
                 }} 
-                unoptimized={true}
               />
             </Link>
             <p className="text-sm text-gray-400 leading-relaxed mb-5 max-w-xs">
