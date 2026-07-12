@@ -9,18 +9,12 @@ import { Section, SectionTitle } from '@/components/ui/section';
 import { solutions } from '@/data/solutions';
 
 const productImages: Record<string, string> = {
-  // TODO: Replace with real photo for Metals & Alloys Sourcing
-  'metals-alloys':          '/images/solutions/metals-alloys.jpg',
-  // TODO: Replace with real photo for Polymers & Composites
-  'polymers-composites':    '/images/solutions/polymers-composites.jpg',
-  // TODO: Replace with real photo for Coatings & Surface Chemicals
-  'coatings-chemicals':     '/images/solutions/coatings-chemicals.jpg',
-  // TODO: Replace with real photo for Compliance & Certification Management
-  'compliance-certs':       '/images/solutions/compliance-certs.jpg',
-  // TODO: Replace with real photo for Multi-Site Fulfillment Coordination
-  'multi-site-fulfillment': '/images/solutions/multi-site-fulfillment.jpg',
-  // TODO: Replace with real photo for Predictive Reorder & Inventory Intelligence
-  'predictive-reorder':     '/images/solutions/predictive-reorder.jpg',
+  'metals-alloys':          '/oem-automotive.png',
+  'polymers-composites':    '/suspol-125-product.png',
+  'coatings-chemicals':     '/phosphate-conversion-coatings.png',
+  'compliance-certs':       '/suscat.png',
+  'multi-site-fulfillment': '/maintenance-repair.png',
+  'predictive-reorder':     '/vamshield-90-gear-machining.png',
 };
 
 // Map card IDs to matching routes
