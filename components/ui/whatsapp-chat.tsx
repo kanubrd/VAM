@@ -16,10 +16,10 @@ export function WhatsAppChat() {
   const welcomeMessage = encodeURIComponent("Hello Valtrix Team, I'm visiting your website and have a sourcing inquiry.");
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${welcomeMessage}`;
 
-  if (!mounted) return null;
-
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3">
+    <div className={`fixed bottom-6 right-6 z-50 flex items-center gap-3 transition-opacity duration-350 ${mounted ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+      {mounted && (
+        <>
       {/* Tooltip Card (Appears on Hover) */}
       <AnimatePresence>
         {isHovered && (
@@ -66,8 +66,10 @@ export function WhatsAppChat() {
             height={56}
             className="w-full h-full object-cover"
           />
-        </motion.a>
-      </div>
+            </motion.a>
+          </div>
+        </>
+      )}
     </div>
   );
 }
