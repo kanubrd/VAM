@@ -9,12 +9,12 @@ import { Section, SectionTitle } from '@/components/ui/section';
 import { solutions } from '@/data/solutions';
 
 const productImages: Record<string, string> = {
-  'metals-alloys':          '/oem-automotive.png',
-  'polymers-composites':    '/suspol-125-product.png',
-  'coatings-chemicals':     '/phosphate-conversion-coatings.png',
-  'compliance-certs':       '/suscat.png',
-  'multi-site-fulfillment': '/maintenance-repair.png',
-  'predictive-reorder':     '/vamshield-90-gear-machining.png',
+  'metals-alloys':          '/images/solutions/metals-alloys.png',
+  'polymers-composites':    '/images/solutions/polymers-composites.png',
+  'coatings-chemicals':     '/images/solutions/coatings-chemicals.png',
+  'compliance-certs':       '/images/solutions/compliance-certs.png',
+  'multi-site-fulfillment': '/images/solutions/multi-site-fulfillment.png',
+  'predictive-reorder':     '/images/solutions/predictive-reorder.png',
 };
 
 // Map card IDs to matching routes
