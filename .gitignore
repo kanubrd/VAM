@@ -37,7 +37,9 @@ coverage/
 *.log
 
 # Backend Data (file-based storage)
-data/
+data/*.json
+data/contacts.json
+data/quotes.json
 logs/
 
 # OS
