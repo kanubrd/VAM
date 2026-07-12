@@ -7,9 +7,23 @@ import { motion, AnimatePresence } from 'framer-motion';
 export function WhatsAppChat() {
   const [mounted, setMounted] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [dragConstraints, setDragConstraints] = useState({ left: -300, right: 0, top: -500, bottom: 0 });
 
   useEffect(() => {
     setMounted(true);
+    if (typeof window !== 'undefined') {
+      const handleResize = () => {
+        setDragConstraints({
+          left: -window.innerWidth + 120,
+          right: 0,
+          top: -window.innerHeight + 120,
+          bottom: 0,
+        });
+      };
+      handleResize();
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }
   }, []);
 
   const phoneNumber = '919898123983';
@@ -17,7 +31,15 @@ export function WhatsAppChat() {
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${welcomeMessage}`;
 
   return (
-    <div className={`fixed bottom-6 right-6 z-50 flex items-center gap-3 transition-opacity duration-350 ${mounted ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+    <motion.div
+      drag
+      dragConstraints={dragConstraints}
+      dragElastic={0.08}
+      dragMomentum={false}
+      whileDrag={{ scale: 1.05 }}
+      style={{ touchAction: 'none' }}
+      className={`fixed bottom-6 right-6 z-50 flex items-center gap-3 cursor-grab active:cursor-grabbing transition-opacity duration-350 ${mounted ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+    >
       {mounted && (
         <>
       {/* Tooltip Card (Appears on Hover) */}
@@ -70,6 +92,6 @@ export function WhatsAppChat() {
           </div>
         </>
       )}
-    </div>
+    </motion.div>
   );
 }
