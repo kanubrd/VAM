@@ -136,13 +136,13 @@ export function Navbar() {
             <Image
               src="/valtrix-logo-teal.png"
               alt="VAM VALTRIX Logo"
-              width={192}
-              height={60}
-              sizes="(max-width: 768px) 192px, 300px"
+              width={150}
+              height={55}
+              sizes="(max-width: 768px) 150px, 200px"
               className="w-auto"
               style={{ 
-                height: isScrolled ? '110px' : '130px',
-                maxHeight: isScrolled ? '110px' : '130px',
+                height: isScrolled ? '38px' : '44px',
+                maxHeight: isScrolled ? '38px' : '44px',
                 imageRendering: 'crisp-edges',
                 transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                 transformOrigin: 'center',
