@@ -13,18 +13,18 @@ import { solutions } from '@/data/solutions-data';
 const productImages: Record<string, string> = {
   'suscat-i':       '/suscat.png',
   'vamshield-90':   '/vamshield-90-product.png',
-  'suspol-125':     '/suspol-125-product-yellow-polished.png',
+  'suspol-125':     '/suspol-125-beaker-clean-v9-clear.png',
   'vam-rc-01':      '/vam-rc-01-beaker.png',
-  'vam-hs-100':     '/vam-hs-100-polished.png',
+  'vam-hs-100':     '/vam-hs-100-beaker-clean.png',
 };
 
 // Product slider images - array of images for each product
 const productSliderImages: Record<string, string[]> = {
   'suscat-i':       ['/suscat.png', '/suscat-slider-2.png'],
   'vamshield-90':   ['/vamshield-90-product.png', '/vamshield-90-application.png', '/vamshield-90-gear-machining.png', '/vamshield-90-metal-cutting.png'],
-  'suspol-125':     ['/suspol-125-product-yellow-polished.png', '/suspol-125-application.png'],
+  'suspol-125':     ['/suspol-125-beaker-clean-v9-clear.png', '/suspol-125-application.png'],
   'vam-rc-01':      ['/vam-rc-01-beaker.png', '/vam-rc-01-application.png'],
-  'vam-hs-100':     ['/vam-hs-100-polished.png'],
+  'vam-hs-100':     ['/vam-hs-100-beaker-clean.png'],
 };
 
 // Product slider image alt text - descriptive text for each image
@@ -236,7 +236,7 @@ export function SolutionsContent() {
                       }`}
                     >
                       {/* Card image strip */}
-                      <div className="relative h-24 sm:h-28 overflow-hidden bg-white flex items-center justify-center">
+                      <div className="relative h-24 sm:h-28 overflow-hidden bg-white border-b border-gray-150 flex items-center justify-center">
                         <Image 
                           src={productImages[solution.id] || '/hero-bg-teal.png'} 
                           alt={solution.title}
@@ -305,7 +305,7 @@ export function SolutionsContent() {
                       </div>
 
                       {/* Product Photo Slider - Right aligned or centered on mobile */}
-                      <div className="relative h-64 sm:h-72 mb-6 rounded-xl overflow-hidden bg-gray-50 border border-gray-100">
+                      <div className="relative h-64 sm:h-72 mb-6 rounded-xl overflow-hidden bg-white border border-gray-200 shadow-sm">
                         <AnimatePresence mode="sync">
                           <motion.div
                             key={activeSliderImages[productSlideIndex]}

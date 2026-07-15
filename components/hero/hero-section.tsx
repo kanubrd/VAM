@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -18,8 +19,8 @@ const DemoModal = dynamic(() => import('@/components/modals/demo-modal').then((m
 });
 
 const heroSlides = [
-  { src: '/slide2-petri-dish.png', alt: 'Sustainable green chemistry and industrial technology' },
   { src: '/hero-bg-teal.png', alt: 'Advanced teal molecular material flow design' },
+  { src: '/slide2-petri-dish.png', alt: 'Sustainable green chemistry and industrial technology' },
   { src: '/slide3.png',  alt: 'Sustainable green industrial plant' },
 ];
 
@@ -43,19 +44,19 @@ export function HeroSection() {
   // Render placeholder during SSR & first client render to avoid hydration mismatch
   if (!mounted) {
     return (
-      <section style={{ background: '#EEF2F7', minHeight: '560px', paddingTop: '108px' }} className="overflow-hidden" />
+      <section style={{ background: '#FFFFFF', minHeight: '560px', paddingTop: '100px' }} className="overflow-hidden" />
     );
   }
 
   return (
     <>
-      <section style={{ background: '#EEF2F7' }} className="overflow-hidden">
+      <section style={{ background: '#FFFFFF' }} className="overflow-hidden">
         {/* ── Full-width slideshow ── */}
         <div
           style={{
             width: '100%',
             height: 'clamp(300px, 45vw, 560px)',
-            marginTop: '108px',
+            marginTop: '100px',
             position: 'relative',
             overflow: 'hidden',
             boxShadow: 'inset 0 4px 6px -1px rgba(0, 0, 0, 0.1)',
@@ -156,7 +157,7 @@ export function HeroSection() {
           <div
             style={{
               position: 'absolute', bottom: 0, left: 0, right: 0, height: 120,
-              background: 'linear-gradient(to bottom, transparent, #EEF2F7)',
+              background: 'linear-gradient(to bottom, transparent, #FFFFFF)',
               pointerEvents: 'none',
             }}
           />
@@ -172,7 +173,7 @@ export function HeroSection() {
             transition={{ duration: 0.5, delay: 0.5 }}
             className="flex items-center gap-3 mb-5"
           >
-            <div className="h-px w-8" style={{ background: '#17A2B8' }} />
+            <div className="h-px w-4" style={{ background: '#17A2B8' }} />
             <span className="text-xs font-semibold tracking-[4px] uppercase" style={{ color: '#17A2B8' }}>
               Valtrix Advance Material Pvt. Ltd
             </span>
@@ -204,16 +205,14 @@ export function HeroSection() {
               transition={{ duration: 0.65, delay: 0.65 }}
             >
               <div className="flex flex-col sm:flex-row gap-4">
-                <motion.button
-                  whileHover={{ y: -2, scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => setIsQuoteOpen(true)}
+                <Link
+                  href="/solutions"
                   className="inline-flex items-center justify-center gap-3 px-12 py-5 font-bold text-white text-lg tracking-wide group min-h-[64px] shadow-sm hover:shadow"
                   style={{ background: '#17A2B8', borderRadius: '12px' }}
                 >
                   Explore Solutions
                   <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                </motion.button>
+                </Link>
               </div>
             </motion.div>
           </div>

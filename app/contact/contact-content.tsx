@@ -15,6 +15,7 @@ export function ContactContent() {
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [status,    setStatus]    = useState<'idle'|'loading'|'success'|'error'>('idle');
   const [errorMsg,  setErrorMsg]  = useState('');
+  const [selectedSolutions, setSelectedSolutions] = useState<string[]>([]);
 
   // Honeypot — bots fill this, humans don't
   const [honeypot, setHoneypot] = useState('');
@@ -47,6 +48,9 @@ export function ContactContent() {
 
     try {
       const recaptchaToken = await getRecaptchaToken('contact');
+      const solutionsText = selectedSolutions.length > 0
+        ? `[Solutions Required: ${selectedSolutions.join(', ')}]\n\n`
+        : '';
 
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -55,7 +59,7 @@ export function ContactContent() {
           name: sanitiseString(formData.name),
           email: formData.email.trim().toLowerCase(),
           subject: formData.company ? `Inquiry from ${sanitiseString(formData.company)}` : 'General Inquiry',
-          message: sanitiseString(formData.message),
+          message: solutionsText + sanitiseString(formData.message),
           _hp: honeypot, // Honeypot field - bots fill this, humans don't
           recaptchaToken,
         }),
@@ -72,6 +76,7 @@ export function ContactContent() {
         label: formData.company ? `Inquiry from ${formData.company}` : 'General Inquiry',
       });
       setFormData({ name: '', email: '', company: '', message: '' });
+      setSelectedSolutions([]);
       setFieldErrors({});
     } catch (err) {
       setErrorMsg('Unable to send your message. Please try again or email us directly.');
@@ -221,6 +226,40 @@ export function ContactContent() {
                 {fieldErrors.company && (
                   <p role="alert" className="text-xs text-red-600 mt-1">{fieldErrors.company}</p>
                 )}
+              </div>
+
+              {/* Solutions Required Checklist */}
+              <div className="mb-4 sm:mb-5">
+                <span className="block text-sm font-semibold text-[#2C3E50] mb-2">
+                  Solutions Required
+                </span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 p-4 bg-gray-50 rounded-xl border border-gray-200">
+                  {['SusCat-I', 'VAMShield-90', 'SusPol-125', 'VAM RC-01', 'VAM HS-100'].map((solution) => {
+                    const isChecked = selectedSolutions.includes(solution);
+                    return (
+                      <label
+                        key={solution}
+                        className={`flex items-center gap-3 px-3 py-2.5 bg-white border rounded-lg cursor-pointer transition-all duration-200 group ${isChecked ? 'border-[#17A2B8] ring-2 ring-[#17A2B8]/10' : 'border-gray-200 hover:border-[#17A2B8]'}`}
+                      >
+                        <input
+                          type="checkbox"
+                          checked={isChecked}
+                          onChange={() => {
+                            setSelectedSolutions((prev) =>
+                              prev.includes(solution)
+                                ? prev.filter((x) => x !== solution)
+                                : [...prev, solution]
+                            );
+                          }}
+                          className="w-4 h-4 rounded border-gray-300 text-[#17A2B8] focus:ring-[#17A2B8] cursor-pointer accent-[#17A2B8]"
+                        />
+                        <span className={`text-sm font-medium transition-colors duration-200 ${isChecked ? 'text-[#17A2B8]' : 'text-[#2C3E50] group-hover:text-[#17A2B8]'}`}>
+                          {solution}
+                        </span>
+                      </label>
+                    );
+                  })}
+                </div>
               </div>
 
               {/* Message */}

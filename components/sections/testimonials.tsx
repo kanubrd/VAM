@@ -12,7 +12,7 @@ const threatCards = [
     image: '/equipment-failure.webp',
     tag: 'INDUSTRIAL RISK',
     link: '/products/corrosion-inhibitors',
-    alt: 'corrosion damage on industrial machinery parts causing equipment failure',
+    alt: 'corrosion damage on heavy industrial machinery parts, showcasing weathered steel textures and unexpected mechanical wear.',
   },
   {
     title: 'Economic Loss',
@@ -20,7 +20,7 @@ const threatCards = [
     image: '/economic-loss.webp',
     tag: 'FINANCIAL IMPACT',
     link: '/products/sustainable-polyols',
-    alt: 'financial loss chart showing decline from material supply chain stop',
+    alt: 'a modern manufacturing facility control room with a large glowing financial dashboard showing factory uptime and supply chain metrics.',
   },
   {
     title: 'Surface Degradation',
@@ -28,7 +28,7 @@ const threatCards = [
     image: '/surface-degradation.webp',
     tag: 'MATERIAL SCIENCE',
     link: '/products/surface-treatments',
-    alt: 'surface degradation and rusting on structural metal surfaces',
+    alt: 'a macro photograph highlighting surface degradation, deep oxidation, and rust textures forming on a structural industrial metal beam.',
   },
 ];
 
@@ -40,36 +40,36 @@ const tagColors: Record<string, { bg: string; text: string }> = {
 
 export function TestimonialsSection() {
   return (
-    <section style={{ background: '#F8F8F8' }} className="py-20 md:py-28">
+    <section style={{ background: '#ffffff' }} className="pt-10 pb-20 md:pt-14 md:pb-28 border-t border-gray-150">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16">
 
         {/* Section label */}
         <Reveal>
-          <div className="flex items-center gap-3 mb-6">
-            <div className="h-px w-8 bg-[#17A2B8]" />
-            <span className="text-xs font-semibold tracking-[4px] uppercase text-[#17A2B8]">
+          <div className="flex items-center justify-center gap-3 mb-10 md:mb-12">
+            <div className="h-px w-10 bg-[#17A2B8]" />
+            <span className="text-base sm:text-lg font-bold tracking-[8px] uppercase text-[#17A2B8]">
               Why It Matters
             </span>
+            <div className="h-px w-10 bg-[#17A2B8]" />
           </div>
         </Reveal>
 
         {/* Heading row */}
-        <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-end mb-16 md:mb-20">
+        <div className="mb-16 md:mb-20 text-left">
           <Reveal>
             <h2
-              className="font-bold leading-[1.08]"
+              className="font-bold leading-[1.08] mb-6"
               style={{
                 fontSize: 'clamp(2rem, 4vw, 3rem)',
                 color: '#2C3E50',
                 letterSpacing: '-0.02em',
               }}
             >
-              Material Failure is an{' '}
-              <span style={{ color: '#17A2B8' }}>Economic Threat.</span>
+              Material Failure is an Economic Threat.
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="text-base sm:text-lg leading-relaxed" style={{ color: '#6B7280' }}>
+            <p className="text-base sm:text-lg leading-relaxed max-w-3xl" style={{ color: '#6B7280' }}>
               Equipment downtime directly impacts the bottom line. Material failures in industrial
               environments cascade into production delays, compliance violations, and lost revenue.
               Valtrix eliminates this risk at the source.
@@ -111,8 +111,7 @@ export function TestimonialsSection() {
                           style={{ 
                             background: colors.bg, 
                             color: colors.text,
-                            borderRadius: '6px',
-                            border: `1px solid ${colors.text}1F`
+                            borderRadius: '4px',
                           }}
                         >
                           {card.tag}
@@ -121,7 +120,7 @@ export function TestimonialsSection() {
                     </div>
 
                     {/* Content */}
-                    <div className="p-6">
+                    <div className="p-6 border-t border-gray-150">
                       <h3
                         className="font-bold mb-3 group-hover:text-[#17A2B8] transition-colors font-sans"
                         style={{ color: '#2C3E50', fontSize: '1.1rem' }}

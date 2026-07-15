@@ -8,8 +8,8 @@ import { Target, Telescope, Lightbulb, CheckCircle2, ChevronDown } from 'lucide-
 import Link from 'next/link';
 
 export default function AboutContent() {
-  const [showMission, setShowMission] = useState(false);
-  const [showVision, setShowVision] = useState(false);
+  const [showMission, setShowMission] = useState(true);
+  const [showVision, setShowVision] = useState(true);
 
   return (
     <div className="pt-16 sm:pt-20">
@@ -37,14 +37,14 @@ export default function AboutContent() {
           </p>
         </motion.div>
       </Section>
-
+ 
       {/* Mission & Vision */}
-      <Section className="bg-[#F8FAFB]">
+      <Section className="bg-white">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
           
           {/* Mission */}
           <Reveal direction="left">
-            <div className="bg-white rounded-2xl p-6 sm:p-8 md:p-10 shadow-sm border border-gray-100">
+            <div className="bg-white rounded-2xl p-6 sm:p-8 md:p-10 shadow-sm border border-gray-150">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-14 h-14 rounded-xl bg-[#E6F7FA] flex items-center justify-center">
                   <Target className="w-7 h-7 text-[#17A2B8]" />
@@ -72,7 +72,7 @@ export default function AboutContent() {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <p className="text-[#6B7280] leading-relaxed p-4 bg-[#F8FAFB] rounded-xl">
+                    <p className="text-[#6B7280] leading-relaxed p-4 border border-gray-150 rounded-xl bg-white">
                       To create innovative materials and additives that enhance the life and performance of industrial components, 
                       while maintaining our commitment to environmental sustainability and customer success. We strive to be the 
                       trusted partner for manufacturers seeking advanced chemical solutions that improve efficiency, reduce costs, 
@@ -83,10 +83,10 @@ export default function AboutContent() {
               </AnimatePresence>
             </div>
           </Reveal>
-
+ 
           {/* Vision */}
           <Reveal direction="right">
-            <div className="bg-white rounded-2xl p-6 sm:p-8 md:p-10 shadow-sm border border-gray-100">
+            <div className="bg-white rounded-2xl p-6 sm:p-8 md:p-10 shadow-sm border border-gray-150">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-14 h-14 rounded-xl bg-[#E6F7FA] flex items-center justify-center">
                   <Telescope className="w-7 h-7 text-[#17A2B8]" />
@@ -114,7 +114,7 @@ export default function AboutContent() {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <p className="text-[#6B7280] leading-relaxed p-4 bg-[#F8FAFB] rounded-xl">
+                    <p className="text-[#6B7280] leading-relaxed p-4 border border-gray-150 rounded-xl bg-white">
                       To become India&apos;s leading innovator in advanced materials and industrial chemistry, recognized globally 
                       for sustainable solutions that transform manufacturing processes. We envision a future where our materials 
                       enable breakthrough technologies in automotive, aerospace, and renewable energy sectors, contributing to a 
@@ -158,7 +158,7 @@ export default function AboutContent() {
             }
           ].map((value, idx) => (
             <Reveal key={idx} delay={idx * 0.1}>
-              <div className="bg-[#F8FAFB] rounded-2xl p-6 sm:p-8 border border-gray-100 h-full">
+              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-150 h-full">
                 <div className="w-14 h-14 rounded-xl bg-[#E6F7FA] flex items-center justify-center mb-6">
                   <value.icon className="w-7 h-7 text-[#17A2B8]" />
                 </div>
@@ -179,100 +179,34 @@ export default function AboutContent() {
       </Section>
 
       {/* Company Stats */}
-      <Section className="bg-[#2C3E50] text-white">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Our Impact in Numbers</h2>
-          <p className="text-gray-300 text-lg">Growing stronger with every innovation</p>
+      <Section className="bg-[#2C3E50] text-white" style={{ paddingTop: '40px', paddingBottom: '40px' }}>
+        <div className="text-center mb-8">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-2">Our Impact in Numbers</h2>
+          <p className="text-gray-300 text-sm sm:text-base">Growing stronger with every innovation</p>
         </div>
         
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-4 gap-2 xs:gap-3 sm:gap-8">
           {[
-            { number: '2020', label: 'Founded', suffix: '' },
-            { number: '50', label: 'Products', suffix: '+' },
-            { number: '200', label: 'Happy Clients', suffix: '+' },
+            { number: '2025', label: 'Founded', suffix: '' },
+            { number: '5', label: 'Products', suffix: '+' },
+            { number: '20', label: 'Happy Clients', suffix: '+' },
             { number: '99', label: 'Client Satisfaction', suffix: '%' }
           ].map((stat, idx) => (
             <Reveal key={idx} delay={idx * 0.1}>
               <div className="text-center">
-                <div className="text-4xl sm:text-5xl font-bold text-[#17A2B8] mb-2">
+                <div className="text-xl xs:text-2xl sm:text-4xl font-bold text-[#17A2B8] mb-1 sm:mb-1.5">
                   {stat.number}{stat.suffix}
                 </div>
-                <p className="text-gray-300 font-medium">{stat.label}</p>
+                <p className="text-[10px] xs:text-xs sm:text-sm text-gray-300 font-medium leading-tight">
+                  {stat.label}
+                </p>
               </div>
             </Reveal>
           ))}
         </div>
       </Section>
 
-      {/* Compliance & Certifications Section */}
-      <Section className="bg-[#F8FAFB]">
-        <div className="max-w-7xl mx-auto">
-          <SectionTitle 
-            subtitle="COMPLIANCE & QUALITY" 
-            title="Standard Certifications & Registrations" 
-            description="Our materials and processes conform to rigorous national and international manufacturing regulations."
-          />
-          
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-            {[
-              {
-                title: 'ISO 9001:2015',
-                desc: 'Quality Management Systems (QMS) standard ensuring consistent product quality and corporate excellence.',
-                badge: (
-                  <svg className="w-16 h-16 text-[#17A2B8]" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <circle cx="32" cy="32" r="30" stroke="currentColor" strokeWidth="3" fill="#E6F7FA"/>
-                    <text x="32" y="32" dominantBaseline="middle" textAnchor="middle" fill="#2C3E50" fontSize="10" fontWeight="bold">ISO 9001</text>
-                    <path d="M16 44H48" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                  </svg>
-                )
-              },
-              {
-                title: 'RoHS 3 Compliant',
-                desc: 'Compliance with EU Directive 2015/863/EU limiting hazardous substances in material manufacturing.',
-                badge: (
-                  <svg className="w-16 h-16 text-teal-600" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <circle cx="32" cy="32" r="30" stroke="currentColor" strokeWidth="3" fill="#E6F4F1"/>
-                    <text x="32" y="32" dominantBaseline="middle" textAnchor="middle" fill="#2C3E50" fontSize="10" fontWeight="bold">RoHS 3</text>
-                    <path d="M22 34L29 41L42 25" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                )
-              },
-              {
-                title: 'REACH Registered',
-                desc: 'Registration, Evaluation, Authorization and Restriction of Chemicals compliance for hazard assessments.',
-                badge: (
-                  <svg className="w-16 h-16 text-blue-600" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <circle cx="32" cy="32" r="30" stroke="currentColor" strokeWidth="3" fill="#EFF6FF"/>
-                    <text x="32" y="32" dominantBaseline="middle" textAnchor="middle" fill="#2C3E50" fontSize="10" fontWeight="bold">REACH</text>
-                    <path d="M32 16V48M16 32H48" stroke="currentColor" strokeWidth="2" strokeDasharray="3 3"/>
-                  </svg>
-                )
-              },
-              {
-                title: 'DFARS Compliant',
-                desc: 'Sourcing of specialty alloys and materials conforms to defense acquisition sourcing requirements.',
-                badge: (
-                  <svg className="w-16 h-16 text-amber-600" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <circle cx="32" cy="32" r="30" stroke="currentColor" strokeWidth="3" fill="#FEF3C7"/>
-                    <text x="32" y="32" dominantBaseline="middle" textAnchor="middle" fill="#2C3E50" fontSize="10" fontWeight="bold">DFARS</text>
-                    <rect x="22" y="22" width="20" height="20" rx="3" stroke="currentColor" strokeWidth="2"/>
-                  </svg>
-                )
-              }
-            ].map((cert, idx) => (
-              <Reveal key={idx} delay={idx * 0.08} direction="up">
-                <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex flex-col items-center text-center h-full">
-                  <div className="mb-4">
-                    {cert.badge}
-                  </div>
-                  <h3 className="text-base sm:text-lg font-bold text-[#2C3E50] mb-2">{cert.title}</h3>
-                  <p className="text-xs sm:text-sm text-gray-500 leading-relaxed">{cert.desc}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </Section>
+
 
       {/* CTA */}
       <Section className="bg-white text-center">

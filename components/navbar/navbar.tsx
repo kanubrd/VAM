@@ -11,9 +11,9 @@ import { motion } from 'framer-motion';
 
 const navItems = [
   { label: 'Home',       href: '/' },
-  { label: 'About',      href: '/about' },
   { label: 'Industries', href: '/industries' },
   { label: 'Solutions',  href: '/solutions' },
+  { label: 'About',      href: '/about' },
   { label: 'Contact',    href: '/contact' },
 ];
 
@@ -62,7 +62,7 @@ export function Navbar() {
   if (!mounted) {
     return (
       <header className="fixed top-0 left-0 right-0 z-50">
-        <div style={{ height: 36, background: '#1A2B3C', borderBottom: '1px solid rgba(255,255,255,0.1)' }} />
+        <div style={{ height: 28, background: '#1A2B3C', borderBottom: 'none' }} />
         <nav style={{ height: 72, background: '#FFFFFF', borderBottom: '2px solid #E5E7EB' }} />
       </header>
     );
@@ -74,40 +74,36 @@ export function Navbar() {
       <header className="fixed top-0 left-0 right-0 z-50" style={{ position: 'fixed', transform: 'none' }}>
         {/* ── Top utility bar ── */}
         <div
-          className="transition-all duration-300"
+          className="transition-all duration-300 overflow-hidden"
           style={{ 
             background: '#1A2B3C',
-            borderBottom: '1px solid rgba(255,255,255,0.1)',
+            borderBottom: 'none',
             position: 'relative',
+            height: isScrolled ? 0 : 28,
           }}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center"
-            style={{ height: 36 }}>
-            <div className="flex items-center gap-6">
-              <a
-                href="tel:+919898123983"
-                className="flex items-center gap-1.5 text-xs transition-colors"
-                style={{ color: 'rgba(255,255,255,0.7)' }}
-                onMouseEnter={e => (e.currentTarget.style.color = '#17A2B8')}
-                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.7)')}
-              >
-                <Phone size={11} />
-                <span>+91 98981 23983</span>
-              </a>
-              <a
-                href="mailto:info@valtrixmaterials.com"
-                className="hidden md:flex items-center gap-1.5 text-xs transition-colors"
-                style={{ color: 'rgba(255,255,255,0.7)' }}
-                onMouseEnter={e => (e.currentTarget.style.color = '#17A2B8')}
-                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.7)')}
-              >
-                <Mail size={11} />
-                <span>info@valtrixmaterials.com</span>
-              </a>
-            </div>
-            <span className="text-xs hidden sm:block" style={{ color: 'rgba(255,255,255,0.5)' }}>
-              ISO Certified&nbsp;&nbsp;·&nbsp;&nbsp;Valtrix Advance Material Pvt. Ltd
-            </span>
+            style={{ height: 28 }}>
+            <a
+              href="tel:+919898123983"
+              className="flex items-center gap-1.5 text-xs transition-colors"
+              style={{ color: 'rgba(255,255,255,0.7)' }}
+              onMouseEnter={e => (e.currentTarget.style.color = '#17A2B8')}
+              onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.7)')}
+            >
+              <Phone size={11} />
+              <span>+91 98981 23983</span>
+            </a>
+            <a
+              href="mailto:info@valtrixmaterials.com"
+              className="flex items-center gap-1.5 text-xs transition-colors"
+              style={{ color: 'rgba(255,255,255,0.7)' }}
+              onMouseEnter={e => (e.currentTarget.style.color = '#17A2B8')}
+              onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.7)')}
+            >
+              <Mail size={11} />
+              <span>info@valtrixmaterials.com</span>
+            </a>
           </div>
         </div>
 
@@ -136,18 +132,19 @@ export function Navbar() {
             <Image
               src="/valtrix-logo-teal.png"
               alt="VAM VALTRIX Logo"
-              width={122}
-              height={48}
-              sizes="(max-width: 768px) 122px, 150px"
+              width={140}
+              height={55}
+              sizes="(max-width: 768px) 140px, 172px"
               className="w-auto h-auto"
               style={{ 
-                height: isScrolled ? '38px' : '44px',
+                height: isScrolled ? '44px' : '51px',
                 width: 'auto',
                 transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                 transformOrigin: 'center',
               }}
               priority
               quality={100}
+              unoptimized
             />
           </Link>
 
@@ -251,7 +248,7 @@ export function Navbar() {
       {mobileMenuOpen && (
         <div
           className="fixed inset-0 z-30 md:hidden"
-          style={{ background: 'rgba(0,0,0,0.25)', top: 108 }}
+          style={{ background: 'rgba(0,0,0,0.25)', top: isScrolled ? 64 : 100 }}
           onClick={() => setMobileMenuOpen(false)}
           aria-hidden="true"
         />
@@ -266,7 +263,7 @@ export function Navbar() {
             : 'opacity-0 pointer-events-none -translate-y-4',
         )}
         style={{
-          top: 108,
+          top: isScrolled ? 64 : 100,
           background: '#ffffff',
           borderBottom: '1px solid #EAEAEA',
           boxShadow: '0 8px 32px rgba(0,0,0,0.10)',

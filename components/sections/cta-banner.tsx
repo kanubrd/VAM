@@ -44,47 +44,15 @@ export function CTABanner() {
         {/* Description */}
         <Reveal delay={0.15}>
           <p
-            className="mx-auto mb-10 text-base sm:text-lg leading-relaxed"
-            style={{ color: '#4A5568', maxWidth: 660 }}
+            className="mx-auto mb-10 text-base sm:text-lg leading-relaxed text-[#4A5568] max-w-3xl"
           >
             Industrial machinery failures often stem from material degradation, coating failures, and polymer breakdown. 
             Valtrix develops advanced chemical solutions that prevent these failures, extend equipment life, and reduce costly downtime.
           </p>
         </Reveal>
 
-        {/* CTA buttons */}
-        <Reveal delay={0.2}>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <motion.div whileHover={{ y: -1, scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold text-white text-sm tracking-wide group min-h-[52px] shadow-sm hover:shadow"
-                style={{ background: '#17A2B8', borderRadius: '12px' }}
-              >
-                Contact Us
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </motion.div>
-
-            <motion.div whileHover={{ y: -1, scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-              <Link
-                href="/solutions"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold text-sm tracking-wide min-h-[52px]"
-                style={{
-                  background: 'transparent',
-                  border: '1.5px solid #2C3E50',
-                  borderRadius: '12px',
-                  color: '#2C3E50',
-                }}
-              >
-                View Solutions
-              </Link>
-            </motion.div>
-          </div>
-        </Reveal>
-
         {/* Trust badges */}
-        <Reveal delay={0.25}>
+        <Reveal delay={0.2}>
           <div
             className="flex flex-col sm:flex-row justify-center gap-6 text-sm pt-8"
             style={{ borderTop: '1px solid #E5E7EB' }}

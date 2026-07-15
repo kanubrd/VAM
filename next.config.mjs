@@ -55,8 +55,10 @@ const nextConfig = {
   // ── Compression ──────────────────────────────────────────────────────
   compress: true,
   
-  // ── Turbopack configuration (empty for default behavior) ──────────────
-  turbopack: {},
+  // ── Turbopack configuration ──────────────────────────────────────────
+  turbopack: {
+    root: './',
+  },
 
   // ── Image optimisation ──────────────────────────────────────────────
   images: {
@@ -88,6 +90,7 @@ const nextConfig = {
 
   // ── Security & performance headers ─────────────────────────────────
   async headers() {
+    if (isDev) return [];
     return [
       {
         source: '/(.*)',

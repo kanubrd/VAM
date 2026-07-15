@@ -52,7 +52,7 @@ const industries: Industry[] = [
 
 export function IndustriesContent() {
   return (
-    <div>
+    <div className="pt-20 sm:pt-[92px]">
       {/* Hero Banner Section */}
       <section className="relative w-full h-[60vh] min-h-[500px] overflow-hidden bg-white">
         {/* Background Image */}

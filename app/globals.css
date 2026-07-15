@@ -93,7 +93,7 @@
   body {
     @apply bg-white text-foreground antialiased;
     font-family: var(--font-inter, 'Inter', system-ui, -apple-system, sans-serif);
-    background-color: #F8F8F8;
+    background-color: #FFFFFF;
     /* Improve text rendering */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -459,7 +459,9 @@
 .viewport-frame {
   position: fixed;
   inset: 0;
-  border-style: solid;
+  border-left-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
   border-color: #FFFFFF;
   pointer-events: none;
   z-index: 9999;
@@ -469,18 +471,27 @@
 
 @media (min-width: 1024px) {
   .viewport-frame {
-    border-width: 12px;
+    border-left-width: 12px;
+    border-right-width: 12px;
+    border-bottom-width: 12px;
+    border-top-width: 0;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .viewport-frame {
-    border-width: 8px;
+    border-left-width: 8px;
+    border-right-width: 8px;
+    border-bottom-width: 8px;
+    border-top-width: 0;
   }
 }
 
 @media (max-width: 767px) {
   .viewport-frame {
-    border-width: 4px;
+    border-left-width: 4px;
+    border-right-width: 4px;
+    border-bottom-width: 4px;
+    border-top-width: 0;
   }
 }

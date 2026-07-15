@@ -14,14 +14,14 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
   return (
     <AnimatePresence>
       {isOpen && (
-        <>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50"
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
           />
 
           {/* Modal */}
@@ -30,7 +30,7 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-2xl shadow-2xl z-50 max-w-md w-full mx-4"
+            className="relative bg-white rounded-2xl shadow-2xl w-full max-w-md max-h-[90vh] overflow-y-auto z-10"
           >
             <div className="p-6">
               <div className="flex items-center justify-between mb-4">
@@ -45,7 +45,7 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
               <div className="text-gray-600">{children}</div>
             </div>
           </motion.div>
-        </>
+        </div>
       )}
     </AnimatePresence>
   );
