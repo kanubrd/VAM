@@ -15,12 +15,6 @@ export default function robots(): MetadataRoute.Robots {
           '/*.json$',
         ],
       },
-      // Block AI training crawlers
-      { userAgent: 'GPTBot',          disallow: '/' },
-      { userAgent: 'ChatGPT-User',    disallow: '/' },
-      { userAgent: 'CCBot',           disallow: '/' },
-      { userAgent: 'anthropic-ai',    disallow: '/' },
-      { userAgent: 'Google-Extended', disallow: '/' },
     ],
     sitemap: 'https://www.valtrixmaterials.com/sitemap.xml',
   };

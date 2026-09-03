@@ -21,12 +21,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const name = product.name;
   const title = `${name} | Valtrix Advance Material Pvt. Ltd. | Vadodara, Gujarat`;
-  const description = `${product.name} manufactured by Valtrix Advance Material Pvt. Ltd. in Vadodara, Gujarat. Advanced industrial additives, corrosion-resistant coatings, and custom chemical solutions to reduce downtime, prevent sludge, and extend equipment life.`;
+  const description = `${product.name} manufactured by Valtrix Advance Material Pvt. Ltd. (also known as Valtriks, Valtrixx, Waltrix, Baltrix) in Vadodara, Gujarat. Advanced industrial additives, corrosion-resistant coatings, and custom chemical solutions to reduce downtime, prevent sludge, and extend equipment life.`;
 
   return {
     title,
     description,
-    keywords: product.seo?.keywords || [product.name, 'Valtrix Advance Material Pvt. Ltd.', 'Vadodara Gujarat', 'industrial additives', 'corrosion protection', 'ISO certified'],
+    keywords: [
+      product.name,
+      'Valtrix Advance Material Pvt. Ltd.',
+      'Valtriks',
+      'Valtrixx',
+      'Waltrix',
+      'Baltrix',
+      'Valtrics',
+      'Vadodara Gujarat',
+      'industrial additives',
+      'corrosion protection',
+      'ISO certified',
+      ...(product.seo?.keywords || [])
+    ],
     alternates: {
       canonical: `https://www.valtrixmaterials.com/products/${product.slug}`,
     },

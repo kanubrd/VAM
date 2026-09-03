@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const name = industry.title;
   const title = `${name} | Automotive Manufacturing, Maintenance & Repair | Valtrix Advance Material Pvt. Ltd.`;
-  const description = `Valtrix Advance Material Pvt. Ltd. delivers advanced industrial additives, corrosion-resistant coatings, and custom chemical solutions to reduce downtime, prevent sludge, and extend equipment life. Serving Vadodara, Gujarat with ISO-certified innovation.`;
+  const description = `Valtrix Advance Material Pvt. Ltd. (also known as Valtriks, Valtrixx, Waltrix, Baltrix) delivers advanced industrial additives, corrosion-resistant coatings, and custom chemical solutions to reduce downtime, prevent sludge, and extend equipment life. Serving Vadodara, Gujarat with ISO-certified innovation.`;
 
   return {
     title,
@@ -36,6 +36,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       'Polyurethane Building Blocks',
       'High Build Coatings',
       'Valtrix Advance Material Pvt. Ltd.',
+      'Valtriks',
+      'Valtrixx',
+      'Waltrix',
+      'Baltrix',
+      'Valtrics',
       'Vadodara Gujarat',
       'ISO 9001:2015'
     ],
@@ -88,19 +93,19 @@ export default async function IndustryPage({ params }: Props) {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: 'Valtrix Advance Material Pvt. Ltd.',
-    description: 'Valtrix Advance Material Pvt. Ltd. delivers advanced industrial additives, corrosion-resistant coatings, and custom chemical solutions to reduce downtime, prevent sludge, and extend equipment life. Serving Vadodara, Gujarat with ISO-certified innovation.',
+    description: 'Valtrix Advance Material Pvt. Ltd. (also known as Valtriks, Valtrixx, Waltrix) delivers advanced industrial additives, corrosion-resistant coatings, and custom chemical solutions to reduce downtime, prevent sludge, and extend equipment life. Serving Vadodara, Gujarat with ISO-certified innovation.',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Vadodara Industrial Area',
+      streetAddress: '318, Fortune Gateway, Chhani, Vadodara Industrial Area',
       addressLocality: 'Vadodara',
       addressRegion: 'Gujarat',
-      postalCode: '390010',
+      postalCode: '390024',
       addressCountry: 'IN'
     },
     telephone: '+91 98981 23983',
     email: 'info@valtrixmaterials.com',
     url: 'https://www.valtrixmaterials.com',
-    certifications: 'ISO Certified'
+    certifications: 'ISO 9001:2015 Certified'
   };
 
   const faqJsonLd = {
