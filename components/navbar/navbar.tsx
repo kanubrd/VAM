@@ -8,6 +8,7 @@ import { Menu, X, Phone, Mail } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useScrollProgress } from '@/hooks/useScrollProgress';
 import { motion, AnimatePresence } from 'framer-motion';
+import industriesDataJson from '@/data/content/industries.json';
 
 const navItems = [
   { label: 'Home',       href: '/' },
@@ -22,7 +23,6 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mounted, setMounted]               = useState(false);
   const [industriesHovered, setIndustriesHovered] = useState(false);
-  const [industriesData, setIndustriesData] = useState<any[]>([]);
   const scrollProgress                       = useScrollProgress();
   const pathname                             = usePathname();
   const isHomePage = pathname === '/';
@@ -31,13 +31,6 @@ export function Navbar() {
     setMounted(true);
     const onScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', onScroll);
-    
-    // Load industries dropdown content dynamically
-    fetch('/api/admin/industries')
-      .then(res => res.json())
-      .then(data => setIndustriesData(data || []))
-      .catch(err => console.error('Failed to load industries dropdown:', err));
-
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
@@ -237,7 +230,7 @@ export function Navbar() {
                           <div className="px-3 py-1.5 text-xxs font-extrabold uppercase tracking-wider text-[#94A3B8] border-b border-gray-50 mb-1">
                             Target Industries
                           </div>
-                          {industriesData.map((ind: any) => (
+                          {industriesDataJson.map((ind: any) => (
                             <Link
                               key={ind.slug}
                               href={`/industries/${ind.slug}`}

@@ -17,6 +17,36 @@ const CTABanner = dynamic(
   { ssr: true, loading: () => <CTASkeleton /> }
 );
 
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Valtrix Advance Material Pvt. Ltd. | Industrial Additives & Coatings Vadodara',
+  description: 'Valtrix Advance Material Pvt. Ltd. (also known as Valtriks, Valtrixx, Waltrix, Baltrix) delivers advanced industrial additives, corrosion-resistant coatings, and custom chemical solutions in Vadodara, Gujarat. ISO 9001:2015 certified.',
+  keywords: [
+    'Valtrix Advance Material Pvt. Ltd.',
+    'Valtriks',
+    'Valtrixx',
+    'Waltrix',
+    'Baltrix',
+    'Valtrics',
+    'industrial additives',
+    'corrosion resistant coatings',
+    'Rust Converter VAM RC 01',
+    'Polyurethane Building Blocks',
+    'High Build Coatings',
+    'Vadodara Gujarat'
+  ],
+  openGraph: {
+    title: 'Valtrix Advance Material Pvt. Ltd. | Industrial Additives & Coatings Vadodara',
+    description: 'Valtrix Advance Material Pvt. Ltd. (also known as Valtriks, Valtrixx, Waltrix, Baltrix) delivers advanced industrial additives, corrosion-resistant coatings, and custom chemical solutions in Vadodara, Gujarat. ISO 9001:2015 certified.',
+    url: 'https://www.valtrixmaterials.com',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://www.valtrixmaterials.com',
+  },
+};
+
 export default function Home() {
   const industries = getIndustries();
   return (

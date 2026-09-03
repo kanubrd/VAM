@@ -5,13 +5,35 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Reveal } from '@/components/animations/reveal';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight, CheckCircle, ChevronLeft, ChevronRight, FlaskConical, ShieldCheck, RefreshCw, Sparkles } from 'lucide-react';
+import { 
+  ArrowRight, 
+  CheckCircle, 
+  CheckCircle2,
+  ChevronLeft, 
+  ChevronRight, 
+  FlaskConical, 
+  ShieldCheck, 
+  RefreshCw, 
+  Sparkles,
+  Settings,
+  Layers,
+  Zap,
+  HelpCircle,
+  Activity,
+  Award,
+  Building2,
+  MapPin,
+  TrendingUp
+} from 'lucide-react';
 import { Section, SectionTitle } from '@/components/ui/section';
+
 const iconMap: Record<string, React.ComponentType<any>> = {
   FlaskConical,
   ShieldCheck,
   RefreshCw,
-  Sparkles
+  Sparkles,
+  Settings,
+  Layers
 };
 
 export function SolutionsContent({ solutionsData }: { solutionsData: any }) {
@@ -60,25 +82,36 @@ export function SolutionsContent({ solutionsData }: { solutionsData: any }) {
 
   return (
     <div className="pt-20 sm:pt-[92px]">
-      {/* Top Banner Section */}
-      <section className="bg-white py-12 border-b border-gray-150">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="inline-block text-xs font-semibold text-[#17A2B8] uppercase tracking-wider mb-4 bg-[#E6F7FA] border border-[#D1F2F7] px-4 py-1.5 rounded-full shadow-sm">
-            OUR PRODUCT RANGE
-          </span>
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#2C3E50] mb-3 leading-tight">
-            One Platform. Every Material.{' '}
-            <span className="text-[#17A2B8]">Full Visibility.</span>
+      
+      {/* Hero / Header Section */}
+      <section className="bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white py-12 lg:py-16 relative overflow-hidden border-b border-slate-700">
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#17A2B8_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight text-white mb-4">
+            Specialty Chemical Solutions
           </h1>
-          <p className="text-sm sm:text-base text-[#4A5568] leading-relaxed max-w-2xl mx-auto font-medium">
-            Explore advanced specialty chemical formulations and additive packages designed to optimize your manufacturing workflows. Click on a product card below to see detailed specifications, technical details, and applications.
+          <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+            High-performance chemical formulations and advanced materials engineered for industrial protection, chemical stability, and operational excellence.
           </p>
         </div>
       </section>
 
-      {/* Main Catalog Section */}
-      <Section id="solutions" className="py-16 sm:py-24 bg-[#F8FAFB]">
+      {/* Specialty Solutions Interactive Product Catalog */}
+      <Section id="solutions-catalog" className="py-16 sm:py-24 bg-[#F8FAFB]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-10 text-center max-w-3xl mx-auto">
+            <span className="inline-block text-xs font-semibold text-[#17A2B8] uppercase tracking-wider mb-3 bg-[#E6F7FA] border border-[#D1F2F7] px-4 py-1.5 rounded-full shadow-sm">
+              SPECIALTY CHEMICAL CATALOG
+            </span>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#2C3E50] mb-3">
+              Formulated for Material Protection &amp; Performance
+            </h2>
+            <p className="text-sm sm:text-base text-[#4A5568] leading-relaxed">
+              Select a specialized formulation below to inspect detailed chemical specifications, protective features, and industrial applications.
+            </p>
+          </div>
+
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
             
             {/* Left Column: Product Cards List */}
@@ -98,12 +131,10 @@ export function SolutionsContent({ solutionsData }: { solutionsData: any }) {
                         : 'bg-white hover:bg-gray-50 border-gray-150 shadow-sm'
                     }`}
                   >
-                    {/* Icon Column */}
                     <div className={`p-3 rounded-lg ${isActive ? 'bg-[#17A2B8] text-white' : 'bg-gray-50 text-[#17A2B8]'}`}>
                       <IconComponent className="w-6 h-6" />
                     </div>
 
-                    {/* Text Column */}
                     <div className="flex-1 min-w-0">
                       <h3 className="font-bold text-[#2C3E50] text-base mb-1 truncate">{product.title}</h3>
                       <p className="text-[#6B7280] text-xs leading-normal line-clamp-2">{product.description}</p>
@@ -127,7 +158,6 @@ export function SolutionsContent({ solutionsData }: { solutionsData: any }) {
                 >
                   <div className="flex flex-col md:flex-row gap-8 lg:gap-12">
                     
-                    {/* Inner Left: Details */}
                     <div className="flex-1">
                       {/* Product Header */}
                       <div className="flex items-center gap-3.5 mb-6">
@@ -138,18 +168,18 @@ export function SolutionsContent({ solutionsData }: { solutionsData: any }) {
                           })()}
                         </div>
                         <div>
-                          <span className="text-[10px] font-bold text-[#17A2B8] uppercase tracking-wider">Product details</span>
-                          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#2C3E50]">{activeSolution.title}</h2>
+                          <span className="text-[10px] font-bold text-[#17A2B8] uppercase tracking-wider">Product details &amp; specs</span>
+                          <h3 className="text-2xl sm:text-3xl font-extrabold text-[#2C3E50]">{activeSolution.title}</h3>
                         </div>
                       </div>
 
-                      {/* Photo Slider */}
+                      {/* Photo Slider with SEO Descriptive Alt Texts */}
                       <div className="relative aspect-[16/10] bg-gray-50 rounded-2xl border border-gray-150 overflow-hidden mb-8 shadow-sm group">
                         {activeSliderImages.length > 0 ? (
                           <div className="relative w-full h-full flex items-center justify-center p-4">
                             <Image
                               src={activeSliderImages[productSlideIndex].src}
-                              alt={activeSliderImages[productSlideIndex].alt}
+                              alt={activeSliderImages[productSlideIndex].alt || `industrial additive preventing corrosion in machinery - ${activeSolution.title}`}
                               fill
                               className={`object-contain ${
                                 activeSolution.id === 'vamshield-90' && productSlideIndex === 0 ? 'p-1' : 'p-2'
@@ -158,7 +188,6 @@ export function SolutionsContent({ solutionsData }: { solutionsData: any }) {
                               quality={90}
                             />
                             
-                            {/* Slide Nav buttons */}
                             {activeSliderImages.length > 1 && (
                               <>
                                 <button
@@ -237,7 +266,7 @@ export function SolutionsContent({ solutionsData }: { solutionsData: any }) {
                       {/* CTA Button */}
                       <motion.div whileHover={{ y: -1, scale: 1.02 }} whileTap={{ scale: 0.98 }} className="inline-block">
                         <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#17A2B8] text-white text-sm font-semibold shadow-sm hover:shadow min-h-[48px]" style={{ borderRadius: '12px' }}>
-                          Contact Us <ArrowRight size={16} />
+                          Contact Technical Engineering Team <ArrowRight size={16} />
                         </Link>
                       </motion.div>
                     </div>
@@ -249,8 +278,159 @@ export function SolutionsContent({ solutionsData }: { solutionsData: any }) {
         </div>
       </Section>
 
-      {/* Results */}
-      <Section className="bg-white">
+      {/* NEW CONSOLIDATED SECTION: Custom Industrial Additives & Material Protection */}
+      <section id="custom-industrial-additives" className="py-16 sm:py-20 bg-white border-t border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Section Header */}
+          <div className="max-w-3xl mb-12">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#E6F7FA] text-[#17A2B8] border border-[#D1F2F7] mb-3">
+              <Zap size={14} /> Custom Formulations &amp; Substrate Protection
+            </span>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
+              Custom Industrial Additives &amp; Material Protection
+            </h2>
+            <p className="text-slate-600 text-base leading-relaxed font-medium">
+              Engineered &amp; Synthesized in Vadodara, Gujarat under ISO 9001:2015 quality controls. Valtrix custom additive formulations deliver robust corrosion resistance, eliminate sludge formation, and guarantee up to 45% annual downtime reduction across heavy industrial manufacturing.
+            </p>
+          </div>
+
+          {/* Solution & Product Benefits Bullet Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            
+            {/* 1. Industrial Additives */}
+            <div className="bg-[#F8FAFB] p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between hover:border-[#17A2B8]/40 transition-all">
+              <div>
+                <div className="w-10 h-10 rounded-xl bg-[#E6F7FA] text-[#17A2B8] flex items-center justify-center font-bold mb-4">
+                  <Sparkles size={20} />
+                </div>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Industrial Additives</h3>
+                <p className="text-slate-600 text-sm mb-4">
+                  Prevent varnish &amp; oxidation sludge, reduce unexpected downtime up to 45%, and improve fluid efficiency.
+                </p>
+              </div>
+              <ul className="space-y-2 text-xs font-semibold text-slate-700 pt-4 border-t border-slate-200">
+                <li className="flex items-center gap-2"><CheckCircle size={14} className="text-[#17A2B8]" /> 65% Oxidation Sludge Prevention</li>
+                <li className="flex items-center gap-2"><CheckCircle size={14} className="text-[#17A2B8]" /> ISO 4406 Cleanliness Line Protection</li>
+              </ul>
+            </div>
+
+            {/* 2. CNC Lubricants */}
+            <div className="bg-[#F8FAFB] p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between hover:border-[#17A2B8]/40 transition-all">
+              <div>
+                <div className="w-10 h-10 rounded-xl bg-[#E6F7FA] text-[#17A2B8] flex items-center justify-center font-bold mb-4">
+                  <Settings size={20} />
+                </div>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">CNC Lubricants</h3>
+                <p className="text-slate-600 text-sm mb-4">
+                  Protect heavy gearboxes under peak torque and extend fluid drain intervals by 3.0x.
+                </p>
+              </div>
+              <ul className="space-y-2 text-xs font-semibold text-slate-700 pt-4 border-t border-slate-200">
+                <li className="flex items-center gap-2"><CheckCircle size={14} className="text-[#17A2B8]" /> 40% Component Wear Scar Reduction</li>
+                <li className="flex items-center gap-2"><CheckCircle size={14} className="text-[#17A2B8]" /> Extreme Pressure (EP) Chelate Shield</li>
+              </ul>
+            </div>
+
+            {/* 3. Bio-Stable Coolants */}
+            <div className="bg-[#F8FAFB] p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between hover:border-[#17A2B8]/40 transition-all">
+              <div>
+                <div className="w-10 h-10 rounded-xl bg-[#E6F7FA] text-[#17A2B8] flex items-center justify-center font-bold mb-4">
+                  <FlaskConical size={20} />
+                </div>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Bio-Stable Coolants</h3>
+                <p className="text-slate-600 text-sm mb-4">
+                  Extend coolant sump life by 3.5x, improve cutting tool lifespan, and eliminate foul odors.
+                </p>
+              </div>
+              <ul className="space-y-2 text-xs font-semibold text-slate-700 pt-4 border-t border-slate-200">
+                <li className="flex items-center gap-2"><CheckCircle size={14} className="text-[#17A2B8]" /> 48% Extended Cutting Tool Lifespan</li>
+                <li className="flex items-center gap-2"><CheckCircle size={14} className="text-[#17A2B8]" /> Formaldehyde-Free Eco Chemistry</li>
+              </ul>
+            </div>
+
+            {/* 4. Electroplating Solutions */}
+            <div className="bg-[#F8FAFB] p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between hover:border-[#17A2B8]/40 transition-all">
+              <div>
+                <div className="w-10 h-10 rounded-xl bg-[#E6F7FA] text-[#17A2B8] flex items-center justify-center font-bold mb-4">
+                  <Layers size={20} />
+                </div>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Electroplating Solutions</h3>
+                <p className="text-slate-600 text-sm mb-4">
+                  Ensure uniform deposition thickness (±0.5 µm) and reduce bath drag-out chemical waste by 35%.
+                </p>
+              </div>
+              <ul className="space-y-2 text-xs font-semibold text-slate-700 pt-4 border-t border-slate-200">
+                <li className="flex items-center gap-2"><CheckCircle size={14} className="text-[#17A2B8]" /> 94% Cathode Current Efficiency</li>
+                <li className="flex items-center gap-2"><CheckCircle size={14} className="text-[#17A2B8]" /> Zero Hydrogen Embrittlement</li>
+              </ul>
+            </div>
+
+            {/* 5. Surface Treatments */}
+            <div className="bg-[#F8FAFB] p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between hover:border-[#17A2B8]/40 transition-all">
+              <div>
+                <div className="w-10 h-10 rounded-xl bg-[#E6F7FA] text-[#17A2B8] flex items-center justify-center font-bold mb-4">
+                  <ShieldCheck size={20} />
+                </div>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Surface Treatments</h3>
+                <p className="text-slate-600 text-sm mb-4">
+                  Deliver 300% ASTM B117 salt-spray corrosion resistance with eco-friendly passivation chemistry.
+                </p>
+              </div>
+              <ul className="space-y-2 text-xs font-semibold text-slate-700 pt-4 border-t border-slate-200">
+                <li className="flex items-center gap-2"><CheckCircle size={14} className="text-[#17A2B8]" /> 1,500+ Hours Salt Spray Barrier</li>
+                <li className="flex items-center gap-2"><CheckCircle size={14} className="text-[#17A2B8]" /> Hexavalent Chromium-Free</li>
+              </ul>
+            </div>
+
+            {/* 6. Featured Core Products */}
+            <div className="bg-slate-900 text-white p-6 rounded-2xl border border-slate-800 shadow-sm flex flex-col justify-between">
+              <div>
+                <div className="w-10 h-10 rounded-xl bg-[#17A2B8]/20 text-[#17A2B8] flex items-center justify-center font-bold mb-4">
+                  <Award size={20} />
+                </div>
+                <h3 className="text-lg font-bold text-white mb-2">Featured Core Products</h3>
+                <p className="text-slate-300 text-sm mb-4">
+                  Proprietary industrial formulations engineered for severe duty environments:
+                </p>
+              </div>
+              <ul className="space-y-2 text-xs font-semibold text-slate-200 pt-4 border-t border-slate-800">
+                <li className="flex items-center gap-2"><span className="text-[#17A2B8] font-bold">•</span> Rust Converter VAM RC 01</li>
+                <li className="flex items-center gap-2"><span className="text-[#17A2B8] font-bold">•</span> Polyurethane Building Blocks</li>
+                <li className="flex items-center gap-2"><span className="text-[#17A2B8] font-bold">•</span> High Build Coatings</li>
+              </ul>
+            </div>
+
+          </div>
+
+          {/* Vadodara, Gujarat Location & Quality Callout */}
+          <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 rounded-2xl p-6 sm:p-8 text-white flex flex-col sm:flex-row items-center justify-between gap-6 border border-slate-700 shadow-lg">
+            <div>
+              <div className="flex items-center gap-2 text-[#17A2B8] font-bold text-xs uppercase tracking-wider mb-2">
+                <Building2 size={16} /> Regional R&amp;D &amp; Manufacturing Plant
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold mb-1">
+                Engineered &amp; Synthesized in Vadodara, Gujarat
+              </h3>
+              <p className="text-slate-300 text-xs sm:text-sm max-w-xl leading-relaxed">
+                Valtrix Advance Material Pvt. Ltd. operates an ISO 9001:2015 certified plant in Vadodara, Gujarat delivering custom additive blending and material protection.
+              </p>
+            </div>
+            <Link
+              href="/contact"
+              className="shrink-0 px-6 py-3 bg-[#17A2B8] hover:bg-[#138496] text-white text-sm font-semibold rounded-xl transition-all duration-200"
+            >
+              Contact Vadodara Plant
+            </Link>
+          </div>
+
+        </div>
+      </section>
+
+
+
+      {/* Proven Results Section */}
+      <Section className="bg-white py-16 sm:py-24">
         <SectionTitle 
           subtitle={solutionsData.results.sectionTitle.subtitle} 
           title={solutionsData.results.sectionTitle.title} 
@@ -273,18 +453,21 @@ export function SolutionsContent({ solutionsData }: { solutionsData: any }) {
         </div>
       </Section>
 
-      {/* CTA */}
+      {/* Bottom CTA Banner */}
       <Section className="bg-[#2C3E50] text-white text-center py-12 sm:py-16 md:py-20">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 leading-tight">Get Started With a No-Commitment Sourcing Request</h2>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-4 leading-tight">
+          Ready to Eliminate Machinery Downtime &amp; Optimize Chemistries?
+        </h2>
         <p className="text-base sm:text-lg text-gray-300 mb-6 sm:mb-8 max-w-2xl mx-auto">
-          Tell us what you need. We&apos;ll show you what we can source, at what price, and how fast — before you commit to anything.
+          Consult directly with Valtrix chemical engineers in Vadodara, Gujarat for custom additive formulations, sample requests, and technical audits tailored to your plant.
         </p>
          <motion.div whileHover={{ y: -1, scale: 1.02 }} whileTap={{ scale: 0.98 }} className="inline-block">
-           <Link href="/contact" className="inline-flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 bg-[#17A2B8] text-white font-semibold shadow-md min-h-[48px]" style={{ borderRadius: '12px' }}>
-             Contact Us <ArrowRight size={18} />
+           <Link href="/contact" className="inline-flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 bg-[#17A2B8] hover:bg-[#138496] text-white font-semibold shadow-md min-h-[48px]" style={{ borderRadius: '12px' }}>
+             Contact Technical Engineering Team <ArrowRight size={18} />
            </Link>
          </motion.div>
       </Section>
     </div>
   );
 }
+

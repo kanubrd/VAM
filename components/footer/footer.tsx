@@ -191,7 +191,7 @@ export function Footer() {
               />
             </Link>
             <p className="text-sm text-gray-400 leading-relaxed mb-5 max-w-xs">
-              Valtrix Advance Material Pvt. Ltd — 318, Fortune Gateway, Chhani, Vadodara - 390024.
+              Valtrix Advance Material Pvt. Ltd. — 318, Fortune Gateway, Chhani, Vadodara - 390024.
             </p>
             <div className="space-y-2 text-sm text-gray-400">
               <div className="flex items-center gap-2">

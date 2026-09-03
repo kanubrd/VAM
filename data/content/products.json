@@ -1,11 +1,184 @@
 [
   {
+    "slug": "vam-rc-01",
+    "name": "Rust Converter VAM RC 01",
+    "category": "Metal Surface Modification & Protection",
+    "tagline": "Advanced Rust Converter & Corrosion Inhibitor | Vadodara, Gujarat",
+    "description": "Rust Converter VAM RC 01 by Valtrix Advance Material Pvt. Ltd. is a high-performance chemical formula that transforms rust into a stable protective barrier, preventing further corrosion and eliminating expensive downtime in Automotive Manufacturing and Maintenance & Repair operations.",
+    "features": [
+      "Converts iron oxide into an inert organo-metallic complex",
+      "Eliminates sandblasting & mechanical wire-brushing downtime",
+      "Superior substrate adhesion for subsequent High Build Coatings",
+      "Ideal for Automotive Manufacturing, Maintenance & Repair, and General Industrial machinery"
+    ],
+    "specs": [
+      { "label": "Product Code", "value": "VAM RC 01" },
+      { "label": "Chemical Base", "value": "Organo-Phosphoric Conversion Polymer" },
+      { "label": "Coverage Rate", "value": "12 - 15 m²/L per coat" },
+      { "label": "Drying Time", "value": "Touch dry in 30 mins; full cure in 4 hours" },
+      { "label": "Salt Spray Resistance", "value": ">300 hours (ASTM B117)" },
+      { "label": "Manufacturer Location", "value": "Vadodara Industrial Area, Vadodara, Gujarat" }
+    ],
+    "applications": ["Automotive Body Repair", "Industrial Machinery Maintenance", "Structural Steel Protection", "Marine & Offshore Equipment"],
+    "industries": ["Automotive Manufacturing", "Maintenance & Repair", "General Industrial"],
+    "calloutNote": "ISO 9001:2015 certified formulation manufactured in Vadodara, Gujarat. Prevents rust creep under topcoats.",
+    "ctas": [
+      { "label": "Request Sample & Quote", "href": "/contact?product=vam-rc-01", "type": "primary" },
+      { "label": "Explore Solutions", "href": "/solutions#custom-industrial-additives", "type": "secondary" }
+    ],
+    "images": {
+      "hero": "/images/solutions/coatings-chemicals.webp",
+      "product": "/images/additives.jpg",
+      "gallery": [
+        { "src": "/images/additives.jpg", "alt": "Rust Converter VAM RC 01 preventing corrosion on automotive parts", "title": "Automotive Part Application" },
+        { "src": "/vamshield-90-metal-cutting.png", "alt": "Rust Converter VAM RC 01 heavy industrial machinery treatment", "title": "Industrial Machinery" }
+      ]
+    },
+    "seo": {
+      "title": "Rust Converter VAM RC 01 | Corrosion Resistance | Valtrix Advance Material Pvt. Ltd.",
+      "description": "Valtrix Advance Material Pvt. Ltd. delivers Rust Converter VAM RC 01 to stabilize rust, prevent sludge, and reduce downtime in Vadodara, Gujarat.",
+      "keywords": ["Rust Converter VAM RC 01", "Rust Converter VAM RC 01 preventing corrosion on automotive parts", "industrial additives", "corrosion resistance", "Maintenance & Repair", "Vadodara Gujarat"]
+    },
+    "jsonLd": { "@context": "https://schema.org", "@type": "Product", "name": "Rust Converter VAM RC 01", "brand": { "@type": "Brand", "name": "Valtrix Advance Material Pvt. Ltd." } }
+  },
+  {
+    "slug": "polyurethane-building-blocks",
+    "name": "Polyurethane Building Blocks",
+    "category": "Green Chemistry & Polyol Engineering",
+    "tagline": "High-Performance Polyurethane Building Blocks | Valtrix Vadodara",
+    "description": "Polyurethane Building Blocks manufactured by Valtrix Advance Material Pvt. Ltd. deliver tailored hydroxyl functionality, bio-based polyol flexibility, and extreme chemical durability for automotive foams, floor coatings, and adhesives.",
+    "features": [
+      "Custom hydroxyl values (180 - 290 mg KOH/g)",
+      ">75% renewable bio-based content derived from natural oils",
+      "Exceptional impact resistance and thermal stability",
+      "Engineered for Automotive Manufacturing and Market Segments requiring green chemistry"
+    ],
+    "specs": [
+      { "label": "Hydroxyl Value", "value": "180 - 290 mg KOH/g" },
+      { "label": "Viscosity @ 25°C", "value": "1,500 - 3,500 cSt" },
+      { "label": "Moisture Content", "value": "<0.05% wt" },
+      { "label": "Functionality Range", "value": "2.2 to 3.0" },
+      { "label": "Origin", "value": "Vadodara Industrial Area, Gujarat" }
+    ],
+    "applications": ["Automotive Seats & Gaskets", "Industrial Floor Coatings", "High-Strength Elastomers", "Structural Adhesives"],
+    "industries": ["Automotive Manufacturing", "General Industrial", "Market Segments"],
+    "calloutNote": "Produced under strict ISO 9001:2015 standards at our Vadodara chemical plant for domestic and global supply.",
+    "ctas": [
+      { "label": "Order Trial Batch", "href": "/contact?product=polyurethane-building-blocks", "type": "primary" },
+      { "label": "View Industry Applications", "href": "/industries/automotive", "type": "secondary" }
+    ],
+    "images": {
+      "hero": "/images/solutions/polymers-composites.webp",
+      "product": "/suscat.png",
+      "gallery": [
+        { "src": "/suscat.png", "alt": "Polyurethane Building Blocks for high-performance industrial coatings", "title": "Chemical Structure & Batch" }
+      ]
+    },
+    "seo": {
+      "title": "Polyurethane Building Blocks | Valtrix Advance Material Pvt. Ltd. Vadodara",
+      "description": "Valtrix Advance Material Pvt. Ltd. manufactures Polyurethane Building Blocks for automotive and industrial coatings, serving Vadodara, Gujarat with ISO-certified quality.",
+      "keywords": ["Polyurethane Building Blocks", "Polyurethane Building Blocks improve performance", "bio polyols", "Automotive Manufacturing", "Vadodara Gujarat"]
+    },
+    "jsonLd": { "@context": "https://schema.org", "@type": "Product", "name": "Polyurethane Building Blocks", "brand": { "@type": "Brand", "name": "Valtrix Advance Material Pvt. Ltd." } }
+  },
+  {
+    "slug": "high-build-coatings",
+    "name": "High Build Coatings",
+    "category": "Heavy-Duty Protective Chemical Systems",
+    "tagline": "Thick-Film Protective High Build Coatings | Valtrix Gujarat",
+    "description": "High Build Coatings from Valtrix Advance Material Pvt. Ltd. provide heavy-duty chemical barrier protection, high film thickness, and maximum corrosion resistance for Maintenance & Repair and General Industrial applications.",
+    "features": [
+      "High dry film thickness (DFT) up to 250 microns in a single pass",
+      "Superior edge retention and anti-sagging properties",
+      "Excellent resistance to acids, alkalis, and industrial sludge",
+      "Extends machinery service life and slashes downtime"
+    ],
+    "specs": [
+      { "label": "Recommended DFT", "value": "150 - 250 microns per coat" },
+      { "label": "Volume Solids", "value": ">80%" },
+      { "label": "Salt Spray Rating", "value": ">500 hours (ASTM B117)" },
+      { "label": "Temperature Limit", "value": "150°C continuous" },
+      { "label": "Manufacturing Site", "value": "Vadodara, Gujarat, India" }
+    ],
+    "applications": ["Maintenance & Repair Aftermarket", "General Industrial Floor Protection", "Heavy Duty Chemical Storage", "Automotive Chassis Repair"],
+    "industries": ["Maintenance & Repair", "General Industrial", "Automotive Manufacturing"],
+    "calloutNote": "Formulated for extreme Gujarat environmental conditions and heavy mechanical wear.",
+    "ctas": [
+      { "label": "Request Technical Datasheet", "href": "/contact?product=high-build-coatings", "type": "primary" },
+      { "label": "Browse Solutions", "href": "/solutions", "type": "secondary" }
+    ],
+    "images": {
+      "hero": "/images/solutions/coatings-chemicals.png",
+      "product": "/vamshield-90-product.png",
+      "gallery": [
+        { "src": "/vamshield-90-product.png", "alt": "High Build Coatings for aftermarket surface restoration and rust protection", "title": "Coating Finish" }
+      ]
+    },
+    "seo": {
+      "title": "High Build Coatings | Maintenance & Repair | Valtrix Advance Material Pvt. Ltd.",
+      "description": "Valtrix Advance Material Pvt. Ltd. delivers High Build Coatings for heavy-duty protection and maintenance in Vadodara, Gujarat.",
+      "keywords": ["High Build Coatings", "High Build Coatings for repair shops", "Maintenance & Repair", "General Industrial", "Vadodara Gujarat"]
+    },
+    "jsonLd": { "@context": "https://schema.org", "@type": "Product", "name": "High Build Coatings", "brand": { "@type": "Brand", "name": "Valtrix Advance Material Pvt. Ltd." } }
+  },
+  {
+    "slug": "vamshield-90",
+    "name": "VAMShield-90",
+    "category": "CORROSION INHIBITOR",
+    "tagline": "Advanced corrosion inhibitor for metalworking fluids and lubricants",
+    "description": "VAMShield-90 is a high-performance corrosion inhibitor specifically designed by Valtrix Advance Material Pvt. Ltd. for metalworking fluids and industrial lubricants.",
+    "features": [
+      "Superior corrosion protection for ferrous and non-ferrous metals",
+      "Excellent compatibility with metalworking fluids",
+      "Extended equipment life and reduced downtime",
+      "Effective at low dosage rates",
+      "Stable across wide temperature ranges",
+      "Environmentally friendly formulation"
+    ],
+    "specs": [
+      { "label": "Product Code", "value": "VAMShield-90" },
+      { "label": "Chemical Type", "value": "Corrosion Inhibitor" },
+      { "label": "Application", "value": "Metalworking & Lubricants" },
+      { "label": "Dosage Range", "value": "0.5% - 2.0%" },
+      { "label": "pH Range", "value": "8.0 - 9.5" },
+      { "label": "Storage", "value": "Cool, dry place (15-25 C)" }
+    ],
+    "applications": ["Metalworking Fluids", "Industrial Lubricants", "Cooling Systems"],
+    "industries": ["Metal Working Fluids & Lubricants", "General Industrial"],
+    "calloutNote": "ISO 9001:2015 certified formulation manufactured in Vadodara, Gujarat.",
+    "ctas": [
+      { "label": "Contact Us", "href": "/contact", "type": "primary" },
+      { "label": "Call Us", "href": "tel:+919898123983", "type": "secondary" }
+    ],
+    "images": {
+      "hero": null,
+      "product": "/vamshield-90-product.png",
+      "gallery": [
+        { "src": "/vamshield-90-product.png", "alt": "VAMShield-90 corrosion inhibitor preventing sludge in heavy machinery", "title": "Product Sample" },
+        { "src": "/vamshield-90-product-2.png", "alt": "VAMShield-90 close-up formulation sample", "title": "Detailed View" },
+        { "src": "/vamshield-90-gear-machining.png", "alt": "Gear machining application with VAMShield-90 corrosion protection", "title": "Machining" },
+        { "src": "/vamshield-90-metal-cutting.png", "alt": "Metal cutting milling application using Valtrix coolant additive", "title": "Milling" }
+      ]
+    },
+    "seo": {
+      "title": "VAMShield-90 | Advanced Corrosion Inhibitor - Valtrix",
+      "description": "VAMShield-90 is a high-performance corrosion inhibitor for metalworking fluids by Valtrix Advance Material Pvt. Ltd. in Vadodara, Gujarat.",
+      "keywords": ["VAMShield-90", "corrosion inhibitor", "metalworking fluids", "Valtrix Advance Material Pvt. Ltd.", "Vadodara Gujarat"]
+    },
+    "jsonLd": null,
+    "phoneNumber": "+919898123983"
+  },
+  {
     "slug": "corrosion-inhibitors",
     "name": "Corrosion Inhibitors",
     "category": "Corrosion Mitigation Science",
     "tagline": "Corrosion Inhibitor Manufacturer India",
-    "description": "Valtrix manufactures vapor-phase (VCI) corrosion inhibitors, solvent-de-watering rust preventive fluids, and oil-soluble concentrates.",
-    "features": [],
+    "description": "Valtrix manufactures vapor-phase (VCI) corrosion inhibitors, solvent-de-watering rust preventive fluids, and oil-soluble concentrates in Vadodara, Gujarat.",
+    "features": [
+      "24-month sealed storage protection",
+      "Multi-metal vapor phase dispersion",
+      "Ultra-low volatile aromatic emission"
+    ],
     "specs": [
       { "label": "VCI Dispersion Range", "value": "Effective within a 30cm radius of open metal surface" },
       { "label": "Protection Duration", "value": "Up to 24 months in enclosed storage environments" },
@@ -20,13 +193,19 @@
       { "label": "Request Sample / Quote", "href": "/contact?product=corrosion-inhibitors", "type": "primary" },
       { "label": "Download Tech Data Sheets", "href": "/resources/downloads?product=metals-alloys", "type": "secondary" }
     ],
-    "images": { "hero": null, "product": null, "gallery": [] },
+    "images": { 
+      "hero": null, 
+      "product": "/vamshield-90-product.png", 
+      "gallery": [
+        { "src": "/vamshield-90-product.png", "alt": "Corrosion Inhibitors packaged for industrial rust prevention", "title": "Inhibitor Sample" }
+      ] 
+    },
     "seo": {
       "title": "Corrosion Inhibitor Manufacturer India | VCI Rust Inhibitors - Valtrix",
-      "description": "Valtrix is a leading corrosion inhibitor manufacturer in India.",
-      "keywords": ["Corrosion Inhibitor Manufacturer India", "VCI Rust Inhibitors"]
+      "description": "Valtrix Advance Material Pvt. Ltd. is a leading corrosion inhibitor manufacturer in Vadodara, Gujarat, India.",
+      "keywords": ["Corrosion Inhibitor Manufacturer India", "VCI Rust Inhibitors", "Vadodara Gujarat"]
     },
-    "jsonLd": { "@context": "https://schema.org", "@type": "Product", "name": "Corrosion Inhibitors & VCI Oils", "brand": { "@type": "Brand", "name": "Valtrix" } }
+    "jsonLd": { "@context": "https://schema.org", "@type": "Product", "name": "Corrosion Inhibitors & VCI Oils", "brand": { "@type": "Brand", "name": "Valtrix Advance Material Pvt. Ltd." } }
   },
   {
     "slug": "electroplating-chemicals",
@@ -34,7 +213,11 @@
     "category": "Precision Metal Finishing",
     "tagline": "Electroplating Chemicals Supplier India",
     "description": "Valtrix supplies high-purity electroplating salts, acid brighteners, post-treatment passivations, and surface preparation cleaners.",
-    "features": [],
+    "features": [
+      "High levelling capability",
+      "Brilliant mirror finish deposit",
+      "High thermal bath stability"
+    ],
     "specs": [
       { "label": "Chemical Purity", "value": ">99.8% pure grade electro-salts" },
       { "label": "Plating Thickness Range", "value": "5 to 25 microns (customizable)" },
@@ -49,13 +232,19 @@
       { "label": "Request Catalog / Inquire", "href": "/contact?product=electroplating-chemicals", "type": "primary" },
       { "label": "Download MSDS / SDS", "href": "/resources/downloads?product=coatings-chemicals", "type": "secondary" }
     ],
-    "images": { "hero": null, "product": null, "gallery": [] },
+    "images": { 
+      "hero": null, 
+      "product": "/suscat.png", 
+      "gallery": [
+        { "src": "/suscat.png", "alt": "Electroplating Chemicals and brighteners for surface finishing", "title": "Brightener Solution" }
+      ] 
+    },
     "seo": {
       "title": "Electroplating Chemicals Supplier India - Valtrix",
-      "description": "Valtrix is a trusted electroplating chemicals supplier in India.",
-      "keywords": ["Electroplating Chemicals Supplier India", "Metal Plating Chemicals"]
+      "description": "Valtrix Advance Material Pvt. Ltd. is a trusted electroplating chemicals supplier in Vadodara, Gujarat, India.",
+      "keywords": ["Electroplating Chemicals Supplier India", "Metal Plating Chemicals", "Vadodara Gujarat"]
     },
-    "jsonLd": { "@context": "https://schema.org", "@type": "Product", "name": "Electroplating Chemicals & Additives", "brand": { "@type": "Brand", "name": "Valtrix" } }
+    "jsonLd": { "@context": "https://schema.org", "@type": "Product", "name": "Electroplating Chemicals & Additives", "brand": { "@type": "Brand", "name": "Valtrix Advance Material Pvt. Ltd." } }
   },
   {
     "slug": "metalworking-fluids",
@@ -63,7 +252,11 @@
     "category": "Specialty Industrial Chemistry",
     "tagline": "Metalworking Fluids Manufacturer India",
     "description": "Valtrix manufactures next-generation metalworking coolants, soluble cutting oils, and synthetic lubricants.",
-    "features": [],
+    "features": [
+      "Zero foam under high coolant pressure",
+      "Multi-metal corrosion protection",
+      "Extended coolant sump life"
+    ],
     "specs": [
       { "label": "Purity Index", "value": "Grade-A Synthetic base compounds" },
       { "label": "Viscosity Range", "value": "Optimized 15 cSt to 45 cSt @ 40 C" },
@@ -78,13 +271,19 @@
       { "label": "Inquire Sourcing / Get Quote", "href": "/contact?product=metalworking-fluids", "type": "primary" },
       { "label": "Download Tech Sheets", "href": "/resources/downloads?product=metals-alloys", "type": "secondary" }
     ],
-    "images": { "hero": null, "product": null, "gallery": [] },
+    "images": { 
+      "hero": null, 
+      "product": "/vamshield-90-gear-machining.png", 
+      "gallery": [
+        { "src": "/vamshield-90-gear-machining.png", "alt": "Industrial Metalworking Fluids in CNC gear machining", "title": "CNC Machining" }
+      ] 
+    },
     "seo": {
       "title": "Metalworking Fluids Manufacturer India - Valtrix",
-      "description": "Valtrix is a leading metalworking fluids manufacturer in India.",
-      "keywords": ["Metalworking Fluids Manufacturer India", "Industrial Lubricants"]
+      "description": "Valtrix Advance Material Pvt. Ltd. is a leading metalworking fluids manufacturer in Vadodara, Gujarat, India.",
+      "keywords": ["Metalworking Fluids Manufacturer India", "Industrial Lubricants", "Vadodara Gujarat"]
     },
-    "jsonLd": { "@context": "https://schema.org", "@type": "Product", "name": "Industrial Metalworking Fluids", "brand": { "@type": "Brand", "name": "Valtrix" } }
+    "jsonLd": { "@context": "https://schema.org", "@type": "Product", "name": "Industrial Metalworking Fluids", "brand": { "@type": "Brand", "name": "Valtrix Advance Material Pvt. Ltd." } }
   },
   {
     "slug": "surface-treatments",
@@ -92,7 +291,11 @@
     "category": "Metal Surface Modification",
     "tagline": "Surface Treatment Chemicals India",
     "description": "Valtrix engineers specialized surface treatment chemistry, including rust convertors, heavy-duty alkaline degreasers, micro-crystalline zinc phosphating, and metal passivators.",
-    "features": [],
+    "features": [
+      "Microcrystalline zinc phosphate coating",
+      "Rapid dry flash rust prevention",
+      "Substrate versatile formulation"
+    ],
     "specs": [
       { "label": "Coat Thickness", "value": "1.5 to 4.5 g/m2 Zinc Phosphate film" },
       { "label": "Phosphating Type", "value": "Microcrystalline immersion & spray grades" },
@@ -107,21 +310,31 @@
       { "label": "Get Custom Quote / Contact Us", "href": "/contact?product=surface-treatments", "type": "primary" },
       { "label": "Download Technical Sheets", "href": "/resources/downloads?product=coatings-chemicals", "type": "secondary" }
     ],
-    "images": { "hero": null, "product": null, "gallery": [] },
+    "images": { 
+      "hero": null, 
+      "product": "/images/additives.jpg", 
+      "gallery": [
+        { "src": "/images/additives.jpg", "alt": "Surface Treatment Chemicals preventing sludge and rust", "title": "Surface Treatment" }
+      ] 
+    },
     "seo": {
       "title": "Surface Treatment Chemicals India - Valtrix",
-      "description": "Valtrix is a leading manufacturer of surface treatment chemicals in India.",
-      "keywords": ["Surface Treatment Chemicals India", "Rust Preventives"]
+      "description": "Valtrix Advance Material Pvt. Ltd. is a leading manufacturer of surface treatment chemicals in Vadodara, Gujarat, India.",
+      "keywords": ["Surface Treatment Chemicals India", "Rust Preventives", "Vadodara Gujarat"]
     },
-    "jsonLd": { "@context": "https://schema.org", "@type": "Product", "name": "Surface Treatment Chemicals", "brand": { "@type": "Brand", "name": "Valtrix" } }
+    "jsonLd": { "@context": "https://schema.org", "@type": "Product", "name": "Surface Treatment Chemicals", "brand": { "@type": "Brand", "name": "Valtrix Advance Material Pvt. Ltd." } }
   },
   {
     "slug": "sustainable-polyols",
     "name": "Sustainable Polyols",
     "category": "Green Chemistry Solutions",
     "tagline": "Bio Based Polyols Supplier India",
-    "description": "Valtrix is a leading bio based polyols supplier in India, manufacturing sustainable specialty polyols derived from cashew nut shell liquid (CNSL) and castor oil.",
-    "features": [],
+    "description": "Valtrix is a leading bio based polyols supplier in India, manufacturing sustainable specialty polyols derived from cashew nut shell liquid (CNSL) and castor oil in Vadodara, Gujarat.",
+    "features": [
+      ">75% renewable bio-carbon content",
+      "High chemical resistance diol/triol matrix",
+      "Low moisture content for clear polyurethane formulations"
+    ],
     "specs": [
       { "label": "Bio-based Content", "value": ">75% renewable carbon source" },
       { "label": "Hydroxyl Value", "value": "180 to 290 mg KOH/g (custom grade)" },
@@ -136,51 +349,18 @@
       { "label": "Order Evaluation Sample", "href": "/contact?product=sustainable-polyols", "type": "primary" },
       { "label": "Download Tech Data Sheets", "href": "/resources/downloads?product=polymers-composites", "type": "secondary" }
     ],
-    "images": { "hero": null, "product": null, "gallery": [] },
+    "images": { 
+      "hero": null, 
+      "product": "/suspol.png", 
+      "gallery": [
+        { "src": "/suspol.png", "alt": "Bio Based Sustainable Polyols derived from renewable cashew nut shell liquid", "title": "Polyol Sample" }
+      ] 
+    },
     "seo": {
       "title": "Bio Based Polyols Supplier India - Valtrix",
-      "description": "Valtrix is a leading bio based polyols supplier in India.",
-      "keywords": ["Bio Based Polyols Supplier India", "Sustainable Polyols"]
+      "description": "Valtrix Advance Material Pvt. Ltd. is a leading bio based polyols supplier in Vadodara, Gujarat, India.",
+      "keywords": ["Bio Based Polyols Supplier India", "Sustainable Polyols", "Vadodara Gujarat"]
     },
-    "jsonLd": { "@context": "https://schema.org", "@type": "Product", "name": "Bio-Based Sustainable Polyols", "brand": { "@type": "Brand", "name": "Valtrix" } }
-  },
-  {
-    "slug": "vamshield-90",
-    "name": "VAMShield-90",
-    "category": "CORROSION INHIBITOR",
-    "tagline": "Advanced corrosion inhibitor for metalworking fluids and lubricants",
-    "description": "VAMShield-90 is a high-performance corrosion inhibitor specifically designed for metalworking fluids and industrial lubricants.",
-    "features": ["Superior corrosion protection for ferrous and non-ferrous metals", "Excellent compatibility with metalworking fluids", "Extended equipment life and reduced downtime", "Effective at low dosage rates", "Stable across wide temperature ranges", "Environmentally friendly formulation"],
-    "specs": [
-      { "label": "Product Code", "value": "VAMShield-90" },
-      { "label": "Chemical Type", "value": "Corrosion Inhibitor" },
-      { "label": "Application", "value": "Metalworking & Lubricants" },
-      { "label": "Dosage Range", "value": "0.5% - 2.0%" },
-      { "label": "pH Range", "value": "8.0 - 9.5" },
-      { "label": "Storage", "value": "Cool, dry place (15-25 C)" }
-    ],
-    "applications": ["Metalworking Fluids", "Industrial Lubricants", "Cooling Systems"],
-    "industries": ["Metal Working Fluids & Lubricants"],
-    "ctas": [
-      { "label": "Contact Us", "href": "/contact", "type": "primary" },
-      { "label": "Call Us", "href": "tel:+919898123983", "type": "secondary" }
-    ],
-    "images": {
-      "hero": null,
-      "product": "/vamshield-90-product.png",
-      "gallery": [
-        { "src": "/vamshield-90-product.png", "alt": "VAMShield-90 product", "title": "Product Sample" },
-        { "src": "/vamshield-90-product-2.png", "alt": "VAMShield-90 close-up", "title": "Detailed View" },
-        { "src": "/vamshield-90-gear-machining.png", "alt": "Gear machining application", "title": "Machining" },
-        { "src": "/vamshield-90-metal-cutting.png", "alt": "Metal cutting application", "title": "Milling" }
-      ]
-    },
-    "seo": {
-      "title": "VAMShield-90 | Advanced Corrosion Inhibitor - Valtrix",
-      "description": "VAMShield-90 is a high-performance corrosion inhibitor for metalworking fluids.",
-      "keywords": ["VAMShield-90", "corrosion inhibitor", "metalworking fluids"]
-    },
-    "jsonLd": null,
-    "phoneNumber": "+919898123983"
+    "jsonLd": { "@context": "https://schema.org", "@type": "Product", "name": "Bio-Based Sustainable Polyols", "brand": { "@type": "Brand", "name": "Valtrix Advance Material Pvt. Ltd." } }
   }
 ]

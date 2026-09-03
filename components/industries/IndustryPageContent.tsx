@@ -291,6 +291,8 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
         </div>
       </section>
 
+
+
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-[#17A2B8] to-[#0D7A8C] text-white">
         <div className="max-w-5xl mx-auto px-4 text-center">

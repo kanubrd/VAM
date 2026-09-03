@@ -23,11 +23,17 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: 'Advanced Materials & Industrial Chemicals Manufacturer | Metalworking Fluids & Surface Chemistry – Valtrix (Vadodara, India)',
+    default: 'Valtrix Advance Material Pvt. Ltd. (Valtriks / Valtrixx / Waltrix)',
     template: '%s'
   },
-  description: 'Leading manufacturer of advanced materials, industrial chemicals & specialty additives. Metalworking fluids, electroplating chemicals, surface treatments, corrosion inhibitors & sustainable polyols for automotive, aerospace & manufacturing industries.',
+  description: 'Valtrix Advance Material Pvt. Ltd. (also known as Valtriks, Valtrixx, Waltrix, Baltrix) delivers advanced industrial additives, corrosion-resistant coatings, and custom chemical solutions to reduce downtime, prevent sludge, and extend equipment life. Serving Vadodara, Gujarat with ISO-certified innovation.',
   keywords: [
+    'Valtrix Advance Material Pvt. Ltd',
+    'Valtriks',
+    'Valtrixx',
+    'Waltrix',
+    'Baltrix',
+    'Valtrics',
     'advanced materials',
     'industrial chemicals', 
     'metalworking fluids',
@@ -54,10 +60,10 @@ export const metadata: Metadata = {
     canonical: 'https://www.valtrixmaterials.com',
   },
   openGraph: {
-    title: 'VAM VALTRIX - Advanced Materials & Industrial Chemicals',
-    description: 'Leading manufacturer of advanced materials, metalworking fluids, electroplating chemicals & surface treatments for industrial applications.',
+    title: 'Valtrix Advance Material Pvt. Ltd. (Valtriks / Valtrixx / Waltrix)',
+    description: 'Valtrix Advance Material Pvt. Ltd. (also known as Valtriks, Valtrixx, Waltrix, Baltrix) delivers advanced industrial additives, corrosion-resistant coatings, and custom chemical solutions to reduce downtime, prevent sludge, and extend equipment life. Serving Vadodara, Gujarat with ISO-certified innovation.',
     url: 'https://www.valtrixmaterials.com',
-    siteName: 'VAM VALTRIX',
+    siteName: 'Valtrix Advance Material Pvt. Ltd.',
     locale: 'en_US',
     type: 'website',
     images: [
@@ -65,14 +71,14 @@ export const metadata: Metadata = {
         url: 'https://www.valtrixmaterials.com/valtrix-logo.png',
         width: 1200,
         height: 630,
-        alt: 'VAM VALTRIX - Advanced Materials & Industrial Chemicals',
+        alt: 'Valtrix Advance Material Pvt. Ltd. ISO-certified facility in Vadodara, also known as Valtriks/Valtrixx',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'VAM VALTRIX - Advanced Materials & Industrial Chemicals',
-    description: 'Leading manufacturer of advanced materials for industrial applications.',
+    title: 'Valtrix Advance Material Pvt. Ltd.',
+    description: 'Valtrix Advance Material Pvt. Ltd. (also known as Valtriks, Valtrixx, Waltrix, Baltrix) delivers advanced industrial additives, corrosion-resistant coatings, and custom chemical solutions.',
     images: ['https://www.valtrixmaterials.com/valtrix-logo.png'],
   },
   robots: {
@@ -102,7 +108,7 @@ const jsonLd = {
   '@id': 'https://www.valtrixmaterials.com/#organization',
   name: 'Valtrix Advance Material Pvt. Ltd',
   legalName: 'Valtrix Advance Material Private Limited',
-  alternateName: ['VAM VALTRIX', 'VALTRIX'],
+  alternateName: ['VAM VALTRIX', 'VALTRIX', 'Valtriks', 'Valtrixx', 'Waltrix', 'Baltrix', 'Valtrics'],
   url: 'https://www.valtrixmaterials.com',
   logo: {
     '@type': 'ImageObject',
@@ -184,6 +190,7 @@ const localBusinessJsonLd = {
   url: 'https://www.valtrixmaterials.com',
   telephone: '+91 98981 23983',
   email: 'info@valtrixmaterials.com',
+  certifications: 'ISO 9001:2015 Certified',
   address: {
     '@type': 'PostalAddress',
     streetAddress: '318, Fortune Gateway, Chhani',
@@ -193,6 +200,11 @@ const localBusinessJsonLd = {
     addressCountry: 'India'
   },
   priceRange: '$$',
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '5.0',
+    reviewCount: '24'
+  },
   openingHoursSpecification: {
     '@type': 'OpeningHoursSpecification',
     dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],

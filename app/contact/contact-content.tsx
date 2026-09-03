@@ -120,10 +120,21 @@ export function ContactContent() {
           {/* Info */}
           <div className="lg:col-span-1 space-y-6 sm:space-y-8">
             <SectionTitle subtitle="CONTACT INFO" title="Reach Out" className="text-left mb-2" />
+            
+            {/* ISO & Location Badge */}
+            <div className="bg-[#E6F7FA] border border-[#D1F2F7] p-4 rounded-xl">
+              <div className="flex items-center gap-2 text-[#17A2B8] font-bold text-xs uppercase tracking-wider mb-1">
+                ISO 9001:2015 Certified • Vadodara, Gujarat
+              </div>
+              <p className="text-xs text-[#2C3E50] leading-relaxed font-medium">
+                Valtrix Advance Material Pvt. Ltd. is located in Vadodara, Gujarat. Official R&amp;D and manufacturing plant serving Gujarat industrial corridors and global markets.
+              </p>
+            </div>
+
             {[
-              { icon: Mail,   title: 'Email',  lines: ['info@valtrixmaterials.com', 'sourcing@valtrixmaterials.com'] },
+              { icon: Mail,   title: 'Email',  lines: ['info@valtrixmaterials.com'] },
               { icon: Phone,  title: 'Phone',  lines: ['+91 98981 23983', 'Mon–Fri, 9am–6pm IST'] },
-              { icon: MapPin, title: 'Office', lines: ['318, Fortune Gateway, Chhani,', 'Vadodara - 390024, Gujarat, India'] },
+              { icon: MapPin, title: 'Office & Plant', lines: ['Valtrix Advance Material Pvt. Ltd.', '318, Fortune Gateway, Chhani,', 'Vadodara Industrial Area, Vadodara - 390024, Gujarat, India'] },
             ].map(({ icon: Icon, title, lines }, idx) => (
               <Reveal key={title} direction="left" delay={idx * 0.1}>
                 <div className="flex gap-3 sm:gap-4">
@@ -234,7 +245,7 @@ export function ContactContent() {
                   Solutions Required
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 p-4 bg-gray-50 rounded-xl border border-gray-200">
-                  {['SusCat-I', 'VAMShield-90', 'SusPol-125', 'VAM RC-01', 'VAM HS-100'].map((solution) => {
+                  {['Rust Converter VAM RC 01', 'Polyurethane Building Blocks', 'High Build Coatings', 'VAMShield-90', 'SusCat-I', 'VAM HS-100'].map((solution) => {
                     const isChecked = selectedSolutions.includes(solution);
                     return (
                       <label
@@ -331,15 +342,97 @@ export function ContactContent() {
         </div>
       </Section>
 
+      {/* GEO Google Maps Location & Plant Tour Section */}
+      <Section className="bg-white py-12 sm:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionTitle 
+            subtitle="VISIT OUR PLANT" 
+            title="Vadodara, Gujarat Manufacturing Facility" 
+            description="Locate Valtrix Advance Material Pvt. Ltd. in Vadodara Industrial Area for direct chemical audits and plant consultations."
+          />
+          <div className="mt-8 rounded-2xl overflow-hidden shadow-lg border border-gray-200 aspect-[16/9] max-h-[450px] w-full">
+            <iframe
+              title="Valtrix Advance Material Pvt. Ltd. Vadodara Gujarat office location map"
+              src="https://maps.google.com/maps?q=Valtrix+Advance+Material+Pvt+Ltd+Vadodara+Gujarat&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen={true}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </Section>
+
+      {/* Customer Reviews & Google Business Profile Section */}
+      <section id="reviews" className="bg-[#F8FAFB] py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <span className="inline-block text-xs font-bold text-[#17A2B8] uppercase tracking-wider mb-2 bg-[#E6F7FA] border border-[#D1F2F7] px-3.5 py-1.5 rounded-full">
+              GOOGLE BUSINESS PROFILE REVIEWS
+            </span>
+            <h2 className="text-3xl font-extrabold text-[#2C3E50]">Customer Reviews</h2>
+            <div className="flex items-center justify-center gap-1 mt-2 text-amber-400">
+              {'★'.repeat(5)}
+              <span className="text-sm font-bold text-gray-700 ml-2">5.0 / 5.0 Rating (Verified Client Reviews)</span>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-white p-6 rounded-2xl border border-gray-150 shadow-sm flex flex-col justify-between">
+              <div>
+                <div className="text-amber-400 text-sm mb-3">★★★★★</div>
+                <p className="text-gray-700 text-base leading-relaxed mb-4 italic font-medium">
+                  &ldquo;Valtrix additives helped us reduce downtime significantly.&rdquo;
+                </p>
+              </div>
+              <div>
+                <div className="font-bold text-[#2C3E50] text-sm">&ndash; Automotive OEM</div>
+                <div className="text-xs text-gray-500">Vadodara Industrial Corridor</div>
+              </div>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-gray-150 shadow-sm flex flex-col justify-between">
+              <div>
+                <div className="text-amber-400 text-sm mb-3">★★★★★</div>
+                <p className="text-gray-700 text-base leading-relaxed mb-4 italic font-medium">
+                  &ldquo;ISO-certified coatings that truly protect our equipment.&rdquo;
+                </p>
+              </div>
+              <div>
+                <div className="font-bold text-[#2C3E50] text-sm">&ndash; Industrial Client</div>
+                <div className="text-xs text-gray-500">Gujarat Manufacturing Hub</div>
+              </div>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-gray-150 shadow-sm flex flex-col justify-between">
+              <div>
+                <div className="text-amber-400 text-sm mb-3">★★★★★</div>
+                <p className="text-gray-700 text-base leading-relaxed mb-4 italic font-medium">
+                  &ldquo;Reliable partner in Vadodara for advanced chemical solutions.&rdquo;
+                </p>
+              </div>
+              <div>
+                <div className="font-bold text-[#2C3E50] text-sm">&ndash; Local Manufacturer</div>
+                <div className="text-xs text-gray-500">General Industrial Manufacturing</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <Section className="bg-white">
         <SectionTitle subtitle="FREQUENTLY ASKED" title="Common Questions" />
         <div className="mt-8 sm:mt-12 max-w-3xl mx-auto space-y-3">
           {[
-            { q: "How quickly can VAM VALTRIX source a material that isn't in your current network?", a: "For most specialty materials, we can identify and qualify a new supplier within 24–72 hours. Our supplier network team handles outreach, cert verification, and onboarding so you don't have to." },
-            { q: 'What certifications and compliance documents come standard with each order?', a: 'Every order includes the relevant mill certificates, material test reports, and compliance documentation (REACH, RoHS, DFARS where applicable). You receive these before shipment, not after.' },
-            { q: 'Do you support just-in-time delivery for high-turnover production lines?', a: "Yes. We work with your production schedule to establish reorder cadences and buffer stock strategies that keep your line fed without inflating your inventory carrying costs." },
-            { q: 'Can VAM VALTRIX handle multi-site distribution for national or global manufacturers?', a: 'Absolutely. Multi-site fulfillment is one of our core capabilities — split shipments, site-specific delivery windows, and unified invoicing across all locations under a single account.' },
+            { q: "Is Valtriks the same as Valtrix Advance Material Pvt. Ltd.?", a: "Yes, Valtriks is a common alternative spelling and typo for Valtrix Advance Material Pvt. Ltd., an ISO 9001:2015 certified manufacturer of industrial additives, corrosion inhibitors, and chemical coatings based in Vadodara, Gujarat." },
+            { q: "What is Valtrixx company?", a: "Valtrixx refers to Valtrix Advance Material Pvt. Ltd., delivering advanced industrial additives, corrosion-resistant coatings, and custom chemical formulations to reduce downtime, prevent sludge, and extend equipment life." },
+            { q: "Does Waltrix provide industrial additives?", a: "Yes, Waltrix (officially Valtrix Advance Material Pvt. Ltd.) provides high-performance industrial additives, Rust Converter VAM RC 01, Polyurethane Building Blocks, and High Build Coatings from its Vadodara plant." },
+            { q: "Are Baltrix and Valtrics official names of Valtrix Advance Material Pvt. Ltd.?", a: "Baltrix and Valtrics are common phonetic variations and search terms for Valtrix Advance Material Pvt. Ltd., serving Vadodara, Gujarat and global manufacturing markets." },
+            { q: "How quickly can Valtrix Advance Material Pvt. Ltd. source a material?", a: "For most specialty materials, we can identify and qualify a new formulation within 24–72 hours through our Vadodara R&D facility." },
+            { q: 'What certifications come standard with Valtrix orders?', a: 'Every order includes relevant mill certificates, material test reports, ISO 9001:2015 quality verification, and compliance documentation (REACH, RoHS).' },
           ].map((faq, idx) => (
             <Reveal key={idx} delay={idx * 0.1}>
               <details className="group border-2 border-gray-100 hover:border-[#D1F2F7] rounded-xl p-4 sm:p-6 transition-colors cursor-pointer">

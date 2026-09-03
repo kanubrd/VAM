@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run optimize:images && next build",
+    "build": "next build",
     "build:skip-optimize": "next build",
     "build:vercel": "next build",
     "build:analyze": "ANALYZE=true npm run build",
@@ -56,6 +56,7 @@
     "@studio-freight/lenis": "1.0.42",
     "@types/nodemailer": "8.0.1",
     "@types/three": "0.185.0",
+    "@vercel/blob": "^2.6.1",
     "autoprefixer": "^10.4.20",
     "bcryptjs": "^3.0.3",
     "class-variance-authority": "^0.7.1",

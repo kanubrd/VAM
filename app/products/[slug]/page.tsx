@@ -19,38 +19,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const product = getProductBySlug(resolvedParams.slug);
   if (!product) return {};
 
-  const productBenefits: Record<string, string> = {
-    'corrosion-inhibitors': '24-Month Protection',
-    'electroplating-chemicals': 'High Bath Stability',
-    'metalworking-fluids': 'Extended Tool Life',
-    'surface-treatments': '240hr Salt Spray',
-    'sustainable-polyols': 'Cashew Shell Derived',
-    'vamshield-90': 'Ash-Free Inhibitor'
-  };
-
-  const shortNames: Record<string, string> = {
-    'corrosion-inhibitors': 'VCI Rust Inhibitors',
-    'electroplating-chemicals': 'Plating Chemicals',
-    'metalworking-fluids': 'Metalworking Coolants',
-    'surface-treatments': 'Surface Treatments',
-    'sustainable-polyols': 'Sustainable Polyols',
-    'vamshield-90': 'VAMShield-90'
-  };
-
-  const name = shortNames[resolvedParams.slug] || product.name;
-  const benefit = productBenefits[resolvedParams.slug] || 'Custom Additives';
-  const title = `${name} | ${benefit} | VAM VALTRIX`;
+  const name = product.name;
+  const title = `${name} | Valtrix Advance Material Pvt. Ltd. | Vadodara, Gujarat`;
+  const description = `${product.name} manufactured by Valtrix Advance Material Pvt. Ltd. in Vadodara, Gujarat. Advanced industrial additives, corrosion-resistant coatings, and custom chemical solutions to reduce downtime, prevent sludge, and extend equipment life.`;
 
   return {
     title,
-    description: (product.seo?.description || product.description).slice(0, 150),
-    keywords: product.seo?.keywords || [product.name, 'Valtrix'],
+    description,
+    keywords: product.seo?.keywords || [product.name, 'Valtrix Advance Material Pvt. Ltd.', 'Vadodara Gujarat', 'industrial additives', 'corrosion protection', 'ISO certified'],
     alternates: {
       canonical: `https://www.valtrixmaterials.com/products/${product.slug}`,
     },
     openGraph: {
       title,
-      description: (product.seo?.description || product.description).slice(0, 150),
+      description,
       url: `https://www.valtrixmaterials.com/products/${product.slug}`,
       type: 'website',
     },
@@ -97,8 +79,18 @@ export default async function ProductPage({ params }: Props) {
     'description': product.description,
     'image': product.images?.product ? `https://www.valtrixmaterials.com${product.images.product}` : 'https://www.valtrixmaterials.com/valtrix-logo-teal.png',
     'brand': {
-      '@type': 'Brand',
-      'name': 'VAM VALTRIX'
+      '@type': 'Organization',
+      'name': 'Valtrix Advance Material Pvt. Ltd.'
+    },
+    'manufacturer': {
+      '@type': 'Organization',
+      'name': 'Valtrix Advance Material Pvt. Ltd.',
+      'address': {
+        '@type': 'PostalAddress',
+        'addressLocality': 'Vadodara',
+        'addressRegion': 'Gujarat',
+        'addressCountry': 'IN'
+      }
     },
     'offers': {
       '@type': 'AggregateOffer',
@@ -110,6 +102,37 @@ export default async function ProductPage({ params }: Props) {
     }
   };
 
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': [
+      {
+        '@type': 'Question',
+        'name': `What is ${product.name}?`,
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': `${product.name} is a high-performance chemical formulation manufactured by Valtrix Advance Material Pvt. Ltd. in Vadodara, Gujarat, engineered for superior material protection, corrosion resistance, and operational efficiency.`
+        }
+      },
+      {
+        '@type': 'Question',
+        'name': `How does ${product.name} reduce industrial equipment downtime?`,
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': `${product.name} stabilizes chemical equilibrium under extreme pressures and thermal loads, preventing sludge formation, micro-pitting, and wear to cut downtime by up to 45%.`
+        }
+      },
+      {
+        '@type': 'Question',
+        'name': 'Where is Valtrix Advance Material Pvt. Ltd. located?',
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': 'Valtrix Advance Material Pvt. Ltd. is located in Vadodara Industrial Area, Vadodara, Gujarat, India, operating under ISO 9001:2015 quality management certification.'
+        }
+      }
+    ]
+  };
+
   return (
     <>
       <script
@@ -119,6 +142,10 @@ export default async function ProductPage({ params }: Props) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <ProductPageContent product={product} />
     </>

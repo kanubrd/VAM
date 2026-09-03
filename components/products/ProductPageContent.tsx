@@ -460,6 +460,8 @@ export function ProductPageContent({ product }: ProductPageContentProps) {
           </div>
         </div>
       </section>
+
+
       <QuoteModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}

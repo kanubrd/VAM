@@ -60,13 +60,6 @@ export function Reveal({
 }: RevealProps) {
   const prefersReducedMotion = useReducedMotion();
   
-  // Optimized threshold for smoother triggering
-  const { ref, inView } = useInView({
-    threshold: 0.15, // Reduced for earlier, smoother activation
-    triggerOnce: once,
-    rootMargin: '0px 0px -80px 0px', // More room for smoother entry
-  });
-
   // Stagger delay calculation
   const staggerDelay = stagger 
     ? typeof stagger === 'number' 
@@ -101,25 +94,30 @@ export function Reveal({
         type: 'tween',
       };
 
+  // Viewport configuration for framer-motion whileInView
+  const viewportConfig = {
+    once: once,
+    amount: 0.15, // 15% visibility to trigger
+    margin: '0px 0px -80px 0px',
+  };
+
   // Stagger mode
   if (staggerDelay) {
     const childArray = Children.toArray(children);
     
     return (
       <motion.div
-        ref={ref}
         initial="hidden"
-        animate={inView ? 'visible' : 'hidden'}
+        whileInView="visible"
+        viewport={viewportConfig}
         variants={containerVariants}
         className={className}
-        style={{ willChange: inView ? 'transform, opacity' : 'auto' }}
       >
         {childArray.map((child, index) => (
           <motion.div
             key={index}
             variants={itemVariants}
             transition={transition as any}
-            style={{ willChange: 'transform, opacity' }}
           >
             {child}
           </motion.div>
@@ -131,13 +129,12 @@ export function Reveal({
   // Simple reveal mode
   return (
     <motion.div
-      ref={ref}
       initial="hidden"
-      animate={inView ? 'visible' : 'hidden'}
+      whileInView="visible"
+      viewport={viewportConfig}
       variants={itemVariants}
       transition={transition as any}
       className={className}
-      style={{ willChange: inView ? 'transform, opacity' : 'auto' }}
     >
       {children}
     </motion.div>

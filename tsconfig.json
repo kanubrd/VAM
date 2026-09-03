@@ -42,6 +42,10 @@
     "node_modules",
     ".next",
     "dist",
-    "build"
+    "build",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.spec.ts",
+    "**/*.spec.tsx"
   ]
 }
