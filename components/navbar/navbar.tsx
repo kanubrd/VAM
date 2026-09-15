@@ -19,20 +19,25 @@ const navItems = [
 ];
 
 export function Navbar() {
-  const [isScrolled, setIsScrolled]         = useState(false);
+  const [scrollY, setScrollY]               = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mounted, setMounted]               = useState(false);
   const [industriesHovered, setIndustriesHovered] = useState(false);
   const scrollProgress                       = useScrollProgress();
   const pathname                             = usePathname();
-  const isHomePage = pathname === '/';
+  const isHomePage                           = pathname === '/';
 
   useEffect(() => {
     setMounted(true);
-    const onScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', onScroll);
+    const onScroll = () => setScrollY(window.scrollY);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  const isScrolled = scrollY > 20;
+  // Over the video hero section on the homepage
+  const isOverVideo = isHomePage && scrollY < 540;
 
   useEffect(() => { setMobileMenuOpen(false); }, [pathname]);
 
@@ -64,8 +69,8 @@ export function Navbar() {
   if (!mounted) {
     return (
       <header className="fixed top-0 left-0 right-0 z-50">
-        <div style={{ height: 28, background: '#1A2B3C', borderBottom: 'none' }} />
-        <nav style={{ height: 72, background: '#FFFFFF', borderBottom: '2px solid #E5E7EB' }} />
+        <div style={{ height: 28, background: isHomePage ? 'rgba(15, 23, 42, 0.45)' : '#1A2B3C', borderBottom: 'none' }} />
+        <nav style={{ height: 72, background: isHomePage ? 'rgba(255, 255, 255, 0.25)' : '#FFFFFF', borderBottom: isHomePage ? '1px solid rgba(255, 255, 255, 0.25)' : '2px solid #E5E7EB' }} />
       </header>
     );
   }
@@ -82,8 +87,9 @@ export function Navbar() {
         <div
           className="transition-all duration-300 overflow-hidden"
           style={{ 
-            background: '#1A2B3C',
-            borderBottom: 'none',
+            background: isOverVideo ? 'rgba(15, 23, 42, 0.45)' : '#1A2B3C',
+            backdropFilter: isOverVideo ? 'blur(10px)' : 'none',
+            borderBottom: isOverVideo ? '1px solid rgba(255, 255, 255, 0.1)' : 'none',
             position: 'relative',
             height: isScrolled ? 0 : 28,
           }}
@@ -118,15 +124,23 @@ export function Navbar() {
           suppressHydrationWarning
           className={cn(
             'transition-all duration-300',
-            isScrolled 
+            !isOverVideo && isScrolled 
               ? 'shadow-[0_2px_15px_-3px_rgba(0,0,0,0.05),0_10px_20px_-2px_rgba(0,0,0,0.04)]' 
-              : 'shadow-sm',
+              : isOverVideo ? 'shadow-none' : 'shadow-sm',
           )}
           style={{
             height: isScrolled ? 64 : 72,
-            background: isScrolled ? 'rgba(255, 255, 255, 0.7)' : '#FFFFFF',
+            background: isOverVideo 
+              ? 'rgba(255, 255, 255, 0.25)' 
+              : isScrolled 
+                ? 'rgba(255, 255, 255, 0.95)' 
+                : '#FFFFFF',
             backdropFilter: 'blur(16px)',
-            borderBottom: isScrolled ? '1px solid rgba(0, 0, 0, 0.06)' : '1px solid rgba(0, 0, 0, 0.04)',
+            borderBottom: isOverVideo 
+              ? '1px solid rgba(255, 255, 255, 0.25)' 
+              : isScrolled 
+                ? '1px solid rgba(0, 0, 0, 0.06)' 
+                : '1px solid rgba(0, 0, 0, 0.04)',
             position: 'relative',
             transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
           }}
