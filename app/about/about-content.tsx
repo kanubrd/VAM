@@ -30,16 +30,6 @@ import { Section, SectionTitle } from '@/components/ui/section';
 import { Reveal } from '@/components/animations/reveal';
 import { CertificationShowcase } from '@/components/sections/certification-showcase';
 
-const quickNavLinks = [
-  { href: '#overview', label: 'Overview' },
-  { href: '#mission-vision', label: 'Mission & Vision' },
-  { href: '#advanced-solutions', label: 'Advanced Solutions' },
-  { href: '#performance-data', label: 'Telemetry & ROI' },
-  { href: '#quality-testing', label: 'QA & ASTM Standards' },
-  { href: '#faq', label: 'FAQ' },
-  { href: '#contact-audit', label: 'Plant Consultation' },
-];
-
 const telemetryStats = [
   {
     value: '$260,000',
@@ -73,32 +63,6 @@ export default function AboutContent() {
 
   return (
     <div className="pt-20 bg-[#FCFCFD] text-[#1A1A1A]">
-      
-      {/* ── Quick-Jump Sticky Anchor Bar ── */}
-      <div className="sticky top-16 md:top-[72px] z-30 bg-white/95 backdrop-blur-md border-b border-gray-200/80 shadow-xs hidden md:block">
-        <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16 flex items-center justify-between py-2.5 overflow-x-auto">
-          <span className="text-xs font-bold uppercase tracking-wider text-gray-400 mr-4 shrink-0">
-            Jump to Section:
-          </span>
-          <div className="flex items-center gap-1 sm:gap-2">
-            {quickNavLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-xs font-semibold px-3 py-1.5 rounded-lg text-[#2C3E50] hover:text-[#17A2B8] hover:bg-[#E6F7FA] transition-colors whitespace-nowrap"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-          <Link
-            href="/contact"
-            className="text-xs font-bold px-3.5 py-1.5 rounded-lg bg-[#17A2B8] text-white hover:bg-[#0D7A8C] transition-colors shrink-0 ml-4 shadow-xs"
-          >
-            Request a Quote Now
-          </Link>
-        </div>
-      </div>
 
       {/* ── Section 1: Hero & Corporate Narrative ── */}
       <section id="overview" className="bg-white py-14 sm:py-20 border-b border-gray-150">
