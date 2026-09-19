@@ -54,7 +54,7 @@ export function StickyQuoteCTA() {
             }}
           >
             <FileText size={16} className="text-[#17A2B8] shrink-0" />
-            <span>Request Quote</span>
+            <span>Request a Quote Now</span>
           </Link>
         </motion.div>
       )}

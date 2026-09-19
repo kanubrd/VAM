@@ -5,7 +5,7 @@ import Script from 'next/script';
 import { motion } from 'framer-motion';
 import { Section, SectionTitle } from '@/components/ui/section';
 import { Reveal } from '@/components/animations/reveal';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Clock, ShieldCheck, CheckCircle2, ArrowRight } from 'lucide-react';
 import { validateContactForm, sanitiseString, getRecaptchaToken } from '@/lib/validation';
 
 import { trackEvent } from '@/lib/gtag';
@@ -192,7 +192,6 @@ export function ContactContent() {
                   {fieldErrors.name && (
                     <p id="name-error" role="alert" className="text-xs text-red-600 mt-1">{fieldErrors.name}</p>
                   )}
-                  <span className="text-xs text-gray-400 block mt-1 text-right">{formData.name.length}/100</span>
                 </div>
 
                 {/* Email */}
@@ -215,7 +214,6 @@ export function ContactContent() {
                   {fieldErrors.email && (
                     <p id="email-error" role="alert" className="text-xs text-red-600 mt-1">{fieldErrors.email}</p>
                   )}
-                  <span className="text-xs text-gray-400 block mt-1 text-right">{formData.email.length}/254</span>
                 </div>
               </div>
 
@@ -292,7 +290,22 @@ export function ContactContent() {
                 {fieldErrors.message && (
                   <p id="message-error" role="alert" className="text-xs text-red-600 mt-1">{fieldErrors.message}</p>
                 )}
-                <span className="text-xs text-gray-400 block mt-1 text-right">{formData.message.length}/5000</span>
+              </div>
+
+              {/* B2B Trust Signals inside Form */}
+              <div className="grid grid-cols-3 gap-2 py-3 px-2 rounded-xl bg-gray-50 border border-gray-100 mb-5 text-center">
+                <div className="text-[11px] font-semibold text-[#4A5568] flex items-center justify-center gap-1.5">
+                  <Clock size={14} className="text-[#17A2B8] shrink-0" />
+                  <span>&lt;2h Response</span>
+                </div>
+                <div className="text-[11px] font-semibold text-[#4A5568] flex items-center justify-center gap-1.5 border-x border-gray-200">
+                  <ShieldCheck size={14} className="text-[#17A2B8] shrink-0" />
+                  <span>NDA Protected</span>
+                </div>
+                <div className="text-[11px] font-semibold text-[#4A5568] flex items-center justify-center gap-1.5">
+                  <CheckCircle2 size={14} className="text-[#17A2B8] shrink-0" />
+                  <span>Chemist Verified</span>
+                </div>
               </div>
 
               {status === 'success' ? (
@@ -307,7 +320,7 @@ export function ContactContent() {
                     type="submit"
                     disabled={status === 'loading'}
                     aria-busy={status === 'loading'}
-                    className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-[#17A2B8] hover:bg-[#0D7A8C] disabled:opacity-60 text-white rounded-xl font-semibold transition-all duration-300 min-h-[52px]"
+                    className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-[#17A2B8] hover:bg-[#0D7A8C] disabled:opacity-60 text-white rounded-xl font-bold transition-all duration-300 min-h-[52px] shadow-sm hover:shadow text-base"
                   >
                     {status === 'loading' ? (
                       <span className="flex items-center gap-2">
@@ -315,12 +328,12 @@ export function ContactContent() {
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                         </svg>
-                        Sending...
+                        Sending Request...
                       </span>
                     ) : (
                       <>
-                        <span>Send Message</span>
-                        <Send size={18} />
+                        <span>Request a Quote Now</span>
+                        <ArrowRight size={18} />
                       </>
                     )}
                   </motion.button>

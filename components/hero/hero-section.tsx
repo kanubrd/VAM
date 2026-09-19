@@ -112,14 +112,27 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.65 }}
             >
-              <div className="flex flex-col sm:flex-row gap-4">
+              <p className="text-base sm:text-lg text-[#6B7280] leading-relaxed mb-6">
+                Custom industrial additive packages, high-lubricity metalworking fluids, and corrosion-resistant surface treatments engineered in Vadodara to extend machinery life and prevent unplanned downtime.
+              </p>
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                <motion.button
+                  whileHover={{ y: -2, scale: 1.01 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => setIsQuoteOpen(true)}
+                  className="inline-flex items-center justify-center gap-2.5 px-8 py-4 font-bold text-white text-base tracking-wide rounded-xl shadow-md hover:shadow-lg transition-all min-h-[56px] text-center"
+                  style={{ background: '#17A2B8' }}
+                  onMouseEnter={e => (e.currentTarget.style.background = '#0D7A8C')}
+                  onMouseLeave={e => (e.currentTarget.style.background = '#17A2B8')}
+                >
+                  <span>Request a Quote Now</span>
+                  <ArrowRight size={18} />
+                </motion.button>
                 <Link
                   href="/solutions"
-                  className="inline-flex items-center justify-center gap-3 px-12 py-5 font-bold text-white text-lg tracking-wide group min-h-[64px] shadow-sm hover:shadow"
-                  style={{ background: '#17A2B8', borderRadius: '12px' }}
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 font-bold text-[#2C3E50] bg-[#F8FAFB] hover:bg-[#E6F7FA] border border-gray-200 hover:border-[#17A2B8]/40 rounded-xl text-base tracking-wide transition-all min-h-[56px] text-center"
                 >
                   Explore Solutions
-                  <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
             </motion.div>
