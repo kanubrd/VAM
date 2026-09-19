@@ -120,6 +120,13 @@ const jsonLd = {
     height: 120
   },
   description: 'Leading manufacturer of advanced materials, industrial chemicals & specialty additives for automotive, aerospace & manufacturing industries.',
+  disambiguatingDescription: 'Valtrix Advance Material Pvt. Ltd. (VAM) is an ISO 9001:2024 certified specialty chemical manufacturer based in Vadodara, Gujarat, producing industrial lubricant additives, metalworking coolants, and non-chromate surface passivates (distinct from semiconductor EDA firm Valtrix Technologies or Valtrix Valve).',
+  brand: {
+    '@type': 'Brand',
+    name: 'Valtrix',
+    alternateName: ['VAM VALTRIX', 'Valtrix Advance Material', 'Valtrix Materials'],
+    logo: 'https://www.valtrixmaterials.com/valtrix-logo.png'
+  },
   foundingDate: '2020',
   industry: [
     'Chemical Manufacturing',
