@@ -5,7 +5,7 @@ import Script from 'next/script';
 import { motion } from 'framer-motion';
 import { Section, SectionTitle } from '@/components/ui/section';
 import { Reveal } from '@/components/animations/reveal';
-import { Mail, Phone, MapPin, Send, Clock, ShieldCheck, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Clock, ShieldCheck, CheckCircle2, ArrowRight, ExternalLink } from 'lucide-react';
 import { validateContactForm, sanitiseString, getRecaptchaToken } from '@/lib/validation';
 
 import { trackEvent } from '@/lib/gtag';
@@ -358,22 +358,50 @@ export function ContactContent() {
       {/* GEO Google Maps Location & Plant Tour Section */}
       <Section className="bg-white py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle 
-            subtitle="VISIT OUR PLANT" 
-            title="Vadodara, Gujarat Manufacturing Facility" 
-            description="Locate Valtrix Advance Material Pvt. Ltd. in Vadodara Industrial Area for direct chemical audits and plant consultations."
-          />
-          <div className="mt-8 rounded-2xl overflow-hidden shadow-lg border border-gray-200 aspect-[16/9] max-h-[450px] w-full">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+            <SectionTitle 
+              subtitle="VISIT OUR PLANT" 
+              title="Vadodara, Gujarat Manufacturing Facility" 
+              description="Locate Valtrix Advance Material Pvt. Ltd. in Vadodara Industrial Area for direct chemical audits and plant consultations."
+              className="text-left mb-0"
+            />
+            <a
+              href="https://maps.google.com/?q=22.3486,73.1812"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#17A2B8] text-white font-semibold text-sm hover:bg-[#138496] transition-colors shadow-md hover:shadow-lg shrink-0 self-start md:self-auto"
+            >
+              <MapPin size={16} />
+              Open in Google Maps
+              <ExternalLink size={14} />
+            </a>
+          </div>
+
+          <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200 relative w-full h-[380px] sm:h-[460px] bg-[#EBF2F7]">
             <iframe
               title="Valtrix Advance Material Pvt. Ltd. Vadodara Gujarat office location map"
-              src="https://maps.google.com/maps?q=Valtrix+Advance+Material+Pvt+Ltd+Vadodara+Gujarat&t=&z=15&ie=UTF8&iwloc=&output=embed"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
+              src="https://www.google.com/maps?q=22.3486,73.1812+(Valtrix+Advance+Material+Pvt+Ltd)&t=&z=15&ie=UTF8&iwloc=B&output=embed"
+              className="w-full h-full border-0"
               allowFullScreen={true}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
+          </div>
+
+          <div className="mt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-600 bg-gray-50 px-5 py-3.5 rounded-xl border border-gray-200">
+            <div className="flex items-center gap-2">
+              <MapPin size={15} className="text-[#17A2B8] shrink-0" />
+              <span className="font-medium text-gray-800">Address:</span>
+              <span>318, Fortune Gateway, Chhani, Vadodara - 390024, Gujarat, India</span>
+            </div>
+            <a
+              href="https://maps.google.com/?q=22.3486,73.1812"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#17A2B8] hover:underline font-semibold flex items-center gap-1 shrink-0"
+            >
+              Get Turn-by-Turn Directions &rarr;
+            </a>
           </div>
         </div>
       </Section>

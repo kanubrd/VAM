@@ -259,7 +259,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={inter.variable} suppressHydrationWarning>
       <head>
-        {/* Suppress third-party browser extension errors (e.g. Bitdefender TrafficLight) from breaking dev overlay */}
+        {/* Suppress third-party browser extension errors (e.g. Bitdefender TrafficLight / bis_skin_checked) from breaking dev overlay */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){if(typeof window==='undefined')return;function s(a){if(!a)return false;for(var i=0;i<a.length;i++){var x=a[i],t='';if(typeof x==='string')t=x;else if(x&&typeof x==='object')t=(x.message||'')+' '+(x.stack||'')+' '+(x.componentStack||'')+' '+(x.description||'');if(t.indexOf('bis_skin_checked')!==-1||t.indexOf('chrome-extension:')!==-1||t.indexOf('moz-extension:')!==-1||t.indexOf('M_ID')!==-1||t.indexOf('TrafficLight')!==-1||t.indexOf('200.js')!==-1)return true;}return false;}var c=console.error;try{Object.defineProperty(console,'error',{configurable:true,enumerable:true,get:function(){return function(){if(s(arguments))return;return c.apply(console,arguments);};},set:function(fn){c=fn;}});}catch(e){console.error=function(){if(s(arguments))return;return c.apply(console,arguments);};}var o=window.onerror;window.onerror=function(m,u,l,col,err){if(s([m,u,err]))return true;if(typeof o==='function')return o.apply(this,arguments);return false;};var w=window.addEventListener;window.addEventListener=function(t,l,opt){if(t==='error'||t==='unhandledrejection'){var wrap=function(e){if(s([e&&e.message,e&&e.filename,e&&e.error,e&&e.reason])){if(typeof e.stopImmediatePropagation==='function')e.stopImmediatePropagation();if(typeof e.preventDefault==='function')e.preventDefault();return;}return l.apply(this,arguments);};return w.call(this,t,wrap,opt);}return w.apply(this,arguments);};function d(){var p=document.querySelectorAll('nextjs-portal');for(var i=0;i<p.length;i++){var sh=p[i].shadowRoot;if(sh){var txt=sh.textContent||'';if(txt.indexOf('bis_skin_checked')!==-1||txt.indexOf('chrome-extension:')!==-1||txt.indexOf('TrafficLight')!==-1||txt.indexOf('M_ID')!==-1){p[i].style.display='none';}}}}if(typeof MutationObserver!=='undefined'){new MutationObserver(d).observe(document.documentElement,{childList:true,subtree:true});}})();`
+          }}
+        />
         <Script src="/suppress-extension-errors.js" strategy="beforeInteractive" />
 
         {/* Preload critical hero image only (first slide) */}

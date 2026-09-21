@@ -1,17 +1,58 @@
-// Suppress third-party browser extension errors (e.g. Bitdefender TrafficLight) from triggering Next.js dev overlay
+// Suppress third-party browser extension errors (e.g. Bitdefender TrafficLight / bis_skin_checked) from triggering Next.js dev overlay
 (function() {
   if (typeof window === 'undefined') return;
 
-  function isExtError(err, filename, message) {
-    if (filename && (filename.indexOf('chrome-extension:') !== -1 || filename.indexOf('moz-extension:') !== -1)) return true;
-    var str = (message || '') + ' ' + ((err && (err.stack || err.message)) || '');
-    return str.indexOf('chrome-extension:') !== -1 || str.indexOf('moz-extension:') !== -1 || str.indexOf('M_ID') !== -1;
+  function shouldSuppress(args) {
+    if (!args) return false;
+    for (var i = 0; i < args.length; i++) {
+      var item = args[i];
+      var str = '';
+      if (typeof item === 'string') {
+        str = item;
+      } else if (item && typeof item === 'object') {
+        str = (item.message || '') + ' ' + (item.stack || '') + ' ' + (item.componentStack || '') + ' ' + (item.description || '');
+      }
+      if (
+        str.indexOf('bis_skin_checked') !== -1 ||
+        str.indexOf('chrome-extension:') !== -1 ||
+        str.indexOf('moz-extension:') !== -1 ||
+        str.indexOf('M_ID') !== -1 ||
+        str.indexOf('TrafficLight') !== -1 ||
+        str.indexOf('200.js') !== -1
+      ) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  // Intercept console.error with getter/setter so dev overlays (Next.js Turbopack) cannot bypass it
+  var activeConsoleError = console.error;
+  try {
+    Object.defineProperty(console, 'error', {
+      configurable: true,
+      enumerable: true,
+      get: function() {
+        return function() {
+          if (shouldSuppress(arguments)) return;
+          return activeConsoleError.apply(console, arguments);
+        };
+      },
+      set: function(fn) {
+        activeConsoleError = fn;
+      }
+    });
+  } catch(e) {
+    console.error = function() {
+      if (shouldSuppress(arguments)) return;
+      return activeConsoleError.apply(console, arguments);
+    };
   }
 
   // Intercept window.onerror
   var origOnError = window.onerror;
   window.onerror = function(msg, url, line, col, error) {
-    if (isExtError(error, url, msg)) {
+    if (shouldSuppress([msg, url, error])) {
       return true; // suppresses the error
     }
     if (typeof origOnError === 'function') {
@@ -23,9 +64,10 @@
   // Intercept addEventListener so Next.js's error listener filters out extension errors
   var origAddEventListener = window.addEventListener;
   window.addEventListener = function(type, listener, options) {
-    if (type === 'error') {
+    if (type === 'error' || type === 'unhandledrejection') {
       var wrapped = function(e) {
-        if (e && isExtError(e.error, e.filename, e.message)) {
+        var toCheck = [e && e.message, e && e.filename, e && e.error, e && e.reason];
+        if (shouldSuppress(toCheck)) {
           if (typeof e.stopImmediatePropagation === 'function') e.stopImmediatePropagation();
           if (typeof e.preventDefault === 'function') e.preventDefault();
           return;
@@ -34,21 +76,10 @@
       };
       return origAddEventListener.call(this, type, wrapped, options);
     }
-    if (type === 'unhandledrejection') {
-      var wrappedRejection = function(e) {
-        if (e && isExtError(e.reason, '', e.reason && e.reason.message)) {
-          if (typeof e.stopImmediatePropagation === 'function') e.stopImmediatePropagation();
-          if (typeof e.preventDefault === 'function') e.preventDefault();
-          return;
-        }
-        return listener.apply(this, arguments);
-      };
-      return origAddEventListener.call(this, type, wrappedRejection, options);
-    }
     return origAddEventListener.apply(this, arguments);
   };
 
-  // Auto-dismiss any Next.js error overlay that is caused by browser extensions
+  // Auto-dismiss any Next.js error overlay that is caused by browser extensions or bis_skin_checked
   function dismissExtensionOverlays() {
     var portals = document.querySelectorAll('nextjs-portal');
     for (var i = 0; i < portals.length; i++) {
@@ -56,7 +87,14 @@
       var shadow = portal.shadowRoot;
       if (shadow) {
         var text = shadow.textContent || '';
-        if (text.indexOf('chrome-extension:') !== -1 || text.indexOf('moz-extension:') !== -1 || text.indexOf('M_ID') !== -1 || text.indexOf('200.js') !== -1) {
+        if (
+          text.indexOf('bis_skin_checked') !== -1 ||
+          text.indexOf('chrome-extension:') !== -1 ||
+          text.indexOf('moz-extension:') !== -1 ||
+          text.indexOf('M_ID') !== -1 ||
+          text.indexOf('TrafficLight') !== -1 ||
+          text.indexOf('200.js') !== -1
+        ) {
           portal.style.display = 'none';
         }
       }
@@ -68,32 +106,18 @@
       dismissExtensionOverlays();
     });
 
-    var startObserving = function() {
-      if (document.body) {
-        observer.observe(document.body, { childList: true, subtree: true });
-        dismissExtensionOverlays();
-      }
-    };
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', startObserving);
+    var targetNode = document.documentElement || document.body;
+    if (targetNode) {
+      observer.observe(targetNode, { childList: true, subtree: true });
+      dismissExtensionOverlays();
     } else {
-      startObserving();
+      document.addEventListener('DOMContentLoaded', function() {
+        var el = document.documentElement || document.body;
+        if (el) {
+          observer.observe(el, { childList: true, subtree: true });
+          dismissExtensionOverlays();
+        }
+      });
     }
   }
-
-  // Also intercept console.error to silence extension noise
-  var origConsoleError = console.error;
-  console.error = function() {
-    for (var i = 0; i < arguments.length; i++) {
-      var arg = arguments[i];
-      if (typeof arg === 'string' && (arg.indexOf('chrome-extension:') !== -1 || arg.indexOf('M_ID') !== -1 || arg.indexOf('bis_skin_checked') !== -1)) {
-        return;
-      }
-      if (arg && typeof arg === 'object' && isExtError(arg, '', arg.message)) {
-        return;
-      }
-    }
-    return origConsoleError.apply(console, arguments);
-  };
 })();
