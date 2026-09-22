@@ -20,11 +20,20 @@ const CTABanner = dynamic(
 );
 
 export const metadata: Metadata = {
-  title: 'Advanced Materials Supplier Vadodara | Industrial Additives | Valtrix',
-  description: 'Valtrix Advance Material Pvt. Ltd. is an ISO 9001:2024 certified specialty chemicals & industrial additives manufacturer in Vadodara, Gujarat. Supplying high-performance lubricant additives, metalworking fluids, and corrosion-resistant coatings.',
+  title: 'Valtrix™ | Valtrix Advance Material Pvt. Ltd. | Official Website',
+  description: 'Official website of Valtrix (Valtrix Advance Material Pvt. Ltd. - VAM), Vadodara, Gujarat. ISO 9001:2024 certified manufacturer of custom industrial additive packages, metalworking fluids, and corrosion-resistant coatings.',
   keywords: [
-    'Advanced Materials Supplier Vadodara',
+    'Valtrix',
+    'Valtrix Advance Material',
     'Valtrix Advance Material Pvt. Ltd.',
+    'Valtrix Materials',
+    'Valtrix Official Website',
+    'Valtrix India',
+    'Valtrix Vadodara',
+    'Valtrix Gujarat',
+    'Valtrix Chemicals',
+    'VAM Valtrix',
+    'Advanced Materials Supplier Vadodara',
     'industrial additives Vadodara',
     'metalworking fluids manufacturer',
     'specialty chemicals Gujarat',
@@ -35,10 +44,16 @@ export const metadata: Metadata = {
     'ISO 9001:2024 chemical company'
   ],
   openGraph: {
-    title: 'Advanced Materials Supplier Vadodara | Industrial Additives | Valtrix',
-    description: 'Valtrix Advance Material Pvt. Ltd. is an ISO 9001:2024 certified specialty chemicals & industrial additives manufacturer in Vadodara, Gujarat. Supplying high-performance lubricant additives, metalworking fluids, and corrosion-resistant coatings.',
+    title: 'Valtrix™ | Valtrix Advance Material Pvt. Ltd. | Official Website',
+    description: 'Official website of Valtrix (Valtrix Advance Material Pvt. Ltd. - VAM), Vadodara, Gujarat. ISO 9001:2024 certified manufacturer of custom industrial additive packages, metalworking fluids, and corrosion-resistant coatings.',
     url: 'https://www.valtrixmaterials.com',
+    siteName: 'Valtrix',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Valtrix™ | Valtrix Advance Material Pvt. Ltd. | Official Website',
+    description: 'Official website of Valtrix (Valtrix Advance Material Pvt. Ltd. - VAM), Vadodara, Gujarat. ISO 9001:2024 certified manufacturer of custom industrial additives and specialty materials.',
   },
   alternates: {
     canonical: 'https://www.valtrixmaterials.com',

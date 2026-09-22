@@ -24,13 +24,22 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: 'Advanced Materials Supplier Vadodara | Valtrix Advance Material',
+    default: 'Valtrix™ | Valtrix Advance Material Pvt. Ltd. | Official Website',
     template: '%s | Valtrix'
   },
-  description: 'Valtrix Advance Material Pvt. Ltd. (VAM) is an ISO 9001:2024 certified specialty chemicals & industrial additives manufacturer in Vadodara, Gujarat. Delivering custom additive packages, biostable metalworking fluids, and corrosion-resistant coatings.',
+  description: 'Official website of Valtrix (Valtrix Advance Material Pvt. Ltd. - VAM). ISO 9001:2024 certified specialty chemicals & industrial additives manufacturer in Vadodara, Gujarat, India. Delivering custom additive packages, biostable metalworking fluids, and corrosion-resistant coatings.',
   keywords: [
-    'Advanced Materials Supplier Vadodara',
+    'Valtrix',
+    'Valtrix Advance Material',
     'Valtrix Advance Material Pvt. Ltd',
+    'Valtrix Materials',
+    'Valtrix Official Website',
+    'Valtrix Vadodara',
+    'Valtrix Gujarat',
+    'Valtrix India',
+    'Valtrix chemicals',
+    'VAM Valtrix',
+    'Advanced Materials Supplier Vadodara',
     'industrial additives Vadodara',
     'specialty chemicals manufacturer Gujarat',
     'metalworking fluids',
@@ -63,10 +72,10 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Advanced Materials Supplier Vadodara | Valtrix Advance Material',
-    description: 'Valtrix Advance Material Pvt. Ltd. (VAM) is an ISO 9001:2024 certified specialty chemicals & industrial additives manufacturer in Vadodara, Gujarat. Delivering custom additive packages, metalworking fluids, and corrosion-resistant coatings.',
+    title: 'Valtrix™ | Valtrix Advance Material Pvt. Ltd. | Official Website',
+    description: 'Official website of Valtrix (Valtrix Advance Material Pvt. Ltd. - VAM). ISO 9001:2024 certified specialty chemicals & industrial additives manufacturer in Vadodara, Gujarat. Delivering custom additive packages, metalworking fluids, and corrosion-resistant coatings.',
     url: 'https://www.valtrixmaterials.com',
-    siteName: 'Valtrix Advance Material Pvt. Ltd.',
+    siteName: 'Valtrix',
     locale: 'en_US',
     type: 'website',
     images: [
@@ -80,8 +89,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Advanced Materials Supplier Vadodara | Valtrix Advance Material',
-    description: 'Valtrix Advance Material Pvt. Ltd. is an ISO 9001:2024 certified manufacturer of advanced industrial additives, metalworking fluids, and surface protection in Vadodara, Gujarat.',
+    title: 'Valtrix™ | Valtrix Advance Material Pvt. Ltd. | Official Website',
+    description: 'Official website of Valtrix (Valtrix Advance Material Pvt. Ltd.). ISO 9001:2024 certified manufacturer of advanced industrial additives, metalworking fluids, and surface protection in Vadodara, Gujarat.',
     images: ['https://www.valtrixmaterials.com/valtrix-logo.png'],
   },
   robots: {
@@ -251,6 +260,26 @@ const localBusinessJsonLd = {
   ]
 };
 
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': 'https://www.valtrixmaterials.com/#website',
+  name: 'Valtrix',
+  alternateName: [
+    'Valtrix Advance Material',
+    'Valtrix Advance Material Pvt. Ltd.',
+    'Valtrix Materials',
+    'VAM Valtrix',
+    'Valtrix Official Website'
+  ],
+  url: 'https://www.valtrixmaterials.com',
+  inLanguage: 'en-IN',
+  description: 'Official website of Valtrix (Valtrix Advance Material Pvt. Ltd.), ISO 9001:2024 certified manufacturer of custom industrial additives, metalworking coolants, and protective coatings.',
+  publisher: {
+    '@id': 'https://www.valtrixmaterials.com/#organization'
+  }
+};
+
 import { WhatsAppChat } from '@/components/ui/whatsapp-chat';
 import { StickyQuoteCTA } from '@/components/ui/sticky-quote-cta';
 import { GoogleAnalytics } from '@/components/providers/google-analytics';
@@ -282,6 +311,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd).replace(/</g, '\\u003c') }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd).replace(/</g, '\\u003c') }}
         />
       </head>
       <body className={`${inter.className} antialiased bg-white text-[#1A1A1A]`} suppressHydrationWarning>

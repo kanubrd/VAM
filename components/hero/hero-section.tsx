@@ -102,6 +102,7 @@ export function HeroSection() {
                 letterSpacing: '-0.02em',
               }}
             >
+              <span className="sr-only">Valtrix Advance Material — Official Website — </span>
               Creating Novel Materials & Additives to{' '}
               <span style={{ color: '#17A2B8' }}>Enhance Material Life.</span>
             </motion.h1>
@@ -113,7 +114,7 @@ export function HeroSection() {
               transition={{ duration: 0.65, delay: 0.65 }}
             >
               <p className="text-base sm:text-lg text-[#6B7280] leading-relaxed mb-6">
-                Custom industrial additive packages, high-lubricity metalworking fluids, and corrosion-resistant surface treatments engineered in Vadodara to extend machinery life and prevent unplanned downtime.
+                Valtrix engineers custom industrial additive packages, high-lubricity metalworking fluids, and corrosion-resistant surface treatments in Vadodara to extend machinery life and prevent unplanned downtime.
               </p>
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                 <motion.button

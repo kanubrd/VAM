@@ -148,10 +148,10 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
 
           {/* Logo — Ultra HD clean rendering */}
-          <Link href="/" className="flex items-center shrink-0 py-2" suppressHydrationWarning>
+          <Link href="/" aria-label="Valtrix - Valtrix Advance Material Official Home" className="flex items-center shrink-0 py-2" suppressHydrationWarning>
             <Image
               src="/valtrix-logo-teal.png"
-              alt="Valtrix Advance Material - Advanced Materials Supplier Vadodara"
+              alt="Valtrix - Valtrix Advance Material Official Logo"
               width={140}
               height={55}
               sizes="(max-width: 768px) 140px, 172px"
