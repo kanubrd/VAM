@@ -12,7 +12,7 @@ const threatCards = [
     image: '/equipment-failure-v2.png',
     tag: 'ASSET DEGRADATION',
     link: '/products/vam-hs-100',
-    alt: 'a damaged industrial gearbox on a factory floor with oil leaking and gears showing severe wear and tear due to chemical failure.',
+    alt: 'Industrial machinery gearbox wear and failure prevented by Valtrix high-performance additive packages and anti-wear lubricants',
   },
   {
     title: 'Economic Loss',
@@ -20,7 +20,7 @@ const threatCards = [
     image: '/economic-loss-v2.png',
     tag: 'FINANCIAL IMPACT',
     link: '/products/sustainable-polyols',
-    alt: 'a modern manufacturing facility control room with a large glowing financial dashboard showing factory uptime and supply chain metrics.',
+    alt: 'Industrial plant uptime monitoring and financial loss prevention through Valtrix advanced materials supply chain reliability',
   },
   {
     title: 'Surface Degradation',
@@ -28,7 +28,7 @@ const threatCards = [
     image: '/surface-degradation-v2.png',
     tag: 'MATERIAL SCIENCE',
     link: '/products/surface-treatments',
-    alt: 'a macro photograph highlighting surface degradation, deep oxidation, and rust textures forming on a structural industrial metal beam.',
+    alt: 'Industrial steel surface oxidation and rust damage prevented by Valtrix corrosion inhibitors and high-build protective coatings',
   },
 ];
 

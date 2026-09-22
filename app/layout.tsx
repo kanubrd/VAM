@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import Script from 'next/script';
 import { Inter } from 'next/font/google';
 import { Navbar } from '@/components/navbar/navbar';
 import { Footer } from '@/components/footer/footer';
@@ -23,29 +24,26 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: 'Valtrix Advance Material Pvt. Ltd. (Valtriks / Valtrixx / Waltrix)',
-    template: '%s'
+    default: 'Advanced Materials Supplier Vadodara | Valtrix Advance Material',
+    template: '%s | Valtrix'
   },
-  description: 'Valtrix Advance Material Pvt. Ltd. (also known as Valtriks, Valtrixx, Waltrix, Baltrix) delivers advanced industrial additives, corrosion-resistant coatings, and custom chemical solutions to reduce downtime, prevent sludge, and extend equipment life. Serving Vadodara, Gujarat with ISO-certified innovation.',
+  description: 'Valtrix Advance Material Pvt. Ltd. (VAM) is an ISO 9001:2024 certified specialty chemicals & industrial additives manufacturer in Vadodara, Gujarat. Delivering custom additive packages, biostable metalworking fluids, and corrosion-resistant coatings.',
   keywords: [
+    'Advanced Materials Supplier Vadodara',
     'Valtrix Advance Material Pvt. Ltd',
-    'Valtriks',
-    'Valtrixx',
-    'Waltrix',
-    'Baltrix',
-    'Valtrics',
-    'advanced materials',
-    'industrial chemicals', 
+    'industrial additives Vadodara',
+    'specialty chemicals manufacturer Gujarat',
     'metalworking fluids',
-    'electroplating chemicals',
-    'surface treatment',
+    'electroplating brighteners',
+    'surface treatment chemicals',
     'corrosion inhibitors',
-    'specialty additives',
-    'automotive chemicals',
-    'manufacturing solutions',
+    'ISO 9001:2024 certified chemical company',
     'Vadodara',
     'Gujarat',
-    'India'
+    'India',
+    'Valtriks',
+    'Valtrixx',
+    'Waltrix'
   ],
   authors: [{ name: 'Valtrix Advance Material Pvt. Ltd' }],
   creator: 'Valtrix Advance Material Pvt. Ltd',
@@ -58,10 +56,15 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.valtrixmaterials.com'),
   alternates: {
     canonical: 'https://www.valtrixmaterials.com',
+    languages: {
+      'en-IN': 'https://www.valtrixmaterials.com',
+      'en-US': 'https://www.valtrixmaterials.com',
+      'x-default': 'https://www.valtrixmaterials.com',
+    },
   },
   openGraph: {
-    title: 'Valtrix Advance Material Pvt. Ltd. (Valtriks / Valtrixx / Waltrix)',
-    description: 'Valtrix Advance Material Pvt. Ltd. (also known as Valtriks, Valtrixx, Waltrix, Baltrix) delivers advanced industrial additives, corrosion-resistant coatings, and custom chemical solutions to reduce downtime, prevent sludge, and extend equipment life. Serving Vadodara, Gujarat with ISO-certified innovation.',
+    title: 'Advanced Materials Supplier Vadodara | Valtrix Advance Material',
+    description: 'Valtrix Advance Material Pvt. Ltd. (VAM) is an ISO 9001:2024 certified specialty chemicals & industrial additives manufacturer in Vadodara, Gujarat. Delivering custom additive packages, metalworking fluids, and corrosion-resistant coatings.',
     url: 'https://www.valtrixmaterials.com',
     siteName: 'Valtrix Advance Material Pvt. Ltd.',
     locale: 'en_US',
@@ -71,14 +74,14 @@ export const metadata: Metadata = {
         url: 'https://www.valtrixmaterials.com/valtrix-logo.png',
         width: 1200,
         height: 630,
-        alt: 'Valtrix Advance Material Pvt. Ltd. ISO-certified facility in Vadodara, also known as Valtriks/Valtrixx',
+        alt: 'Valtrix Advance Material - ISO 9001:2024 Certified Facility in Vadodara, Gujarat',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Valtrix Advance Material Pvt. Ltd.',
-    description: 'Valtrix Advance Material Pvt. Ltd. (also known as Valtriks, Valtrixx, Waltrix, Baltrix) delivers advanced industrial additives, corrosion-resistant coatings, and custom chemical solutions.',
+    title: 'Advanced Materials Supplier Vadodara | Valtrix Advance Material',
+    description: 'Valtrix Advance Material Pvt. Ltd. is an ISO 9001:2024 certified manufacturer of advanced industrial additives, metalworking fluids, and surface protection in Vadodara, Gujarat.',
     images: ['https://www.valtrixmaterials.com/valtrix-logo.png'],
   },
   robots: {
@@ -117,6 +120,13 @@ const jsonLd = {
     height: 120
   },
   description: 'Leading manufacturer of advanced materials, industrial chemicals & specialty additives for automotive, aerospace & manufacturing industries.',
+  disambiguatingDescription: 'Valtrix Advance Material Pvt. Ltd. (VAM) is an ISO 9001:2024 certified specialty chemical manufacturer based in Vadodara, Gujarat, producing industrial lubricant additives, metalworking coolants, and non-chromate surface passivates (distinct from semiconductor EDA firm Valtrix Technologies or Valtrix Valve).',
+  brand: {
+    '@type': 'Brand',
+    name: 'Valtrix',
+    alternateName: ['VAM VALTRIX', 'Valtrix Advance Material', 'Valtrix Materials'],
+    logo: 'https://www.valtrixmaterials.com/valtrix-logo.png'
+  },
   foundingDate: '2020',
   industry: [
     'Chemical Manufacturing',
@@ -132,10 +142,12 @@ const jsonLd = {
     'Bio-based Polyols',
     'Rust Converters'
   ],
+  areaServed: ['Vadodara', 'Gujarat', 'India', 'Worldwide'],
   serviceArea: {
     '@type': 'Country',
     name: 'India'
   },
+  hasMap: 'https://maps.google.com/?q=Valtrix+Advance+Material+Vadodara',
   contactPoint: [
     {
       '@type': 'ContactPoint',
@@ -166,7 +178,7 @@ const jsonLd = {
   },
   geo: {
     '@type': 'GeoCoordinates',
-    latitude: '22.3072',
+    latitude: '22.3486',
     longitude: '73.1812'
   },
   sameAs: [
@@ -184,13 +196,29 @@ const jsonLd = {
 const localBusinessJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
-  name: 'Valtrix Advance Material Pvt. Ltd',
+  name: 'Valtrix Advance Material Pvt. Ltd.',
   image: 'https://www.valtrixmaterials.com/valtrix-logo.png',
   '@id': 'https://www.valtrixmaterials.com/#localbusiness',
   url: 'https://www.valtrixmaterials.com',
   telephone: '+91 98981 23983',
   email: 'info@valtrixmaterials.com',
-  certifications: 'ISO 9001:2015 Certified',
+  hasMap: 'https://maps.google.com/?q=Valtrix+Advance+Material+Vadodara',
+  certifications: 'ISO 9001:2024 Certified',
+  hasCredential: [
+    {
+      '@type': 'EducationalOccupationalCredential',
+      name: 'ISO 9001:2024 Certification'
+    }
+  ],
+  areaServed: ['Vadodara', 'Gujarat', 'India', 'Worldwide'],
+  knowsAbout: [
+    'Industrial Additive Packages',
+    'Metalworking Fluids',
+    'Electroplating Brighteners',
+    'Surface Treatment Technology',
+    'Custom Chemical Formulation',
+    'Tribological Wear Protection'
+  ],
   address: {
     '@type': 'PostalAddress',
     streetAddress: '318, Fortune Gateway, Chhani',
@@ -198,6 +226,11 @@ const localBusinessJsonLd = {
     postalCode: '390024',
     addressRegion: 'Gujarat',
     addressCountry: 'India'
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: '22.3486',
+    longitude: '73.1812'
   },
   priceRange: '$$',
   aggregateRating: {
@@ -224,8 +257,16 @@ import { GoogleAnalytics } from '@/components/providers/google-analytics';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
       <head>
+        {/* Suppress third-party browser extension errors (e.g. Bitdefender TrafficLight / bis_skin_checked) from breaking dev overlay */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){if(typeof window==='undefined')return;function s(a){if(!a)return false;for(var i=0;i<a.length;i++){var x=a[i],t='';if(typeof x==='string')t=x;else if(x&&typeof x==='object')t=(x.message||'')+' '+(x.stack||'')+' '+(x.componentStack||'')+' '+(x.description||'');if(t.indexOf('bis_skin_checked')!==-1||t.indexOf('chrome-extension:')!==-1||t.indexOf('moz-extension:')!==-1||t.indexOf('M_ID')!==-1||t.indexOf('TrafficLight')!==-1||t.indexOf('200.js')!==-1)return true;}return false;}var c=console.error;try{Object.defineProperty(console,'error',{configurable:true,enumerable:true,get:function(){return function(){if(s(arguments))return;return c.apply(console,arguments);};},set:function(fn){c=fn;}});}catch(e){console.error=function(){if(s(arguments))return;return c.apply(console,arguments);};}var o=window.onerror;window.onerror=function(m,u,l,col,err){if(s([m,u,err]))return true;if(typeof o==='function')return o.apply(this,arguments);return false;};var w=window.addEventListener;window.addEventListener=function(t,l,opt){if(t==='error'||t==='unhandledrejection'){var wrap=function(e){if(s([e&&e.message,e&&e.filename,e&&e.error,e&&e.reason])){if(typeof e.stopImmediatePropagation==='function')e.stopImmediatePropagation();if(typeof e.preventDefault==='function')e.preventDefault();return;}return l.apply(this,arguments);};return w.call(this,t,wrap,opt);}return w.apply(this,arguments);};function d(){var p=document.querySelectorAll('nextjs-portal');for(var i=0;i<p.length;i++){var sh=p[i].shadowRoot;if(sh){var txt=sh.textContent||'';if(txt.indexOf('bis_skin_checked')!==-1||txt.indexOf('chrome-extension:')!==-1||txt.indexOf('TrafficLight')!==-1||txt.indexOf('M_ID')!==-1){p[i].style.display='none';}}}}if(typeof MutationObserver!=='undefined'){new MutationObserver(d).observe(document.documentElement,{childList:true,subtree:true});}})();`
+          }}
+        />
+        <Script src="/suppress-extension-errors.js" strategy="beforeInteractive" />
+
         {/* Preload critical hero image only (first slide) */}
         <link rel="preload" as="image" href="/hero-bg-teal.png" type="image/png" />
 
@@ -243,7 +284,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd).replace(/</g, '\\u003c') }}
         />
       </head>
-      <body className={`${inter.className} antialiased bg-white text-[#1A1A1A]`}>
+      <body className={`${inter.className} antialiased bg-white text-[#1A1A1A]`} suppressHydrationWarning>
         <div className="viewport-frame" />
         <GoogleAnalytics />
         <WebVitalsProvider />

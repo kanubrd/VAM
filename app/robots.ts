@@ -5,15 +5,28 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: '*',
-        allow: '/',
-        // Block API routes, admin paths, and internal Next.js paths from crawlers
+        allow: ['/', '/manifest.json'],
         disallow: [
           '/api/',
           '/_next/',
           '/admin/',
           '/dashboard/',
-          '/*.json$',
         ],
+      },
+      {
+        userAgent: [
+          'GPTBot',
+          'ChatGPT-User',
+          'Google-Extended',
+          'GoogleOther',
+          'PerplexityBot',
+          'ClaudeBot',
+          'anthropic-ai',
+          'CCBot',
+          'cohere-ai',
+        ],
+        allow: '/',
+        disallow: ['/api/', '/admin/'],
       },
     ],
     sitemap: 'https://www.valtrixmaterials.com/sitemap.xml',

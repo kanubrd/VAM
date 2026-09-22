@@ -72,7 +72,7 @@ export function HomeIndustriesSection({ industries }: { industries: any[] }) {
                       <div className="relative aspect-[3/2] overflow-hidden">
                         <Image
                           src={industry.listingImage}
-                          alt={industry.title}
+                          alt={`${industry.title} - Advanced Materials and Industrial Chemical Formulations by Valtrix Vadodara`}
                           fill
                           className="object-cover group-hover:scale-105 transition-transform duration-300"
                           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"

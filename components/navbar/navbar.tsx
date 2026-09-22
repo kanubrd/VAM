@@ -151,7 +151,7 @@ export function Navbar() {
           <Link href="/" className="flex items-center shrink-0 py-2" suppressHydrationWarning>
             <Image
               src="/valtrix-logo-teal.png"
-              alt="VAM VALTRIX Logo"
+              alt="Valtrix Advance Material - Advanced Materials Supplier Vadodara"
               width={140}
               height={55}
               sizes="(max-width: 768px) 140px, 172px"
@@ -321,7 +321,7 @@ export function Navbar() {
                 onMouseEnter={e => ((e.currentTarget as HTMLElement).style.background = '#0D7A8C')}
                 onMouseLeave={e => ((e.currentTarget as HTMLElement).style.background = '#17A2B8')}
               >
-                Request a Quote
+                Request a Quote Now
               </Link>
             </motion.div>
           </div>
@@ -417,7 +417,7 @@ export function Navbar() {
               }}
               onClick={() => setMobileMenuOpen(false)}
             >
-              Request a Quote
+              Request a Quote Now
             </Link>
           </div>
         </div>
