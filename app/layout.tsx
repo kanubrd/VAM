@@ -106,10 +106,16 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/icon-light-32x32.png?v=3', media: '(prefers-color-scheme: light)' },
-      { url: '/icon-dark-32x32.png?v=3',  media: '(prefers-color-scheme: dark)' },
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon-48x48.png', sizes: '48x48', type: 'image/png' },
+      { url: '/icon-96x96.png', sizes: '96x96', type: 'image/png' },
+      { url: '/icon-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon.png', sizes: '512x512', type: 'image/png' },
     ],
-    apple: '/apple-icon.png?v=3',
+    shortcut: '/favicon.ico',
+    apple: [
+      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
   },
   manifest: '/manifest.json',
 };
@@ -316,6 +322,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd).replace(/</g, '\\u003c') }}
         />
+
+        {/* Standard Favicon link tags for Google Search (Googlebot-Favicon) and browsers */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" sizes="48x48" href="/icon-48x48.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="/icon-96x96.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/icon-192x192.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon.png" />
       </head>
       <body className={`${inter.className} antialiased bg-white text-[#1A1A1A]`} suppressHydrationWarning>
         <div className="viewport-frame" />
