@@ -96,8 +96,7 @@ export function HeroSection() {
                 letterSpacing: '-0.02em',
               }}
             >
-              <span className="sr-only">Valtrix Advance Material — Official Website — </span>
-              Creating Novel Materials & Additives to{' '}
+              Valtrix — Creating Novel Materials & Additives to{' '}
               <span style={{ color: '#17A2B8' }}>Enhance Material Life.</span>
             </motion.h1>
 

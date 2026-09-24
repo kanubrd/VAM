@@ -24,7 +24,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: 'Valtrix™ | Valtrix Advance Material Pvt. Ltd. | Official Website',
+    default: 'Valtrix | Advance Materials Pvt Ltd | Official Website',
     template: '%s | Valtrix'
   },
   description: 'Official website of Valtrix (Valtrix Advance Material Pvt. Ltd. - VAM). ISO 9001:2024 certified specialty chemicals & industrial additives manufacturer in Vadodara, Gujarat, India. Delivering custom additive packages, biostable metalworking fluids, and corrosion-resistant coatings.',
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Valtrix™ | Valtrix Advance Material Pvt. Ltd. | Official Website',
+    title: 'Valtrix | Advance Materials Pvt Ltd | Official Website',
     description: 'Official website of Valtrix (Valtrix Advance Material Pvt. Ltd. - VAM). ISO 9001:2024 certified specialty chemicals & industrial additives manufacturer in Vadodara, Gujarat. Delivering custom additive packages, metalworking fluids, and corrosion-resistant coatings.',
     url: 'https://www.valtrixmaterials.com',
     siteName: 'Valtrix',
@@ -89,7 +89,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Valtrix™ | Valtrix Advance Material Pvt. Ltd. | Official Website',
+    title: 'Valtrix | Advance Materials Pvt Ltd | Official Website',
     description: 'Official website of Valtrix (Valtrix Advance Material Pvt. Ltd.). ISO 9001:2024 certified manufacturer of advanced industrial additives, metalworking fluids, and surface protection in Vadodara, Gujarat.',
     images: ['https://www.valtrixmaterials.com/valtrix-logo.png'],
   },
@@ -125,9 +125,9 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   '@id': 'https://www.valtrixmaterials.com/#organization',
-  name: 'Valtrix Advance Material Pvt. Ltd',
+  name: 'Valtrix',
   legalName: 'Valtrix Advance Material Private Limited',
-  alternateName: ['VAM VALTRIX', 'VALTRIX', 'Valtriks', 'Valtrixx', 'Waltrix', 'Baltrix', 'Valtrics'],
+  alternateName: ['Valtrix Advance Materials', 'Valtrix Advance Material Pvt. Ltd.', 'VAM VALTRIX', 'VALTRIX', 'Valtrix Materials', 'Valtriks', 'Valtrixx', 'Waltrix', 'Baltrix', 'Valtrics'],
   url: 'https://www.valtrixmaterials.com',
   logo: {
     '@type': 'ImageObject',

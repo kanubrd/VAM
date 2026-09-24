@@ -20,11 +20,12 @@ const CTABanner = dynamic(
 );
 
 export const metadata: Metadata = {
-  title: 'Valtrix™ | Valtrix Advance Material Pvt. Ltd. | Official Website',
+  title: 'Valtrix | Advance Materials Pvt Ltd | Official Website',
   description: 'Official website of Valtrix (Valtrix Advance Material Pvt. Ltd. - VAM), Vadodara, Gujarat. ISO 9001:2024 certified manufacturer of custom industrial additive packages, metalworking fluids, and corrosion-resistant coatings.',
   keywords: [
     'Valtrix',
     'Valtrix Advance Material',
+    'Valtrix Advance Materials',
     'Valtrix Advance Material Pvt. Ltd.',
     'Valtrix Materials',
     'Valtrix Official Website',
@@ -44,7 +45,7 @@ export const metadata: Metadata = {
     'ISO 9001:2024 chemical company'
   ],
   openGraph: {
-    title: 'Valtrix™ | Valtrix Advance Material Pvt. Ltd. | Official Website',
+    title: 'Valtrix | Advance Materials Pvt Ltd | Official Website',
     description: 'Official website of Valtrix (Valtrix Advance Material Pvt. Ltd. - VAM), Vadodara, Gujarat. ISO 9001:2024 certified manufacturer of custom industrial additive packages, metalworking fluids, and corrosion-resistant coatings.',
     url: 'https://www.valtrixmaterials.com',
     siteName: 'Valtrix',
@@ -52,7 +53,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Valtrix™ | Valtrix Advance Material Pvt. Ltd. | Official Website',
+    title: 'Valtrix | Advance Materials Pvt Ltd | Official Website',
     description: 'Official website of Valtrix (Valtrix Advance Material Pvt. Ltd. - VAM), Vadodara, Gujarat. ISO 9001:2024 certified manufacturer of custom industrial additives and specialty materials.',
   },
   alternates: {
