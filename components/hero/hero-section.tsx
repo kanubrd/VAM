@@ -40,12 +40,13 @@ export function HeroSection() {
           }}
         >
           <Image
-            src="/hero-banner.webp"
+            src="/hero-banner-4k.webp"
             alt="Valtrix Advance Material - Creating Novel Materials & Additives to Enhance Material Life"
             fill
             priority
             sizes="100vw"
-            quality={90}
+            quality={100}
+            unoptimized
             className="object-cover object-center"
             style={{
               filter: 'contrast(1.02) brightness(1.01)',
