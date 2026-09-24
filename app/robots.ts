@@ -5,13 +5,18 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: '*',
-        allow: ['/', '/manifest.json'],
+        allow: ['/', '/manifest.json', '/favicon.ico', '/icon-*.png', '/icon.png'],
         disallow: [
           '/api/',
           '/_next/',
           '/admin/',
           '/dashboard/',
         ],
+      },
+      {
+        userAgent: ['Googlebot', 'Googlebot-Image', 'Googlebot-Favicon'],
+        allow: ['/', '/manifest.json', '/favicon.ico', '/icon-*.png', '/icon.png'],
+        disallow: ['/api/', '/admin/'],
       },
       {
         userAgent: [
