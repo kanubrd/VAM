@@ -198,6 +198,7 @@ export function ProductPageContent({ product }: ProductPageContentProps) {
                               src={gallery[currentSlide].src}
                               alt={gallery[currentSlide].alt}
                               fill
+                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                               className="object-contain p-4"
                             />
                             <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-xs font-semibold">

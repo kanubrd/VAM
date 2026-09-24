@@ -35,9 +35,9 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const isScrolled = scrollY > 20;
+  const isScrolled = mounted ? scrollY > 20 : false;
   // Over the video hero section on the homepage
-  const isOverVideo = isHomePage && scrollY < 540;
+  const isOverVideo = isHomePage && (mounted ? scrollY < 540 : true);
 
   useEffect(() => { setMobileMenuOpen(false); }, [pathname]);
 
@@ -63,17 +63,6 @@ export function Navbar() {
       }
     };
   }, [mobileMenuOpen]);
-
-  // Render a lightweight placeholder during SSR & first client render
-  // to avoid hydration mismatch from browser CSS normalization
-  if (!mounted) {
-    return (
-      <header className="fixed top-0 left-0 right-0 z-50">
-        <div style={{ height: 28, background: isHomePage ? 'rgba(15, 23, 42, 0.45)' : '#1A2B3C', borderBottom: 'none' }} />
-        <nav style={{ height: 72, background: isHomePage ? 'rgba(255, 255, 255, 0.25)' : '#FFFFFF', borderBottom: isHomePage ? '1px solid rgba(255, 255, 255, 0.25)' : '2px solid #E5E7EB' }} />
-      </header>
-    );
-  }
 
   if (pathname && pathname.startsWith('/admin')) {
     return null;

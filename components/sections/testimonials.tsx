@@ -11,7 +11,7 @@ const threatCards = [
     description: 'Poor quality additives lead to chemical degradation, oil sludge, and premature failure of high-speed CNC machines, gearboxes, and pumps.',
     image: '/equipment-failure-v2.png',
     tag: 'ASSET DEGRADATION',
-    link: '/products/vam-hs-100',
+    link: '/solutions?product=vam-hs-100',
     alt: 'Industrial machinery gearbox wear and failure prevented by Valtrix high-performance additive packages and anti-wear lubricants',
   },
   {

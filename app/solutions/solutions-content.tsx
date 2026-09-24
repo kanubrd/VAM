@@ -60,10 +60,14 @@ export function SolutionsContent({ solutionsData }: { solutionsData: any }) {
     setProductSlideIndex(0);
     
     // Smooth scroll to the details section on mobile
-    if (window.innerWidth < 1024) {
+    if (typeof window !== 'undefined' && window.innerWidth < 1024) {
       const detailsEl = document.getElementById('selected-product-details');
       if (detailsEl) {
-        detailsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if ((window as any).lenis) {
+          (window as any).lenis.scrollTo(detailsEl, { offset: -80 });
+        } else {
+          detailsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       }
     }
   };
@@ -207,6 +211,7 @@ export function SolutionsContent({ solutionsData }: { solutionsData: any }) {
                               src={activeSliderImages[productSlideIndex].src}
                               alt={activeSliderImages[productSlideIndex].alt || `${activeSolution.title} - High-Performance Industrial Chemical Additive by Valtrix Vadodara`}
                               fill
+                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 640px"
                               className={`object-contain ${
                                 activeSolution.id === 'vamshield-90' && productSlideIndex === 0 ? 'p-1' : 'p-2'
                               }`}

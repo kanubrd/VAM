@@ -24,12 +24,6 @@ export function HeroSection() {
 
   useEffect(() => { setMounted(true); }, []);
 
-  // Render placeholder during SSR & first client render to avoid hydration mismatch
-  if (!mounted) {
-    return (
-      <section style={{ background: '#FFFFFF', minHeight: '560px', paddingTop: '0px' }} className="overflow-hidden" />
-    );
-  }
 
   return (
     <>

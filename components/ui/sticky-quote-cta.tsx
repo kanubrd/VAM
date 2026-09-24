@@ -11,7 +11,7 @@ export function StickyQuoteCTA() {
   const [isVisible, setIsVisible] = useState(false);
 
   // Show only on solutions and industries subroutes
-  const isMatch = pathname.startsWith('/solutions/') || pathname.startsWith('/industries/');
+  const isMatch = Boolean(pathname && (pathname.startsWith('/solutions/') || pathname.startsWith('/industries/')));
 
   useEffect(() => {
     if (!isMatch) {
