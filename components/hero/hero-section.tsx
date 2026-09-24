@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import { ArrowRight } from 'lucide-react';
 
@@ -28,32 +29,28 @@ export function HeroSection() {
   return (
     <>
       <section style={{ background: '#FFFFFF' }} className="overflow-hidden">
-        {/* ── Full-width cinematic hero video ── */}
+        {/* ── Full-width hero banner image ── */}
         <div
+          className="w-full relative overflow-hidden"
           style={{
-            width: '100%',
             height: 'clamp(400px, 48vw, 620px)',
             marginTop: '0px',
-            position: 'relative',
-            overflow: 'hidden',
             boxShadow: 'inset 0 4px 6px -1px rgba(0, 0, 0, 0.1)',
             backgroundColor: '#0F172A',
           }}
         >
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            poster="/videos/hero-poster.jpg"
-            className="absolute inset-0 w-full h-full object-cover"
+          <Image
+            src="/hero-banner.webp"
+            alt="Valtrix Advance Material - Creating Novel Materials & Additives to Enhance Material Life"
+            fill
+            priority
+            sizes="100vw"
+            quality={90}
+            className="object-cover object-center"
             style={{
-              filter: 'contrast(1.05) brightness(1.02) saturate(1.05)',
+              filter: 'contrast(1.02) brightness(1.01)',
             }}
-          >
-            <source src="/videos/hero-video.mp4" type="video/mp4" />
-          </video>
+          />
 
           {/* Bottom gradient fade */}
           <div
