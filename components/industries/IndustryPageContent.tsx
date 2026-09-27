@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Reveal } from '@/components/animations/reveal';
 import Image from 'next/image';
@@ -20,7 +21,10 @@ import {
   ChevronRight,
   Truck,
   HardHat,
-  ShieldCheck
+  ShieldCheck,
+  Play,
+  Pause,
+  Video
 } from 'lucide-react';
 import { Industry } from '@/lib/content-utils';
 
@@ -63,6 +67,20 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
     benefitsSectionSubtitle = 'Our solutions deliver proven performance improvements',
     cta
   } = industry;
+
+  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
+  const [timecode, setTimecode] = useState('00:04:18');
+
+  useEffect(() => {
+    if (!isVideoPlaying) return;
+    const interval = setInterval(() => {
+      const now = new Date();
+      const s = String(now.getSeconds()).padStart(2, '0');
+      const ms = String(Math.floor(now.getMilliseconds() / 10)).padStart(2, '0');
+      setTimecode(`00:${s}:${ms}`);
+    }, 120);
+    return () => clearInterval(interval);
+  }, [isVideoPlaying]);
 
   return (
     <div>
@@ -224,35 +242,90 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
                 </div>
               </div>
 
-              {/* Right Column: Visual Composite Image */}
+              {/* Right Column: Visual Composite Video / Animated GIF Feed */}
               <div className="lg:col-span-6">
                 <Reveal direction="left" delay={0.2}>
                   <div 
-                    className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white group"
+                    className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white group select-none"
                     style={{ aspectRatio: '4 / 3.5' }}
                   >
-                    <Image
-                      src={segmentsSectionImage}
-                      alt="Automotive & Industrial Ecosystem"
-                      fill
-                      className="object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                      loading="lazy"
-                      quality={90}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-75 group-hover:opacity-60 transition-opacity" />
+                    {/* Top HUD: LIVE status & Play/Pause Button */}
+                    <div className="absolute top-4 left-4 z-20 flex items-center gap-2 bg-slate-900/85 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20 shadow-md">
+                      <span className="relative flex h-2.5 w-2.5">
+                        {isVideoPlaying && (
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
+                        )}
+                        <span className={`relative inline-flex rounded-full h-2.5 w-2.5 ${isVideoPlaying ? 'bg-red-500' : 'bg-slate-400'}`} />
+                      </span>
+                      <span className="text-[11px] font-mono font-bold tracking-wider text-white">
+                        {isVideoPlaying ? `REC ${timecode}` : 'PAUSED'}
+                      </span>
+                      <span className="hidden sm:inline-block text-[10px] text-teal-400 border-l border-white/20 pl-2 font-mono">
+                        FACILITY CAM 01
+                      </span>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => setIsVideoPlaying(!isVideoPlaying)}
+                      aria-label={isVideoPlaying ? 'Pause Facility Simulation' : 'Play Facility Simulation'}
+                      className="absolute top-4 right-4 z-20 flex items-center gap-1.5 bg-slate-900/85 hover:bg-slate-900 text-white backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20 shadow-md hover:scale-105 transition-all text-xs font-medium cursor-pointer"
+                    >
+                      {isVideoPlaying ? (
+                        <>
+                          <Pause className="w-3.5 h-3.5 text-teal-400 fill-teal-400" />
+                          <span>Pause Loop</span>
+                        </>
+                      ) : (
+                        <>
+                          <Play className="w-3.5 h-3.5 text-teal-400 fill-teal-400" />
+                          <span>Play Video</span>
+                        </>
+                      )}
+                    </button>
+
+                    {/* Animated Video / Motion Container */}
+                    <motion.div
+                      className="relative w-full h-full"
+                      animate={isVideoPlaying ? {
+                        scale: [1, 1.035, 1],
+                        x: [0, -2, 0],
+                        y: [0, 1.5, 0]
+                      } : { scale: 1, x: 0, y: 0 }}
+                      transition={{
+                        duration: 12,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                    >
+                      <Image
+                        src={isVideoPlaying ? '/market-segments-automotive-animated.webp' : (segmentsSectionImage || '/market-segments-automotive.webp')}
+                        alt="Automotive & Industrial Ecosystem"
+                        fill
+                        className="object-cover object-top"
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        loading="lazy"
+                        unoptimized={isVideoPlaying}
+                        quality={90}
+                      />
+                    </motion.div>
+
+                    {/* Ambient Lighting Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-75 group-hover:opacity-60 transition-opacity pointer-events-none" />
                     
-                    <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 bg-white/95 backdrop-blur-md px-4 py-3 sm:px-5 sm:py-3.5 rounded-xl border border-white/80 shadow-lg flex items-center justify-between">
+                    {/* Bottom Status Tag */}
+                    <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 bg-white/95 backdrop-blur-md px-4 py-3 sm:px-5 sm:py-3.5 rounded-xl border border-white/80 shadow-lg flex items-center justify-between z-10 pointer-events-none">
                       <div>
-                        <span className="text-[11px] font-bold uppercase tracking-wider text-[#17A2B8] block">
-                          Integrated Industrial Ecosystem
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-[#17A2B8] flex items-center gap-1.5">
+                          <span className={`w-1.5 h-1.5 rounded-full ${isVideoPlaying ? 'bg-[#17A2B8] animate-pulse' : 'bg-slate-400'}`} />
+                          Live Industrial Simulation
                         </span>
                         <span className="text-xs sm:text-sm font-semibold text-[#2D3748]">
                           OEM • Aftermarket • Heavy Equipment
                         </span>
                       </div>
                       <div className="w-8 h-8 rounded-lg bg-[#17A2B8]/10 text-[#17A2B8] flex items-center justify-center shrink-0">
-                        <Factory className="w-4 h-4" />
+                        <Video className="w-4 h-4" />
                       </div>
                     </div>
                   </div>
