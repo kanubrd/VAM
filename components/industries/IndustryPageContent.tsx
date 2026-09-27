@@ -227,12 +227,15 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
               {/* Right Column: Visual Composite Image */}
               <div className="lg:col-span-6">
                 <Reveal direction="left" delay={0.2}>
-                  <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/3] group">
+                  <div 
+                    className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white group"
+                    style={{ aspectRatio: '4 / 3.5' }}
+                  >
                     <Image
                       src={segmentsSectionImage}
                       alt="Automotive & Industrial Ecosystem"
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
                       sizes="(max-width: 1024px) 100vw, 50vw"
                       loading="lazy"
                       quality={90}
