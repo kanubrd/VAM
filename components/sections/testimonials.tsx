@@ -9,10 +9,10 @@ const threatCards = [
   {
     title: 'Equipment Failure',
     description: 'Poor quality additives lead to chemical degradation, oil sludge, and premature failure of high-speed CNC machines, gearboxes, and pumps.',
-    image: '/equipment-failure-v2.png',
+    image: '/equipment-failure-v3.webp',
     tag: 'ASSET DEGRADATION',
     link: '/solutions?product=vam-hs-100',
-    alt: 'Industrial machinery gearbox wear and failure prevented by Valtrix high-performance additive packages and anti-wear lubricants',
+    alt: 'Industrial engineers inspecting leaking blue centrifugal pump diagnosing equipment failure',
   },
   {
     title: 'Economic Loss',
@@ -25,10 +25,10 @@ const threatCards = [
   {
     title: 'Surface Degradation',
     description: 'Unprotected or improperly specified materials degrade rapidly in harsh environments, compounding maintenance costs and compliance risk.',
-    image: '/surface-degradation-v2.png',
+    image: '/surface-degradation-v3.png',
     tag: 'MATERIAL SCIENCE',
     link: '/products/surface-treatments',
-    alt: 'Industrial steel surface oxidation and rust damage prevented by Valtrix corrosion inhibitors and high-build protective coatings',
+    alt: 'Industrial pipe flange corrosion and rust inspection prevented by Valtrix corrosion inhibitors and surface treatments',
   },
 ];
 
