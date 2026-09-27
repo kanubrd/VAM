@@ -60,12 +60,14 @@
     ],
     "applicationsSectionSubtitle": "Our metalworking solutions are designed for a wide range of industrial applications",
     "segments": [
-      { "name": "Soluble Oils", "description": "Balanced emulsions for general machining with excellent cooling and lubrication properties", "image": "/soluble-oils.png" },
-      { "name": "Semi-Synthetic Fluids", "description": "Hybrid formulations combining mineral oil and synthetic components for enhanced performance", "image": "/semi-synthetic-fluids.png" },
-      { "name": "Synthetic Fluids", "description": "Oil-free solutions offering superior cooling, cleanliness, and extended sump life", "image": "/synthetic-fluids.png" }
+      { "name": "Soluble Oils", "description": "Balanced emulsions for general machining with excellent cooling and lubrication properties", "image": "/soluble-oils.png", "icon": "Droplets" },
+      { "name": "Semi-Synthetic Fluids", "description": "Hybrid formulations combining mineral oil and synthetic components for enhanced performance", "image": "/semi-synthetic-fluids.png", "icon": "Layers" },
+      { "name": "Synthetic Fluids", "description": "Oil-free solutions offering superior cooling, cleanliness, and extended sump life", "image": "/synthetic-fluids.png", "icon": "ShieldCheck" }
     ],
     "segmentsSectionTitle": "Metalworking Fluid Solutions",
     "segmentsSectionSubtitle": "Comprehensive additive packages for all major metalworking fluid types",
+    "segmentsSectionImage": "/metalworking-solutions.webp",
+    "segmentsSectionAnimatedImage": "/metalworking-solutions-animated.webp",
     "products": [
       { "name": "VAMShield-90", "category": "Corrosion Inhibitor", "description": "Advanced corrosion protection for ferrous and non-ferrous metals in metalworking fluids.", "features": ["Long-lasting protection", "Low dosage required", "Multi-metal compatibility"], "href": "/solutions?product=vamshield-90" },
       { "name": "VAM HS-100", "category": "Lubricant Additive", "description": "Advanced multifunctional lubricant additive offering superior lime soap dispersion, emulsification, foam control, and corrosion inhibition.", "features": ["Lime soap dispersion", "Emulsification & Foam control", "Corrosion inhibition"], "href": "/solutions?product=vam-hs-100" }

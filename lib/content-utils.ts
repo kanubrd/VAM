@@ -74,6 +74,7 @@ export interface Industry {
   segmentsSectionTitle?: string;
   segmentsSectionSubtitle?: string;
   segmentsSectionImage?: string;
+  segmentsSectionAnimatedImage?: string;
   products: IndustryProduct[];
   productsSectionSubtitle?: string;
   benefits: string[];
