@@ -28,12 +28,11 @@ export function HeroSection() {
 
   return (
     <>
-      <section style={{ background: '#FFFFFF' }} className="overflow-hidden">
+      <section style={{ background: '#FFFFFF' }} className="overflow-hidden pt-[100px] md:pt-0">
         {/* ── Full-width hero banner image ── */}
         <div
-          className="w-full relative overflow-hidden"
+          className="w-full relative overflow-hidden aspect-[1916/821] md:aspect-auto md:h-[clamp(400px,48vw,620px)]"
           style={{
-            height: 'clamp(400px, 48vw, 620px)',
             marginTop: '0px',
             boxShadow: 'inset 0 4px 6px -1px rgba(0, 0, 0, 0.1)',
             backgroundColor: '#0F172A',
@@ -47,18 +46,17 @@ export function HeroSection() {
             sizes="100vw"
             quality={100}
             unoptimized
-            className="object-cover object-center"
+            className="object-contain md:object-cover object-center"
             style={{
               filter: 'contrast(1.02) brightness(1.01)',
             }}
           />
 
-          {/* Bottom gradient fade */}
+          {/* Bottom gradient fade (desktop only so mobile image details remain 100% visible and uncropped) */}
           <div
+            className="hidden md:block pointer-events-none absolute bottom-0 left-0 right-0 h-28"
             style={{
-              position: 'absolute', bottom: 0, left: 0, right: 0, height: 120,
               background: 'linear-gradient(to bottom, transparent, #FFFFFF)',
-              pointerEvents: 'none',
             }}
           />
         </div>
