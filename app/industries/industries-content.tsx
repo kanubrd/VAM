@@ -29,7 +29,7 @@ const fallbackIndustries: IndustryListing[] = [
     title: 'Electroplating & Brighteners',
     tag: 'ELECTROPLATING',
     description: 'Advanced electroplating chemicals and brighteners that enhance coating quality, corrosion resistance, and surface appearance.',
-    listingImage: '/electroplating-category.avif',
+    listingImage: '/painter.webp',
   },
   {
     slug: 'surface-treatment',
