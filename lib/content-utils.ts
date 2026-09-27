@@ -59,6 +59,7 @@ export interface Industry {
   tagColor: IndustryTagColor;
   description: string;
   listingImage: string;
+  homeImage?: string;
   hero: {
     image: string;
     imageAlt?: string;

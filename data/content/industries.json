@@ -50,7 +50,8 @@
     "tag": "METALWORKING",
     "tagColor": { "bg": "rgba(23, 162, 184, 0.1)", "text": "#17A2B8" },
     "description": "High-performance lubricants and metalworking solutions designed to improve machining efficiency, reduce wear, and extend equipment life.",
-    "listingImage": "/metalworking-category.avif",
+    "listingImage": "/fluids.webp",
+    "homeImage": "/metalworking-category.avif",
     "hero": { "image": "/metalworking-hero.png", "imageAlt": "Metal Working Fluids", "imageObjectFit": "object-contain", "heroTagline": null, "title": "Metal Working Fluids & Lubricants", "subtitle": "High-performance specialty chemicals designed to improve machining efficiency, reduce wear, and extend equipment life" },
     "overview": ["Metal Working Fluids (MWFs) and Lubricants are essential materials used in manufacturing and machining processes to improve efficiency, extend tool life, and produce high-quality finished products.", "Depending on the application, MWFs may be classified as straight oils, soluble oils, semi-synthetic fluids, or synthetic fluids, each offering different levels of cooling and lubrication.", "A good lubricant should possess suitable viscosity, thermal stability, oxidation resistance, anti-wear properties, and corrosion protection to ensure reliable machine performance and long service life."],
     "applications": [

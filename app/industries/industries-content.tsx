@@ -22,7 +22,7 @@ const fallbackIndustries: IndustryListing[] = [
     title: 'Metal Working Fluids & Lubricants',
     tag: 'METALWORKING',
     description: 'High-performance lubricants and metalworking solutions designed to improve machining efficiency, reduce wear, and extend equipment life.',
-    listingImage: '/metalworking-category.avif',
+    listingImage: '/fluids.webp',
   },
   {
     slug: 'electroplating',
