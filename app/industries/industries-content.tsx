@@ -36,7 +36,7 @@ const fallbackIndustries: IndustryListing[] = [
     title: 'Surface Treatment',
     tag: 'SURFACE TREATMENT',
     description: 'Specialized surface treatment technologies that improve adhesion, durability, and protection for industrial components.',
-    listingImage: '/surface-treatment-category.avif',
+    listingImage: '/surface-treatment-category.webp',
   },
 ];
 

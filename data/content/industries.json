@@ -117,7 +117,7 @@
     "tag": "SURFACE TREATMENT",
     "tagColor": { "bg": "rgba(23, 162, 184, 0.1)", "text": "#17A2B8" },
     "description": "Specialized surface treatment technologies that improve adhesion, durability, and protection for industrial components.",
-    "listingImage": "/surface-treatment-category.avif",
+    "listingImage": "/surface-treatment-category.webp",
     "hero": { "image": "/surface-treatment-hero-new.png", "imageAlt": "Surface Treatment Technology", "imageObjectFit": "object-contain", "heroTagline": "SURFACE TREATMENT SOLUTIONS", "title": "Surface Treatment Technology", "subtitle": "Specialized chemistry for superior surface preparation, adhesion promotion, and protective coatings" },
     "overview": ["Surface Treatment is a manufacturing process used to improve the physical, chemical, and mechanical properties of a material's surface without significantly altering its core characteristics."],
     "applications": [
