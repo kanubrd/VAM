@@ -48,6 +48,7 @@ export function StickyQuoteCTA() {
         >
           <Link
             href="/contact?ref=sticky"
+            aria-label="Request a technical materials quote"
             className="flex items-center gap-2.5 px-5 py-3 rounded-full bg-[#2C3E50] hover:bg-[#17A2B8] text-white text-xs sm:text-sm font-bold shadow-xl border border-white/10 transition-all min-h-[44px]"
             style={{
               boxShadow: '0 8px 32px rgba(44, 62, 80, 0.25)'

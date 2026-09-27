@@ -56,8 +56,17 @@ export function Navbar() {
         (window as any).lenis.start();
       }
     }
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMobileMenuOpen(false);
+    };
+    if (mobileMenuOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+
     return () => { 
       document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
       if ((window as any).lenis) {
         (window as any).lenis.start();
       }
@@ -331,6 +340,7 @@ export function Navbar() {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation"
           >
             {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
@@ -364,6 +374,9 @@ export function Navbar() {
 
       {/* Mobile menu */}
       <div
+        id="mobile-navigation"
+        role="navigation"
+        aria-label="Mobile Navigation Menu"
         className={cn(
           'fixed left-0 right-0 z-40 md:hidden transition-all duration-300',
           mobileMenuOpen

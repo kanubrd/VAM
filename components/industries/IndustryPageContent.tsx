@@ -266,6 +266,7 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
                     {/* Animated Video / Motion Container */}
                     <motion.div
                       className="relative w-full h-full"
+                      style={{ willChange: 'transform' }}
                       animate={isVideoPlaying ? {
                         scale: [1, 1.035, 1],
                         x: [0, -2, 0],

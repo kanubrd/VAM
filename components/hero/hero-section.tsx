@@ -13,14 +13,8 @@ const QuoteModal = dynamic(() => import('@/components/modals/quote-modal').then(
   loading: () => null,
 });
 
-const DemoModal = dynamic(() => import('@/components/modals/demo-modal').then((mod) => ({ default: mod.DemoModal })), {
-  ssr: false,
-  loading: () => null,
-});
-
 export function HeroSection() {
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
-  const [isDemoOpen,  setIsDemoOpen]  = useState(false);
   const [mounted,     setMounted]     = useState(false);
 
   useEffect(() => { setMounted(true); }, []);
@@ -134,9 +128,6 @@ export function HeroSection() {
 
       {/* ── Quote Modal (dynamically loaded) ── */}
       {mounted && <QuoteModal isOpen={isQuoteOpen} onClose={() => setIsQuoteOpen(false)} />}
-
-      {/* ── Demo Modal (dynamically loaded) ── */}
-      {mounted && <DemoModal isOpen={isDemoOpen} onClose={() => setIsDemoOpen(false)} onGetStarted={() => { setIsDemoOpen(false); setIsQuoteOpen(true); }} />}
     </>
   );
 }

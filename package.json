@@ -14,8 +14,8 @@
     "analyze:bundle": "node scripts/analyze-bundle.mjs",
     "optimize:images": "node scripts/optimize-images.mjs",
     "postinstall": "echo 'Dependencies installed successfully'",
-    "clean": "rimraf .next out dist node_modules/.cache",
-    "clean:all": "rimraf .next out dist node_modules",
+    "clean": "node -e \"['.next', 'out', 'dist', 'node_modules/.cache'].forEach(p => require('fs').rmSync(p, { recursive: true, force: true }))\"",
+    "clean:all": "node -e \"['.next', 'out', 'dist', 'node_modules'].forEach(p => require('fs').rmSync(p, { recursive: true, force: true }))\"",
     "deploy": "vercel --prod",
     "deploy:preview": "vercel"
   },
