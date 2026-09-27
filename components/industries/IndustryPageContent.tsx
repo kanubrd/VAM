@@ -74,18 +74,6 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
   const isSurfaceTreatment = industry.slug === 'surface-treatment';
 
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
-  const [timecode, setTimecode] = useState('00:04:18');
-
-  useEffect(() => {
-    if (!isVideoPlaying) return;
-    const interval = setInterval(() => {
-      const now = new Date();
-      const s = String(now.getSeconds()).padStart(2, '0');
-      const ms = String(Math.floor(now.getMilliseconds() / 10)).padStart(2, '0');
-      setTimecode(`00:${s}:${ms}`);
-    }, 120);
-    return () => clearInterval(interval);
-  }, [isVideoPlaying]);
 
   return (
     <div>
@@ -254,27 +242,7 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
                     className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white group select-none"
                     style={{ aspectRatio: '4 / 3.5' }}
                   >
-                    {/* Top HUD: LIVE status & Play/Pause Button */}
-                    <div className="absolute top-4 left-4 z-20 flex items-center gap-2 bg-slate-900/85 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20 shadow-md">
-                      <span className="relative flex h-2.5 w-2.5">
-                        {isVideoPlaying && (
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
-                        )}
-                        <span className={`relative inline-flex rounded-full h-2.5 w-2.5 ${isVideoPlaying ? 'bg-red-500' : 'bg-slate-400'}`} />
-                      </span>
-                      <span className="text-[11px] font-mono font-bold tracking-wider text-white">
-                        {isVideoPlaying ? `REC ${timecode}` : 'PAUSED'}
-                      </span>
-                      <span className="hidden sm:inline-block text-[10px] text-teal-400 border-l border-white/20 pl-2 font-mono">
-                        {isMetalworking
-                          ? 'CNC MACHINING CELL 02'
-                          : isElectroplating
-                          ? 'ELECTROPLATING LINE 03'
-                          : isSurfaceTreatment
-                          ? 'SURFACE TREATMENT LINE 04'
-                          : 'FACILITY CAM 01'}
-                      </span>
-                    </div>
+
 
                     <button
                       type="button"
