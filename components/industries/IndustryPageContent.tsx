@@ -70,6 +70,8 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
   } = industry;
 
   const isMetalworking = industry.slug === 'metalworking';
+  const isElectroplating = industry.slug === 'electroplating';
+  const isSurfaceTreatment = industry.slug === 'surface-treatment';
 
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
   const [timecode, setTimecode] = useState('00:04:18');
@@ -205,7 +207,7 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
                 <Reveal direction="up">
                   <div>
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#17A2B8]/10 text-[#0D5C75] text-xs font-semibold uppercase tracking-wider mb-3">
-                      {isMetalworking ? 'Fluid Technology' : 'Segment Coverage'}
+                      {isMetalworking ? 'Fluid Technology' : isElectroplating ? 'Surface Finishing' : isSurfaceTreatment ? 'Process Technologies' : 'Segment Coverage'}
                     </div>
                     <h2 className="text-3xl sm:text-4xl font-bold text-[#2D3748] tracking-tight mb-3">
                       {segmentsSectionTitle}
@@ -218,7 +220,7 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
 
                 <div className="space-y-4 pt-1">
                   {segments.map((segment, idx) => {
-                    const IconComponent = iconMap[segment.icon || ''] || (isMetalworking ? (idx === 0 ? Droplets : idx === 1 ? Layers : ShieldCheck) : (idx === 0 ? Car : idx === 1 ? Wrench : Truck));
+                    const IconComponent = iconMap[segment.icon || ''] || (isMetalworking ? (idx === 0 ? Droplets : idx === 1 ? Layers : ShieldCheck) : isElectroplating ? (idx === 0 ? Layers : idx === 1 ? Sparkles : Zap) : isSurfaceTreatment ? (idx === 0 ? Layers : idx === 1 ? Droplets : Sparkles) : (idx === 0 ? Car : idx === 1 ? Wrench : Truck));
                     return (
                       <Reveal key={idx} direction="up" delay={idx * 0.1}>
                         <div className="group relative bg-white rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200/80 hover:border-[#17A2B8]/50 hover:-translate-y-0.5">
@@ -264,7 +266,13 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
                         {isVideoPlaying ? `REC ${timecode}` : 'PAUSED'}
                       </span>
                       <span className="hidden sm:inline-block text-[10px] text-teal-400 border-l border-white/20 pl-2 font-mono">
-                        {isMetalworking ? 'CNC MACHINING CELL 02' : 'FACILITY CAM 01'}
+                        {isMetalworking
+                          ? 'CNC MACHINING CELL 02'
+                          : isElectroplating
+                          ? 'ELECTROPLATING LINE 03'
+                          : isSurfaceTreatment
+                          ? 'SURFACE TREATMENT LINE 04'
+                          : 'FACILITY CAM 01'}
                       </span>
                     </div>
 
@@ -304,10 +312,32 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
                       <Image
                         src={
                           isVideoPlaying
-                            ? (segmentsSectionAnimatedImage || (isMetalworking ? '/metalworking-solutions-animated.webp' : '/market-segments-automotive-animated.webp'))
-                            : (segmentsSectionImage || (isMetalworking ? '/metalworking-solutions.webp' : '/market-segments-automotive.webp'))
+                            ? (segmentsSectionAnimatedImage ||
+                               (isMetalworking
+                                 ? '/metalworking-solutions-animated.webp'
+                                 : isElectroplating
+                                 ? '/plating-solutions-animated.webp'
+                                 : isSurfaceTreatment
+                                 ? '/treatment-technologies-animated.webp'
+                                 : '/market-segments-automotive-animated.webp'))
+                            : (segmentsSectionImage ||
+                               (isMetalworking
+                                 ? '/metalworking-solutions.webp'
+                                 : isElectroplating
+                                 ? '/plating-solutions.webp'
+                                 : isSurfaceTreatment
+                                 ? '/treatment-technologies.webp'
+                                 : '/market-segments-automotive.webp'))
                         }
-                        alt={isMetalworking ? 'Metalworking Fluid Precision Machining Solutions' : 'Automotive & Industrial Ecosystem'}
+                        alt={
+                          isMetalworking
+                            ? 'Metalworking Fluid Precision Machining Solutions'
+                            : isElectroplating
+                            ? 'Electroplating and Brightener Chemical Solutions'
+                            : isSurfaceTreatment
+                            ? 'Surface Treatment and Pre-Treatment Technology'
+                            : 'Automotive & Industrial Ecosystem'
+                        }
                         fill
                         className="object-cover object-top"
                         sizes="(max-width: 1024px) 100vw, 50vw"
@@ -325,10 +355,22 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
                       <div>
                         <span className="text-[11px] font-bold uppercase tracking-wider text-[#17A2B8] flex items-center gap-1.5">
                           <span className={`w-1.5 h-1.5 rounded-full ${isVideoPlaying ? 'bg-[#17A2B8] animate-pulse' : 'bg-slate-400'}`} />
-                          {isMetalworking ? 'Live Coolant & Machining Simulation' : 'Live Industrial Simulation'}
+                          {isMetalworking
+                            ? 'Live Coolant & Machining Simulation'
+                            : isElectroplating
+                            ? 'Live Electroplating Process Simulation'
+                            : isSurfaceTreatment
+                            ? 'Live Surface Pre-Treatment Simulation'
+                            : 'Live Industrial Simulation'}
                         </span>
                         <span className="text-xs sm:text-sm font-semibold text-[#2D3748]">
-                          {isMetalworking ? 'Soluble Oils • Semi-Synthetic • Synthetic Fluids' : 'OEM • Aftermarket • Heavy Equipment'}
+                          {isMetalworking
+                            ? 'Soluble Oils • Semi-Synthetic • Synthetic Fluids'
+                            : isElectroplating
+                            ? 'Nickel Plating • Chrome Plating • Copper Plating'
+                            : isSurfaceTreatment
+                            ? 'Phosphate Conversion • Silane Pre-Treatment • Anodizing Solutions'
+                            : 'OEM • Aftermarket • Heavy Equipment'}
                         </span>
                       </div>
                       <div className="w-8 h-8 rounded-lg bg-[#17A2B8]/10 text-[#17A2B8] flex items-center justify-center shrink-0">

@@ -94,12 +94,14 @@
     ],
     "applicationsSectionSubtitle": "Our electroplating solutions serve diverse industries and applications",
     "segments": [
-      { "name": "Nickel Plating", "description": "High-quality nickel deposits with excellent corrosion resistance and decorative appeal", "image": "/nickel-plating.png" },
-      { "name": "Chrome Plating", "description": "Bright, durable chrome finishes for automotive and industrial applications", "image": "/chrome-plating.png" },
-      { "name": "Copper Plating", "description": "Conductive copper layers for electronics and decorative undercoats", "image": "/copper-plating.png" }
+      { "name": "Nickel Plating", "description": "High-quality nickel deposits with excellent corrosion resistance and decorative appeal", "image": "/nickel-plating.png", "icon": "Layers" },
+      { "name": "Chrome Plating", "description": "Bright, durable chrome finishes for automotive and industrial applications", "image": "/chrome-plating.png", "icon": "Sparkles" },
+      { "name": "Copper Plating", "description": "Conductive copper layers for electronics and decorative undercoats", "image": "/copper-plating.png", "icon": "Zap" }
     ],
     "segmentsSectionTitle": "Plating Solutions",
     "segmentsSectionSubtitle": "Comprehensive additive packages for all major plating processes",
+    "segmentsSectionImage": "/plating-solutions.webp",
+    "segmentsSectionAnimatedImage": "/plating-solutions-animated.webp",
     "products": [
       { "name": "SusCat-I", "category": "Levelling Agent", "description": "Advanced levelling agent for bright, smooth electroplated finishes with excellent throwing power.", "features": ["Superior surface levelling", "Bright lustrous finish", "Wide current density range"], "href": "/solutions?product=suscat-i" }
     ],
@@ -125,12 +127,14 @@
     ],
     "applicationsSectionSubtitle": "Comprehensive surface treatment solutions for diverse industrial needs",
     "segments": [
-      { "name": "Phosphate Conversion Coatings", "description": "Crystalline coatings that provide excellent paint adhesion and corrosion resistance", "image": "/phosphate-conversion-coatings.png" },
-      { "name": "Silane Pre-Treatment", "description": "Chrome-free surface treatment for superior adhesion and environmental compliance", "image": "/silane-pre-treatment.png" },
-      { "name": "Anodizing Solutions", "description": "Electrochemical processes for enhanced aluminum surface properties and appearance", "image": "/anodizing-solutions.png" }
+      { "name": "Phosphate Conversion Coatings", "description": "Crystalline coatings that provide excellent paint adhesion and corrosion resistance", "image": "/phosphate-conversion-coatings.png", "icon": "Layers" },
+      { "name": "Silane Pre-Treatment", "description": "Chrome-free surface treatment for superior adhesion and environmental compliance", "image": "/silane-pre-treatment.png", "icon": "Droplets" },
+      { "name": "Anodizing Solutions", "description": "Electrochemical processes for enhanced aluminum surface properties and appearance", "image": "/anodizing-solutions.png", "icon": "Sparkles" }
     ],
     "segmentsSectionTitle": "Treatment Technologies",
     "segmentsSectionSubtitle": "Advanced surface treatment processes for optimal performance",
+    "segmentsSectionImage": "/treatment-technologies.webp",
+    "segmentsSectionAnimatedImage": "/treatment-technologies-animated.webp",
     "products": [
       { "name": "Amino & Epoxy Silanes", "category": "Coupling Agents", "description": "Advanced silane coupling agents that enhance adhesion between organic polymers and inorganic substrates.", "features": ["Superior adhesion promotion", "Moisture resistance", "Improved mechanical properties"], "href": "/solutions" },
       { "name": "TOC Binders", "category": "Top of Cab Coatings", "description": "High-performance binders for temporary protective coatings with excellent weather resistance.", "features": ["Easy application and removal", "UV protection", "Long-term stability"], "href": "/solutions" }
