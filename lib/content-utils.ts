@@ -36,6 +36,7 @@ export interface IndustrySegment {
   name: string;
   description: string;
   image: string;
+  icon?: string;
 }
 
 export interface IndustryProduct {
@@ -72,6 +73,7 @@ export interface Industry {
   segments: IndustrySegment[];
   segmentsSectionTitle?: string;
   segmentsSectionSubtitle?: string;
+  segmentsSectionImage?: string;
   products: IndustryProduct[];
   productsSectionSubtitle?: string;
   benefits: string[];

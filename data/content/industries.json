@@ -26,12 +26,13 @@
     ],
     "applicationsSectionSubtitle": "Comprehensive solutions for automotive and general industrial needs",
     "segments": [
-      { "name": "OEM Automotive", "description": "Advanced coating systems and specialty chemicals for original equipment manufacturers", "image": "/oem-automotive-v2.png" },
-      { "name": "Aftermarket Solutions", "description": "Professional-grade products including High Build Coatings for repair shops, body shops, and DIY applications", "image": "/aftermarket-solutions-new.png" },
-      { "name": "Heavy Equipment", "description": "Durable protective coatings for construction and agricultural machinery", "image": "/heavy-equipment.png" }
+      { "name": "OEM Automotive", "description": "Advanced coating systems and specialty chemicals for original equipment manufacturers", "image": "/oem-automotive-v2.png", "icon": "Car" },
+      { "name": "Aftermarket", "description": "Professional-grade products including High Build Coatings for repair shops, body shops, and DIY applications", "image": "/aftermarket-solutions-new.png", "icon": "Wrench" },
+      { "name": "Heavy Equipment", "description": "Durable protective coatings for construction and agricultural machinery", "image": "/heavy-equipment.png", "icon": "Truck" }
     ],
     "segmentsSectionTitle": "Market Segments",
     "segmentsSectionSubtitle": "Tailored solutions for every segment of the automotive and industrial markets",
+    "segmentsSectionImage": "/market-segments-automotive.webp",
     "products": [
       { "name": "VAM RC 01", "category": "Rust Converter", "description": "Advanced rust converter that transforms rust into a stable, protective coating ready for painting.", "features": ["Fast-acting formula", "Long-lasting protection", "Easy application process"], "href": "/solutions?product=vam-rc-01" },
       { "name": "Polyols", "category": "Polyurethane Building Blocks", "description": "High-performance polyols for manufacturing polyurethane foams, coatings, adhesives, and sealants in automotive applications.", "features": ["Versatile applications", "Superior mechanical properties", "Excellent chemical resistance"], "href": "/solutions" },

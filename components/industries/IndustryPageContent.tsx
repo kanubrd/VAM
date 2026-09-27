@@ -17,7 +17,10 @@ import {
   Layers, 
   Beaker, 
   Droplet,
-  ChevronRight
+  ChevronRight,
+  Truck,
+  HardHat,
+  ShieldCheck
 } from 'lucide-react';
 import { Industry } from '@/lib/content-utils';
 
@@ -31,7 +34,10 @@ const iconMap: Record<string, React.ComponentType<any>> = {
   Sparkles,
   Layers,
   Beaker,
-  Droplet
+  Droplet,
+  Truck,
+  HardHat,
+  ShieldCheck
 };
 
 interface IndustryPageContentProps {
@@ -49,6 +55,7 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
     segments,
     segmentsSectionTitle = 'Market Segments',
     segmentsSectionSubtitle = 'Tailored solutions for every segment',
+    segmentsSectionImage,
     products,
     productsSectionSubtitle = 'Professional-grade chemistry',
     benefits,
@@ -168,42 +175,127 @@ export function IndustryPageContent({ industry }: IndustryPageContentProps) {
       </section>
 
       {/* Market Segments Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Reveal direction="up">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">{segmentsSectionTitle}</h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                {segmentsSectionSubtitle}
-              </p>
-            </div>
-          </Reveal>
+      {segmentsSectionImage ? (
+        <section className="py-20 bg-[#F0F4F8] border-y border-slate-200/70">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+              {/* Left Column: Content Cards */}
+              <div className="lg:col-span-6 space-y-6">
+                <Reveal direction="up">
+                  <div>
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#17A2B8]/10 text-[#0D5C75] text-xs font-semibold uppercase tracking-wider mb-3">
+                      Segment Coverage
+                    </div>
+                    <h2 className="text-3xl sm:text-4xl font-bold text-[#2D3748] tracking-tight mb-3">
+                      {segmentsSectionTitle}
+                    </h2>
+                    <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
+                      {segmentsSectionSubtitle}
+                    </p>
+                  </div>
+                </Reveal>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {segments.map((segment, idx) => (
-              <Reveal key={idx} direction="up" delay={idx * 0.1}>
-                <div className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
-                  <div className="relative h-48 overflow-hidden">
-                    <Image
-                      src={segment.image}
-                      alt={segment.name}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      loading="lazy"
-                      quality={85}
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">{segment.name}</h3>
-                    <p className="text-gray-600">{segment.description}</p>
-                  </div>
+                <div className="space-y-4 pt-1">
+                  {segments.map((segment, idx) => {
+                    const IconComponent = iconMap[segment.icon || ''] || (idx === 0 ? Car : idx === 1 ? Wrench : Truck);
+                    return (
+                      <Reveal key={idx} direction="up" delay={idx * 0.1}>
+                        <div className="group relative bg-white rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200/80 hover:border-[#17A2B8]/50 hover:-translate-y-0.5">
+                          <div className="flex items-start gap-4 sm:gap-5">
+                            <div className="w-12 h-12 rounded-xl bg-[#F0F4F8] text-[#17A2B8] flex items-center justify-center shrink-0 group-hover:bg-[#17A2B8] group-hover:text-white transition-colors duration-300 shadow-inner">
+                              <IconComponent className="w-6 h-6 transition-transform group-hover:scale-110" />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center justify-between mb-1.5">
+                                <h3 className="text-lg sm:text-xl font-bold text-[#2D3748] group-hover:text-[#0D5C75] transition-colors">
+                                  {segment.name}
+                                </h3>
+                                <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-[#17A2B8] group-hover:translate-x-1 transition-all opacity-0 group-hover:opacity-100" />
+                              </div>
+                              <p className="text-slate-600 text-sm leading-relaxed">
+                                {segment.description}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </Reveal>
+                    );
+                  })}
                 </div>
-              </Reveal>
-            ))}
+              </div>
+
+              {/* Right Column: Visual Composite Image */}
+              <div className="lg:col-span-6">
+                <Reveal direction="left" delay={0.2}>
+                  <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/3] group">
+                    <Image
+                      src={segmentsSectionImage}
+                      alt="Automotive & Industrial Ecosystem"
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      loading="lazy"
+                      quality={90}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-75 group-hover:opacity-60 transition-opacity" />
+                    
+                    <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 bg-white/95 backdrop-blur-md px-4 py-3 sm:px-5 sm:py-3.5 rounded-xl border border-white/80 shadow-lg flex items-center justify-between">
+                      <div>
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-[#17A2B8] block">
+                          Integrated Industrial Ecosystem
+                        </span>
+                        <span className="text-xs sm:text-sm font-semibold text-[#2D3748]">
+                          OEM • Aftermarket • Heavy Equipment
+                        </span>
+                      </div>
+                      <div className="w-8 h-8 rounded-lg bg-[#17A2B8]/10 text-[#17A2B8] flex items-center justify-center shrink-0">
+                        <Factory className="w-4 h-4" />
+                      </div>
+                    </div>
+                  </div>
+                </Reveal>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      ) : (
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Reveal direction="up">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold text-gray-900 mb-4">{segmentsSectionTitle}</h2>
+                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                  {segmentsSectionSubtitle}
+                </p>
+              </div>
+            </Reveal>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {segments.map((segment, idx) => (
+                <Reveal key={idx} direction="up" delay={idx * 0.1}>
+                  <div className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
+                    <div className="relative h-48 overflow-hidden">
+                      <Image
+                        src={segment.image}
+                        alt={segment.name}
+                        fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-500"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        loading="lazy"
+                        quality={85}
+                      />
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-gray-900 mb-3">{segment.name}</h3>
+                      <p className="text-gray-600">{segment.description}</p>
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Products Section */}
       <section className="py-20 bg-gray-50">
