@@ -5,7 +5,8 @@
     "tag": "AUTOMOTIVE & GEN",
     "tagColor": { "bg": "rgba(23, 162, 184, 0.1)", "text": "#17A2B8" },
     "description": "Reliable specialty chemical solutions engineered for automotive manufacturing and diverse industrial applications.",
-    "listingImage": "/automotive-category.avif",
+    "listingImage": "/car.webp",
+    "homeImage": "/automotive-category.avif",
     "hero": {
       "image": "/automotive-hero-v2.png",
       "imageAlt": "Automotive & Industrial Solutions",
