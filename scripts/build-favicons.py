@@ -69,7 +69,33 @@ def generate_all():
     ico_img.save(public_ico, format='ICO', sizes=[(48, 48), (32, 32), (16, 16)])
     print(f"Generated {public_ico} ({os.path.getsize(public_ico)} bytes)")
     
-    # 5. Verify the generated ICO file
+    # 5. Sync critical icons into app directory for Next.js App Router metadata conventions
+    for app_file in ['favicon.ico', 'icon.png', 'apple-icon.png']:
+        src = os.path.join(public_dir, app_file)
+        dst = os.path.join(app_dir, app_file)
+        if os.path.exists(src):
+            with open(src, 'rb') as sf, open(dst, 'wb') as df:
+                df.write(sf.read())
+            print(f"Synced {src} -> {dst}")
+
+    # 6. Generate 1200x630 OpenGraph / Twitter Card image with full Valtrix logo
+    teal_logo_path = os.path.join(public_dir, 'valtrix-logo-teal.png')
+    if os.path.exists(teal_logo_path):
+        teal_logo = Image.open(teal_logo_path).convert('RGBA')
+        og = Image.new('RGBA', (1200, 630), (255, 255, 255, 255))
+        target_w = 900
+        scale = target_w / teal_logo.width
+        target_h = int(teal_logo.height * scale)
+        teal_resized = teal_logo.resize((target_w, target_h), Image.Resampling.LANCZOS)
+        paste_x = (1200 - target_w) // 2
+        paste_y = (630 - target_h) // 2
+        og.paste(teal_resized, (paste_x, paste_y), teal_resized)
+        og_rgb = og.convert('RGB')
+        for dest in [os.path.join(public_dir, 'opengraph-image.png'), os.path.join(app_dir, 'opengraph-image.png')]:
+            og_rgb.save(dest, format='PNG', optimize=True)
+            print(f"Generated {dest} (1200x630, {os.path.getsize(dest)} bytes)")
+
+    # 7. Verify the generated ICO file
     test_ico = Image.open(public_ico)
     print(f"Verification: ICO format={test_ico.format}, primary size={test_ico.size}")
     

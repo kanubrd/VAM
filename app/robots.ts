@@ -5,7 +5,16 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: '*',
-        allow: ['/', '/manifest.json', '/favicon.ico', '/icon-*.png', '/icon.png'],
+        allow: [
+          '/',
+          '/manifest.json',
+          '/favicon.ico',
+          '/icon-*.png',
+          '/icon.png',
+          '/apple-icon.png',
+          '/opengraph-image.png',
+          '/valtrix-logo*.png',
+        ],
         disallow: [
           '/api/',
           '/_next/',
@@ -15,7 +24,16 @@ export default function robots(): MetadataRoute.Robots {
       },
       {
         userAgent: ['Googlebot', 'Googlebot-Image', 'Googlebot-Favicon'],
-        allow: ['/', '/manifest.json', '/favicon.ico', '/icon-*.png', '/icon.png'],
+        allow: [
+          '/',
+          '/manifest.json',
+          '/favicon.ico',
+          '/icon-*.png',
+          '/icon.png',
+          '/apple-icon.png',
+          '/opengraph-image.png',
+          '/valtrix-logo*.png',
+        ],
         disallow: ['/api/', '/admin/'],
       },
       {

@@ -83,7 +83,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://www.valtrixmaterials.com/valtrix-logo.png',
+        url: 'https://www.valtrixmaterials.com/opengraph-image.png',
         width: 1200,
         height: 630,
         alt: 'Valtrix Advance Material - ISO 9001:2024 Certified Facility in Vadodara, Gujarat',
@@ -94,7 +94,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Valtrix | Advance Materials Pvt Ltd | Official Website',
     description: 'Official website of Valtrix (Valtrix Advance Material Pvt. Ltd.). ISO 9001:2024 certified manufacturer of advanced industrial additives, metalworking fluids, and surface protection in Vadodara, Gujarat.',
-    images: ['https://www.valtrixmaterials.com/valtrix-logo.png'],
+    images: ['https://www.valtrixmaterials.com/opengraph-image.png'],
   },
   robots: {
     index: true,
@@ -109,7 +109,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: '48x48 32x32 16x16', type: 'image/x-icon' },
+      { url: '/favicon.ico', sizes: 'any' },
       { url: '/icon-48x48.png', sizes: '48x48', type: 'image/png' },
       { url: '/icon-96x96.png', sizes: '96x96', type: 'image/png' },
       { url: '/icon-144x144.png', sizes: '144x144', type: 'image/png' },
@@ -134,18 +134,19 @@ const jsonLd = {
   url: 'https://www.valtrixmaterials.com',
   logo: {
     '@type': 'ImageObject',
-    url: 'https://www.valtrixmaterials.com/icon.png',
-    width: 512,
-    height: 512,
+    url: 'https://www.valtrixmaterials.com/valtrix-logo-teal.png',
+    width: 860,
+    height: 337,
     caption: 'Valtrix Advance Material (VAM) Official Brand Logo'
   },
+  image: 'https://www.valtrixmaterials.com/opengraph-image.png',
   description: 'Leading manufacturer of advanced materials, industrial chemicals & specialty additives for automotive, aerospace & manufacturing industries.',
   disambiguatingDescription: 'Valtrix Advance Material Pvt. Ltd. (VAM) is an ISO 9001:2024 certified specialty chemical manufacturer based in Vadodara, Gujarat, producing industrial lubricant additives, metalworking coolants, and non-chromate surface passivates (distinct from semiconductor EDA firm Valtrix Technologies or Valtrix Valve).',
   brand: {
     '@type': 'Brand',
     name: 'Valtrix',
     alternateName: ['VAM VALTRIX', 'Valtrix Advance Material', 'Valtrix Materials'],
-    logo: 'https://www.valtrixmaterials.com/icon.png'
+    logo: 'https://www.valtrixmaterials.com/valtrix-logo-teal.png'
   },
   foundingDate: '2020',
   industry: [
@@ -217,7 +218,8 @@ const localBusinessJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   name: 'Valtrix Advance Material Pvt. Ltd.',
-  image: 'https://www.valtrixmaterials.com/icon.png',
+  image: 'https://www.valtrixmaterials.com/opengraph-image.png',
+  logo: 'https://www.valtrixmaterials.com/valtrix-logo-teal.png',
   '@id': 'https://www.valtrixmaterials.com/#localbusiness',
   url: 'https://www.valtrixmaterials.com',
   telephone: '+91 98981 23983',
@@ -322,6 +324,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd).replace(/</g, '\\u003c') }}
         />
+
+        {/* Googlebot-Favicon & Search Engine Discovery Link Tags */}
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" sizes="48x48" href="/icon-48x48.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="/icon-96x96.png" />
+        <link rel="icon" type="image/png" sizes="144x144" href="/icon-144x144.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/icon-192x192.png" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/icon.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon.png" />
       </head>
       <body className={`${inter.className} antialiased bg-white text-[#1A1A1A]`} suppressHydrationWarning>
         <a
