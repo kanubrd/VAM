@@ -5,13 +5,6 @@ import { Reveal } from '@/components/animations/reveal';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
-const tagColors: Record<string, { bg: string; text: string }> = {
-  'AUTOMOTIVE & GEN':   { bg: 'rgba(23, 162, 184, 0.1)', text: '#17A2B8' },
-  'METALWORKING':       { bg: 'rgba(23, 162, 184, 0.1)', text: '#17A2B8' },
-  'ELECTROPLATING':     { bg: 'rgba(23, 162, 184, 0.1)', text: '#17A2B8' },
-  'SURFACE TREATMENT':   { bg: 'rgba(23, 162, 184, 0.1)', text: '#17A2B8' },
-};
-
 export function HomeIndustriesSection({ industries }: { industries: any[] }) {
 
   return (
@@ -54,7 +47,6 @@ export function HomeIndustriesSection({ industries }: { industries: any[] }) {
         {/* Industries Grid (4-column row matching the style of the threat cards) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {industries.map((industry: any, idx: number) => {
-            const colors = tagColors[industry.tag] || { bg: 'rgba(23,162,184,0.1)', text: '#17A2B8' };
             return (
               <Reveal key={industry.title} delay={idx * 0.08} direction="up">
                 <Link href={`/industries/${industry.slug}`} className="block group h-full">
@@ -79,19 +71,6 @@ export function HomeIndustriesSection({ industries }: { industries: any[] }) {
                           loading="lazy"
                           quality={80}
                         />
-                        {/* Tag over image */}
-                        <div
-                          className="absolute bottom-4 left-4 text-[10px] font-bold tracking-[1.5px] uppercase py-1.5 px-3"
-                          style={{
-                            background: colors.bg,
-                            color: colors.text,
-                            borderRadius: '4px',
-                            backdropFilter: 'blur(4px)',
-                            border: '1px solid rgba(23,162,184,0.18)',
-                          }}
-                        >
-                          {industry.tag}
-                        </div>
                       </div>
 
                       {/* Content Section */}
