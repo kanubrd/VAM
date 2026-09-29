@@ -4,7 +4,6 @@ import path from 'path';
 // ─── Paths ────────────────────────────────────────────────
 const CONTENT_DIR = path.join(process.cwd(), 'data', 'content');
 const DRAFTS_DIR = path.join(process.cwd(), 'data', 'drafts');
-const UPLOADS_DIR = path.join(process.cwd(), 'public', 'uploads');
 
 function ensureDir(dir: string): void {
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });

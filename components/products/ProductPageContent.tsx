@@ -39,12 +39,9 @@ export function ProductPageContent({ product }: ProductPageContentProps) {
     features = [],
     specs = [],
     applications = [],
-    industries = [],
     industriesDescription = '',
     calloutNote = '',
-    ctas = [],
     images = { hero: null, product: null, gallery: [] },
-    phoneNumber = '+919898123983',
     ctaSection = {
       heading: `Interested in ${product.name}?`,
       subtext: 'Contact our technical team for detailed specifications, pricing, and samples.'

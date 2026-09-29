@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { Shield, Linkedin, Phone, Mail, MapPin } from 'lucide-react';
 import { socialLinks } from '@/config/social';
 
@@ -20,8 +21,6 @@ const footerLinks = {
     { label: 'Compliance',     href: '/compliance'     },
   ],
 };
-
-import { usePathname } from 'next/navigation';
 
 export function Footer() {
   const pathname = usePathname();

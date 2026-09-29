@@ -104,9 +104,6 @@ export function ProductsTab() {
         const updated = [snapshot, ...prev].slice(0, 5); // Max 5 versions
         return updated;
       });
-
-      // Notify parent/user subtly via toast in preview or small saving message
-      console.log('Autosaving draft snapshot at:', snapshot.timestamp);
     }, 12000);
 
     return () => {

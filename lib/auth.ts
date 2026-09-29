@@ -10,7 +10,7 @@ export interface SessionData {
   lastActivity?: number;
 }
 
-const defaultSession: SessionData = {
+export const defaultSession: SessionData = {
   isLoggedIn: false,
 };
 

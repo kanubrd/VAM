@@ -119,9 +119,6 @@ async function optimizeImage(
     // Load image with sharp
     let image = sharp(filePath);
     
-    // Get image metadata
-    const metadata = await image.metadata();
-    
     // Strip EXIF metadata (Requirement 25.3)
     image = image.rotate(); // Auto-rotate based on EXIF, then strip
     
@@ -230,7 +227,6 @@ async function optimizeImages(): Promise<void> {
   // Process each image
   for (let i = 0; i < imageFiles.length; i++) {
     const filePath = imageFiles[i];
-    const fileName = basename(filePath);
     const relPath = filePath.replace(PUBLIC_DIR, '');
     
     console.log(`[${i + 1}/${imageFiles.length}] Processing: ${relPath}`);

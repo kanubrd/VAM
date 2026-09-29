@@ -3,17 +3,10 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function POST(req: NextRequest) {
   try {
     const contentType = req.headers.get('content-type') || '';
-    let data: unknown;
-
     if (contentType.includes('application/json')) {
-      data = await req.json();
+      await req.json();
     } else {
-      const text = await req.text();
-      try {
-        data = JSON.parse(text);
-      } catch {
-        data = text;
-      }
+      await req.text();
     }
 
     // Acknowledge web vitals beacon

@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import {
   getQuoteSubmissions,
   getContactSubmissions,
@@ -11,7 +11,7 @@ async function checkAuth() {
   return session.isLoggedIn;
 }
 
-export async function GET(req: NextRequest) {
+export async function GET() {
   const authorized = await checkAuth();
   if (!authorized) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -87,7 +87,6 @@ function getTopProducts(quotes: any[]): { name: string; count: number }[] {
 }
 
 function generateTimeline(quotes: any[], contacts: any[], newsletter: any[]): any[] {
-  const last30Days = Date.now() - 30 * 24 * 60 * 60 * 1000;
   const timeline: Map<string, { date: string; quotes: number; contacts: number; newsletter: number }> = new Map();
 
   // Initialize last 30 days

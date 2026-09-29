@@ -50,7 +50,6 @@ interface IndustryPageContentProps {
 export function IndustryPageContent({ industry }: IndustryPageContentProps) {
   const {
     title,
-    tagColor,
     hero,
     overview,
     applications,

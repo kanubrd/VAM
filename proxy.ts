@@ -64,9 +64,6 @@ export async function proxy(request: NextRequest) {
   }
 
   const response = NextResponse.next();
-
-  // Additional security headers
-  const nonce = Buffer.from(crypto.randomUUID()).toString('base64');
   
   // Rate limiting detection - block suspicious patterns
   const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown';

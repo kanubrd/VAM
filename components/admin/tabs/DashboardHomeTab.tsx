@@ -1,12 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { 
   Plus, Search, ShieldCheck, ShieldAlert, 
   ArrowRight, CheckCircle, AlertTriangle, Layers, Briefcase, Settings
 } from 'lucide-react';
-import Link from 'next/link';
 
 interface DashboardHomeTabProps {
   username: string;

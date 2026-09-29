@@ -25,7 +25,7 @@ import {
   Clock,
   FileText
 } from 'lucide-react';
-import { Section, SectionTitle } from '@/components/ui/section';
+import { SectionTitle } from '@/components/ui/section';
 import { Reveal } from '@/components/animations/reveal';
 import { CertificationShowcase } from '@/components/sections/certification-showcase';
 

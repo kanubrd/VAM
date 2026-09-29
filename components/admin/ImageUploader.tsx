@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
-import { Upload, X, AlertTriangle, Image as ImageIcon, Plus } from 'lucide-react';
+import { Upload, X, AlertTriangle, Plus } from 'lucide-react';
 import Image from 'next/image';
 
 interface ImageUploaderProps {
