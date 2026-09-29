@@ -71,7 +71,7 @@ export function HomeIndustriesSection({ industries }: { industries: any[] }) {
                       {/* Image section */}
                       <div className="relative aspect-[3/2] overflow-hidden">
                         <Image
-                          src={industry.homeImage || industry.listingImage}
+                          src={industry.listingImage}
                           alt={`${industry.title} - Advanced Materials and Industrial Chemical Formulations by Valtrix Vadodara`}
                           fill
                           className="object-cover group-hover:scale-105 transition-transform duration-300"
