@@ -125,7 +125,7 @@
     "hero": { "image": "/surface-treatment-hero-new.png", "imageAlt": "Surface Treatment Technology", "imageObjectFit": "object-contain", "heroTagline": "SURFACE TREATMENT SOLUTIONS", "title": "Surface Treatment Technology", "subtitle": "Specialized chemistry for superior surface preparation, adhesion promotion, and protective coatings" },
     "overview": ["Surface Treatment is a manufacturing process used to improve the physical, chemical, and mechanical properties of a material's surface without significantly altering its core characteristics."],
     "applications": [
-      { "title": "Pre-Treatment Systems", "description": "Optimize surface preparation for painting, coating, and bonding applications with our advanced treatment chemistry.", "image": "/pre-treatment-systems.png", "icon": "Layers" },
+      { "title": "Pre-Treatment Systems", "description": "Optimize surface preparation for painting, coating, and bonding applications with our advanced treatment chemistry.", "image": "/pre-treatment-systems.webp", "icon": "Layers" },
       { "title": "Adhesion Promotion", "description": "Enhance bonding strength between dissimilar materials in composite and laminate applications.", "image": "/adhesion-promotion.png", "icon": "Droplet" },
       { "title": "Protective Coatings", "description": "Deliver long-lasting corrosion protection and surface durability for industrial components.", "image": "/protective-coatings.png", "icon": "Shield" }
     ],
