@@ -119,8 +119,6 @@ export function IndustriesContent({ industries }: IndustriesContentProps) {
                   <div
                     style={{
                       background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.45) 60%, transparent 100%)',
-                      backdropFilter: 'blur(2px)',
-                      WebkitBackdropFilter: 'blur(2px)',
                       padding: '32px',
                       borderRadius: '0 0 20px 20px',
                     }}
