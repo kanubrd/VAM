@@ -127,7 +127,7 @@
     "applications": [
       { "title": "Pre-Treatment Systems", "description": "Optimize surface preparation for painting, coating, and bonding applications with our advanced treatment chemistry.", "image": "/pre-treatment-systems.webp", "icon": "Layers" },
       { "title": "Adhesion Promotion", "description": "Enhance bonding strength between dissimilar materials in composite and laminate applications.", "image": "/adhesion-promotion.webp", "icon": "Droplet" },
-      { "title": "Protective Coatings", "description": "Deliver long-lasting corrosion protection and surface durability for industrial components.", "image": "/protective-coatings.png", "icon": "Shield" }
+      { "title": "Protective Coatings", "description": "Deliver long-lasting corrosion protection and surface durability for industrial components.", "image": "/protective-coatings.webp", "icon": "Shield" }
     ],
     "applicationsSectionSubtitle": "Comprehensive surface treatment solutions for diverse industrial needs",
     "segments": [
