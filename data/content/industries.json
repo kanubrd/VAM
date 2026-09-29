@@ -92,7 +92,7 @@
     "overview": ["Electroplating and Brighteners are essential components of modern surface engineering, widely used in the automotive, electronics, aerospace, construction, and consumer goods industries."],
     "applications": [
       { "title": "Decorative Plating", "description": "Achieve brilliant, mirror-like finishes for automotive, hardware, and consumer products.", "image": "/decorative-plating.webp", "icon": "Sparkles" },
-      { "title": "Functional Coatings", "description": "Enhance corrosion resistance, wear resistance, and electrical conductivity for industrial components.", "image": "/functional-coatings.png", "icon": "Layers" },
+      { "title": "Functional Coatings", "description": "Enhance corrosion resistance, wear resistance, and electrical conductivity for industrial components.", "image": "/functional-coatings.webp", "icon": "Layers" },
       { "title": "Electronics Manufacturing", "description": "Precision plating solutions for PCBs, connectors, and semiconductor packaging.", "image": "/electronics-manufacturing.png", "icon": "Beaker" }
     ],
     "applicationsSectionSubtitle": "Our electroplating solutions serve diverse industries and applications",
