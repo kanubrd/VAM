@@ -123,30 +123,26 @@ export function IndustriesContent({ industries }: IndustriesContentProps) {
                       borderRadius: '0 0 20px 20px',
                     }}
                   >
-                    <h3
-                      className="text-2xl sm:text-3xl font-extrabold text-white mb-3 leading-tight"
-                      style={{
-                        textShadow: '0 2px 8px rgba(0,0,0,0.6), 0 1px 3px rgba(0,0,0,0.4)',
-                        letterSpacing: '0.01em',
-                      }}
-                    >
-                      {industry.title}
-                    </h3>
-                    <p
-                      className="text-base text-white leading-relaxed mb-4 font-medium"
-                      style={{
-                        textShadow: '0 1px 6px rgba(0,0,0,0.5)',
-                        lineHeight: '1.7',
-                      }}
-                    >
-                      {industry.description}
-                    </p>
+                    <div className="flex items-center justify-between gap-4">
+                      <h3
+                        className="text-2xl sm:text-3xl font-extrabold text-white leading-tight"
+                        style={{
+                          textShadow: '0 2px 8px rgba(0,0,0,0.6), 0 1px 3px rgba(0,0,0,0.4)',
+                          letterSpacing: '0.01em',
+                        }}
+                      >
+                        <Link
+                          href={`/industries/${industry.slug}`}
+                          className="hover:text-teal-300 transition-colors"
+                        >
+                          {industry.title}
+                        </Link>
+                      </h3>
 
-                    {/* Arrow Icon - Clickable Link */}
-                    <div className="flex items-center justify-end">
+                      {/* Arrow Icon - Clickable Link */}
                       <Link
                         href={`/industries/${industry.slug}`}
-                        className="w-12 h-12 rounded-full bg-[#17A2B8] flex items-center justify-center cursor-pointer hover:bg-[#0D7A8C] transition-colors"
+                        className="shrink-0 w-12 h-12 rounded-full bg-[#17A2B8] flex items-center justify-center cursor-pointer hover:bg-[#0D7A8C] transition-colors shadow-lg"
                         aria-label={`View ${industry.title}`}
                       >
                         <ArrowRight className="w-6 h-6 text-white" />
