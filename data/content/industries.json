@@ -91,7 +91,7 @@
     "hero": { "image": "/electroplating-hero.png", "imageAlt": "Electroplating", "imageObjectFit": "object-contain", "heroTagline": "ELECTROPLATING SOLUTIONS", "title": "Electroplating & Brighteners", "subtitle": "Advanced specialty chemicals for superior surface finishing and electroplating applications" },
     "overview": ["Electroplating and Brighteners are essential components of modern surface engineering, widely used in the automotive, electronics, aerospace, construction, and consumer goods industries."],
     "applications": [
-      { "title": "Decorative Plating", "description": "Achieve brilliant, mirror-like finishes for automotive, hardware, and consumer products.", "image": "/decorative-plating.png", "icon": "Sparkles" },
+      { "title": "Decorative Plating", "description": "Achieve brilliant, mirror-like finishes for automotive, hardware, and consumer products.", "image": "/decorative-plating.webp", "icon": "Sparkles" },
       { "title": "Functional Coatings", "description": "Enhance corrosion resistance, wear resistance, and electrical conductivity for industrial components.", "image": "/functional-coatings.png", "icon": "Layers" },
       { "title": "Electronics Manufacturing", "description": "Precision plating solutions for PCBs, connectors, and semiconductor packaging.", "image": "/electronics-manufacturing.png", "icon": "Beaker" }
     ],
