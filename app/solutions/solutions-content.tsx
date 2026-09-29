@@ -8,7 +8,6 @@ import Link from 'next/link';
 import { 
   ArrowRight, 
   CheckCircle, 
-  CheckCircle2,
   ChevronLeft, 
   ChevronRight, 
   FlaskConical, 
@@ -18,12 +17,8 @@ import {
   Settings,
   Layers,
   Zap,
-  HelpCircle,
-  Activity,
   Award,
-  Building2,
-  MapPin,
-  TrendingUp
+  Building2
 } from 'lucide-react';
 import { Section, SectionTitle } from '@/components/ui/section';
 

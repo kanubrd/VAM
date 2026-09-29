@@ -1,13 +1,12 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Send, AlertTriangle, Search, Home, Briefcase, Settings, Layers, FileText } from 'lucide-react';
+import { ArrowLeft, Send, AlertTriangle, Search, Home, Briefcase, Layers, FileText } from 'lucide-react';
 import { Section } from '@/components/ui/section';
 
 export default function NotFound() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [mounted, setMounted] = useState(false);
 
   // Pre-selected search links to guide lost users
   const linksList = [
@@ -18,18 +17,10 @@ export default function NotFound() {
     { title: 'Sourcing & Contact Support', href: '/contact', description: 'Inquire about bulk chemicals supply and quotes.', icon: Send },
   ];
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   const filteredLinks = linksList.filter(link => 
     link.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
     link.description.toLowerCase().includes(searchQuery.toLowerCase())
   );
-
-  if (!mounted) {
-    return <div className="min-h-screen bg-[#0F172A]" />;
-  }
 
   return (
     <div className="min-h-screen bg-[#0F172A] relative flex items-center justify-center py-20 px-4 overflow-hidden">

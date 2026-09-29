@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 import { articlesList } from '@/data/articles';
-import { getIndustries, getProducts, getSolutions } from '@/lib/content-utils';
+import { getIndustries, getProducts } from '@/lib/content-utils';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.valtrixmaterials.com';
@@ -36,14 +36,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFreq: 'monthly' as const
   }));
 
-  // Dynamic Solution dynamic query pre-fetches (if needed)
-  const solutions = getSolutions();
-  const solutionRoutes = solutions.map(sol => ({
-    route: `/solutions?product=${sol.id}`,
-    priority: 0.8,
-    changeFreq: 'weekly' as const
-  }));
-
   // Dynamic Blog article pages
   const articleRoutes = articlesList.map(art => ({
     route: `/resources/${art.slug}`,
@@ -55,7 +47,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...staticRoutes, 
     ...industryRoutes, 
     ...productRoutes, 
-    ...solutionRoutes, 
     ...articleRoutes
   ];
 

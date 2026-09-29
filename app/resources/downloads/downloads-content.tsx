@@ -3,10 +3,10 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { Section, SectionTitle } from '@/components/ui/section';
+import { Section } from '@/components/ui/section';
 import { Reveal } from '@/components/animations/reveal';
 import { FileText, Download, Search, AlertCircle } from 'lucide-react';
-import { documentsList, DocumentItem } from '@/data/documents';
+import { documentsList } from '@/data/documents';
 import { trackEvent } from '@/lib/gtag';
 
 export function DownloadsContent() {

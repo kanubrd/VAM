@@ -1,12 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Reveal } from '@/components/animations/reveal';
 import Image from 'next/image';
 import Link from 'next/link';
 import { 
-  ArrowLeft, 
   CheckCircle, 
   Car, 
   Wrench, 

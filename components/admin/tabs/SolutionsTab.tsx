@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Trash2, Save, Sparkles, Loader2, Check, ArrowRight, CornerDownRight, Eye, Monitor, Tablet, Smartphone, FlaskConical, ShieldCheck, RefreshCw } from 'lucide-react';
+import { Plus, Trash2, Save, Sparkles, Loader2, Check, Eye, Monitor, Tablet, Smartphone, FlaskConical, ShieldCheck, RefreshCw } from 'lucide-react';
 import { ImageUploader } from '../ImageUploader';
 import { Solution } from '@/lib/content-utils';
 

@@ -2,8 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { 
-  ShieldCheck, ShieldAlert, Shield, RefreshCw, AlertTriangle, 
-  HelpCircle, Settings, FileText, ArrowRight, CornerDownRight, Check
+  ShieldCheck, ShieldAlert, RefreshCw, CornerDownRight, Check
 } from 'lucide-react';
 
 export function HealthTab() {

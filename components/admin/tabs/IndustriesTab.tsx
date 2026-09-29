@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Plus, Trash2, Save, Loader2, Check, ArrowRight, ArrowLeft, 
-  Settings, Link2, Eye, ShieldAlert, RotateCcw, Lock, Unlock, Smartphone, Tablet, Monitor, Briefcase, FileText
+  Eye, ShieldAlert, RotateCcw, Lock, Unlock, Smartphone, Tablet, Monitor
 } from 'lucide-react';
 import { ImageUploader } from '../ImageUploader';
 import { Industry } from '@/lib/content-utils';

@@ -19,7 +19,6 @@ import {
   Activity,
   Sparkles,
   Award,
-  CircleHelp,
   MapPin,
   Phone,
   Mail,

@@ -6,16 +6,15 @@ import { Reveal } from '@/components/animations/reveal';
 import Image from 'next/image';
 import Link from 'next/link';
 import { 
-  ChevronRight, 
+  ChevronRight,
+  ChevronRight as ChevronRightIcon, 
   ArrowRight, 
   CheckCircle, 
   FileText, 
   ArrowLeft, 
   Check, 
   Mail, 
-  Phone, 
   ChevronLeft, 
-  ChevronRight as ChevronRightIcon,
   ChevronDown,
   CircleHelp
 } from 'lucide-react';

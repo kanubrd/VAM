@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, Calendar, Tag, FileText } from 'lucide-react';
-import { Section, SectionTitle } from '@/components/ui/section';
+import { Section } from '@/components/ui/section';
 import { Reveal } from '@/components/animations/reveal';
 import { articlesList } from '@/data/articles';
 

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Section, SectionTitle } from '@/components/ui/section';
+import { Section } from '@/components/ui/section';
 import { Reveal } from '@/components/animations/reveal';
 
 export default function PrivacyPolicyPage() {

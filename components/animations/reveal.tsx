@@ -1,7 +1,6 @@
 'use client';
 
 import { motion, Variants } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { 
   slideUpVariants, 
@@ -9,11 +8,10 @@ import {
   slideLeftVariants, 
   slideRightVariants, 
   fadeInVariants,
-  springTransition,
   STAGGER_DELAY,
   REDUCED_MOTION_CONFIG,
 } from '@/lib/animation-config';
-import { Children, isValidElement } from 'react';
+import { Children } from 'react';
 
 interface RevealProps {
   children: React.ReactNode;
