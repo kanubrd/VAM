@@ -10,11 +10,13 @@ interface QuoteModalProps {
   onClose: () => void;
   prefilledProducts?: string[];
   mode?: 'quote' | 'sample';
+  initialMode?: 'quote' | 'sample';
 }
 
 const products = ['SusCat-I', 'SusPol-125', 'VAMShield-90', 'VAM BS-01', 'VAM Cat-M (Rust Converter)'];
 
-export function QuoteModal({ isOpen, onClose, prefilledProducts = [], mode = 'quote' }: QuoteModalProps) {
+export function QuoteModal({ isOpen, onClose, prefilledProducts = [], mode = 'quote', initialMode }: QuoteModalProps) {
+  const effectiveMode = initialMode || mode;
   const [quoteName, setQuoteName] = useState('');
   const [quoteCompany, setQuoteCompany] = useState('');
   const [quoteEmail, setQuoteEmail] = useState('');
@@ -95,7 +97,7 @@ export function QuoteModal({ isOpen, onClose, prefilledProducts = [], mode = 'qu
     }
   };
 
-  const titleText = mode === 'sample' 
+  const titleText = effectiveMode === 'sample' 
     ? 'Request a Product Sample' 
     : 'Get Started with VAM VALTRIX';
 
@@ -107,7 +109,7 @@ export function QuoteModal({ isOpen, onClose, prefilledProducts = [], mode = 'qu
             <CheckCircle className="w-12 h-12 text-[#17A2B8] mx-auto mb-3" />
             <p className="font-semibold text-lg text-[#2C3E50]">Request Received!</p>
             <p className="text-sm text-[#6B7280] mt-1 max-w-[80%] mx-auto leading-relaxed">
-              {mode === 'sample' 
+              {effectiveMode === 'sample' 
                 ? 'Your product sample request has been registered. A specialist will coordinate dispatch details within 24 hours.'
                 : 'A technical materials specialist will follow up with your customized quote within 24 hours.'}
             </p>
@@ -260,7 +262,7 @@ export function QuoteModal({ isOpen, onClose, prefilledProducts = [], mode = 'qu
                     </svg>
                     Processing...
                   </span>
-                ) : mode === 'sample' ? (
+                ) : effectiveMode === 'sample' ? (
                   'Request Sample →'
                 ) : (
                   'Get My Quote →'

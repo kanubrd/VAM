@@ -9,16 +9,16 @@ import { socialLinks } from '@/config/social';
 
 const footerLinks = {
   Company: [
-    { label: 'About Us',             href: '/about'                },
-    { label: 'Solutions',            href: '/solutions'            },
+    { label: 'About Us', href: '/about' },
+    { label: 'Solutions', href: '/solutions' },
     { label: 'Industrial Additives', href: '/industrial-additives' },
-    { label: 'Industries',           href: '/industries'           },
+    { label: 'Industries', href: '/industries' },
   ],
   Legal: [
     { label: 'Privacy Policy', href: '/privacy-policy' },
-    { label: 'Terms of Use',   href: '/terms-of-use'   },
-    { label: 'Cookies',        href: '/cookies'        },
-    { label: 'Compliance',     href: '/compliance'     },
+    { label: 'Terms of Use', href: '/terms-of-use' },
+    { label: 'Cookies', href: '/cookies' },
+    { label: 'Compliance', href: '/compliance' },
   ],
 };
 
@@ -57,14 +57,14 @@ export function Footer() {
     setStatus('loading');
     try {
       const controller = new AbortController();
-      const timeoutId  = setTimeout(() => controller.abort(), 10_000);
+      const timeoutId = setTimeout(() => controller.abort(), 10_000);
 
       const res = await fetch('/api/newsletter', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: trimmed, _hp: honeypot }),
-          signal: controller.signal,
-        });
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: trimmed, _hp: honeypot }),
+        signal: controller.signal,
+      });
       clearTimeout(timeoutId);
 
       if (!res.ok) {
@@ -135,8 +135,8 @@ export function Footer() {
               </button>
             </form>
             {message && (
-              <p 
-                id="newsletter-error" 
+              <p
+                id="newsletter-error"
                 role={status === 'error' ? 'alert' : 'status'}
                 className={`text-xs mt-2 ${status === 'success' ? 'text-teal-400' : 'text-red-400'}`}
               >
@@ -203,60 +203,60 @@ export function Footer() {
       <div className="bg-[#2C3E50]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10">
-          {/* Brand column */}
-          <div className="sm:col-span-2">
-            <Link href="/" className="inline-block mb-5 bg-white py-3 px-4 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-              <Image 
-                src="/valtrix-logo.png" 
-                alt="Valtrix Advance Material - ISO 9001:2024 Industrial Chemicals and Additives Vadodara" 
-                width={160} 
-                height={58} 
-                priority={false} 
-                quality={100}
-                className="w-auto h-auto object-contain" 
-                style={{ 
-                  height: '48px', 
-                  width: 'auto', 
-                  transition: 'all 0.3s ease',
-                }} 
-              />
-            </Link>
-            <p className="text-sm text-gray-400 leading-relaxed mb-5 max-w-xs">
-              Valtrix Advance Material Pvt. Ltd. — 318, Fortune Gateway, Chhani, Vadodara - 390024.
-            </p>
-            <div className="space-y-2 text-sm text-gray-400">
-              <div className="flex items-center gap-2">
-                <Phone size={14} className="text-[#17A2B8] shrink-0" />
-                <a href="tel:+919898123983" className="hover:text-white transition-colors">+91 98981 23983</a>
-              </div>
-              <div className="flex items-center gap-2">
-                <Mail size={14} className="text-[#17A2B8] shrink-0" />
-                <a href="mailto:info@valtrixmaterials.com" className="hover:text-white transition-colors break-all">info@valtrixmaterials.com</a>
-              </div>
-              <div className="flex items-center gap-2">
-                <MapPin size={14} className="text-[#17A2B8] shrink-0" />
-                <span>Vadodara, Gujarat, India</span>
+            {/* Brand column */}
+            <div className="sm:col-span-2">
+              <Link href="/" className="inline-block mb-5 bg-white py-3 px-4 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                <Image
+                  src="/valtrix-logo.png"
+                  alt="Valtrix Advance Material - ISO 9001:2024 Industrial Chemicals and Additives Vadodara"
+                  width={160}
+                  height={58}
+                  priority={false}
+                  quality={100}
+                  className="w-auto h-auto object-contain"
+                  style={{
+                    height: '48px',
+                    width: 'auto',
+                    transition: 'all 0.3s ease',
+                  }}
+                />
+              </Link>
+              <p className="text-sm text-gray-400 leading-relaxed mb-5 max-w-xs">
+                Valtrix Advance Material Pvt. Ltd. — 318, Fortune Gateway, Chhani, Vadodara - 390024.
+              </p>
+              <div className="space-y-2 text-sm text-gray-400">
+                <div className="flex items-center gap-2">
+                  <Phone size={14} className="text-[#17A2B8] shrink-0" />
+                  <a href="tel:+919898123983" className="hover:text-white transition-colors">+91 98981 23983</a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Mail size={14} className="text-[#17A2B8] shrink-0" />
+                  <a href="mailto:info@valtrixmaterials.com" className="hover:text-white transition-colors break-all">info@valtrixmaterials.com</a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <MapPin size={14} className="text-[#17A2B8] shrink-0" />
+                  <span>Vadodara, Gujarat, India</span>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Link columns */}
-          {Object.entries(footerLinks).map(([category, links]) => (
-            <div key={category}>
-              <h4 className="mb-3 sm:mb-4 text-sm font-semibold text-white uppercase tracking-wider">{category}</h4>
-              <ul className="space-y-2 sm:space-y-2.5">
-                {links.map((link) => (
-                  <li key={link.label}>
-                    <Link href={link.href} className="text-sm text-gray-400 hover:text-[#17A2B8] transition-colors inline-block py-0.5">
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+            {/* Link columns */}
+            {Object.entries(footerLinks).map(([category, links]) => (
+              <div key={category}>
+                <h4 className="mb-3 sm:mb-4 text-sm font-semibold text-white uppercase tracking-wider">{category}</h4>
+                <ul className="space-y-2 sm:space-y-2.5">
+                  {links.map((link) => (
+                    <li key={link.label}>
+                      <Link href={link.href} className="text-sm text-gray-400 hover:text-[#17A2B8] transition-colors inline-block py-0.5">
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
       </div>
 
       {/* Bottom bar */}
@@ -267,8 +267,8 @@ export function Footer() {
           </p>
           <div className="flex gap-3">
             {[
-              { icon: Shield,    label: 'Admin Portal', href: '/admin/dashboard', isExternal: false },
-              { icon: Linkedin,  label: 'LinkedIn',  href: socialLinks.linkedin, isExternal: true },
+              { icon: Shield, label: 'Admin Portal', href: '/admin/dashboard', isExternal: false },
+              { icon: Linkedin, label: 'LinkedIn', href: socialLinks.linkedin, isExternal: true },
             ].map(({ icon: Icon, label, href, isExternal }) => {
               if (isExternal) {
                 return (

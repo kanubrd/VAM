@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, FileText, FlaskConical } from 'lucide-react';
 
 // Dynamically import modals (loaded on first interaction)
 const QuoteModal = dynamic(() => import('@/components/modals/quote-modal').then((mod) => ({ default: mod.QuoteModal })), {
@@ -15,7 +15,7 @@ const QuoteModal = dynamic(() => import('@/components/modals/quote-modal').then(
 
 export function HeroSection() {
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
-  const [mounted,     setMounted]     = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => { setMounted(true); }, []);
 
@@ -86,8 +86,8 @@ export function HeroSection() {
                 letterSpacing: '-0.02em',
               }}
             >
-              Valtrix — Creating Novel Materials & Additives to{' '}
-              <span style={{ color: '#17A2B8' }}>Enhance Material Life.</span>
+              Custom Additive Packages &amp; Metalworking Fluids —{' '}
+              <span style={{ color: '#17A2B8' }}>Engineered in Vadodara</span>
             </motion.h1>
 
             {/* Right: description + CTAs */}
@@ -97,7 +97,7 @@ export function HeroSection() {
               transition={{ duration: 0.65, delay: 0.65 }}
             >
               <p className="text-base sm:text-lg text-[#6B7280] leading-relaxed mb-6">
-                Valtrix engineers custom industrial additive packages, high-lubricity metalworking fluids, and corrosion-resistant surface treatments in Vadodara to extend machinery life and prevent unplanned downtime.
+                Valtrix engineers custom industrial additive packages, high-lubricity metalworking fluids, and corrosion-resistant surface treatments in Vadodara to extend machinery life and eliminate unplanned downtime.
               </p>
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                 <motion.button
@@ -109,14 +109,16 @@ export function HeroSection() {
                   onMouseEnter={e => (e.currentTarget.style.background = '#0D7A8C')}
                   onMouseLeave={e => (e.currentTarget.style.background = '#17A2B8')}
                 >
-                  <span>Request a Quote Now</span>
+                  <FlaskConical size={18} />
+                  <span>Request a Sample</span>
                   <ArrowRight size={18} />
                 </motion.button>
                 <Link
-                  href="/solutions"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 font-bold text-[#2C3E50] bg-[#F8FAFB] hover:bg-[#E6F7FA] border border-gray-200 hover:border-[#17A2B8]/40 rounded-xl text-base tracking-wide transition-all min-h-[56px] text-center"
+                  href="/resources/downloads"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-4 font-bold text-[#2C3E50] bg-[#F8FAFB] hover:bg-[#E6F7FA] border border-gray-200 hover:border-[#17A2B8]/40 rounded-xl text-base tracking-wide transition-all min-h-[56px] text-center"
                 >
-                  Explore Solutions
+                  <FileText size={18} className="text-[#17A2B8]" />
+                  <span>Download Capability Statement</span>
                 </Link>
               </div>
             </motion.div>
@@ -127,7 +129,7 @@ export function HeroSection() {
       </section>
 
       {/* ── Quote Modal (dynamically loaded) ── */}
-      {mounted && <QuoteModal isOpen={isQuoteOpen} onClose={() => setIsQuoteOpen(false)} />}
+      {mounted && <QuoteModal isOpen={isQuoteOpen} onClose={() => setIsQuoteOpen(false)} initialMode="sample" />}
     </>
   );
 }

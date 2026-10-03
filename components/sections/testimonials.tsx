@@ -33,9 +33,9 @@ const threatCards = [
 ];
 
 const tagColors: Record<string, { bg: string; text: string }> = {
-  'ASSET DEGRADATION':  { bg: 'rgba(239, 68, 68, 0.1)', text: '#EF4444' },
+  'ASSET DEGRADATION': { bg: 'rgba(239, 68, 68, 0.1)', text: '#EF4444' },
   'FINANCIAL IMPACT': { bg: 'rgba(245, 158, 11, 0.1)', text: '#D97706' },
-  'MATERIAL SCIENCE': { bg: 'rgba(23, 162, 184, 0.1)',  text: '#17A2B8' },
+  'MATERIAL SCIENCE': { bg: 'rgba(23, 162, 184, 0.1)', text: '#17A2B8' },
 };
 
 export function TestimonialsSection() {
@@ -107,8 +107,8 @@ export function TestimonialsSection() {
                       <div className="absolute top-4 left-4">
                         <span
                           className="text-[9px] font-bold tracking-[2px] uppercase px-2.5 py-1.5"
-                          style={{ 
-                            background: colors.bg, 
+                          style={{
+                            background: colors.bg,
                             color: colors.text,
                             borderRadius: '4px',
                           }}

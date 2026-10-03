@@ -10,7 +10,7 @@ export function HomeIndustriesSection({ industries }: { industries: any[] }) {
   return (
     <section className="py-20 md:py-28 bg-white border-t border-gray-150">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16">
-        
+
         {/* Section label & heading */}
         <div className="mb-16">
           <Reveal>
@@ -21,7 +21,7 @@ export function HomeIndustriesSection({ industries }: { industries: any[] }) {
               </span>
             </div>
           </Reveal>
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-end">
             <Reveal>
               <h2

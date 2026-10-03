@@ -7,19 +7,19 @@ import { Reveal } from '@/components/animations/reveal';
 const trustBadges = [
   {
     icon: Award,
-    title: 'ISO 9001:2024',
+    title: 'ISO 9001:2015',
     subtitle: 'Quality Management Certified',
     description: 'Certified batch-to-batch consistency and rigorous quality control protocols.',
   },
   {
     icon: FlaskConical,
-    title: 'ASTM Standard Validated',
+    title: 'ASTM-Tested Formulations',
     subtitle: 'ASTM D2783 & ASTM B117',
     description: 'Third-party validated 4-Ball EP load capacity and >1,000h salt spray resistance.',
   },
   {
     icon: ShieldCheck,
-    title: 'RoHS & REACH Compliant',
+    title: 'RoHS / REACH Compliant',
     subtitle: 'Zero SVHC Formulations',
     description: 'Environmentally compliant chemistry meeting European and North American industrial standards.',
   },

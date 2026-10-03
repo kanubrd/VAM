@@ -11,11 +11,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import industriesDataJson from '@/data/content/industries.json';
 
 const navItems = [
-  { label: 'Home',       href: '/' },
-  { label: 'Industries', href: '/industries' },
-  { label: 'Solutions',  href: '/solutions' },
-  { label: 'About',      href: '/about' },
-  { label: 'Contact',    href: '/contact' },
+  { label: 'Products',                  href: '/solutions' },
+  { label: 'Industries',                href: '/industries' },
+  { label: 'Quality & Certifications',  href: '/compliance' },
+  { label: 'About',                     href: '/about' },
+  { label: 'Contact',                   href: '/contact' },
 ];
 
 export function Navbar() {
@@ -308,7 +308,7 @@ export function Navbar() {
               whileTap={{ scale: 0.98 }}
             >
               <Link
-                href="/contact"
+                href="/contact?subject=Request+a+Sample"
                 className="text-sm font-semibold text-white transition-all duration-200 block shadow-sm hover:shadow"
                 style={{
                   background: '#17A2B8',
@@ -319,7 +319,7 @@ export function Navbar() {
                 onMouseEnter={e => ((e.currentTarget as HTMLElement).style.background = '#0D7A8C')}
                 onMouseLeave={e => ((e.currentTarget as HTMLElement).style.background = '#17A2B8')}
               >
-                Request a Quote Now
+                Request a Sample
               </Link>
             </motion.div>
           </div>
@@ -411,7 +411,7 @@ export function Navbar() {
           })}
           <div className="pt-3 border-t border-gray-100">
             <Link
-              href="/contact"
+              href="/contact?subject=Request+a+Sample"
               className="flex items-center justify-center px-4 py-3 text-sm font-semibold text-white min-h-[48px] transition-colors shadow-sm"
               style={{ 
                 background: '#17A2B8',
@@ -419,7 +419,7 @@ export function Navbar() {
               }}
               onClick={() => setMobileMenuOpen(false)}
             >
-              Request a Quote Now
+              Request a Sample
             </Link>
           </div>
         </div>
