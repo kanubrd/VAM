@@ -2,10 +2,9 @@
 
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
-import { ArrowRight, FileText, FlaskConical } from 'lucide-react';
+import { ArrowRight, FlaskConical } from 'lucide-react';
 
 // Dynamically import modals (loaded on first interaction)
 const QuoteModal = dynamic(() => import('@/components/modals/quote-modal').then((mod) => ({ default: mod.QuoteModal })), {
@@ -113,13 +112,6 @@ export function HeroSection() {
                   <span>Request a Sample</span>
                   <ArrowRight size={18} />
                 </motion.button>
-                <Link
-                  href="/resources/downloads"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-4 font-bold text-[#2C3E50] bg-[#F8FAFB] hover:bg-[#E6F7FA] border border-gray-200 hover:border-[#17A2B8]/40 rounded-xl text-base tracking-wide transition-all min-h-[56px] text-center"
-                >
-                  <FileText size={18} className="text-[#17A2B8]" />
-                  <span>Download Capability Statement</span>
-                </Link>
               </div>
             </motion.div>
           </div>
