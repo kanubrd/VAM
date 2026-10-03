@@ -102,6 +102,11 @@
     overflow-x: hidden;
   }
 
+  /* Optimize all sections for scroll performance */
+  main {
+    contain: layout style;
+  }
+
   /* Accessible focus indicators for keyboard navigation */
   :focus:not(:focus-visible) {
     outline: none;
@@ -112,16 +117,16 @@
     outline-offset: 2px !important;
   }
 
-  /* Smooth image rendering */
+  /* Smooth image rendering without creating unnecessary GPU compositing layers */
   img, video {
     max-width: 100%;
     height: auto;
     display: block;
   }
 
-  /* Smooth transitions for interactive elements without layout thrash */
+  /* Smooth transitions for interactive elements without fighting Framer Motion transforms */
   a, button {
-    transition-property: color, background-color, border-color, box-shadow, opacity, transform;
+    transition-property: color, background-color, border-color, box-shadow, opacity;
     transition-duration: 200ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }

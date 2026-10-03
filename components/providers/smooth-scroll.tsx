@@ -11,13 +11,13 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
   useEffect(() => {
     // Ultra-smooth scroll configuration - butter-smooth experience
     const lenis = new Lenis({
-      duration: 1.0,
+      duration: 0.9,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
       wheelMultiplier: 1.0,
-      touchMultiplier: 1.0,
+      touchMultiplier: 1.5,
       infinite: false,
       autoResize: true,
     });
@@ -46,7 +46,7 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
           try {
             const element = document.querySelector(href);
             if (element) {
-              lenis.scrollTo(element as HTMLElement, { offset: -80, duration: 1.0, easing: (t: number) => 1 - Math.pow(1 - t, 4) });
+              lenis.scrollTo(element as HTMLElement, { offset: -80, duration: 1.2, easing: (t: number) => 1 - Math.pow(1 - t, 4) });
             }
           } catch {
             // Ignore non-standard selector syntax

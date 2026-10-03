@@ -21,23 +21,21 @@ export function StickyQuoteCTA() {
 
     let ticking = false;
     const handleScroll = () => {
-      const shouldShow = window.scrollY > 300;
-      setIsVisible((prev) => (prev !== shouldShow ? shouldShow : prev));
-      ticking = false;
-    };
-
-    const onScroll = () => {
       if (!ticking) {
-        requestAnimationFrame(handleScroll);
+        window.requestAnimationFrame(() => {
+          const shouldShow = window.scrollY > 300;
+          setIsVisible((prev) => (prev !== shouldShow ? shouldShow : prev));
+          ticking = false;
+        });
         ticking = true;
       }
     };
 
-    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true });
     // Run once on mount in case page is already scrolled down
     handleScroll();
 
-    return () => window.removeEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [isMatch]);
 
   if (!isMatch) return null;

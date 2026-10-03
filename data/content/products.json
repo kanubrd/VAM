@@ -32,7 +32,7 @@
       "gallery": [
         { "src": "/vam-rc-01-beaker.webp", "alt": "Rust Converter VAM RC 01 beaker sample formulation", "title": "Formulation Sample" },
         { "src": "/vam-rc-01-application.webp", "alt": "Rust Converter VAM RC 01 preventing corrosion on automotive parts", "title": "Automotive Part Application" },
-        { "src": "/vamshield-90-metal-cutting.png", "alt": "Rust Converter VAM RC 01 heavy industrial machinery treatment", "title": "Industrial Machinery" }
+        { "src": "/vamshield-90-metal-cutting.webp", "alt": "Rust Converter VAM RC 01 heavy industrial machinery treatment", "title": "Industrial Machinery" }
       ]
     },
     "seo": {
@@ -70,9 +70,9 @@
     ],
     "images": {
       "hero": "/images/solutions/polymers-composites.webp",
-      "product": "/suscat.png",
+      "product": "/suscat.webp",
       "gallery": [
-        { "src": "/suscat.png", "alt": "Polyurethane Building Blocks for high-performance industrial coatings", "title": "Chemical Structure & Batch" }
+        { "src": "/suscat.webp", "alt": "Polyurethane Building Blocks for high-performance industrial coatings", "title": "Chemical Structure & Batch" }
       ]
     },
     "seo": {
@@ -109,10 +109,10 @@
       { "label": "Browse Solutions", "href": "/solutions", "type": "secondary" }
     ],
     "images": {
-      "hero": "/images/solutions/coatings-chemicals.png",
-      "product": "/vamshield-90-product.png",
+      "hero": "/images/solutions/coatings-chemicals.webp",
+      "product": "/vamshield-90-product.webp",
       "gallery": [
-        { "src": "/vamshield-90-product.png", "alt": "High Build Coatings for aftermarket surface restoration and rust protection", "title": "Coating Finish" }
+        { "src": "/vamshield-90-product.webp", "alt": "High Build Coatings for aftermarket surface restoration and rust protection", "title": "Coating Finish" }
       ]
     },
     "seo": {
@@ -153,12 +153,12 @@
     ],
     "images": {
       "hero": null,
-      "product": "/vamshield-90-product.png",
+      "product": "/vamshield-90-product.webp",
       "gallery": [
-        { "src": "/vamshield-90-product.png", "alt": "VAMShield-90 corrosion inhibitor preventing sludge in heavy machinery", "title": "Product Sample" },
-        { "src": "/vamshield-90-product-2.png", "alt": "VAMShield-90 close-up formulation sample", "title": "Detailed View" },
-        { "src": "/vamshield-90-gear-machining.png", "alt": "Gear machining application with VAMShield-90 corrosion protection", "title": "Machining" },
-        { "src": "/vamshield-90-metal-cutting.png", "alt": "Metal cutting milling application using Valtrix coolant additive", "title": "Milling" }
+        { "src": "/vamshield-90-product.webp", "alt": "VAMShield-90 corrosion inhibitor preventing sludge in heavy machinery", "title": "Product Sample" },
+        { "src": "/vamshield-90-product-2.webp", "alt": "VAMShield-90 close-up formulation sample", "title": "Detailed View" },
+        { "src": "/vamshield-90-gear-machining.webp", "alt": "Gear machining application with VAMShield-90 corrosion protection", "title": "Machining" },
+        { "src": "/vamshield-90-metal-cutting.webp", "alt": "Metal cutting milling application using Valtrix coolant additive", "title": "Milling" }
       ]
     },
     "seo": {
@@ -196,9 +196,9 @@
     ],
     "images": { 
       "hero": null, 
-      "product": "/vamshield-90-product.png", 
+      "product": "/vamshield-90-product.webp", 
       "gallery": [
-        { "src": "/vamshield-90-product.png", "alt": "Corrosion Inhibitors packaged for industrial rust prevention", "title": "Inhibitor Sample" }
+        { "src": "/vamshield-90-product.webp", "alt": "Corrosion Inhibitors packaged for industrial rust prevention", "title": "Inhibitor Sample" }
       ] 
     },
     "seo": {
@@ -235,9 +235,9 @@
     ],
     "images": { 
       "hero": null, 
-      "product": "/suscat.png", 
+      "product": "/suscat.webp", 
       "gallery": [
-        { "src": "/suscat.png", "alt": "Electroplating Chemicals and brighteners for surface finishing", "title": "Brightener Solution" }
+        { "src": "/suscat.webp", "alt": "Electroplating Chemicals and brighteners for surface finishing", "title": "Brightener Solution" }
       ] 
     },
     "seo": {
@@ -274,9 +274,9 @@
     ],
     "images": { 
       "hero": null, 
-      "product": "/vamshield-90-gear-machining.png", 
+      "product": "/vamshield-90-gear-machining.webp", 
       "gallery": [
-        { "src": "/vamshield-90-gear-machining.png", "alt": "Industrial Metalworking Fluids in CNC gear machining", "title": "CNC Machining" }
+        { "src": "/vamshield-90-gear-machining.webp", "alt": "Industrial Metalworking Fluids in CNC gear machining", "title": "CNC Machining" }
       ] 
     },
     "seo": {

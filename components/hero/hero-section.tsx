@@ -129,7 +129,7 @@ export function HeroSection() {
       </section>
 
       {/* ── Quote Modal (dynamically loaded) ── */}
-      {mounted && <QuoteModal isOpen={isQuoteOpen} onClose={() => setIsQuoteOpen(false)} initialMode="sample" />}
+      {mounted && <QuoteModal isOpen={isQuoteOpen} onClose={() => setIsQuoteOpen(false)} mode="sample" />}
     </>
   );
 }

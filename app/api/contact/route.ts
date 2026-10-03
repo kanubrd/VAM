@@ -91,14 +91,6 @@ export async function POST(req: NextRequest) {
 
   // ── Send emails ────────────────────────────────────────────────────
   try {
-    console.log('📧 Attempting to send contact email...');
-    console.log('SMTP Config:', {
-      host: process.env.SMTP_HOST,
-      port: process.env.SMTP_PORT,
-      user: process.env.SMTP_USER,
-      hasPass: !!process.env.SMTP_PASS
-    });
-    
     // Send to company - this is the critical email
     await sendContactEmail({
       name: safeName,
