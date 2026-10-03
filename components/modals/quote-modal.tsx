@@ -14,8 +14,9 @@ interface QuoteModalProps {
 }
 
 const products = ['SusCat-I', 'SusPol-125', 'VAMShield-90', 'VAM BS-01', 'VAM Cat-M (Rust Converter)'];
+const EMPTY_PRODUCTS: string[] = [];
 
-export function QuoteModal({ isOpen, onClose, prefilledProducts = [], mode = 'quote', initialMode }: QuoteModalProps) {
+export function QuoteModal({ isOpen, onClose, prefilledProducts = EMPTY_PRODUCTS, mode = 'quote', initialMode }: QuoteModalProps) {
   const effectiveMode = initialMode || mode;
   const [quoteName, setQuoteName] = useState('');
   const [quoteCompany, setQuoteCompany] = useState('');
@@ -32,7 +33,7 @@ export function QuoteModal({ isOpen, onClose, prefilledProducts = [], mode = 'qu
       setQuoteStatus('idle');
       setErrors({});
     }
-  }, [isOpen, prefilledProducts]);
+  }, [isOpen]);
 
   const toggleProduct = (p: string) =>
     setSelectedProducts((prev) => (prev.includes(p) ? prev.filter((x) => x !== p) : [...prev, p]));

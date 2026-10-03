@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Script from 'next/script';
 import { motion } from 'framer-motion';
 import { Section, SectionTitle } from '@/components/ui/section';
@@ -10,11 +11,37 @@ import { validateContactForm, sanitiseString, getRecaptchaToken } from '@/lib/va
 import { trackEvent } from '@/lib/gtag';
 
 export function ContactContent() {
+  const searchParams = useSearchParams();
+  const subjectParam = searchParams.get('subject') || searchParams.get('ref') || '';
+  const productParam = searchParams.get('product') || '';
+
   const [formData, setFormData] = useState({ name: '', email: '', company: '', message: '' });
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [status,    setStatus]    = useState<'idle'|'loading'|'success'|'error'>('idle');
   const [errorMsg,  setErrorMsg]  = useState('');
   const [selectedSolutions, setSelectedSolutions] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (subjectParam) {
+      setFormData(prev => {
+        if (!prev.message) {
+          return {
+            ...prev,
+            message: subjectParam.toLowerCase().includes('sample')
+              ? 'Hello Valtrix Team,\n\nI would like to request product trial samples for evaluation in our facility. Please provide details on sample availability and dispatch.'
+              : `Inquiry regarding: ${subjectParam}`
+          };
+        }
+        return prev;
+      });
+    }
+  }, [subjectParam]);
+
+  useEffect(() => {
+    if (productParam && selectedSolutions.length === 0) {
+      setSelectedSolutions([productParam]);
+    }
+  }, [productParam, selectedSolutions.length]);
 
   // Honeypot — bots fill this, humans don't
   const [honeypot, setHoneypot] = useState('');
@@ -57,7 +84,7 @@ export function ContactContent() {
         body: JSON.stringify({
           name: sanitiseString(formData.name),
           email: formData.email.trim().toLowerCase(),
-          subject: formData.company ? `Inquiry from ${sanitiseString(formData.company)}` : 'General Inquiry',
+          subject: subjectParam ? sanitiseString(subjectParam) : (formData.company ? `Inquiry from ${sanitiseString(formData.company)}` : 'General Inquiry'),
           message: solutionsText + sanitiseString(formData.message),
           _hp: honeypot, // Honeypot field - bots fill this, humans don't
           recaptchaToken,
