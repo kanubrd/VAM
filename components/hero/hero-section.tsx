@@ -79,7 +79,7 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.65 }}
           >
-            <p className="text-base sm:text-lg text-[#6B7280] leading-relaxed mb-6">
+            <p className="text-base sm:text-lg text-[#6B7280] leading-relaxed mb-0">
               Valtrix engineers custom industrial additive packages, high-lubricity metalworking fluids, and corrosion-resistant surface treatments in Vadodara to extend machinery life and eliminate unplanned downtime.
             </p>
           </motion.div>
