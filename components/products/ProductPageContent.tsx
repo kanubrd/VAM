@@ -7,7 +7,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { 
   ChevronRight,
-  ChevronRight as ChevronRightIcon, 
   ArrowRight, 
   CheckCircle, 
   FileText, 
@@ -110,9 +109,9 @@ export function ProductPageContent({ product }: ProductPageContentProps) {
               {/* Breadcrumbs inside Hero */}
               <nav className="flex items-center gap-2 text-xs sm:text-sm text-gray-300 font-medium font-sans mb-4">
                 <Link href="/" className="hover:text-white transition-colors">Home</Link>
-                <ChevronRightIcon size={14} className="text-gray-400" />
+                <ChevronRight size={14} className="text-gray-400" />
                 <Link href="/solutions" className="hover:text-white transition-colors">Products</Link>
-                <ChevronRightIcon size={14} className="text-gray-400" />
+                <ChevronRight size={14} className="text-gray-400" />
                 <span className="text-white font-semibold">{name}</span>
               </nav>
 
@@ -216,7 +215,7 @@ export function ProductPageContent({ product }: ProductPageContentProps) {
                               onClick={nextSlide}
                               className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 shadow flex items-center justify-center text-gray-700 hover:bg-white hover:scale-105 transition-all"
                             >
-                              <ChevronRightIcon className="w-5 h-5" />
+                              <ChevronRight className="w-5 h-5" />
                             </button>
 
                             <div className="absolute bottom-4 right-4 flex gap-1.5">

@@ -102,11 +102,6 @@
     overflow-x: hidden;
   }
 
-  /* Optimize all sections for scroll performance */
-  main {
-    contain: layout style;
-  }
-
   /* Accessible focus indicators for keyboard navigation */
   :focus:not(:focus-visible) {
     outline: none;
@@ -122,8 +117,6 @@
     max-width: 100%;
     height: auto;
     display: block;
-    /* Prevent image jank during scroll */
-    transform: translate3d(0, 0, 0);
   }
 
   /* Smooth transitions for interactive elements without layout thrash */

@@ -95,8 +95,8 @@ export function Reveal({
   // Viewport configuration for framer-motion whileInView
   const viewportConfig = {
     once: once,
-    amount: 0.15, // 15% visibility to trigger
-    margin: '0px 0px -80px 0px',
+    amount: 0.1, // 10% visibility to trigger smoothly
+    margin: '0px 0px -40px 0px',
   };
 
   // Stagger mode

@@ -17,7 +17,7 @@ const threatCards = [
   {
     title: 'Economic Loss',
     description: 'Supply chain failures cost global manufacturers billions annually — from line stoppages, emergency sourcing premiums, and expedited freight.',
-    image: '/economic-loss-v2.png',
+    image: '/economic-loss-v2.webp',
     tag: 'FINANCIAL IMPACT',
     link: '/products/sustainable-polyols',
     alt: 'Industrial plant uptime monitoring and financial loss prevention through Valtrix advanced materials supply chain reliability',
@@ -25,7 +25,7 @@ const threatCards = [
   {
     title: 'Surface Degradation',
     description: 'Unprotected or improperly specified materials degrade rapidly in harsh environments, compounding maintenance costs and compliance risk.',
-    image: '/surface-degradation-v3.png',
+    image: '/surface-degradation-v3.webp',
     tag: 'MATERIAL SCIENCE',
     link: '/products/surface-treatments',
     alt: 'Industrial pipe flange corrosion and rust inspection prevented by Valtrix corrosion inhibitors and surface treatments',

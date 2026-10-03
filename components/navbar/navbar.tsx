@@ -1,12 +1,11 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Phone, Mail } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { useScrollProgress } from '@/hooks/useScrollProgress';
 import { motion, AnimatePresence } from 'framer-motion';
 import industriesDataJson from '@/data/content/industries.json';
 
@@ -19,25 +18,43 @@ const navItems = [
 ];
 
 export function Navbar() {
-  const [scrollY, setScrollY]               = useState(0);
+  const progressBarRef                      = useRef<HTMLDivElement>(null);
+  const [isScrolled, setIsScrolled]         = useState(false);
+  const [isOverVideo, setIsOverVideo]       = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mounted, setMounted]               = useState(false);
   const [industriesHovered, setIndustriesHovered] = useState(false);
-  const scrollProgress                       = useScrollProgress();
   const pathname                             = usePathname();
   const isHomePage                           = pathname === '/';
 
   useEffect(() => {
     setMounted(true);
-    const onScroll = () => setScrollY(window.scrollY);
-    onScroll();
+    let ticking = false;
+    const updateScroll = () => {
+      const y = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? y / docHeight : 0;
+      if (progressBarRef.current) {
+        progressBarRef.current.style.transform = `scaleX(${progress})`;
+      }
+      const scrolled = y > 20;
+      const overVideo = isHomePage ? y < 540 : false;
+      setIsScrolled(prev => (prev !== scrolled ? scrolled : prev));
+      setIsOverVideo(prev => (prev !== overVideo ? overVideo : prev));
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(updateScroll);
+        ticking = true;
+      }
+    };
+
+    updateScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  const isScrolled = mounted ? scrollY > 20 : false;
-  // Over the video hero section on the homepage
-  const isOverVideo = isHomePage && (mounted ? scrollY < 540 : true);
+  }, [isHomePage]);
 
   useEffect(() => { setMobileMenuOpen(false); }, [pathname]);
 
@@ -348,14 +365,17 @@ export function Navbar() {
 
         {/* Scroll progress bar */}
         <div
+          ref={progressBarRef}
           style={{
             position: 'absolute',
             bottom: 0,
             left: 0,
+            right: 0,
             height: 3,
             background: 'linear-gradient(90deg, #17A2B8 0%, #0D7A8C 100%)',
-            width: `${scrollProgress}%`,
-            transition: 'width 150ms linear',
+            transformOrigin: 'left',
+            transform: 'scaleX(0)',
+            willChange: 'transform',
             boxShadow: '0 0 8px rgba(23,162,184,0.5)',
           }}
         />

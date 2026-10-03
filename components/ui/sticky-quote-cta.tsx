@@ -19,19 +19,25 @@ export function StickyQuoteCTA() {
       return;
     }
 
+    let ticking = false;
     const handleScroll = () => {
-      if (window.scrollY > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
+      const shouldShow = window.scrollY > 300;
+      setIsVisible((prev) => (prev !== shouldShow ? shouldShow : prev));
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(handleScroll);
+        ticking = true;
       }
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', onScroll, { passive: true });
     // Run once on mount in case page is already scrolled down
     handleScroll();
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, [isMatch]);
 
   if (!isMatch) return null;

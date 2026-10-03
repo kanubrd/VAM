@@ -7,7 +7,6 @@ import { Section, SectionTitle } from '@/components/ui/section';
 import { Reveal } from '@/components/animations/reveal';
 import { Mail, Phone, MapPin, Clock, ShieldCheck, CheckCircle2, ArrowRight, ExternalLink } from 'lucide-react';
 import { validateContactForm, sanitiseString, getRecaptchaToken } from '@/lib/validation';
-
 import { trackEvent } from '@/lib/gtag';
 
 export function ContactContent() {
