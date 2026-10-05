@@ -53,7 +53,6 @@ export async function GET() {
       '/contact',
       '/solutions',
       '/resources',
-      '/compliance',
       '/cookies',
       '/privacy-policy',
       '/terms-of-use',

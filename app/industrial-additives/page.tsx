@@ -484,7 +484,7 @@ export default function IndustrialAdditivesPage() {
                 </p>
               </div>
               <Link
-                href="/compliance"
+                href="/resources/downloads"
                 className="mt-4 text-xs font-bold text-[#17A2B8] hover:underline inline-flex items-center gap-1"
               >
                 Download ASTM D2783 &amp; ISO 9001:2024 Datasheets <ChevronRight size={13} />

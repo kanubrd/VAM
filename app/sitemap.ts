@@ -15,7 +15,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { route: '/privacy-policy', priority: 0.3, changeFreq: 'yearly' as const },
     { route: '/terms-of-use', priority: 0.3, changeFreq: 'yearly' as const },
     { route: '/cookies', priority: 0.3, changeFreq: 'yearly' as const },
-    { route: '/compliance', priority: 0.3, changeFreq: 'yearly' as const },
     { route: '/resources', priority: 0.8, changeFreq: 'weekly' as const },
     { route: '/resources/downloads', priority: 0.7, changeFreq: 'weekly' as const },
   ];

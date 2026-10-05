@@ -10,9 +10,9 @@ import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 import industriesDataJson from '@/data/content/industries.json';
 
 const navItems = [
+  { label: 'Home',                      href: '/' },
   { label: 'Products',                  href: '/solutions' },
   { label: 'Industries',                href: '/industries' },
-  { label: 'Quality & Certifications',  href: '/compliance' },
   { label: 'About',                     href: '/about' },
   { label: 'Contact',                   href: '/contact' },
 ];

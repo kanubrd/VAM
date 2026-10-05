@@ -111,7 +111,7 @@ export const articlesList: Article[] = [
       <h2>Core Chemical Formulations &amp; Capabilities</h2>
       <p>Operating from <strong>318, Fortune Gateway, Chhani, Vadodara – 390024</strong>, Valtrix engineers drop-in molecular chemical solutions that prevent industrial downtime:</p>
       <ol>
-        <li><strong>Automotive &amp; Drivetrain Lubricant Additives:</strong> Concentrated liquid-soluble molybdenum dithiocarbamate (MoDTC) boosters reducing boundary friction down to &mu; = 0.04 and cutting gear micro-spalling by 38% (<a href="/compliance" class="text-[#17A2B8] font-bold hover:underline">ASTM D2783</a> weld load &gt;400 kgf).</li>
+        <li><strong>Automotive &amp; Drivetrain Lubricant Additives:</strong> Concentrated liquid-soluble molybdenum dithiocarbamate (MoDTC) boosters reducing boundary friction down to &mu; = 0.04 and cutting gear micro-spalling by 38% (ASTM D2783 weld load &gt;400 kgf).</li>
         <li><strong>Biostable Metalworking Fluids (VAM-CoolSyn™):</strong> Synthetic cutting fluid concentrates operating past 800°C cut-interface temperatures, buffering pH between 9.0 and 9.4 to eliminate bacterial odor without hazardous biocides.</li>
         <li><strong>Electroplating Brighteners (VAM-PlateBright™):</strong> Nanocrystalline leveling agents that eliminate nodular burning and hydrogen embrittlement, cutting defect rejects by 45%.</li>
         <li><strong>Non-Chromate Passivates (VAM-PassShield™):</strong> Organosilane conversion coatings delivering over 1,000 hours of ASTM B117 neutral salt spray corrosion resistance with zero hazardous sludge.</li>
